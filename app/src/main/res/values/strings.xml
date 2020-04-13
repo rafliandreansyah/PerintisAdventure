@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">PerintisAdventure</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="lupa_password">Lupa password?</string>
+    <string name="tidak_punya_akun">Tidak punya akun?</string>
+    <string name="buat_akun">Buat Akun</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="perintis_logo">Perintis Logo</string>
+    <string name="ilustration_login">Ilustration login</string>
 </resources>
