@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.auth
+package com.azhara.perintisadventure.ui.auth.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -17,4 +17,12 @@
     <string name="telephone">Telephone</string>
     <string name="konfirmasi_password">Konfirmasi password</string>
     <string name="ilustrasi_registrasi">Ilustrasi Registrasi</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="masukkan_email_yang_anda_gunakan_pada_akun_anda">Masukkan email yang anda gunakan pada akun anda!</string>
+    <string name="reset">Reset</string>
+    <string name="ilustrasi_reset_password">Ilustrasi Reset Password</string>
+    <string name="berhasil_dikirim">Berhasil Dikirim</string>
+    <string name="silahkan_cek_email_untuk_reset_password_anda">Silahkan cek email untuk reset password anda!</string>
+    <string name="kembali_login">Kembali Login</string>
+    <string name="ilustrasi_email_terkirim">Ilustrasi email terkirim</string>
 </resources>

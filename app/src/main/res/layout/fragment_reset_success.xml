@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.auth.fragment.ResetSuccessFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSecondaryBold"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:text="@string/berhasil_dikirim"
+        android:layout_marginTop="60dp"/>
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="188dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/ilustrasi_email_terkirim"
+        android:src="@drawable/ilustration_mail_sent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="63dp"
+        android:textAlignment="center"
+        style="@style/TextPrimary"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:text="@string/silahkan_cek_email_untuk_reset_password_anda"
+        android:layout_marginTop="55dp"/>
+
+    <Button
+        android:id="@+id/btn_kembali_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/kembali_login"
+        android:layout_marginTop="50dp"
+        style="@style/ButtonPrimary"
+        android:layout_marginHorizontal="73dp"/>
+
+</LinearLayout>
