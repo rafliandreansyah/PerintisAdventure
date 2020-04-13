@@ -1,14 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.auth.RegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSecondaryBold"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:text="@string/registrasi"
+        android:layout_marginTop="40dp"/>
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="241dp"
+        android:layout_height="148dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ilustration_register"
+        android:contentDescription="@string/ilustrasi_registrasi" />
+
+    <EditText
+        android:id="@+id/edt_registrasi_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="46dp"
+        android:hint="@string/email"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="24dp"
+        style="@style/EditTextStyle"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="16dp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/edt_registrasi_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="46dp"
+        android:hint="@string/nama_lengkap"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="24dp"
+        style="@style/EditTextStyle"
+        android:inputType="text"
+        android:layout_marginTop="16dp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/edt_registrasi_telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="46dp"
+        android:hint="@string/telephone"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="24dp"
+        style="@style/EditTextStyle"
+        android:inputType="phone"
+        android:layout_marginTop="16dp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/edt_registrasi_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="46dp"
+        android:hint="@string/password"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="24dp"
+        style="@style/EditTextStyle"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/edt_registrasi_password_konfirmasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="46dp"
+        android:hint="@string/konfirmasi_password"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="24dp"
+        style="@style/EditTextStyle"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btn_registrasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registrasi"
+        android:layout_marginTop="24dp"
+        style="@style/ButtonPrimary"
+        android:layout_marginHorizontal="73dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="26dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/sudah_punya_akun"
+            style="@style/TextPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_tologin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="14sp"
+            android:layout_marginStart="4dp"
+            style="@style/TextSecondaryBold"/>
+    </LinearLayout>
+
+</LinearLayout>

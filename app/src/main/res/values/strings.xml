@@ -11,4 +11,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="perintis_logo">Perintis Logo</string>
     <string name="ilustration_login">Ilustration login</string>
+    <string name="registrasi">Registrasi</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="nama_lengkap">Nama lengkap</string>
+    <string name="telephone">Telephone</string>
+    <string name="konfirmasi_password">Konfirmasi password</string>
+    <string name="ilustrasi_registrasi">Ilustrasi Registrasi</string>
 </resources>

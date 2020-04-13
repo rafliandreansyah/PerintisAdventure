@@ -82,7 +82,7 @@
             style="@style/TextPrimary"/>
 
         <TextView
-            android:id="@+id/tv_register"
+            android:id="@+id/tv_toregister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/buat_akun"
