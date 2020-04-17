@@ -25,4 +25,10 @@
     <string name="silahkan_cek_email_untuk_reset_password_anda">Silahkan cek email untuk reset password anda!</string>
     <string name="kembali_login">Kembali Login</string>
     <string name="ilustrasi_email_terkirim">Ilustrasi email terkirim</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="registrasi_berhasil">Registrasi Berhasil</string>
+    <string name="selamat_registrasi_berhasil_silahkan_login_sekarang">Selamat registrasi berhasil Silahkan login sekarang!</string>
 </resources>

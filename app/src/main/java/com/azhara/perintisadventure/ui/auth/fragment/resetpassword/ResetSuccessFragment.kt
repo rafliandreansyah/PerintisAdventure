@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.auth.fragment
+package com.azhara.perintisadventure.ui.auth.fragment.resetpassword
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,26 +8,26 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 
 import com.azhara.perintisadventure.R
-import kotlinx.android.synthetic.main.fragment_reset_password.*
+import kotlinx.android.synthetic.main.fragment_reset_success.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class ResetPasswordFragment : Fragment() {
+class ResetSuccessFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reset_password, container, false)
+        return inflater.inflate(R.layout.fragment_reset_success, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_reset.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_resetPasswordFragment_to_resetSuccessFragment)
+        btn_kembali_login.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_global_reset_to_loginFragment)
         )
     }
 
