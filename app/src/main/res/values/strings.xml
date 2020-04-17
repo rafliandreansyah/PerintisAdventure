@@ -31,4 +31,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="registrasi_berhasil">Registrasi Berhasil</string>
     <string name="selamat_registrasi_berhasil_silahkan_login_sekarang">Selamat registrasi berhasil Silahkan login sekarang!</string>
+    <string name="pesanan">Pesanan</string>
+    <string name="booked">Booked</string>
+    <string name="profile">Profile</string>
 </resources>

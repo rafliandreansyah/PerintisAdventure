@@ -5,6 +5,8 @@
     android:id="@+id/auth_navigation"
     app:startDestination="@id/loginFragment">
 
+<!--    <include app:graph="@navigation/mobile_navigation"/>-->
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.azhara.perintisadventure.ui.auth.fragment.LoginFragment"
@@ -16,6 +18,10 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
             app:destination="@id/navigation_reset_password" />
+<!--        <action-->
+<!--            android:id="@+id/action_loginFragment_to_mobile_navigation"-->
+<!--            app:destination="@id/mobile_navigation" />-->
+
     </fragment>
     <navigation
         android:id="@+id/navigation_reset_password"

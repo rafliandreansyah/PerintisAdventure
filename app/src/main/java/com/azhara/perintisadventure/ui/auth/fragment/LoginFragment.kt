@@ -1,5 +1,6 @@
 package com.azhara.perintisadventure.ui.auth.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
@@ -33,6 +35,11 @@ class LoginFragment : Fragment() {
 
         tv_forgot_password.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+        }
+        btn_login.setOnClickListener{view ->
+            val intent = Intent(context, HomeActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
         }
     }
 

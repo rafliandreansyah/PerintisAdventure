@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.home.HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppThemeNoActionBar"></activity>
+            android:label="@string/title_activity_home"></activity>
         <activity
             android:name=".ui.auth.AuthActivity"
             android:theme="@style/AppThemeNoActionBar">
