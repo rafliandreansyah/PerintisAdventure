@@ -34,6 +34,9 @@
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
     <style name="TextPrimary">
@@ -49,6 +52,14 @@
     <style name="TextSecondaryBold">
         <item name="android:fontFamily">@font/pt_sans_bold1</item>
         <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="card">
+        <item name="cardElevation">5dp</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
 </resources>
