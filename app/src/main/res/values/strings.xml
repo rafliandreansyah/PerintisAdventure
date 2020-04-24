@@ -40,4 +40,9 @@
     <string name="email_text">Email :</string>
     <string name="edit_profile">Edit profile</string>
     <string name="logout">Logout</string>
+    <string name="simpan">Simpan</string>
+    <string name="password_baru">Password baru</string>
+    <string name="konfirmasi_password_baru">Konfirmasi password baru</string>
+    <string name="ganti_password">Ganti password</string>
+    <string name="password_lama">Password lama</string>
 </resources>
