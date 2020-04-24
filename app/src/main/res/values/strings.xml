@@ -35,4 +35,9 @@
     <string name="booked">Booked</string>
     <string name="profile">Profile</string>
     <string name="siapkah_kamu_mengawali_petualanganmu">Siapkah kamu mengawali petualanganmu?</string>
+    <string name="foto_profil">Foto profil</string>
+    <string name="nama">Nama :</string>
+    <string name="email_text">Email :</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="logout">Logout</string>
 </resources>
