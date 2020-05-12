@@ -45,4 +45,9 @@
     <string name="konfirmasi_password_baru">Konfirmasi password baru</string>
     <string name="ganti_password">Ganti password</string>
     <string name="password_lama">Password lama</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="durasi">Durasi</string>
+    <string name="jam_penyewaan">Jam penyewaan</string>
+    <string name="sopir">Sopir</string>
+    <string name="cari_mobil">Cari Mobil</string>
 </resources>
