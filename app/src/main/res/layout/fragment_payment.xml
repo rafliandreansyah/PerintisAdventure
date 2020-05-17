@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.payment.PaymentFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Silahkan transfer pada rekening berikut : "
+        style="@style/TextPrimaryBold"
+        android:textAlignment="center"
+        android:layout_marginVertical="24dp"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="16dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/card"
+        android:layout_marginHorizontal="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/bri_logo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/bri_logo"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/tv_rekening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/bri_logo"
+                    android:text="No Rekening:"
+                    style="@style/TextPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_no_rekening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="617201014546530"
+                    android:layout_marginStart="8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/tv_rekening"
+                    style="@style/TextPrimaryBold"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextPrimary"
+                    android:text="Kode bank:"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="002"
+                    android:layout_marginStart="8dp"
+                    style="@style/TextPrimaryBold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextPrimary"
+                    android:text="Atas Nama:"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perintis Adventure"
+                    android:layout_marginStart="8dp"
+                    style="@style/TextPrimaryBold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextPrimary"
+                    android:text="Total pembayaran:"/>
+                <TextView
+                    android:id="@+id/tv_total_pembayaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 510000"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorOrange"
+                    android:layout_marginStart="8dp"
+                    style="@style/TextPrimaryBold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_status_upload_proof_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bukti pembayaran belum terupload!"
+        android:layout_marginHorizontal="30dp"
+        style="@style/TextPrimary"
+        android:textColor="@color/colorRed"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_status_booking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diharapkan transfer sesuai nominal yang terlampir diatas!"
+        android:layout_marginHorizontal="30dp"
+        style="@style/TextPrimary"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/btn_upload_proof_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload bukti pembayaran"
+        style="@style/ButtonPrimary"
+        android:background="@color/colorOrange"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        style="@style/ButtonPrimary"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
