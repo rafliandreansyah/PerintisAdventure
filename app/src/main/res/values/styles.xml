@@ -57,6 +57,11 @@
         <item name="android:textColor">@color/colorText</item>
     </style>
 
+    <style name="TextSecondary">
+        <item name="android:fontFamily">@font/pt_sans_regular1</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
+
     <style name="TextPrimaryBold">
         <item name="android:fontFamily">@font/pt_sans_bold1</item>
         <item name="android:textColor">@color/colorText</item>
