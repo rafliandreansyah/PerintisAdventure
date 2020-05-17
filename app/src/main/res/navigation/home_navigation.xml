@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_booked"
-        android:name="com.azhara.perintisadventure.ui.home.ui.booked.BookedFragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.bookedlist.BookedFragment"
         android:label="@string/booked"
         tools:layout="@layout/fragment_booked" />
 

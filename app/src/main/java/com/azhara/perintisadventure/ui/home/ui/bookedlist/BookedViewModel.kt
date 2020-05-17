@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.home.ui.booked
+package com.azhara.perintisadventure.ui.home.ui.bookedlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

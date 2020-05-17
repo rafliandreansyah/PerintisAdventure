@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.home.ui.booked
+package com.azhara.perintisadventure.ui.home.ui.bookedlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
