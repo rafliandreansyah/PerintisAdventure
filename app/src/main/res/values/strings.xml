@@ -50,4 +50,6 @@
     <string name="jam_penyewaan">Jam penyewaan</string>
     <string name="sopir">Sopir</string>
     <string name="cari_mobil">Cari Mobil</string>
+    <string name="jam">Jam</string>
+    <string name="jam_keberangkatan">Jam keberangkatan</string>
 </resources>
