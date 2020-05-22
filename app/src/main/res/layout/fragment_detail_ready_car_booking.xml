@@ -46,7 +46,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Disediakan oleh: "
+                    android:text="@string/disediakan_oleh"
                     android:textSize="14sp"
                     style="@style/TextPrimary"/>
 
@@ -216,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     style="@style/TextPrimaryBold"
-                    android:text="Syarat dan ketentuan rental"
+                    android:text="@string/syarat_dan_ketentuan_rental"
                     android:textAlignment="center"/>
 
                 <LinearLayout
@@ -627,7 +627,7 @@
                     style="@style/ButtonPrimary"
                     android:layout_marginTop="8dp"
                     android:layout_marginHorizontal="57dp"
-                    android:text="Pesan Sekarang"/>
+                    android:text="@string/pesan_sekarang"/>
 
 
             </LinearLayout>

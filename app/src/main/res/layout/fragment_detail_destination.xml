@@ -1,14 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ui.bookingtour.DetailDestinationFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.ui.bookingtour.DetailDestinationFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-</FrameLayout>
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:elevation="4dp"
+        app:shape_roundRect_bottomLeftRadius="20dp"
+        app:shape_roundRect_bottomRightRadius="20dp"
+        app:shape_roundRect_topLeftRadius="20dp"
+        app:shape_roundRect_topRightRadius="20dp">
+
+        <ImageView
+            android:id="@+id/img_bg_detail_destination"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_bromo"
+            android:scaleType="centerCrop"/>
+
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <TextView
+        android:id="@+id/tv_title_detail_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextPrimaryBold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"
+        android:text="Gunung Bromo"/>
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp">
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_maps_and_flags"/>
+
+        <TextView
+            android:id="@+id/tv_location_detail_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextPrimary"
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:text="Malang, Jawa Timur"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:elevation="4dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_clock"
+                    android:layout_gravity="center"/>
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/durasi"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                style="@style/TextPrimaryBold"/>
+
+            <TextView
+                android:id="@+id/tv_duration_destination_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 jam"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                style="@style/TextPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:elevation="4dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_group_color"
+                    android:layout_gravity="center" />
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grup"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                style="@style/TextPrimaryBold"/>
+
+            <TextView
+                android:id="@+id/tv_group_detail_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6 Orang"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                style="@style/TextPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:elevation="4dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_fork"
+                    android:layout_gravity="center"/>
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/makanan"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                style="@style/TextPrimaryBold"/>
+
+            <TextView
+                android:id="@+id/tv_food_detail_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snack dan Minuman"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                style="@style/TextPrimary"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginVertical="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tentang_wisata"
+        android:textSize="16sp"
+        style="@style/TextPrimary"/>
+    
+    <TextView
+        android:id="@+id/tv_about_detail_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wisata Gunung Bromo terletak di Jawa Timur ini memang
+mengundang banyak wisatawan karena keindahan
+pemandangan alam dari ketinggian pegunungan, nama
+GunungBromo sendiri diambil dari salah satu dewa utama
+dalam agama Hindu yaitu Brahma, gunung ini memiliki
+ketinggian 2329 meter di atas permukaan air laut."
+        android:layout_marginTop="8dp"
+        style="@style/TextPrimary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disediakan_oleh"
+        android:textSize="14sp"
+        android:layout_marginTop="25dp"
+        style="@style/TextPrimary"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+        <ImageView
+            android:id="@+id/ic_garage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_garage"
+            />
+        <TextView
+            android:id="@+id/tv_travel_name_detail_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextPrimary"
+            android:textSize="12sp"
+            android:layout_marginLeft="8dp"
+            android:layout_toEndOf="@id/ic_garage"
+            android:text="Perintis Adventure Rent Car And Bromo Tour"/>
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        style="@style/card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_title_name_travel_detail_destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lokasi Kantor Perintis Adventure"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                style="@style/TextPrimary"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_maps_and_flags"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/tv_location_travel_detail_destination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center_vertical"
+                    android:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
+                    style="@style/TextPrimary"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPrimary"
+                android:drawableLeft="@drawable/ic_google_maps"
+                android:drawablePadding="16dp"
+                android:paddingHorizontal="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="25dp"
+                android:text="Maps"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lokasi pengambilan"
+                    android:textSize="16sp"
+                    style="@style/TextPrimary"
+                    android:textAlignment="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/background_border_card">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextPrimary"
+                            android:textSize="14sp"
+                            android:layout_marginStart="40dp"
+                            android:text="Wilayah Kota Malang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gratis"
+                            style="@style/TextPrimary"
+                            android:layout_marginStart="40dp"
+                            android:textColor="@color/colorAccentDark"
+                            android:textSize="12sp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="38dp"
+                            android:layout_marginVertical="16dp">
+                            <TextView
+                                android:id="@+id/tv_detail_penjemputan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Detail Lokasi"
+                                style="@style/TextPrimary"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginBottom="8dp"/>
+                            <EditText
+                                android:id="@+id/edt_detail_penjemputan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Detail Lokasi Pengambilan"
+                                style="@style/EditTextStyle"
+                                android:paddingVertical="8dp"
+                                android:paddingHorizontal="16dp"
+                                android:drawablePadding="8dp"
+                                android:layout_below="@+id/tv_detail_penjemputan"
+                                />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_booking_detail_destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pesan_sekarang"
+            android:layout_marginVertical="25dp"
+            android:layout_marginHorizontal="72dp"
+            style="@style/ButtonPrimary"/>
+
+    </LinearLayout>
+
+</ScrollView>

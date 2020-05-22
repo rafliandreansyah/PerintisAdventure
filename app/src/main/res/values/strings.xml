@@ -52,4 +52,10 @@
     <string name="cari_mobil">Cari Mobil</string>
     <string name="jam">Jam</string>
     <string name="jam_keberangkatan">Jam keberangkatan</string>
+    <string name="grup">Grup</string>
+    <string name="makanan">Makanan</string>
+    <string name="tentang_wisata">Tentang Wisata</string>
+    <string name="disediakan_oleh">Disediakan oleh: </string>
+    <string name="pesan_sekarang">Pesan Sekarang</string>
+    <string name="syarat_dan_ketentuan_rental">Syarat dan ketentuan rental</string>
 </resources>
