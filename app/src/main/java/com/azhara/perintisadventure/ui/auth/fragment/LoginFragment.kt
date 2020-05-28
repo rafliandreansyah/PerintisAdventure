@@ -98,7 +98,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             loginViewModel.loginStatus().observe(it, Observer { statusLogin ->
                 if (statusLogin == true){
                     val intent = Intent(context, HomeActivity::class.java)
-                    context?.startActivity(intent)
+                    startActivity(intent)
                     activity?.finish()
                 }else{
                     showLoading(false)
