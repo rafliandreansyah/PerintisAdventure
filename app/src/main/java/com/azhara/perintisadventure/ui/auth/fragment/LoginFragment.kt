@@ -23,6 +23,14 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     private lateinit var loginViewModel: LoginViewModel
 
+    override fun onStart() {
+        super.onStart()
+        val users = loginViewModel.getSessionUsers()
+        if (users != null){
+            context?.startActivity(Intent(context, HomeActivity::class.java))
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
