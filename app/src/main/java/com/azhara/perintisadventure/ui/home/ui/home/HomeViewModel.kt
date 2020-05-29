@@ -1,13 +1,35 @@
 package com.azhara.perintisadventure.ui.home.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.azhara.perintisadventure.entity.Users
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
+    private val userData = MutableLiveData<Users>()
+    private val className = HomeViewModel::class.java.simpleName
+    var errorMessage: String? = null
+
+    fun loadDataUser(){
+        val user = auth.currentUser
+        val docRef = user?.uid?.let { db.collection("users").document(it) }
+        docRef?.get()?.addOnSuccessListener { document ->
+            val docUser = document.toObject(Users::class.java)
+            userData.postValue(docUser)
+            Log.d(className, "${docUser}")
+        }?.addOnFailureListener { exception ->
+            Log.e(className, exception.message)
+            errorMessage = exception.message
+        }
     }
-    val text: LiveData<String> = _text
+
+    fun loadUserDoc(): LiveData<Users> = userData
+
 }
