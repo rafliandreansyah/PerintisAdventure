@@ -103,6 +103,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 }else{
                     showLoading(false)
                     tv_login_status.visibility = View.VISIBLE
+                    tv_login_status.text = loginViewModel.errorMessage
                 }
             })
         }

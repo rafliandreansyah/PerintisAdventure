@@ -10,17 +10,27 @@ class ResetPasswordViewModel: ViewModel(){
 
     private val auth = FirebaseAuth.getInstance()
     private val stateReset = MutableLiveData<Boolean>()
-    var ErrorMessage: String? = null
+    var errorMessage: String? = null
+    private val className = ResetPasswordViewModel::class.java.simpleName
 
     fun resetPassword(email: String){
         auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
             if (task.isSuccessful){
-                Log.d("ResetPasswordViewModel", "Kirim Email Reset Berhasil")
+                Log.d(className, "Kirim Email Reset Berhasil")
                 stateReset.postValue(true)
             }else{
-                Log.e("ResetPasswordViewModel", task.exception?.message, task.exception)
+                Log.e(className, task.exception?.message, task.exception)
                 stateReset.postValue(false)
-                ErrorMessage = task.exception?.message
+                if (task.exception?.message == "The email address is badly formatted."){
+                    errorMessage = "Format email salah!"
+                }else if(task.exception?.message == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                    errorMessage = "Email tidak terdaftar!"
+                }else if(task.exception?.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+                    errorMessage = "Terjadi kesalahan pada jaringan!"
+                } else{
+                    errorMessage = task.exception?.message
+                }
+
             }
         }
     }

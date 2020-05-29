@@ -74,10 +74,11 @@
             android:id="@+id/tv_login_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email atau password salah!!"
+            tools:text="Email atau password salah!!"
             android:textAlignment="center"
             android:textColor="@color/colorRed"
             style="@style/TextPrimary"
+            android:layout_marginHorizontal="35dp"
             android:visibility="invisible"
             android:layout_marginTop="16dp"/>
 

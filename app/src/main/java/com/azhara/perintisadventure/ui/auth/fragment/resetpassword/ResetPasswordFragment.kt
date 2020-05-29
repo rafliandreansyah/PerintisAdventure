@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
@@ -61,11 +60,7 @@ class ResetPasswordFragment : Fragment() {
             }else{
                 loading(false)
                 tv_reset_error.visibility = View.VISIBLE
-                if (resetPasswordViewModel.ErrorMessage == "The email address is badly formatted."){
-                    tv_reset_error.text = "Format Email Salah!"
-                }else if (resetPasswordViewModel.ErrorMessage == "There is no user record corresponding to this identifier. The user may have been deleted."){
-                    tv_reset_error.text = "Email tidak terdaftar pada aplikasi!"
-                }
+                tv_reset_error.text = resetPasswordViewModel.errorMessage
             }
         })
     }

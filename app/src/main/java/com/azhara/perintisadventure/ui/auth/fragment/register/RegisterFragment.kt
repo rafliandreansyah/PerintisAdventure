@@ -111,6 +111,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
             }else{
                 loading(false)
                 tv_error_register.visibility = View.VISIBLE
+                tv_error_register.text = registerViewModel.errorMessage
             }
         })
     }
