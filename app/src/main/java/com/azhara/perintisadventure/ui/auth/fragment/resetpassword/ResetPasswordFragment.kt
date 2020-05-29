@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
 import kotlinx.android.synthetic.main.fragment_reset_password.*
@@ -14,6 +17,8 @@ import kotlinx.android.synthetic.main.fragment_reset_password.*
  * A simple [Fragment] subclass.
  */
 class ResetPasswordFragment : Fragment() {
+
+    private lateinit var resetPasswordViewModel: ResetPasswordViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,9 +31,51 @@ class ResetPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_reset.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_resetPasswordFragment_to_resetSuccessFragment)
-        )
+        resetPasswordViewModel = ViewModelProvider(this,
+            ViewModelProvider.NewInstanceFactory())[ResetPasswordViewModel::class.java]
+
+        btn_reset.setOnClickListener {
+            reset()
+        }
+        resetState()
+    }
+
+    private fun reset(){
+        loading(true)
+        val email = edt_reset_email.text.toString().trim()
+        if (email.isEmpty()){
+            loading(false)
+            edt_reset_email.error = "Kolom Email Tidak Boleh Kosong!"
+        }
+
+        if (email.isNotEmpty()){
+            resetPasswordViewModel.resetPassword(email)
+        }
+    }
+
+    private fun resetState(){
+        resetPasswordViewModel.resetPasswordState().observe(viewLifecycleOwner, Observer { state ->
+            if (state == true){
+                loading(false)
+                view?.findNavController()?.navigate(R.id.action_resetPasswordFragment_to_resetSuccessFragment)
+            }else{
+                loading(false)
+                tv_reset_error.visibility = View.VISIBLE
+                if (resetPasswordViewModel.ErrorMessage == "The email address is badly formatted."){
+                    tv_reset_error.text = "Format Email Salah!"
+                }else if (resetPasswordViewModel.ErrorMessage == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                    tv_reset_error.text = "Email tidak terdaftar pada aplikasi!"
+                }
+            }
+        })
+    }
+
+    private fun loading(state: Boolean){
+        if (state){
+            loading_reset_password.visibility = View.VISIBLE
+        }else{
+            loading_reset_password.visibility = View.GONE
+        }
     }
 
 }
