@@ -1,5 +1,6 @@
 package com.azhara.perintisadventure.ui.auth.fragment.register
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.fragment_success_register.*
 
 /**
@@ -26,9 +28,10 @@ class SuccessRegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_register_to_login.setOnClickListener (
-            Navigation.createNavigateOnClickListener(R.id.action_global_register_to_loginFragment)
-        )
+        btn_register_to_login.setOnClickListener{
+           startActivity(Intent(context, HomeActivity::class.java))
+        }
+
     }
 
 }

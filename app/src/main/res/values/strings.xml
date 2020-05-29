@@ -23,6 +23,7 @@
     <string name="ilustrasi_reset_password">Ilustrasi Reset Password</string>
     <string name="berhasil_dikirim">Berhasil Dikirim</string>
     <string name="silahkan_cek_email_untuk_reset_password_anda">Silahkan cek email untuk reset password anda!</string>
+    <string name="jelajahi">Jelajahi Sekarang</string>
     <string name="kembali_login">Kembali Login</string>
     <string name="ilustrasi_email_terkirim">Ilustrasi email terkirim</string>
     <string name="title_activity_home">HomeActivity</string>
