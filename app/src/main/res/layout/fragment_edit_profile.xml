@@ -6,11 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.ui.profile.EditProfileFragment">
 
+    <ProgressBar
+        android:id="@+id/loading_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/foto_profil"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sample_profile_pic" />
+                android:src="@drawable/profile_picture_default" />
 
 
         </com.github.florent37.shapeofview.shapes.CircleView>
@@ -47,14 +56,13 @@
 
 
     <EditText
-        android:id="@+id/edt_old_password"
+        android:id="@+id/edt_name"
         style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="46dp"
         android:hint="@string/nama_lengkap"
         android:importantForAutofill="no"
-        android:text="Rafli andreansyah"
         android:inputType="text"
         android:layout_marginTop="30dp"
         android:paddingHorizontal="24dp"
@@ -64,36 +72,34 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
-        android:id="@+id/edt_new_password"
+        android:id="@+id/edt_email"
         style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="46dp"
-        android:hint="@string/nama_lengkap"
+        android:hint="@string/email"
         android:layout_marginTop="16dp"
-        android:text="rafliandreansyah957@gmail.com"
         android:inputType="textEmailAddress"
         android:paddingHorizontal="24dp"
         android:paddingVertical="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_old_password" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
     <EditText
-        android:id="@+id/edt_confirm_new_password"
+        android:id="@+id/edt_phone"
         style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="46dp"
-        android:hint="@string/nama_lengkap"
+        android:hint="@string/telephone"
         android:layout_marginTop="16dp"
-        android:text="081232720821"
         android:inputType="phone"
         android:paddingHorizontal="24dp"
         android:paddingVertical="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_new_password" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
 
 
     <androidx.cardview.widget.CardView
@@ -106,7 +112,7 @@
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_confirm_new_password">
+        app:layout_constraintTop_toBottomOf="@+id/edt_phone">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -134,13 +140,15 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/btn_save_edt_profile"
         style="@style/ButtonPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:layout_marginHorizontal="46dp"
+        android:layout_marginTop="60dp"
         android:text="@string/simpan"
-        app:layout_constraintTop_toBottomOf="@+id/btn_change_password" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_password"
+        tools:layout_editor_absoluteX="46dp" />
 
 
 

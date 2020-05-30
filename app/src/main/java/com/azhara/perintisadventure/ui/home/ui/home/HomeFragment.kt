@@ -1,5 +1,6 @@
 package com.azhara.perintisadventure.ui.home.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.Users
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -46,8 +48,16 @@ class HomeFragment : Fragment() {
         loadUserDoc()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun addData(user: Users){
         tv_text_name_home.text = "Hai ${user.name}!"
+        if(user.imgUrl != null){
+            context?.let {
+                Glide.with(it)
+                    .load(user.imgUrl)
+                    .into(img_profile_home)
+            }
+        }
     }
 
     private fun loadUserDoc(){

@@ -45,7 +45,7 @@
                             android:id="@+id/img_profile_home"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/sample_profile_pic"
+                            android:src="@drawable/profile_picture_default"
                             android:scaleType="centerCrop"/>
 
                     </com.github.florent37.shapeofview.shapes.CircleView>

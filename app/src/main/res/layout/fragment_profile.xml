@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:contentDescription="@string/foto_profil"
-            android:src="@drawable/sample_profile_pic" />
+            android:src="@drawable/profile_picture_default" />
 
     </com.github.florent37.shapeofview.shapes.CircleView>
 
