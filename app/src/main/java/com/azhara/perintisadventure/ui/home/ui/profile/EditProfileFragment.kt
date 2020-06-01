@@ -1,32 +1,49 @@
 package com.azhara.perintisadventure.ui.home.ui.profile
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
-import kotlinx.android.synthetic.main.activity_home.*
+import com.azhara.perintisadventure.entity.Users
+import com.azhara.perintisadventure.ui.home.HomeActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.storage.FirebaseStorage
+import com.mrntlu.toastie.Toastie
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileInputStream
 
 /**
  * A simple [Fragment] subclass.
  */
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class EditProfileFragment : Fragment(), View.OnClickListener {
 
     private lateinit var profileViewModel: ProfileViewModel
-
-    override fun onStart() {
-        super.onStart()
-        profileViewModel.getData()
-    }
+    private var imgUri: Uri? = null
+    private var bitmapImage: Bitmap? = null
+    private var requestImg = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,25 +55,35 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        profileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ProfileViewModel::class.java]
+        loading(true)
 
         btn_change_password.setOnClickListener(this)
         btn_save_edt_profile.setOnClickListener(this)
-        profileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ProfileViewModel::class.java]
+        add_img.setOnClickListener(this)
 
-        setOldDataUser()
+        profileViewModel.getData()
+        setDataUser()
+        statusGetDataMessage()
+        statusEditMessage()
     }
 
-    private fun setOldDataUser(){
+    // Set new and old data user to edittext
+    private fun setDataUser(){
         profileViewModel.dataUser().observe(viewLifecycleOwner, Observer { data ->
             if (data != null){
                 edt_name.setText(data.name)
                 edt_email.setText(data.email)
                 edt_phone.setText(data.phone)
+                activity?.let { Glide.with(it).load("${data.imgUrl}").into(img_profile) }
+                loading(false)
             }
         })
     }
 
+    // update data and edittext handler
     private fun updateData(){
+        loading(true)
         val name = edt_name.text.toString().trim()
         val email = edt_email.text.toString().trim()
         val phone = edt_phone.text.toString().trim()
@@ -70,10 +97,38 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
         if (phone.isEmpty()){
             edt_phone.error = "Phone tidak boleh kosong!"
         }
-
         if (name.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty()){
-            profileViewModel.editDataUser(name, email, phone)
+            //profileViewModel.editDataUser(name, email, phone)
+            if (imgUri != null){
+                profileViewModel.editDataAndImgUser(imageByteArray(bitmapImage), name, email, phone)
+            }else{
+                profileViewModel.editDataUserWithOutPhoto(name, email, phone)
+            }
         }
+    }
+
+    // State from edit output true/false true=success, false=error
+    private fun statusEditMessage(){
+        profileViewModel.editState().observe(viewLifecycleOwner, Observer { state ->
+            if (state == true){
+                loading(false)
+                view?.findNavController()?.navigate(R.id.action_global_navigation_edit_profile)
+            }
+            if (state == false){
+                loading(false)
+            }
+        })
+    }
+
+    private fun statusGetDataMessage(){
+        profileViewModel.getDataState().observe(viewLifecycleOwner, Observer { state ->
+            if (state == false){
+                loading(false)
+            }
+            if (state == true){
+                loading(false)
+            }
+        })
     }
 
     override fun onClick(v: View?) {
@@ -84,11 +139,105 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
             R.id.btn_save_edt_profile -> {
                 updateData()
             }
+            R.id.add_img -> {
+                openGallery()
+            }
         }
     }
 
+    // State Loading
     private fun loading(state: Boolean){
-
+        if (state){
+            loading_edit_profile.visibility = View.VISIBLE
+        }else{
+            loading_edit_profile.visibility = View.GONE
+        }
     }
+
+    private fun imageByteArray(bitmap: Bitmap?): ByteArray{
+        val bitmapImage = bitmap //get file bitmap
+        val bitmapCompress = bitmapImage?.let { resizeBitmap(it, 200) } //resize bitmap file
+        val baos = ByteArrayOutputStream()
+        bitmapCompress?.compress(Bitmap.CompressFormat.JPEG, 100, baos) //compress bitmap extension to JPEG
+        val data = baos.toByteArray() //compress to byteArray
+
+        return data
+    }
+
+    // resize filebitmap with specific size
+    private fun resizeBitmap(image:Bitmap, maxSize: Int): Bitmap{
+        var width = image.width //get width image
+        var height = image.height //get heigh image
+
+        val bitMapRatio = width.toFloat() / height.toFloat()
+        if (bitMapRatio > 1){
+            width = maxSize
+            height = (width/bitMapRatio).toInt()
+        }else{
+            height = maxSize
+            width = (height*bitMapRatio).toInt()
+        }
+
+        return Bitmap.createScaledBitmap(image, width, height, true)
+    }
+
+    // Intent open gallery
+    private fun openGallery(){
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, requestImg)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == requestImg && data != null && data.data != null){
+            imgUri = data.data!!
+            activity?.let { Glide.with(it).load(imgUri).into(img_profile) }
+
+            if (imgUri != null){
+                try {
+                    if (Build.VERSION.SDK_INT < 28){
+                        val bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, imgUri)
+                        Log.d("EditProfileFragment", "bitmap android sdk < 28 $bitmap")
+                        bitmapImage = bitmap
+
+                    }else{
+                        val source =
+                            activity?.contentResolver?.let { ImageDecoder.createSource(it, imgUri!!) }
+                        val bitmap = source?.let { ImageDecoder.decodeBitmap(it) }
+                        Log.d("EditProfileFragment", "bitmap android sdk 28 $bitmap")
+                        bitmapImage = bitmap
+                    }
+                }catch (e: Exception){
+                    Log.e("EditProfileFragment", "${e.message}")
+                }
+            }
+
+        }
+    }
+
+    // Get File extension photo
+//    private fun getFileExtension(uri: Uri): String?{
+//        val cr = activity?.contentResolver
+//        val mimemap =MimeTypeMap.getSingleton()
+//        return mimemap.getExtensionFromMimeType(cr?.getType(uri))
+//    }
+
+    // Upload test
+//    private fun uploadTest(bitmap: Bitmap){
+//        val bitmapImage = bitmap
+//        val bitmapCompress = resizeBitmap(bitmapImage, 100)
+//        val baos = ByteArrayOutputStream()
+//        bitmapCompress.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+//        val data = baos.toByteArray()
+//        val mountainsRef = FirebaseStorage.getInstance().reference.child("test").child("aas")
+//        var uploadTask = mountainsRef.putBytes(data)
+//        uploadTask.addOnFailureListener {
+//            Log.e("EditProfileFragment", "Failed upload")
+//        }.addOnSuccessListener {
+//            Log.d("EditProfileFragment", "Success upload")
+//        }
+//
+//    }
 
 }

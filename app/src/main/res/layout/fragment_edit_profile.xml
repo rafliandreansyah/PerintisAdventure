@@ -64,27 +64,29 @@
         android:hint="@string/nama_lengkap"
         android:importantForAutofill="no"
         android:inputType="text"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:paddingHorizontal="24dp"
         android:paddingVertical="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
+         />
 
     <EditText
         android:id="@+id/edt_email"
-        style="@style/EditTextStyle"
+        style="@style/EditTextDisabledStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="46dp"
         android:hint="@string/email"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:inputType="textEmailAddress"
         android:paddingHorizontal="24dp"
         android:paddingVertical="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edt_phone"
@@ -99,7 +101,7 @@
         android:paddingVertical="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
 
     <androidx.cardview.widget.CardView
@@ -149,7 +151,5 @@
         android:text="@string/simpan"
         app:layout_constraintTop_toBottomOf="@+id/btn_change_password"
         tools:layout_editor_absoluteX="46dp" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

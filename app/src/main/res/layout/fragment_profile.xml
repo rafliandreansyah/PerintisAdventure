@@ -1,169 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.ui.profile.ProfileFragment">
 
-    <com.github.florent37.shapeofview.shapes.CircleView
-        android:id="@+id/img_container_profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="64dp"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.github.florent37.shapeofview.shapes.CircleView
+            android:id="@+id/img_container_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="64dp"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/img_profile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/foto_profil"
-            android:src="@drawable/profile_picture_default" />
-
-    </com.github.florent37.shapeofview.shapes.CircleView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_profile"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        style="@style/card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_container_profile">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="20dp">
-
-            <RelativeLayout
+            <ImageView
+                android:id="@+id/img_profile"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/foto_profil"
+                android:src="@drawable/profile_picture_default" />
 
-                <TextView
-                    android:id="@+id/text_name"
-                    style="@style/TextPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/nama"
-                    android:textSize="12sp" />
+        </com.github.florent37.shapeofview.shapes.CircleView>
 
-                <TextView
-                    android:id="@+id/tv_name_profile"
-                    style="@style/TextPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toEndOf="@+id/text_name"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="Rafli Andreansyah"
-                    android:textAlignment="textEnd"
-                    android:textSize="12sp" />
-            </RelativeLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_profile"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            style="@style/card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_container_profile">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp">
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="20dp">
 
-                <TextView
-                    android:id="@+id/text_phone"
-                    style="@style/TextPrimary"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text_name"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/nama"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_name_profile"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/text_name"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Rafli Andreansyah"
+                        android:textAlignment="textEnd"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginEnd="8dp"
-                    android:text="Telephone :"
-                    android:textSize="12sp" />
+                    android:layout_marginVertical="16dp">
 
-                <TextView
-                    android:id="@+id/tv_phone_profile"
-                    style="@style/TextPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toEndOf="@+id/text_phone"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="081232720821"
-                    android:textAlignment="textEnd"
-                    android:textSize="12sp" />
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/text_phone"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="8dp"
+                        android:text="Telephone :"
+                        android:textSize="12sp" />
 
-            <RelativeLayout
+                    <TextView
+                        android:id="@+id/tv_phone_profile"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/text_phone"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="081232720821"
+                        android:textAlignment="textEnd"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text_email"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/email_text"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_email_profile"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/text_email"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="rafliandreansyah957@gmail.com"
+                        android:textAlignment="textEnd"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_profile">
+
+            <Button
+                android:id="@+id/btn_edit_profile"
+                style="@style/ButtonPrimary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                android:layout_weight="1"
+                android:text="@string/edit_profile" />
 
-                <TextView
-                    android:id="@+id/text_email"
-                    style="@style/TextPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/email_text"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tv_email_profile"
-                    style="@style/TextPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toEndOf="@+id/text_email"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:text="rafliandreansyah957@gmail.com"
-                    android:textAlignment="textEnd"
-                    android:textSize="12sp" />
-            </RelativeLayout>
+            <Button
+                android:id="@+id/btn_logout"
+                style="@style/ButtonRed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                android:layout_weight="1"
+                android:text="@string/logout" />
 
         </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/loading_profile"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="30dp"
-        android:weightSum="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_profile">
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
-        <Button
-            android:id="@+id/btn_edit_profile"
-            style="@style/ButtonPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="8dp"
-            android:layout_weight="1"
-            android:text="@string/edit_profile" />
-
-        <Button
-            android:id="@+id/btn_logout"
-            style="@style/ButtonRed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="8dp"
-            android:layout_weight="1"
-            android:text="@string/logout" />
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

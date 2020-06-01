@@ -195,21 +195,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
+                            style="@style/TextPrimaryBold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Informasi wisata malang"
-                            style="@style/TextPrimaryBold"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <TextView
+                            style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hai trippers, yuk kenali destinasi wisata malang!"
-                            style="@style/TextPrimary"
-                            android:textColor="@color/colorTextSecondary"
                             android:layout_marginTop="4dp"
-                            android:textSize="12sp"/>
+                            android:text="Hai trippers, yuk kenali destinasi wisata malang!"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <ImageView
