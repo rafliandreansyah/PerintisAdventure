@@ -16,23 +16,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
-import com.azhara.perintisadventure.entity.Users
-import com.azhara.perintisadventure.ui.home.HomeActivity
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.google.firebase.storage.FirebaseStorage
-import com.mrntlu.toastie.Toastie
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileInputStream
 
 /**
  * A simple [Fragment] subclass.
@@ -64,7 +54,6 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
 
         profileViewModel.getData()
         setDataUser()
-        statusGetDataMessage()
         statusEditMessage()
     }
 
@@ -77,6 +66,8 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
                 edt_phone.setText(data.phone)
                 activity?.let { Glide.with(it).load("${data.imgUrl}").into(img_profile) }
                 loading(false)
+            }else{
+                context?.let { Toasty.error(it, "Data tidak dapat dimuat!", Toast.LENGTH_LONG, true).show() }
             }
         })
     }
@@ -109,24 +100,12 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
 
     // State from edit output true/false true=success, false=error
     private fun statusEditMessage(){
-        profileViewModel.editState().observe(viewLifecycleOwner, Observer { state ->
-            if (state == true){
-                loading(false)
-                view?.findNavController()?.navigate(R.id.action_global_navigation_edit_profile)
-            }
-            if (state == false){
-                loading(false)
-            }
-        })
-    }
-
-    private fun statusGetDataMessage(){
-        profileViewModel.getDataState().observe(viewLifecycleOwner, Observer { state ->
-            if (state == false){
-                loading(false)
-            }
-            if (state == true){
-                loading(false)
+        profileViewModel.editMessage().observe(viewLifecycleOwner, Observer { msg ->
+            loading(false)
+            if (msg == "Data berhasil di update"){
+                context?.let { Toasty.success(it, msg, Toast.LENGTH_LONG, true).show() }
+            }else{
+                context?.let { Toasty.error(it, msg, Toast.LENGTH_LONG, true).show() }
             }
         })
     }

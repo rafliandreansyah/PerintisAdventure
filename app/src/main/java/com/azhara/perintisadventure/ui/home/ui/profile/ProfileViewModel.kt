@@ -12,6 +12,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class ProfileViewModel : ViewModel() {
 
     private val firebaseAuth = FirebaseAuth.getInstance()
@@ -21,11 +22,8 @@ class ProfileViewModel : ViewModel() {
     private val dataUserProfile = MutableLiveData<Users>()
     private val user = firebaseAuth.currentUser
 
-    private val editState = MutableLiveData<Boolean>()
-    private val changePasswordState = MutableLiveData<Boolean>()
-    private val getDataState = MutableLiveData<Boolean>()
-
-    var errorMessage:String? = null
+    private val editMsg = MutableLiveData<String>()
+    private val changePasswordMsg = MutableLiveData<String>()
 
     private var storageTask: StorageTask<UploadTask.TaskSnapshot>? = null
 
@@ -38,16 +36,9 @@ class ProfileViewModel : ViewModel() {
                 if (doc != null){
                     val data = doc.toObject(Users::class.java)
                     dataUserProfile.postValue(data)
-                    getDataState.postValue(true)
                 }
             }.addOnFailureListener { exception ->
-                Log.e(className, exception.message)
-                getDataState.postValue(false)
-                if (exception.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
-                    errorMessage = "Kesalahan jaringan, silahkan cek jaringan anda!"
-                }else{
-                    errorMessage = exception.message
-                }
+                Log.e(className, "email: ${user.email} ${exception.message}")
             }
 
         }
@@ -66,14 +57,14 @@ class ProfileViewModel : ViewModel() {
         user?.uid?.let {
             db.collection("users").document(it)
                 .update(data).addOnSuccessListener {
-                    Log.d(className, "Data Update")
-                    editState.postValue(true)
+                    Log.d(className, "Email: ${user.email} Data Update")
+                    editMsg.postValue("Data berhasil di update")
                 }.addOnFailureListener { e ->
-                    editState.postValue(false)
+                    Log.e(className, "email: ${user.email}, editDataUser, ${e.message}")
                     if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
-                        errorMessage = "Kesalahan jaringan, silahkan cek jaringan anda!"
+                        editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
                     }else{
-                        errorMessage = e.message
+                        editMsg.postValue(e.message)
                     }
                 }
         }
@@ -89,13 +80,13 @@ class ProfileViewModel : ViewModel() {
             db.collection("users").document(it)
                 .update(data).addOnSuccessListener {
                     Log.d(className, "Data Update")
-                    editState.postValue(true)
+                    editMsg.postValue("Data berhasil di update")
                 }.addOnFailureListener { e ->
-                    editState.postValue(false)
+                    Log.e(className, "email: ${user.email}, editDataUserWithOutPhoto, exception: ${e.message}")
                     if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
-                        errorMessage = "Kesalahan jaringan, silahkan cek jaringan anda!"
+                        editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
                     }else{
-                        errorMessage = e.message
+                        editMsg.postValue(e.message)
                     }
                 }
         }
@@ -106,25 +97,25 @@ class ProfileViewModel : ViewModel() {
         val credential = user?.email?.let { EmailAuthProvider.getCredential(it, oldPassword) }
         if (credential != null) {
             user?.reauthenticate(credential)?.addOnSuccessListener {
-                Log.d(className, "Success authenticated")
+                Log.d(className, "email: ${user.email} Success authenticated")
                 user.updatePassword(newPassword).addOnCompleteListener { task ->
                     if (task.isSuccessful){
-                        Log.d(className, "Success Update password")
-                        changePasswordState.postValue(true)
+                        Log.d(className, "email:${user.email} Success Update password")
+                        changePasswordMsg.postValue("Password berhasil di update")
                     }else{
-                        Log.e(className, task.exception?.message)
-                        changePasswordState.postValue(false)
+                        Log.e(className, "email: ${user.email}, changePassword, exception: ${task.exception?.message}")
+                        changePasswordMsg.postValue(task.exception?.message)
                     }
                 }
 
             }?.addOnFailureListener { e ->
-                Log.e(className, e.message)
+                Log.e(className, "email: ${user.email}, changePassword, exception: ${e.message}")
                 if (e.message == "The password is invalid or the user does not have a password.") {
-                    errorMessage = "Password lama salah"
+                    changePasswordMsg.postValue("Password lama salah")
                 } else if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred.") {
-                    errorMessage = "Kesalahan jaringan, silahkan cek jaringan anda!"
+                    changePasswordMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
                 } else {
-                    errorMessage = e.message
+                    changePasswordMsg.postValue(e.message)
                 }
             }
         }
@@ -140,16 +131,17 @@ class ProfileViewModel : ViewModel() {
         storageTask = imgStorage?.putBytes(byteArrayImg) //Upload with putBytes
         Log.d("byteArrayImg", "$byteArrayImg")
         storageTask?.addOnFailureListener { e ->
-            Log.e(className, "Upload failed")
+            Log.e(className, "${user?.email} ${e.message}")
             if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
-                errorMessage = "Kesalahan jaringan, silahkan cek jaringan anda!"
+                editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
             }else{
-                errorMessage = e.message
+                editMsg.postValue(e.message)
             }
         }?.addOnSuccessListener {
             (storageTask as UploadTask).continueWithTask{ task ->
                 if (!task.isSuccessful){
-                    Log.e(className, task.exception?.message)
+                    Log.e(className, "email: ${user?.email}, editDataAndImgUser, exception: ${task.exception?.message}")
+                    editMsg.postValue(task.exception?.message)
                 }
                 imgStorage?.downloadUrl
             }.addOnCompleteListener {task ->
@@ -157,22 +149,19 @@ class ProfileViewModel : ViewModel() {
                     val urlImg = task.result
                     editDataUser(name, email, phone, urlImg.toString())
                 }else{
-                    Log.d(className, "Upload img failed")
+                    Log.d(className, "${user?.email} ${task.exception?.message}")
                     if (task.exception?.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
-                        errorMessage = "Kesalahan jaringan, silahkan cek jaringan anda!"
+                        editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
                     }else{
-                        errorMessage = task.exception?.message
+                        editMsg.postValue(task.exception?.message)
                     }
                 }
             }
         }
     }
 
-    fun editState(): LiveData<Boolean> = editState
-
-    fun changePasswordState(): LiveData<Boolean> = changePasswordState
-
-    fun getDataState(): LiveData<Boolean> = getDataState
+    fun editMessage(): LiveData<String> = editMsg
+    fun changePassMessage(): LiveData<String> = changePasswordMsg
 
     // sign out (ProfileFragment)
     fun signOut(){

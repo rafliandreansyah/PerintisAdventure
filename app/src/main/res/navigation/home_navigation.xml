@@ -5,6 +5,7 @@
     android:id="@+id/home_navigation"
     app:startDestination="@+id/navigation_home">
 
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.azhara.perintisadventure.ui.home.ui.home.HomeFragment"
@@ -26,31 +27,44 @@
         android:name="com.azhara.perintisadventure.ui.home.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="editMessage"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument android:name="changePassMessage"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument android:name="getDataMessage"
+            app:argType="string"
+            android:defaultValue="null" />
         <action
-            android:id="@+id/action_navigation_profile_to_navigation_edit_profile"
-            app:destination="@id/navigation_edit_profile" />
+            android:id="@+id/action_navigation_profile_to_navigation_user_edit_profile"
+            app:destination="@id/navigation_user_edit_profile" />
     </fragment>
-    <navigation
-        android:id="@+id/navigation_edit_profile"
-        app:startDestination="@id/navigation_user_edit_profile" >
-        <fragment
-            android:id="@+id/navigation_user_edit_profile"
-            android:name="com.azhara.perintisadventure.ui.home.ui.profile.EditProfileFragment"
-            android:label="fragment_edit_profile"
-            tools:layout="@layout/fragment_edit_profile" >
-            <action
-                android:id="@+id/action_navigation_user_edit_profile_to_navigation_change_password"
-                app:destination="@id/navigation_change_password" />
-        </fragment>
-        <fragment
-            android:id="@+id/navigation_change_password"
-            android:name="com.azhara.perintisadventure.ui.home.ui.profile.ChangePasswordFragment"
-            android:label="fragment_change_password"
-            tools:layout="@layout/fragment_change_password" />
+
+    <fragment
+        android:id="@+id/navigation_change_password"
+        android:name="com.azhara.perintisadventure.ui.home.ui.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
         <action
-            android:id="@+id/action_global_navigation_edit_profile"
+            android:id="@+id/action_navigation_change_password_to_navigation_profile"
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_profile"
             app:popUpToInclusive="true" />
-    </navigation>
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_user_edit_profile"
+        android:name="com.azhara.perintisadventure.ui.home.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_navigation_user_edit_profile_to_navigation_change_password"
+            app:destination="@id/navigation_change_password" />
+        <action
+            android:id="@+id/action_navigation_user_edit_profile_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

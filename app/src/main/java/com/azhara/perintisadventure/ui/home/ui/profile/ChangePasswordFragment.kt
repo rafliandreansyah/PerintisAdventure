@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
-import com.mrntlu.toastie.Toastie
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_change_password.*
 import kotlinx.android.synthetic.main.fragment_reset_password.*
@@ -39,9 +39,8 @@ class ChangePasswordFragment : Fragment() {
 
         btn_save_change_password.setOnClickListener{
             changePassword()
-            view.findNavController().navigate(R.id.action_global_navigation_edit_profile)
         }
-        statusMessage()
+        changePassMessage()
     }
 
     private fun changePassword(){
@@ -71,15 +70,17 @@ class ChangePasswordFragment : Fragment() {
         }
     }
 
-    private fun statusMessage(){
-        profileViewModel.changePasswordState().observe(viewLifecycleOwner, Observer { state->
-            if (state == false){
-                loading(false)
-                Toastie.error(context, profileViewModel.errorMessage, Toast.LENGTH_SHORT).show()
-
+    private fun changePassMessage(){
+        profileViewModel.changePassMessage().observe(viewLifecycleOwner, Observer { msg ->
+            edt_old_password.text.clear()
+            edt_new_password.text.clear()
+            edt_confirm_new_password.text.clear()
+            if (msg == "Password berhasil di update"){
+                context?.let { Toasty.success(it, msg, Toast.LENGTH_LONG, true).show() }
+            }else{
+                context?.let { Toasty.error(it, msg, Toast.LENGTH_LONG, true).show() }
             }
         })
-
     }
 
     private fun loading(state: Boolean){
