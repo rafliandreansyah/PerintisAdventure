@@ -1,7 +1,10 @@
 package com.azhara.perintisadventure.ui.home.ui.bookingcar
 
+import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,16 +15,19 @@ import com.azhara.perintisadventure.R
 import com.minibugdev.sheetselection.SheetSelection
 import com.minibugdev.sheetselection.SheetSelectionItem
 import kotlinx.android.synthetic.main.fragment_date_booking.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class DateBookingFragment : Fragment(), View.OnClickListener, DatePickerFragment.DialogDateListener{
+class DateBookingFragment : Fragment(), View.OnClickListener{
 
-    companion object{
-        private const val DATE_PICKER_TAG = "DATE_PICKER_TAG"
-    }
+    private val calendar = Calendar.getInstance()
+    private var DATE: String? = null
+    private var DURATION: String? = null
+    private var TIME: String? = null
+    private var DRIVER: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,12 +60,33 @@ class DateBookingFragment : Fragment(), View.OnClickListener, DatePickerFragment
             R.id.edt_choose_driver_car ->{
                 chooseDriver()
             }
+            R.id.btn_cari_mobil -> {
+
+            }
         }
     }
 
     private fun chooseDate(){
-        val datePickerFragment = DatePickerFragment()
-        datePickerFragment.show(requireActivity().supportFragmentManager, DATE_PICKER_TAG)
+
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val date = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePicker =
+            context?.let {
+                DatePickerDialog(it,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    calendar.set(Calendar.YEAR, year)
+                    calendar.set(Calendar.MONTH, month)
+                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
+                    edt_choose_date_car.setText(dateFormat)
+                    DATE = dateFormat
+                    Log.d("DateBooking", DATE)
+                }, year, month, date)
+            }
+        datePicker?.show()
+
     }
 
     private fun chooseDuration(){
@@ -81,6 +108,8 @@ class DateBookingFragment : Fragment(), View.OnClickListener, DatePickerFragment
                 .searchEnabled(false)
                 .onItemClickListener { item, _ ->
                     edt_choose_duration_car.setText(item.value)
+                    DURATION = item.value
+                    Log.d("DateBooking", DURATION)
                 }
                 .show()
         }
@@ -122,6 +151,8 @@ class DateBookingFragment : Fragment(), View.OnClickListener, DatePickerFragment
                 .searchEnabled(false)
                 .onItemClickListener { item, position ->
                     edt_choose_time_car.setText(item.value)
+                    TIME = item.value
+                    Log.d("DateBooking", TIME)
                 }
                 .show()
         }
@@ -141,14 +172,11 @@ class DateBookingFragment : Fragment(), View.OnClickListener, DatePickerFragment
                 .searchEnabled(false)
                 .onItemClickListener { item, position ->
                     edt_choose_driver_car.setText(item.value)
+                    DRIVER = item.value
+                    Log.d("DateBooking", DRIVER)
                 }
                 .show()
         }
     }
-
-    override fun onDialogSet(tag: String?, year: Int, month: Int, dayOfMonth: Int) {
-        TODO("Not yet implemented")
-    }
-
 
 }
