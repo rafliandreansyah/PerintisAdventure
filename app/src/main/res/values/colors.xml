@@ -12,4 +12,5 @@
     <color name="colorOrange">#EA5F16</color>
     <color name="colorSuccess">#4CAF50</color>
     <color name="colorGrey">#D5D5D5</color>
+    <color name="colorGreyDisabled">#EAEAEA</color>
 </resources>

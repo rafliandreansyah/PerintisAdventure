@@ -106,6 +106,7 @@
                         android:gravity="end">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_booking_car"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
@@ -144,6 +145,7 @@
                         android:gravity="start">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_booking_tour"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"

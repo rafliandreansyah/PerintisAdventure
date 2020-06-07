@@ -6,67 +6,65 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.home.ui.bookingcar.DateBookingFragment">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="45dp"
-        android:weightSum="5">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_marginStart="38dp">
+            android:layout_marginHorizontal="38dp"
+            android:layout_marginTop="20dp">
             <TextView
                 android:id="@+id/tv_tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tanggal"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 style="@style/TextPrimary"
                 />
             <EditText
-                android:id="@+id/edt_pilih_tanggal"
+                android:id="@+id/edt_choose_date_car"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/tanggal"
                 style="@style/EditTextDisabledStyle"
                 android:paddingVertical="14dp"
                 android:paddingHorizontal="24dp"
+                android:focusableInTouchMode="false"
                 android:drawableStart="@drawable/ic_calendar"
                 android:drawablePadding="16dp"
                 android:layout_below="@+id/tv_tanggal"
-                android:layout_marginEnd="16dp"
-                />
+                android:importantForAutofill="no"
+                android:inputType="date" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:layout_marginEnd="28dp">
+            android:layout_marginHorizontal="38dp"
+            android:layout_marginTop="20dp">
             <TextView
                 android:id="@+id/tv_durasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/durasi"
                 android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
                 style="@style/TextPrimary"/>
             <EditText
-                android:id="@+id/edt_durasi"
-                android:layout_width="wrap_content"
+                android:id="@+id/edt_choose_duration_car"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/durasi"
                 style="@style/EditTextDisabledStyle"
                 android:paddingVertical="14dp"
+                android:focusableInTouchMode="false"
                 android:paddingHorizontal="24dp"
+                android:drawableStart="@drawable/ic_queue"
                 android:drawableEnd="@drawable/ic_arrow_down"
                 android:drawablePadding="16dp"
                 android:layout_below="@+id/tv_durasi"
-                />
+                android:importantForAutofill="no"
+
+                android:inputType="text" />
         </RelativeLayout>
-    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -82,18 +80,20 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"/>
         <EditText
-            android:id="@+id/edt_daerah_penjemputan"
+            android:id="@+id/edt_choose_time_car"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/jam_penyewaan"
-            android:drawableStart="@drawable/ic_queue"
+            android:drawableStart="@drawable/ic_clock_black"
             style="@style/EditTextDisabledStyle"
             android:paddingVertical="14dp"
             android:paddingHorizontal="24dp"
+            android:focusableInTouchMode="false"
             android:drawableEnd="@drawable/ic_arrow_down"
             android:drawablePadding="16dp"
             android:layout_below="@+id/tv_daerah_penjemputan"
-            />
+            android:importantForAutofill="no"
+            android:inputType="time" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -110,7 +110,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"/>
         <EditText
-            android:id="@+id/edt_sopir"
+            android:id="@+id/edt_choose_driver_car"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/sopir"
@@ -118,10 +118,12 @@
             style="@style/EditTextDisabledStyle"
             android:paddingVertical="14dp"
             android:paddingHorizontal="24dp"
+            android:focusableInTouchMode="false"
             android:drawableEnd="@drawable/ic_arrow_down"
             android:drawablePadding="16dp"
             android:layout_below="@+id/tv_sopir"
-            />
+            android:importantForAutofill="no"
+            android:inputType="text" />
     </RelativeLayout>
 
 

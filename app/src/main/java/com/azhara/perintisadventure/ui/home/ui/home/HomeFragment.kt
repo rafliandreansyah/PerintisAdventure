@@ -9,13 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.Users
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -38,12 +38,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        card_profile_home.setOnClickListener(this)
+        card_booking_car.setOnClickListener(this)
+        card_booking_tour.setOnClickListener(this)
 
         homeViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
 
-        card_profile_home.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_navigation_home_to_navigation_profile)
-        )
         homeViewModel.loadDataUser()
         loadUserDoc()
     }
@@ -76,6 +76,20 @@ class HomeFragment : Fragment() {
             loading_home.visibility = View.VISIBLE
         }else{
             loading_home.visibility = View.GONE
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.card_profile_home -> {
+                view?.findNavController()?.navigate(R.id.action_navigation_home_to_navigation_profile)
+            }
+            R.id.card_booking_car -> {
+                view?.findNavController()?.navigate(R.id.action_navigation_home_to_navigation_date_booking_car_fragment)
+            }
+            R.id.card_booking_tour -> {
+                view?.findNavController()?.navigate(R.id.action_navigation_home_to_navigation_booking_destination_fragment)
+            }
         }
     }
 }
