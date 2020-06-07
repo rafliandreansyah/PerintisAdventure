@@ -4,16 +4,21 @@ import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import android.widget.Toast
+import androidx.navigation.findNavController
 
 import com.azhara.perintisadventure.R
 import com.minibugdev.sheetselection.SheetSelection
 import com.minibugdev.sheetselection.SheetSelectionItem
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_date_booking.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -61,7 +66,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                 chooseDriver()
             }
             R.id.btn_cari_mobil -> {
-
+                cariMobil()
             }
         }
     }
@@ -82,7 +87,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                     val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
                     edt_choose_date_car.setText(dateFormat)
                     DATE = dateFormat
-                    Log.d("DateBooking", DATE)
+                    edt_choose_date_car.error = null
                 }, year, month, date)
             }
         datePicker?.show()
@@ -108,8 +113,8 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                 .searchEnabled(false)
                 .onItemClickListener { item, _ ->
                     edt_choose_duration_car.setText(item.value)
-                    DURATION = item.value
-                    Log.d("DateBooking", DURATION)
+                    DURATION = item.key
+                    edt_choose_duration_car.error = null
                 }
                 .show()
         }
@@ -152,7 +157,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                 .onItemClickListener { item, position ->
                     edt_choose_time_car.setText(item.value)
                     TIME = item.value
-                    Log.d("DateBooking", TIME)
+                    edt_choose_time_car.error = null
                 }
                 .show()
         }
@@ -173,9 +178,46 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                 .onItemClickListener { item, position ->
                     edt_choose_driver_car.setText(item.value)
                     DRIVER = item.value
-                    Log.d("DateBooking", DRIVER)
+                    edt_choose_driver_car.error = null
                 }
                 .show()
+        }
+    }
+
+    private fun cariMobil(){
+        val date = edt_choose_date_car.text.toString().trim()
+        val duration = edt_choose_duration_car.text.toString().trim()
+        val time = edt_choose_time_car.text.toString().trim()
+        val driver = edt_choose_driver_car.text.toString().trim()
+
+        if (date.isEmpty()){
+            edt_choose_date_car.error = "Pemilihan tanggal penyewaan tidak boleh kosong!"
+            context?.let { Toasty.error(it, "Pemilihan tanggal penyewaan tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            return
+        }
+
+        if (duration.isEmpty()){
+            edt_choose_duration_car.error = "Pemilihan durasi penyewaan tidak boleh kosong!"
+            context?.let { Toasty.error(it, "Pemilihan durasi penyewaan tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            return
+        }
+
+        if (time.isEmpty()){
+            edt_choose_time_car.error = "Pemilihan jam penyewaan tidak boleh kosong!"
+            context?.let { Toasty.error(it, "Pemilihan jam penyewaan tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            return
+        }
+
+        if (driver.isEmpty()){
+            edt_choose_driver_car.error = "Pemilihan drive tidak boleh kosong!"
+            context?.let { Toasty.error(it, "Pemilihan drive tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            return
+        }
+
+        if (date.isNotEmpty() && duration.isNotEmpty() && time.isNotEmpty() && driver.isNotEmpty()
+            && DATE != null && DURATION != null && TIME != null && DRIVER != null
+        ){
+            view?.findNavController()?.navigate(R.id.action_navigation_date_booking_car_fragment_to_navigation_ready_car_fragment)
         }
     }
 
