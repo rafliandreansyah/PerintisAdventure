@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Users(
+data class User(
     var email: String? = null,
     var phone: String? = null,
     var imgUrl: String? = null,

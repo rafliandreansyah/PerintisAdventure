@@ -4,8 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,11 +26,12 @@ import java.util.*
  */
 class DateBookingFragment : Fragment(), View.OnClickListener{
 
-    private val calendar = Calendar.getInstance()
     private var DATE: String? = null
-    private var DURATION: String? = null
+    private var DURATION: Long? = null
     private var TIME: String? = null
     private var DRIVER: String? = null
+    private var STARTDATE: Long? = null
+    private var ENDDATE: Long? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,6 +89,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                     edt_choose_date_car.error = null
                 }, year, month, date)
             }
+        datePicker?.datePicker?.minDate = System.currentTimeMillis() + 1*24*60*60*1000L
         datePicker?.show()
 
     }
@@ -113,7 +113,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
                 .searchEnabled(false)
                 .onItemClickListener { item, _ ->
                     edt_choose_duration_car.setText(item.value)
-                    DURATION = item.key
+                    DURATION = item.key.toLong()
                     edt_choose_duration_car.error = null
                 }
                 .show()
@@ -122,30 +122,29 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
 
     private fun chooseTime(){
         val items = listOf(
-            SheetSelectionItem("0", "00.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("1", "01.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("2", "02.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("3", "03.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("4", "04.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("5", "05.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("6", "06.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("7", "07.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("8", "08.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("9", "09.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("10", "10.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("11", "11.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("12", "12.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("13", "13.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("14", "14.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("15", "15.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("16", "16.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("17", "17.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("18", "18.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("19", "19.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("20", "20.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("21", "21.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("22", "22.00", R.drawable.ic_clock_black),
-            SheetSelectionItem("23", "23.00", R.drawable.ic_clock_black)
+            SheetSelectionItem("1", "01:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("2", "02:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("3", "03:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("4", "04:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("5", "05:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("6", "06:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("7", "07:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("8", "08:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("9", "09:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("10", "10:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("11", "11:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("12", "12:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("13", "13:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("14", "14:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("15", "15:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("16", "16:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("17", "17:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("18", "18:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("19", "19:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("20", "20:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("21", "21:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("22", "22:00", R.drawable.ic_clock_black),
+            SheetSelectionItem("23", "23:00", R.drawable.ic_clock_black)
         )
 
         context?.let {
@@ -217,8 +216,40 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         if (date.isNotEmpty() && duration.isNotEmpty() && time.isNotEmpty() && driver.isNotEmpty()
             && DATE != null && DURATION != null && TIME != null && DRIVER != null
         ){
-            view?.findNavController()?.navigate(R.id.action_navigation_date_booking_car_fragment_to_navigation_ready_car_fragment)
+            covertDateToTimeMilis()
+            val toReadyCard = DateBookingFragmentDirections
+                .actionNavigationDateBookingCarFragmentToNavigationReadyCarFragment()
+            toReadyCard.startDate = STARTDATE!!
+            toReadyCard.endDate = ENDDATE!!
+            toReadyCard.duration = DURATION!!
+            toReadyCard.driver = DRIVER!!
+            view?.findNavController()?.navigate(toReadyCard)
+//            view?.findNavController()?.navigate(R.id.action_navigation_date_booking_car_fragment_to_navigation_ready_car_fragment)
         }
+    }
+
+    private fun covertDateToTimeMilis(){
+        val dateTime = "$DATE $TIME"
+        val formater = SimpleDateFormat("dd-MM-yyyy hh:mm")
+        val dates =  formater.parse(dateTime)
+        val duration= DURATION?.toLong()
+        STARTDATE = dates?.time
+        if (duration != null){
+            ENDDATE = STARTDATE?.plus(duration * 24 * 60 * 60 * 1000L)
+        }
+//        Log.d("DatesTest dateandtime", "$dates")
+//        Log.d("DatesTest STARTDATE", "$STARTDATE")
+//        Log.d("DatesTest ENDDATE", "$ENDDATE")
+
+        // Convert timestamp to local time
+//        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm a")
+//        val startSecondDate = STARTDATE?.let { Date(it) }
+//        val date = sdf.format(startSecondDate)
+//        val endSecondDate = ENDDATE?.let { Date(it) }
+//        val dateend = sdf.format(endSecondDate)
+//        Log.d("DatesTest Datestart", "$date")
+//        Log.d("DatesTest Dateend", "$dateend")
+
     }
 
 }

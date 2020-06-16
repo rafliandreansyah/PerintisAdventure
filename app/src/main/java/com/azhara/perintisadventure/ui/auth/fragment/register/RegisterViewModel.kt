@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.azhara.perintisadventure.entity.Users
+import com.azhara.perintisadventure.entity.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,7 +20,7 @@ class RegisterViewModel : ViewModel(){
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(){task ->
             if (task.isSuccessful){
                 val user = auth.currentUser
-                val userData = Users(user?.email, telephone, null, name)
+                val userData = User(user?.email, telephone, null, name)
                 user?.uid?.let { db.collection("users").document(it).set(userData).addOnSuccessListener {
                     registerState.postValue(true)
                 }.addOnFailureListener {exception ->

@@ -5,7 +5,6 @@
     android:id="@+id/home_navigation"
     app:startDestination="@+id/navigation_home">
 
-
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.azhara.perintisadventure.ui.home.ui.home.HomeFragment"
@@ -90,6 +89,22 @@
         <action
             android:id="@+id/action_navigation_ready_car_fragment_to_navigation_detail_car_booking_fragment"
             app:destination="@id/navigation_detail_car_booking_fragment" />
+        <argument
+            android:name="startDate"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="endDate"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="duration"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="driver"
+            app:argType="string"
+            android:defaultValue="driver" />
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_car_booking_fragment"

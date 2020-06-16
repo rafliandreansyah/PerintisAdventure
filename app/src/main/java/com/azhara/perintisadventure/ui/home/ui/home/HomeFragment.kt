@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
-import com.azhara.perintisadventure.entity.Users
+import com.azhara.perintisadventure.entity.User
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -49,7 +49,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun addData(user: Users){
+    private fun addData(user: User){
         tv_text_name_home.text = "Hai ${user.name}!"
         if(user.imgUrl != null){
             context?.let {

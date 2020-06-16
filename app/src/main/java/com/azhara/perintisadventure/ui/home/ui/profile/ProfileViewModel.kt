@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.azhara.perintisadventure.entity.Users
+import com.azhara.perintisadventure.entity.User
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,7 +19,7 @@ class ProfileViewModel : ViewModel() {
     private val db =  FirebaseFirestore.getInstance()
     private val storage = FirebaseStorage.getInstance()
 
-    private val dataUserProfile = MutableLiveData<Users>()
+    private val dataUserProfile = MutableLiveData<User>()
     private val user = firebaseAuth.currentUser
 
     private val editMsg = MutableLiveData<String>()
@@ -34,7 +34,7 @@ class ProfileViewModel : ViewModel() {
         user?.uid?.let {
             db.collection("users").document(it).get().addOnSuccessListener { doc ->
                 if (doc != null){
-                    val data = doc.toObject(Users::class.java)
+                    val data = doc.toObject(User::class.java)
                     dataUserProfile.postValue(data)
                 }
             }.addOnFailureListener { exception ->
@@ -44,7 +44,7 @@ class ProfileViewModel : ViewModel() {
         }
     }
     // Value of data user (ProfileFragment)
-    fun dataUser(): LiveData<Users> = dataUserProfile
+    fun dataUser(): LiveData<User> = dataUserProfile
 
     // Edit data user firebase
     private fun editDataUser(name: String?, email:String?, phone:String?, urlImg: String?){

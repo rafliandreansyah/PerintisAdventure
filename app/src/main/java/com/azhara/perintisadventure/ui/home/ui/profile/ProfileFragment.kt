@@ -42,8 +42,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         btn_edit_profile.setOnClickListener(this)
         btn_logout.setOnClickListener(this)
-        val msgEditProfile = ProfileFragmentArgs.fromBundle(arguments as Bundle).editMessage
-        toastSuccess(msgEditProfile)
         getDataUser()
     }
 

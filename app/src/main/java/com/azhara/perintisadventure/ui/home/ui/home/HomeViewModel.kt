@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.azhara.perintisadventure.entity.Users
+import com.azhara.perintisadventure.entity.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -13,7 +13,7 @@ class HomeViewModel : ViewModel() {
 
     val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
-    private val userData = MutableLiveData<Users>()
+    private val userData = MutableLiveData<User>()
     private val className = HomeViewModel::class.java.simpleName
     var errorMessage: String? = null
 
@@ -21,7 +21,7 @@ class HomeViewModel : ViewModel() {
         val user = auth.currentUser
         val docRef = user?.uid?.let { db.collection("users").document(it) }
         docRef?.get()?.addOnSuccessListener { document ->
-            val docUser = document.toObject(Users::class.java)
+            val docUser = document.toObject(User::class.java)
             userData.postValue(docUser)
             Log.d(className, "${docUser}")
         }?.addOnFailureListener { exception ->
@@ -30,6 +30,6 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun loadUserDoc(): LiveData<Users> = userData
+    fun loadUserDoc(): LiveData<User> = userData
 
 }
