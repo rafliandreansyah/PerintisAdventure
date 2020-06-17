@@ -219,8 +219,8 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
             covertDateToTimeMilis()
             val toReadyCard = DateBookingFragmentDirections
                 .actionNavigationDateBookingCarFragmentToNavigationReadyCarFragment()
-            toReadyCard.startDate = STARTDATE!!
-            toReadyCard.endDate = ENDDATE!!
+            toReadyCard.startDate = STARTDATE?.div(1000)!!
+            toReadyCard.endDate = ENDDATE?.div(1000)!!
             toReadyCard.duration = DURATION!!
             toReadyCard.driver = DRIVER!!
             view?.findNavController()?.navigate(toReadyCard)
@@ -232,16 +232,16 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         val dateTime = "$DATE $TIME"
         val formater = SimpleDateFormat("dd-MM-yyyy hh:mm")
         val dates =  formater.parse(dateTime)
-        val duration= DURATION?.toLong()
+        val duration= DURATION
         STARTDATE = dates?.time
         if (duration != null){
             ENDDATE = STARTDATE?.plus(duration * 24 * 60 * 60 * 1000L)
         }
-//        Log.d("DatesTest dateandtime", "$dates")
-//        Log.d("DatesTest STARTDATE", "$STARTDATE")
-//        Log.d("DatesTest ENDDATE", "$ENDDATE")
+        Log.d("DatesTest dateandtime", "$dates")
+        Log.d("DatesTest STARTDATE", "$STARTDATE")
+        Log.d("DatesTest ENDDATE", "$ENDDATE")
 
-        // Convert timestamp to local time
+////         Convert timestamp to local time
 //        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm a")
 //        val startSecondDate = STARTDATE?.let { Date(it) }
 //        val date = sdf.format(startSecondDate)
