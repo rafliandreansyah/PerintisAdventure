@@ -20,6 +20,7 @@ import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_date_booking.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * A simple [Fragment] subclass.
@@ -223,6 +224,10 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
             toReadyCard.endDate = ENDDATE?.div(1000)!!
             toReadyCard.duration = DURATION!!
             toReadyCard.driver = DRIVER!!
+            edt_choose_date_car.text.clear()
+            edt_choose_driver_car.text.clear()
+            edt_choose_time_car.text.clear()
+            edt_choose_duration_car.text.clear()
             view?.findNavController()?.navigate(toReadyCard)
 //            view?.findNavController()?.navigate(R.id.action_navigation_date_booking_car_fragment_to_navigation_ready_car_fragment)
         }

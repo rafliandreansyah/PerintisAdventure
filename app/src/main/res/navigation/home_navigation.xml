@@ -114,6 +114,50 @@
         <action
             android:id="@+id/action_navigation_detail_car_booking_fragment_to_navigation_payment"
             app:destination="@id/navigation_payment" />
+        <argument
+            android:name="startDate"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="endDate"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="imageCar"
+            app:argType="string"
+            android:defaultValue="image car" />
+        <argument
+            android:name="partnerId"
+            app:argType="string"
+            android:defaultValue="id" />
+        <argument
+            android:name="carYear"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="capacity"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="driver"
+            app:argType="string"
+            android:defaultValue="driver" />
+        <argument
+            android:name="gear"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="duration"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="price"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="carId"
+            app:argType="string"
+            android:defaultValue="id" />
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"

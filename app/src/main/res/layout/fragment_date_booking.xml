@@ -72,7 +72,7 @@
         android:layout_marginHorizontal="38dp"
         android:layout_marginTop="20dp">
         <TextView
-            android:id="@+id/tv_daerah_penjemputan"
+            android:id="@+id/tv_detail_car_ready_pickup_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/jam_penyewaan"
@@ -91,7 +91,7 @@
             android:focusableInTouchMode="false"
             android:drawableEnd="@drawable/ic_arrow_down"
             android:drawablePadding="16dp"
-            android:layout_below="@+id/tv_daerah_penjemputan"
+            android:layout_below="@+id/tv_detail_car_ready_pickup_area"
             android:importantForAutofill="no"
             android:inputType="time" />
     </RelativeLayout>

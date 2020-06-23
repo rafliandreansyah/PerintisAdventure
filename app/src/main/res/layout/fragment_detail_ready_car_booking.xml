@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
+            android:id="@+id/img_detail_ready_car"
             android:layout_width="match_parent"
             android:layout_height="175dp"
             android:src="@drawable/honda_brio"
@@ -30,7 +31,7 @@
                 android:paddingHorizontal="16dp">
 
                 <TextView
-                    android:id="@+id/tv_booking_duration"
+                    android:id="@+id/tv_detail_ready_car_booking_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/TextPrimaryBold"
@@ -61,14 +62,13 @@
                         android:src="@drawable/ic_garage"
                         />
                     <TextView
-                        android:id="@+id/tv_travel_name"
+                        android:id="@+id/tv_detail_ready_car_travel_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/TextPrimary"
                         android:textSize="12sp"
                         android:layout_marginLeft="8dp"
-                        android:layout_toEndOf="@id/ic_garage"
-                        android:text="Perintis Adventure Rent Car And Bromo Tour"/>
+                        android:layout_toEndOf="@id/ic_garage"/>
                 </RelativeLayout>
 
                 <TextView
@@ -93,7 +93,7 @@
                             android:src="@drawable/ic_group"
                             />
                         <TextView
-                            android:id="@+id/tv_capacity_user"
+                            android:id="@+id/tv_detail_ready_car_capacity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             style="@style/TextPrimary"
@@ -114,7 +114,7 @@
                             android:src="@drawable/ic_steering_wheel"
                             />
                         <TextView
-                            android:id="@+id/tv_gear_car"
+                            android:id="@+id/tv_detail_ready_car_gear"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             style="@style/TextPrimary"
@@ -139,7 +139,7 @@
                             android:src="@drawable/ic_luggage"
                             />
                         <TextView
-                            android:id="@+id/tv_capacity_luggage"
+                            android:id="@+id/tv_detail_ready_car_luggage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             style="@style/TextPrimary"
@@ -160,7 +160,7 @@
                             android:src="@drawable/ic_driver"
                             />
                         <TextView
-                            android:id="@+id/tv_driver"
+                            android:id="@+id/tv_detail_ready_car_driver"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             style="@style/TextPrimary"
@@ -185,7 +185,7 @@
                             android:src="@drawable/ic_car"
                             />
                         <TextView
-                            android:id="@+id/tv_car_year"
+                            android:id="@+id/tv_detail_ready_car_year"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             style="@style/TextPrimary"
@@ -430,6 +430,7 @@
                         android:src="@drawable/ic_maps_and_flags"
                         android:layout_gravity="center_vertical"/>
                     <TextView
+                        android:id="@+id/tv_detail_ready_car_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -440,6 +441,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_detail_ready_car_maps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/ButtonPrimary"
@@ -472,107 +474,132 @@
                     android:textSize="16sp"
                     style="@style/TextPrimary"
                     android:textAlignment="center"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/background_border_card">
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <RadioButton
-                            android:layout_width="wrap_content"
+                        android:padding="16dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/background_border_card">
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            style="@style/TextPrimary"
-                            android:textSize="14sp"
-                            android:text="Kantor Rental"/>
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="12sp"
-                            android:text="Gratis"
-                            style="@style/TextSecondaryBold"
-                            android:layout_marginStart="35dp"/>
-                    </LinearLayout>
-                </RelativeLayout>
+                            <RadioButton
+                                android:id="@+id/radio_office_pickup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextPrimary"
+                                android:textSize="14sp"
+                                android:checked="false"
+                                android:text="Kantor Rental"/>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/background_border_card">
-                    <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:text="Gratis"
+                                style="@style/TextSecondaryBold"
+                                android:layout_marginStart="35dp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/TextPrimary"
-                            android:textSize="14sp"
-                            android:text="Tempat Lain"/>
-
-                        <RelativeLayout
+                        android:padding="16dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/background_border_card">
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="36dp"
-                            android:layout_marginTop="16dp">
-                            <TextView
-                                android:id="@+id/tv_daerah_penjemputan"
+                            android:orientation="vertical">
+                            <RadioButton
+                                android:id="@+id/radio_custom_pickup"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Pilih daerah penjemputan"
                                 style="@style/TextPrimary"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginBottom="8dp"/>
-                            <EditText
-                                android:id="@+id/edt_daerah_penjemputan"
+                                android:textSize="14sp"
+                                android:checked="false"
+                                android:text="Tempat Lain"/>
+
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Daerah penjemputan"
-                                style="@style/EditTextDisabledStyle"
-                                android:paddingVertical="8dp"
-                                android:paddingHorizontal="16dp"
-                                android:drawableEnd="@drawable/ic_arrow_down"
-                                android:drawablePadding="8dp"
-                                android:layout_below="@+id/tv_daerah_penjemputan"
-                                />
-                        </RelativeLayout>
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="16dp">
+                                <TextView
+                                    android:id="@+id/tv_detail_car_ready_pickup_area"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pilih daerah penjemputan"
+                                    style="@style/TextPrimary"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginBottom="8dp"/>
+                                <EditText
+                                    android:id="@+id/edt_detail_car_ready_pickup_area"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/pilih_area"
+                                    style="@style/EditTextDisabledStyle"
+                                    android:focusableInTouchMode="false"
+                                    android:paddingVertical="8dp"
+                                    android:paddingHorizontal="16dp"
+                                    android:drawableEnd="@drawable/ic_arrow_down"
+                                    android:drawablePadding="8dp"
+                                    android:layout_below="@+id/tv_detail_car_ready_pickup_area"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_detail_car_price_area"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/TextPrimary"
+                                    android:layout_below="@id/edt_detail_car_ready_pickup_area"
+                                    android:layout_marginVertical="4dp"
+                                    android:textColor="@color/colorOrange"
+                                    android:visibility="invisible"
+                                    android:layout_marginStart="16dp"/>
+                            </RelativeLayout>
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="38dp"
-                            android:layout_marginVertical="16dp">
-                            <TextView
-                                android:id="@+id/tv_detail_penjemputan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Detail Penjemputan"
-                                style="@style/TextPrimary"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginBottom="8dp"/>
-                            <EditText
-                                android:id="@+id/edt_detail_penjemputan"
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Detail penjemputan"
-                                style="@style/EditTextStyle"
-                                android:paddingVertical="8dp"
-                                android:paddingHorizontal="16dp"
-                                android:drawableEnd="@drawable/ic_arrow_down"
-                                android:drawablePadding="8dp"
-                                android:layout_below="@+id/tv_detail_penjemputan"
-                                />
-                        </RelativeLayout>
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="16dp">
+                                <TextView
+                                    android:id="@+id/tv_detail_car_ready_pickup_detail_area"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Detail Penjemputan"
+                                    style="@style/TextPrimary"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginBottom="8dp"/>
+                                <EditText
+                                    android:id="@+id/edt_detail_car_ready_pickup_detail_area"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/detail_penjemputan"
+                                    android:gravity="top|start"
+                                    style="@style/TextAreaStyle"
+                                    android:inputType="text|textMultiLine"
+                                    android:paddingVertical="8dp"
+                                    android:paddingHorizontal="16dp"
+                                    android:drawablePadding="8dp"
+                                    android:lines="6"
+                                    android:enabled="false"
+                                    android:overScrollMode="always"
+                                    android:scrollbarStyle="insideInset"
+                                    android:scrollbars="vertical"
+                                    android:scrollHorizontally="false"
+                                    android:layout_below="@+id/tv_detail_car_ready_pickup_detail_area"
+                                    />
+                            </RelativeLayout>
 
-                    </LinearLayout>
-                </RelativeLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
 
             </LinearLayout>
 
@@ -605,23 +632,17 @@
                     android:layout_gravity="center"
                     android:layout_marginVertical="16dp">
                     <TextView
-                        android:id="@+id/tv_total_harga"
+                        android:id="@+id/tv_detail_ready_car_total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/TextPrimaryBold"
                         android:textSize="16sp"
                         android:textColor="@color/colorOrange"
                         android:text="Rp 510000"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/TextPrimary"
-                        android:textSize="14sp"
-                        android:textColor="@color/colorOrange"
-                        android:text="/ hari"/>
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_booking_now"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/ButtonPrimary"

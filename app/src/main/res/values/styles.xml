@@ -28,6 +28,14 @@
         <item name="android:textColor">@color/colorText</item>
     </style>
 
+    <style name="TextAreaStyle">
+        <item name="android:background">@drawable/border_text_area</item>
+        <item name="android:fontFamily">@font/pt_sans_regular1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
     <style name="EditTextDisabledStyle">
         <item name="android:background">@drawable/background_disabled_edt_text</item>
         <item name="android:fontFamily">@font/pt_sans_regular1</item>

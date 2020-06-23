@@ -341,7 +341,7 @@ ketinggian 2329 meter di atas permukaan air laut."
                             android:layout_marginHorizontal="38dp"
                             android:layout_marginVertical="16dp">
                             <TextView
-                                android:id="@+id/tv_detail_penjemputan"
+                                android:id="@+id/tv_detail_car_ready_pickup_detail_area"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Detail Lokasi"
@@ -357,7 +357,7 @@ ketinggian 2329 meter di atas permukaan air laut."
                                 android:paddingVertical="8dp"
                                 android:paddingHorizontal="16dp"
                                 android:drawablePadding="8dp"
-                                android:layout_below="@+id/tv_detail_penjemputan"
+                                android:layout_below="@+id/tv_detail_car_ready_pickup_detail_area"
                                 />
                         </RelativeLayout>
 

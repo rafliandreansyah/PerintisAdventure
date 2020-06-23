@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.azhara.perintisadventure.R
@@ -26,7 +28,7 @@ import java.util.*
 /**
  * A simple [Fragment] subclass.
  */
-class ReadyCarFragment : Fragment() {
+class ReadyCarFragment : Fragment(){
 
     private lateinit var bookingCarViewModel: BookingCarViewModel
     private lateinit var carAdapter: CarAdapter
@@ -54,7 +56,6 @@ class ReadyCarFragment : Fragment() {
         bookingCarViewModel.getDataCar()
         dataCarFilter(dataStartDate, dataEndtDate, dataDuration, dataDriver)
         carAdapter = CarAdapter()
-
         with(rv_ready_car){
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
@@ -85,14 +86,41 @@ class ReadyCarFragment : Fragment() {
                 }
                 Log.d("ReadyCar Car", "$car")
                 carAdapter.submitList(car)
+                progressBooking(startDateData, endDateData, durationData, driverData)
             }
-//            Log.d("ReadyCar", "$data")
         })
 
     }
 
-    private fun convertToLocalDate(){
-        // Convert timestamp to local time
+    private fun progressBooking(startDateData: Long?, endDateData: Long?, durationData: Long?, driverData: String?){
+        carAdapter.setOnItemClickCallBack(object : CarAdapter.OnItemClickCallBack{
+            override fun onItemClick(car: Car) {
+                val detailCar = ReadyCarFragmentDirections
+                    .actionNavigationReadyCarFragmentToNavigationDetailCarBookingFragment()
+                if (startDateData != null && endDateData != null && driverData != null && durationData != null) {
+                    detailCar.startDate = startDateData
+                    detailCar.endDate = endDateData
+                    detailCar.driver = driverData
+                    detailCar.duration = durationData
+                }
+                detailCar.capacity = car.capacity!!
+                detailCar.carYear = car.year!!
+                detailCar.price = car.price!!
+                detailCar.gear = car.gear!!
+                detailCar.imageCar = car.imgUrl!!
+                detailCar.partnerId = car.partnerId!!
+                detailCar.carId = car.carId!!
+
+                if (car.carId != null){
+                    view?.findNavController()?.navigate(detailCar)
+                }
+            }
+
+        })
+    }
+
+//    private fun convertToLocalDate(){
+//        // Convert timestamp to local time
 //        val calendar = Calendar.getInstance()
 //        val tz = calendar.timeZone
 //        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm a")
@@ -101,8 +129,7 @@ class ReadyCarFragment : Fragment() {
 //        val date = sdf.format(startSecondDate)
 //        Log.d("TimeStamp", "$startDate")
 //        Log.d("Date", "$date")
-    }
-
+//    }
 
 }
 
