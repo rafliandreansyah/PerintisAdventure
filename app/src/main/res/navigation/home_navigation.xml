@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_navigation_booked_to_navigation_payment"
             app:destination="@id/navigation_payment" />
+        <action
+            android:id="@+id/action_navigation_booked_to_detailBookingCarFragment"
+            app:destination="@id/navigation_detail_booking_car_fragment" />
     </fragment>
 
     <fragment
@@ -94,7 +97,7 @@
         tools:layout="@layout/fragment_ready_car">
         <action
             android:id="@+id/action_navigation_ready_car_fragment_to_navigation_detail_car_booking_fragment"
-            app:destination="@id/navigation_detail_car_booking_fragment" />
+            app:destination="@id/navigation_detail_ready_car_booking_fragment" />
         <argument
             android:name="startDate"
             app:argType="long"
@@ -113,7 +116,7 @@
             android:defaultValue="driver" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_detail_car_booking_fragment"
+        android:id="@+id/navigation_detail_ready_car_booking_fragment"
         android:name="com.azhara.perintisadventure.ui.home.ui.bookingcar.DetailReadyCarBookingFragment"
         android:label="fragment_detail_ready_car_booking"
         tools:layout="@layout/fragment_detail_ready_car_booking">
@@ -230,5 +233,15 @@
             app:destination="@id/navigation_payment"
             app:popUpTo="@id/home_navigation"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail_booking_car_fragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.bookinglist.bookingdetail.car.DetailBookingCarFragment"
+        android:label="fragment_detail_booking_car"
+        tools:layout="@layout/fragment_detail_booking_car" >
+        <argument
+            android:name="bookingId"
+            app:argType="string"
+            android:defaultValue="null" />
     </fragment>
 </navigation>

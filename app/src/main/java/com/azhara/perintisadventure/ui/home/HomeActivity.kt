@@ -29,8 +29,9 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_change_password,
                 R.id.navigation_date_booking_car_fragment,
                 R.id.navigation_ready_car_fragment,
-                R.id.navigation_detail_car_booking_fragment,
-                R.id.navigation_payment
+                R.id.navigation_detail_ready_car_booking_fragment,
+                R.id.navigation_payment,
+                R.id.navigation_detail_booking_car_fragment
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -70,7 +71,6 @@ class HomeActivity : AppCompatActivity() {
                     onBackPressed()
                 }
             }
-
             if (destination.id == R.id.navigation_change_password) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.text = "Password"
@@ -81,7 +81,6 @@ class HomeActivity : AppCompatActivity() {
                     onBackPressed()
                 }
             }
-
             if (destination.id == R.id.navigation_date_booking_car_fragment) {
                 navView.visibility = View.GONE
 //                tv_title_toolbar.text = "Password"
@@ -102,8 +101,7 @@ class HomeActivity : AppCompatActivity() {
                     onBackPressed()
                 }
             }
-
-            if (destination.id == R.id.navigation_detail_car_booking_fragment) {
+            if (destination.id == R.id.navigation_detail_ready_car_booking_fragment) {
                 navView.visibility = View.GONE
 //                tv_title_toolbar.text = "Password"
                 tv_title_toolbar.visibility = View.VISIBLE
@@ -113,12 +111,21 @@ class HomeActivity : AppCompatActivity() {
                     onBackPressed()
                 }
             }
-
             if (destination.id == R.id.navigation_payment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.INVISIBLE
+            }
+            if (destination.id == R.id.navigation_detail_booking_car_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = "Detail Sewa Mobil"
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
             }
         }
 

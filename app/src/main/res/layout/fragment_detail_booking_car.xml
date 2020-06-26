@@ -15,14 +15,15 @@
             android:layout_width="match_parent"
             android:layout_height="175dp"
             android:src="@drawable/honda_brio"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/image_car_detail_booking" />
 
         <TextView
             android:id="@+id/tv_detail_car_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextPrimaryBold"
-            android:text="Honda Brio"
+            tools:text="Honda Brio"
             android:textSize="18sp"
             android:layout_marginTop="16dp"
             android:layout_marginHorizontal="16dp" />
@@ -31,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextPrimary"
-            android:text="Tanggal pemesanan"
+            android:text="@string/tanggal_pemesanan"
             android:textSize="14sp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp" />
@@ -41,8 +42,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextPrimary"
-            android:text="5 Maret 2020 18.00 - 7 Maret 2020 18.00 "
+            tools:text="5 Maret 2020 18.00 - 7 Maret 2020 18.00 "
             android:textSize="14sp"
+            android:layout_marginTop="8dp"
             android:layout_marginHorizontal="16dp" />
 
         <View
@@ -62,7 +64,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Disediakan oleh: "
+                android:text="@string/disediakan_oleh"
                 android:textSize="14sp"
                 style="@style/TextPrimary" />
 
@@ -75,7 +77,8 @@
                     android:id="@+id/ic_garage"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_garage" />
+                    android:src="@drawable/ic_garage"
+                    android:contentDescription="@string/icon_garage" />
 
                 <TextView
                     android:id="@+id/tv_detail_travel_name"
@@ -83,15 +86,16 @@
                     android:layout_height="wrap_content"
                     style="@style/TextPrimary"
                     android:textSize="12sp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/ic_garage"
-                    android:text="Perintis Adventure Rent Car And Bromo Tour" />
+                    tools:text="Perintis Adventure Rent Car And Bromo Tour" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Informasi"
+                android:text="@string/informasi"
                 style="@style/TextPrimary"
                 android:textSize="14sp"
                 android:layout_marginTop="25dp"
@@ -110,17 +114,19 @@
                         android:id="@+id/ic_group"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_group" />
+                        android:src="@drawable/ic_group"
+                        android:contentDescription="@string/icon_capacity" />
 
                     <TextView
                         android:id="@+id/tv_detail_capacity_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/TextPrimary"
+                        android:layout_centerVertical="true"
                         android:textSize="12sp"
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@id/ic_group"
-                        android:text="6" />
+                        tools:text="6" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -132,7 +138,8 @@
                         android:id="@+id/ic_gear"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_steering_wheel" />
+                        android:src="@drawable/ic_steering_wheel"
+                        android:contentDescription="@string/icon_gear" />
 
                     <TextView
                         android:id="@+id/tv_detail_gear_car"
@@ -140,9 +147,10 @@
                         android:layout_height="wrap_content"
                         style="@style/TextPrimary"
                         android:textSize="12sp"
+                        android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@id/ic_gear"
-                        android:text="Automatic" />
+                        tools:text="Automatic" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -160,17 +168,19 @@
                         android:id="@+id/ic_luggage"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_luggage" />
+                        android:src="@drawable/ic_luggage"
+                        android:contentDescription="@string/icon_luggage" />
 
                     <TextView
                         android:id="@+id/tv_detail_capacity_luggage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/TextPrimary"
+                        android:layout_centerVertical="true"
                         android:textSize="12sp"
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@id/ic_luggage"
-                        android:text="2" />
+                        tools:text="2" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -182,7 +192,8 @@
                         android:id="@+id/ic_driver"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_driver" />
+                        android:src="@drawable/ic_driver"
+                        android:contentDescription="@string/icon_driver" />
 
                     <TextView
                         android:id="@+id/tv_detail_driver"
@@ -190,9 +201,10 @@
                         android:layout_height="wrap_content"
                         style="@style/TextPrimary"
                         android:textSize="12sp"
+                        android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@id/ic_driver"
-                        android:text="Tanpa Sopir" />
+                        tools:text="Tanpa Sopir" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -204,13 +216,15 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:id="@+id/ic_car"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_car" />
+                        android:src="@drawable/ic_car"
+                        android:contentDescription="@string/icon_car_year" />
 
                     <TextView
                         android:id="@+id/tv_detail_car_year"
@@ -218,9 +232,10 @@
                         android:layout_height="wrap_content"
                         style="@style/TextPrimary"
                         android:textSize="12sp"
+                        android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@id/ic_car"
-                        android:text="2018" />
+                        tools:text="2018" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -236,7 +251,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lokasi pengambilan"
+            android:text="@string/lokasi_pengambilan"
             style="@style/TextPrimaryBold"
             android:layout_marginHorizontal="16dp" />
 
@@ -250,7 +265,9 @@
                 android:id="@+id/search_map_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/ic_maps_and_flags" />
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_maps_and_flags"
+                android:contentDescription="@string/icon_maps" />
 
             <TextView
                 android:id="@+id/tv_detail_pickup_location"
@@ -258,9 +275,10 @@
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
                 android:textSize="14sp"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/search_map_icon"
-                android:text="Stasiun kota lama, Kota Malang" />
+                tools:text="Stasiun kota lama, Kota Malang" />
         </RelativeLayout>
 
 
@@ -278,10 +296,11 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tv_status_payment_detail_booking"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="Pembelian Berhasil"
+                    android:text="@string/pembayaran_berhasil"
                     android:textColor="@color/colorSuccess"
                     style="@style/TextPrimaryBold"
                     android:textSize="18sp" />
@@ -294,21 +313,13 @@
                     android:layout_marginVertical="16dp">
 
                     <TextView
-                        android:id="@+id/tv_detail_total_payment"
+                        android:id="@+id/tv_detail_total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/TextPrimaryBold"
                         android:textSize="16sp"
                         android:textColor="@color/colorOrange"
-                        android:text="Rp 510000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/TextPrimary"
-                        android:textSize="14sp"
-                        android:textColor="@color/colorOrange"
-                        android:text="/ hari" />
+                        tools:text="Rp 510000" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -328,9 +339,10 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tv_detail_booking_travel_name_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lokasi Kantor Perintis Adventure"
+                    tools:text="Lokasi Kantor Perintis Adventure"
                     android:textAlignment="center"
                     android:textSize="16sp"
                     style="@style/TextPrimary" />
@@ -339,46 +351,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="20dp"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_maps_and_flags"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/icon_maps" />
 
                     <TextView
+                        android:id="@+id/tv_detail_booking_travel_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:gravity="center_vertical"
-                        android:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
+                        android:layout_gravity="center_vertical"
+                        tools:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
                         style="@style/TextPrimary"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_detail_booking_maps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/ButtonPrimary"
-                    android:drawableLeft="@drawable/ic_google_maps"
+                    android:drawableStart="@drawable/ic_google_maps"
                     android:drawablePadding="16dp"
                     android:paddingHorizontal="25dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginVertical="25dp"
-                    android:text="Maps" />
+                    android:text="@string/maps" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/btn_detail_home"
+            android:id="@+id/btn_detail_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ButtonPrimary"
             android:layout_marginVertical="30dp"
             android:layout_marginHorizontal="57dp"
-            android:text="Home" />
+            android:text="@string/back" />
 
     </LinearLayout>
 

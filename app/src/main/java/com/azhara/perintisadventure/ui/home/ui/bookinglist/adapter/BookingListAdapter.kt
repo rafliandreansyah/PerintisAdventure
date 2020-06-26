@@ -51,16 +51,17 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
                 tv_item_list_booking_date.text = startDate
                 tv_item_list_booking_total_price.text = "Rp. ${bookingList?.totalPrice}"
                 if(bookingList?.uploadProofPayment == false){
-                    tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_orange)
                     tv_item_list_booking_status_payment.text = "Menunggu pembayaran"
+                    tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_orange)
                 }
                 if(bookingList?.uploadProofPayment == true && bookingList.imgUrlProofPayment != null){
-                    tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_yellow)
                     tv_item_list_booking_status_payment.text = "Menunggu konfirmasi"
+                    tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_yellow)
                 }
                 if (bookingList?.uploadProofPayment == true && bookingList.imgUrlProofPayment != null && bookingList.statusPayment == true){
-                    tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_green)
                     tv_item_list_booking_status_payment.text = "Pemesanan berhasil"
+                    tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_green)
+
                 }
 
                 if (bookingList?.bookingType == 0){

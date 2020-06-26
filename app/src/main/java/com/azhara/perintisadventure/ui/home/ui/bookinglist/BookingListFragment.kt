@@ -76,6 +76,12 @@ class BookingListFragment : Fragment() {
                     toPayment.uploadProofPayemnt = item.uploadProofPayment!!
                     view?.findNavController()?.navigate(toPayment)
                 }
+                if (item?.statusPayment == true && item.imgUrlProofPayment != null
+                    && item.bookingId != null && item.bookingType == 0){
+                    val toDetailBookingCar = BookingListFragmentDirections.actionNavigationBookedToDetailBookingCarFragment()
+                    toDetailBookingCar.bookingId = "${item.bookingId}"
+                    view?.findNavController()?.navigate(toDetailBookingCar)
+                }
             }
 
         })

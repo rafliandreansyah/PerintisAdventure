@@ -17,7 +17,7 @@ import com.minibugdev.sheetselection.SheetSelection
 import com.minibugdev.sheetselection.SheetSelectionItem
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_detail_booked_car.*
+import kotlinx.android.synthetic.main.fragment_detail_booking_car.*
 import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
 import kotlinx.android.synthetic.main.rv_items_ready_car.*
 import java.text.SimpleDateFormat
