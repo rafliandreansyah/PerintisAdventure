@@ -14,7 +14,7 @@
             android:id="@+id/img_detail_booked_car"
             android:layout_width="match_parent"
             android:layout_height="175dp"
-            android:src="@drawable/honda_brio"
+            tools:src="@drawable/honda_brio"
             android:scaleType="fitCenter"
             android:contentDescription="@string/image_car_detail_booking" />
 

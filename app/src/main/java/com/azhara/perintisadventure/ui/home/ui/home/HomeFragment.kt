@@ -1,11 +1,14 @@
 package com.azhara.perintisadventure.ui.home.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,10 +17,13 @@ import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.User
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlin.system.exitProcess
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
+    private var backPressedTime: Long? = 0
+    private lateinit var toast: Toast
 
     override fun onStart() {
         super.onStart()
@@ -35,12 +41,27 @@ class HomeFragment : Fragment(), View.OnClickListener {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+
+            if (backPressedTime!! + 2000 > System.currentTimeMillis()){
+                toast.cancel()
+                activity?.moveTaskToBack(true)
+                activity?.finish()
+            }else{
+                toast = Toast.makeText(context, "Press back again to exit", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            backPressedTime = System.currentTimeMillis()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         card_profile_home.setOnClickListener(this)
         card_booking_car.setOnClickListener(this)
         card_booking_tour.setOnClickListener(this)
-
         homeViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()

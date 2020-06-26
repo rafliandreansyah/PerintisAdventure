@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,12 +21,30 @@ import kotlinx.android.synthetic.main.fragment_login.*
 class LoginFragment : Fragment(), View.OnClickListener {
 
     private lateinit var loginViewModel: LoginViewModel
+    private var backPressedTime: Long? = 0
+    private lateinit var toast: Toast
 
     override fun onStart() {
         super.onStart()
         val users = loginViewModel.getSessionUsers()
         if (users != null) {
             context?.startActivity(Intent(context, HomeActivity::class.java))
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+
+            if (backPressedTime!! + 2000 > System.currentTimeMillis()) {
+                toast.cancel()
+                activity?.moveTaskToBack(true)
+                activity?.finish()
+            } else {
+                toast = Toast.makeText(context, "Press back again to exit", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            backPressedTime = System.currentTimeMillis()
         }
     }
 
