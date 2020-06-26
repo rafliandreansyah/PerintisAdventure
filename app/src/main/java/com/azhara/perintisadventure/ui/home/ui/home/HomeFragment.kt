@@ -21,10 +21,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-        val user =homeViewModel.auth.currentUser
-        if (user != null){
-            loadingState(true)
-
+        val user = homeViewModel.auth.currentUser
+        if (user != null) {
+            loadingShimmer(true)
         }
     }
 
@@ -42,16 +41,19 @@ class HomeFragment : Fragment(), View.OnClickListener {
         card_booking_car.setOnClickListener(this)
         card_booking_tour.setOnClickListener(this)
 
-        homeViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
+        homeViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[HomeViewModel::class.java]
 
         homeViewModel.loadDataUser()
         loadUserDoc()
     }
 
     @SuppressLint("SetTextI18n")
-    private fun addData(user: User){
+    private fun addData(user: User) {
         tv_text_name_home.text = "Hai ${user.name}!"
-        if(user.imgUrl != null){
+        if (user.imgUrl != null) {
             context?.let {
                 Glide.with(it)
                     .load(user.imgUrl)
@@ -60,35 +62,42 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun loadUserDoc(){
+    private fun loadUserDoc() {
         homeViewModel.loadUserDoc().observe(viewLifecycleOwner, Observer { data ->
-            if (data!= null){
+            if (data != null) {
                 addData(data)
-                loadingState(false)
-            }else{
+                loadingShimmer(false)
+            } else {
                 Toast.makeText(context, homeViewModel.errorMessage, Toast.LENGTH_SHORT).show()
             }
         })
     }
 
-    private fun loadingState(state: Boolean){
-        if (state){
-            loading_home.visibility = View.VISIBLE
-        }else{
-            loading_home.visibility = View.GONE
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            home_shimmer_profile.startShimmer()
+            card_profile_home.visibility = View.GONE
+            home_shimmer_profile.visibility = View.VISIBLE
+        } else {
+            card_profile_home.visibility = View.VISIBLE
+            home_shimmer_profile.visibility = View.GONE
+            home_shimmer_profile.stopShimmer()
         }
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.card_profile_home -> {
-                view?.findNavController()?.navigate(R.id.action_navigation_home_to_navigation_profile)
+                view?.findNavController()
+                    ?.navigate(R.id.action_navigation_home_to_navigation_profile)
             }
             R.id.card_booking_car -> {
-                view?.findNavController()?.navigate(R.id.action_navigation_home_to_navigation_date_booking_car_fragment)
+                view?.findNavController()
+                    ?.navigate(R.id.action_navigation_home_to_navigation_date_booking_car_fragment)
             }
             R.id.card_booking_tour -> {
-                view?.findNavController()?.navigate(R.id.action_navigation_home_to_navigation_booking_destination_fragment)
+                view?.findNavController()
+                    ?.navigate(R.id.action_navigation_home_to_navigation_booking_destination_fragment)
             }
         }
     }

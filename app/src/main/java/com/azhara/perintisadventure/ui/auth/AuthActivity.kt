@@ -1,7 +1,7 @@
 package com.azhara.perintisadventure.ui.auth
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.azhara.perintisadventure.R
 
 class AuthActivity : AppCompatActivity() {

@@ -17,7 +17,7 @@ class HomeViewModel : ViewModel() {
     private val className = HomeViewModel::class.java.simpleName
     var errorMessage: String? = null
 
-    fun loadDataUser(){
+    fun loadDataUser() {
         val user = auth.currentUser
         val docRef = user?.uid?.let { db.collection("users").document(it) }
         docRef?.get()?.addOnSuccessListener { document ->

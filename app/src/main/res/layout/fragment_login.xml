@@ -3,14 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.fragment.LoginFragment">
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,7 +62,7 @@
             android:textSize="12sp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="58dp"
-            style="@style/TextPrimary"/>
+            style="@style/TextPrimary" />
 
         <TextView
             android:id="@+id/tv_login_status"
@@ -80,7 +74,7 @@
             style="@style/TextPrimary"
             android:layout_marginHorizontal="35dp"
             android:visibility="invisible"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp" />
 
         <Button
             android:id="@+id/btn_login"
@@ -89,7 +83,7 @@
             android:text="@string/login"
             android:layout_marginTop="8dp"
             style="@style/ButtonPrimary"
-            android:layout_marginHorizontal="73dp"/>
+            android:layout_marginHorizontal="73dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -97,12 +91,13 @@
             android:orientation="horizontal"
             android:layout_gravity="center"
             android:layout_marginTop="42dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:text="@string/tidak_punya_akun"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:id="@+id/tv_toregister"
@@ -111,9 +106,25 @@
                 android:text="@string/buat_akun"
                 android:textSize="14sp"
                 android:layout_marginStart="4dp"
-                style="@style/TextSecondaryBold"/>
+                style="@style/TextSecondaryBold" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/loading_background_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="@drawable/background_loading"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_login"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_loop="true"/>
 
 </FrameLayout>

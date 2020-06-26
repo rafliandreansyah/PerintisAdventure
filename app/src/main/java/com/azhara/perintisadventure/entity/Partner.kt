@@ -1,7 +1,6 @@
 package com.azhara.perintisadventure.entity
 
 import com.google.firebase.firestore.GeoPoint
-import com.google.type.LatLng
 
 data class Partner(
     val address: String? = null,
@@ -9,6 +8,6 @@ data class Partner(
     val geoPoint: GeoPoint? = null,
     val owner: String? = null,
     val imgUrl: String? = null,
-    val phone: String? = null,
+    val phone: Int? = null,
     val travelName: String? = null
 )

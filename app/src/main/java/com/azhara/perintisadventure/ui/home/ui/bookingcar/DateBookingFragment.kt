@@ -1,31 +1,27 @@
 package com.azhara.perintisadventure.ui.home.ui.bookingcar
 
-import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-
 import com.azhara.perintisadventure.R
 import com.minibugdev.sheetselection.SheetSelection
 import com.minibugdev.sheetselection.SheetSelectionItem
 import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_date_booking.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * A simple [Fragment] subclass.
  */
-class DateBookingFragment : Fragment(), View.OnClickListener{
+class DateBookingFragment : Fragment(), View.OnClickListener {
 
     private var DATE: String? = null
     private var DURATION: Long? = null
@@ -49,20 +45,22 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         edt_choose_time_car.setOnClickListener(this)
         edt_choose_driver_car.setOnClickListener(this)
         btn_cari_mobil.setOnClickListener(this)
+
+        activity?.tv_title_toolbar?.text = "Informasi Pemesanan"
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.edt_choose_date_car ->{
+        when (v?.id) {
+            R.id.edt_choose_date_car -> {
                 chooseDate()
             }
-            R.id.edt_choose_duration_car ->{
+            R.id.edt_choose_duration_car -> {
                 chooseDuration()
             }
-            R.id.edt_choose_time_car ->{
+            R.id.edt_choose_time_car -> {
                 chooseTime()
             }
-            R.id.edt_choose_driver_car ->{
+            R.id.edt_choose_driver_car -> {
                 chooseDriver()
             }
             R.id.btn_cari_mobil -> {
@@ -71,7 +69,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         }
     }
 
-    private fun chooseDate(){
+    private fun chooseDate() {
 
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -80,22 +78,31 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
 
         val datePicker =
             context?.let {
-                DatePickerDialog(it,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    calendar.set(Calendar.YEAR, year)
-                    calendar.set(Calendar.MONTH, month)
-                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
-                    edt_choose_date_car.setText(dateFormat)
-                    DATE = dateFormat
-                    edt_choose_date_car.error = null
-                }, year, month, date)
+                DatePickerDialog(
+                    it,
+                    DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                        calendar.set(Calendar.YEAR, year)
+                        calendar.set(Calendar.MONTH, month)
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                        val dateFormat = SimpleDateFormat(
+                            "dd-MM-yyyy",
+                            Locale.getDefault()
+                        ).format(calendar.time)
+                        edt_choose_date_car.setText(dateFormat)
+                        DATE = dateFormat
+                        edt_choose_date_car.error = null
+                    },
+                    year,
+                    month,
+                    date
+                )
             }
-        datePicker?.datePicker?.minDate = System.currentTimeMillis() + 1*24*60*60*1000L
+        datePicker?.datePicker?.minDate = System.currentTimeMillis() + 1 * 24 * 60 * 60 * 1000L
         datePicker?.show()
 
     }
 
-    private fun chooseDuration(){
+    private fun chooseDuration() {
         val items = listOf(
             SheetSelectionItem("1", "1 Hari", R.drawable.ic_queue),
             SheetSelectionItem("2", "2 Hari", R.drawable.ic_queue),
@@ -121,7 +128,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         }
     }
 
-    private fun chooseTime(){
+    private fun chooseTime() {
         val items = listOf(
             SheetSelectionItem("1", "01:00", R.drawable.ic_clock_black),
             SheetSelectionItem("2", "02:00", R.drawable.ic_clock_black),
@@ -163,10 +170,10 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         }
     }
 
-    private fun chooseDriver(){
+    private fun chooseDriver() {
         val items = listOf(
-            SheetSelectionItem("1", "Tanpa Sopir", R.drawable.ic_steering_wheel),
-            SheetSelectionItem("2", "Dengan Sopir", R.drawable.ic_driver)
+            SheetSelectionItem("1", "Tanpa Sopir", R.drawable.ic_steering_wheel)
+//            SheetSelectionItem("2", "Dengan Sopir", R.drawable.ic_driver)
         )
 
         context?.let {
@@ -184,39 +191,67 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         }
     }
 
-    private fun cariMobil(){
+    private fun cariMobil() {
         val date = edt_choose_date_car.text.toString().trim()
         val duration = edt_choose_duration_car.text.toString().trim()
         val time = edt_choose_time_car.text.toString().trim()
         val driver = edt_choose_driver_car.text.toString().trim()
 
-        if (date.isEmpty()){
+        if (date.isEmpty()) {
             edt_choose_date_car.error = "Pemilihan tanggal penyewaan tidak boleh kosong!"
-            context?.let { Toasty.error(it, "Pemilihan tanggal penyewaan tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            context?.let {
+                Toasty.error(
+                    it,
+                    "Pemilihan tanggal penyewaan tidak boleh kosong!",
+                    Toast.LENGTH_SHORT,
+                    true
+                ).show()
+            }
             return
         }
 
-        if (duration.isEmpty()){
+        if (duration.isEmpty()) {
             edt_choose_duration_car.error = "Pemilihan durasi penyewaan tidak boleh kosong!"
-            context?.let { Toasty.error(it, "Pemilihan durasi penyewaan tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            context?.let {
+                Toasty.error(
+                    it,
+                    "Pemilihan durasi penyewaan tidak boleh kosong!",
+                    Toast.LENGTH_SHORT,
+                    true
+                ).show()
+            }
             return
         }
 
-        if (time.isEmpty()){
+        if (time.isEmpty()) {
             edt_choose_time_car.error = "Pemilihan jam penyewaan tidak boleh kosong!"
-            context?.let { Toasty.error(it, "Pemilihan jam penyewaan tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            context?.let {
+                Toasty.error(
+                    it,
+                    "Pemilihan jam penyewaan tidak boleh kosong!",
+                    Toast.LENGTH_SHORT,
+                    true
+                ).show()
+            }
             return
         }
 
-        if (driver.isEmpty()){
+        if (driver.isEmpty()) {
             edt_choose_driver_car.error = "Pemilihan drive tidak boleh kosong!"
-            context?.let { Toasty.error(it, "Pemilihan drive tidak boleh kosong!", Toast.LENGTH_SHORT, true ).show() }
+            context?.let {
+                Toasty.error(
+                    it,
+                    "Pemilihan drive tidak boleh kosong!",
+                    Toast.LENGTH_SHORT,
+                    true
+                ).show()
+            }
             return
         }
 
         if (date.isNotEmpty() && duration.isNotEmpty() && time.isNotEmpty() && driver.isNotEmpty()
             && DATE != null && DURATION != null && TIME != null && DRIVER != null
-        ){
+        ) {
             covertDateToTimeMilis()
             val toReadyCard = DateBookingFragmentDirections
                 .actionNavigationDateBookingCarFragmentToNavigationReadyCarFragment()
@@ -233,13 +268,13 @@ class DateBookingFragment : Fragment(), View.OnClickListener{
         }
     }
 
-    private fun covertDateToTimeMilis(){
+    private fun covertDateToTimeMilis() {
         val dateTime = "$DATE $TIME"
         val formater = SimpleDateFormat("dd-MM-yyyy hh:mm")
-        val dates =  formater.parse(dateTime)
-        val duration= DURATION
+        val dates = formater.parse(dateTime)
+        val duration = DURATION
         STARTDATE = dates?.time
-        if (duration != null){
+        if (duration != null) {
             ENDDATE = STARTDATE?.plus(duration * 24 * 60 * 60 * 1000L)
         }
         Log.d("DatesTest dateandtime", "$dates")

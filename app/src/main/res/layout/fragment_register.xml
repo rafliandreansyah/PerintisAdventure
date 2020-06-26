@@ -3,14 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.fragment.register.RegisterFragment">
-
-    <ProgressBar
-        android:id="@+id/loading_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,6 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="24dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,7 +23,7 @@
                 android:textSize="25sp"
                 android:layout_gravity="center"
                 android:text="@string/registrasi"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="24dp" />
 
             <ImageView
                 android:layout_width="241dp"
@@ -112,7 +107,7 @@
                 style="@style/TextPrimary"
                 android:visibility="invisible"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/colorRed"/>
+                android:textColor="@color/colorRed" />
 
             <Button
                 android:id="@+id/btn_register"
@@ -121,7 +116,7 @@
                 android:text="@string/registrasi"
                 android:layout_marginTop="16dp"
                 style="@style/ButtonPrimary"
-                android:layout_marginHorizontal="73dp"/>
+                android:layout_marginHorizontal="73dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -129,12 +124,13 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:layout_marginTop="26dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:text="@string/sudah_punya_akun"
-                    style="@style/TextPrimary"/>
+                    style="@style/TextPrimary" />
 
                 <TextView
                     android:id="@+id/tv_tologin"
@@ -143,8 +139,24 @@
                     android:text="@string/login"
                     android:textSize="14sp"
                     android:layout_marginStart="4dp"
-                    style="@style/TextSecondaryBold"/>
+                    style="@style/TextSecondaryBold" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:id="@+id/loading_background_register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="@drawable/background_loading"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_register"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_loop="true"/>
 </FrameLayout>

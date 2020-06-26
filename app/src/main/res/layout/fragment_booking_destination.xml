@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:text="Pilih Destinasimu"
             style="@style/TextPrimaryBold"
-            android:textSize="22sp" 
-            android:layout_marginStart="16dp"/>
+            android:textSize="22sp"
+            android:layout_marginStart="16dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,22 +35,23 @@
                 app:shape_roundRect_bottomRightRadius="20dp"
                 app:shape_roundRect_topLeftRadius="20dp"
                 app:shape_roundRect_topRightRadius="20dp"
-                android:layout_marginVertical="16dp"
-                >
-                
+                android:layout_marginVertical="16dp">
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/kebuh_teh_wonosari"
-                        android:scaleType="centerCrop"
-                        />
+                        android:scaleType="centerCrop" />
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/background_gradient"/>
+                        android:src="@drawable/background_gradient" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -62,12 +63,14 @@
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
+
                             <ImageView
                                 android:id="@+id/ic_map"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_centerVertical="true"
-                                android:src="@drawable/ic_maps_and_flags_white"/>
+                                android:src="@drawable/ic_maps_and_flags_white" />
+
                             <TextView
                                 android:id="@+id/tv_location_item_tour"
                                 android:layout_width="wrap_content"
@@ -78,7 +81,7 @@
                                 android:layout_centerVertical="true"
                                 android:text="Kebun Teh Wonosari"
                                 style="@style/TextPrimary"
-                                android:textColor="@color/colorPrimary"/>
+                                android:textColor="@color/colorPrimary" />
                         </RelativeLayout>
 
                         <TextView
@@ -89,7 +92,7 @@
                             android:text="Rp 550000"
                             style="@style/TextPrimaryBold"
                             android:textColor="@color/colorOrange"
-                            android:layout_marginTop="8dp"/>
+                            android:layout_marginTop="8dp" />
                     </LinearLayout>
                 </FrameLayout>
 

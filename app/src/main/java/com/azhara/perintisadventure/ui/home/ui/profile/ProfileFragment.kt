@@ -1,6 +1,5 @@
 package com.azhara.perintisadventure.ui.home.ui.profile
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,8 +22,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-        loading(true)
         profileViewModel.getData()
+        loadingShimmer(true)
     }
 
     override fun onCreateView(
@@ -37,32 +36,43 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        profileViewModel = ViewModelProvider(this, ViewModelProvider
-            .NewInstanceFactory()).get(ProfileViewModel::class.java)
+        profileViewModel = ViewModelProvider(
+            this, ViewModelProvider
+                .NewInstanceFactory()
+        ).get(ProfileViewModel::class.java)
 
         btn_edit_profile.setOnClickListener(this)
         btn_logout.setOnClickListener(this)
         getDataUser()
     }
 
-    private fun getDataUser(){
-        profileViewModel.dataUser().observe(viewLifecycleOwner, Observer { data->
-            if (data != null){
+    private fun getDataUser() {
+        profileViewModel.dataUser().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null) {
                 tv_name_profile.text = data.name
                 tv_email_profile.text = data.email
                 tv_phone_profile.text = data.phone
                 activity?.let { Glide.with(it).load(data.imgUrl).into(img_profile) }
-                loading(false)
-            }else{
-                context?.let { Toasty.error(it, "Data Data tidak dapat dimuat!", Toast.LENGTH_LONG, true).show() }
+                loadingShimmer(false)
+            } else {
+                loadingShimmer(false)
+                context?.let {
+                    Toasty.error(
+                        it,
+                        "Data Data tidak dapat dimuat!",
+                        Toast.LENGTH_LONG,
+                        true
+                    ).show()
+                }
             }
         })
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.btn_edit_profile -> {
-                view?.findNavController()?.navigate(R.id.action_navigation_profile_to_navigation_user_edit_profile)
+                view?.findNavController()
+                    ?.navigate(R.id.action_navigation_profile_to_navigation_user_edit_profile)
             }
             R.id.btn_logout -> {
                 profileViewModel.signOut()
@@ -72,17 +82,18 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun loading(state: Boolean){
-        if (state){
-            loading_profile.visibility = View.VISIBLE
-        }else{
-            loading_profile.visibility = View.GONE
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_profile.startShimmer()
+            img_container_profile.visibility = View.INVISIBLE
+            card_profile.visibility = View.INVISIBLE
+            shimmer_profile.visibility = View.VISIBLE
+        } else {
+            img_container_profile.visibility = View.VISIBLE
+            card_profile.visibility = View.VISIBLE
+            shimmer_profile.visibility = View.INVISIBLE
+            shimmer_profile.stopShimmer()
         }
     }
 
-    private fun toastSuccess(msg: String){
-        if (msg != "null"){
-            context?.let { Toasty.success(it, msg, Toast.LENGTH_LONG, true).show() }
-        }
-    }
 }

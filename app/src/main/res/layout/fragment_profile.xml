@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.github.florent37.shapeofview.shapes.CircleView
             android:id="@+id/img_container_profile"
             android:layout_width="100dp"
@@ -28,6 +29,7 @@
                 android:src="@drawable/profile_picture_default" />
 
         </com.github.florent37.shapeofview.shapes.CircleView>
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_profile"
@@ -135,6 +137,18 @@
 
         </androidx.cardview.widget.CardView>
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include layout="@layout/profile_shimmer" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -169,12 +183,5 @@
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ProgressBar
-        android:id="@+id/loading_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
 
 </FrameLayout>

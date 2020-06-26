@@ -2,33 +2,24 @@ package com.azhara.perintisadventure.ui.home.ui.bookingcar
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.Car
 import com.azhara.perintisadventure.ui.home.ui.bookingcar.adapter.CarAdapter
-import com.google.firebase.Timestamp
-import kotlinx.android.synthetic.main.fragment_profile.view.*
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_ready_car.*
-import java.text.SimpleDateFormat
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class ReadyCarFragment : Fragment(){
+class ReadyCarFragment : Fragment() {
 
     private lateinit var bookingCarViewModel: BookingCarViewModel
     private lateinit var carAdapter: CarAdapter
@@ -41,8 +32,14 @@ class ReadyCarFragment : Fragment(){
         return inflater.inflate(R.layout.fragment_ready_car, container, false)
     }
 
+    override fun onStart() {
+        super.onStart()
+        loadingShimmer(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.tv_title_toolbar?.text = "Ready Car"
         val dataStartDate = ReadyCarFragmentArgs.fromBundle(arguments as Bundle).startDate
         val dataEndtDate = ReadyCarFragmentArgs.fromBundle(arguments as Bundle).endDate
         val dataDuration = ReadyCarFragmentArgs.fromBundle(arguments as Bundle).duration
@@ -52,31 +49,38 @@ class ReadyCarFragment : Fragment(){
         Log.d("dataSafeArgs", "$dataDuration")
         Log.d("dataSafeArgs", dataDriver)
 
-        bookingCarViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingCarViewModel::class.java]
+        bookingCarViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[BookingCarViewModel::class.java]
         bookingCarViewModel.getDataCar()
         dataCarFilter(dataStartDate, dataEndtDate, dataDuration, dataDriver)
         carAdapter = CarAdapter()
-        with(rv_ready_car){
+        with(rv_ready_car) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = carAdapter
         }
-
     }
 
-    private fun dataCarFilter(startDateData: Long?, endDateData: Long?, durationData: Long?, driverData: String?){
-        bookingCarViewModel.dataCar().observe(viewLifecycleOwner, Observer { data->
-            if (data != null){
+    private fun dataCarFilter(
+        startDateData: Long?,
+        endDateData: Long?,
+        durationData: Long?,
+        driverData: String?
+    ) {
+        bookingCarViewModel.dataCar().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null) {
                 val car = data.filter { car ->
-                            (car.booked?.all {
-                                (it.startDate?.seconds != startDateData && it.endDate?.seconds != endDateData) &&
-                                        it.endDate?.seconds != startDateData &&
-                                        it.startDate?.seconds != endDateData &&
-                                        !(it.startDate?.seconds!! < startDateData!! && it.endDate?.seconds!! > endDateData!!) &&
-                                        !(it.startDate?.seconds!! > startDateData && it.startDate?.seconds!! < endDateData!!) &&
-                                        !(it.endDate?.seconds!! > startDateData && it.endDate?.seconds!! < endDateData!!) &&
-                                        !(it.startDate?.seconds!! > startDateData && it.endDate?.seconds!! < endDateData!!)
-                            }!!)
+                    (car.booked?.all {
+                        (it.startDate?.seconds != startDateData && it.endDate?.seconds != endDateData) &&
+                                it.endDate?.seconds != startDateData &&
+                                it.startDate?.seconds != endDateData &&
+                                !(it.startDate?.seconds!! < startDateData!! && it.endDate?.seconds!! > endDateData!!) &&
+                                !(it.startDate?.seconds!! > startDateData && it.startDate?.seconds!! < endDateData!!) &&
+                                !(it.endDate?.seconds!! > startDateData && it.endDate?.seconds!! < endDateData!!) &&
+                                !(it.startDate?.seconds!! > startDateData && it.endDate?.seconds!! < endDateData!!)
+                    }!!)
 
                 }
                 car.forEach { data ->
@@ -87,14 +91,21 @@ class ReadyCarFragment : Fragment(){
                 Log.d("ReadyCar Car", "$car")
                 carAdapter.submitList(car)
                 progressBooking(startDateData, endDateData, durationData, driverData)
+                loadingShimmer(false)
             }
+
         })
 
     }
 
-    private fun progressBooking(startDateData: Long?, endDateData: Long?, durationData: Long?, driverData: String?){
-        carAdapter.setOnItemClickCallBack(object : CarAdapter.OnItemClickCallBack{
-            override fun onItemClick(car: Car) {
+    private fun progressBooking(
+        startDateData: Long?,
+        endDateData: Long?,
+        durationData: Long?,
+        driverData: String?
+    ) {
+        carAdapter.setOnItemClickCallBack(object : CarAdapter.OnItemClickCallBack {
+            override fun onItemClick(car: Car?) {
                 val detailCar = ReadyCarFragmentDirections
                     .actionNavigationReadyCarFragmentToNavigationDetailCarBookingFragment()
                 if (startDateData != null && endDateData != null && driverData != null && durationData != null) {
@@ -103,20 +114,34 @@ class ReadyCarFragment : Fragment(){
                     detailCar.driver = driverData
                     detailCar.duration = durationData
                 }
-                detailCar.capacity = car.capacity!!
+                detailCar.capacity = car?.capacity!!
                 detailCar.carYear = car.year!!
                 detailCar.price = car.price!!
                 detailCar.gear = car.gear!!
                 detailCar.imageCar = car.imgUrl!!
                 detailCar.partnerId = car.partnerId!!
                 detailCar.carId = car.carId!!
+                detailCar.carName = car.carName!!
+                detailCar.luggage = car.luggage!!
 
-                if (car.carId != null){
+                if (car.carId != null) {
                     view?.findNavController()?.navigate(detailCar)
                 }
             }
 
         })
+    }
+
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_ready_car.startShimmer()
+            shimmer_ready_car.visibility = View.VISIBLE
+            rv_ready_car.visibility = View.INVISIBLE
+        } else {
+            shimmer_ready_car.visibility = View.INVISIBLE
+            rv_ready_car.visibility = View.VISIBLE
+            shimmer_ready_car.stopShimmer()
+        }
     }
 
 //    private fun convertToLocalDate(){

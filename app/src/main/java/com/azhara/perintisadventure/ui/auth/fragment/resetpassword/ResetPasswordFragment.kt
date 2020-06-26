@@ -1,14 +1,13 @@
 package com.azhara.perintisadventure.ui.auth.fragment.resetpassword
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-
 import com.azhara.perintisadventure.R
 import kotlinx.android.synthetic.main.fragment_reset_password.*
 
@@ -30,34 +29,38 @@ class ResetPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        resetPasswordViewModel = ViewModelProvider(this,
-            ViewModelProvider.NewInstanceFactory())[ResetPasswordViewModel::class.java]
+        resetPasswordViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[ResetPasswordViewModel::class.java]
 
         btn_reset.setOnClickListener {
+            btn_reset.isEnabled = false
             reset()
         }
         resetState()
     }
 
-    private fun reset(){
+    private fun reset() {
         loading(true)
         val email = edt_reset_email.text.toString().trim()
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             loading(false)
             edt_reset_email.error = "Kolom Email Tidak Boleh Kosong!"
         }
 
-        if (email.isNotEmpty()){
+        if (email.isNotEmpty()) {
             resetPasswordViewModel.resetPassword(email)
         }
     }
 
-    private fun resetState(){
+    private fun resetState() {
         resetPasswordViewModel.resetPasswordState().observe(viewLifecycleOwner, Observer { state ->
-            if (state == true){
+            if (state == true) {
                 loading(false)
-                view?.findNavController()?.navigate(R.id.action_resetPasswordFragment_to_resetSuccessFragment)
-            }else{
+                view?.findNavController()
+                    ?.navigate(R.id.action_resetPasswordFragment_to_resetSuccessFragment)
+            } else {
                 loading(false)
                 tv_reset_error.visibility = View.VISIBLE
                 tv_reset_error.text = resetPasswordViewModel.errorMessage
@@ -65,11 +68,16 @@ class ResetPasswordFragment : Fragment() {
         })
     }
 
-    private fun loading(state: Boolean){
-        if (state){
+    private fun loading(state: Boolean) {
+        if (state) {
+            loading_background_reset_password.visibility = View.VISIBLE
             loading_reset_password.visibility = View.VISIBLE
-        }else{
-            loading_reset_password.visibility = View.GONE
+            loading_reset_password.playAnimation()
+        } else {
+            loading_background_reset_password.visibility = View.INVISIBLE
+            loading_reset_password.visibility = View.INVISIBLE
+            loading_reset_password.cancelAnimation()
+            btn_reset.isEnabled = true
         }
     }
 

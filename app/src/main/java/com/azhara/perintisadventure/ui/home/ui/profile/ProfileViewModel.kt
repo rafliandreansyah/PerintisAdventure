@@ -16,7 +16,7 @@ import com.google.firebase.storage.UploadTask
 class ProfileViewModel : ViewModel() {
 
     private val firebaseAuth = FirebaseAuth.getInstance()
-    private val db =  FirebaseFirestore.getInstance()
+    private val db = FirebaseFirestore.getInstance()
     private val storage = FirebaseStorage.getInstance()
 
     private val dataUserProfile = MutableLiveData<User>()
@@ -30,10 +30,10 @@ class ProfileViewModel : ViewModel() {
     private val className = ProfileViewModel::class.java.simpleName
 
     // Get data user from firebase
-    fun getData(){
+    fun getData() {
         user?.uid?.let {
             db.collection("users").document(it).get().addOnSuccessListener { doc ->
-                if (doc != null){
+                if (doc != null) {
                     val data = doc.toObject(User::class.java)
                     dataUserProfile.postValue(data)
                 }
@@ -43,11 +43,12 @@ class ProfileViewModel : ViewModel() {
 
         }
     }
+
     // Value of data user (ProfileFragment)
     fun dataUser(): LiveData<User> = dataUserProfile
 
     // Edit data user firebase
-    private fun editDataUser(name: String?, email:String?, phone:String?, urlImg: String?){
+    private fun editDataUser(name: String?, email: String?, phone: String?, urlImg: String?) {
         val data = hashMapOf<String?, Any?>(
             "name" to name,
             "email" to email,
@@ -61,16 +62,16 @@ class ProfileViewModel : ViewModel() {
                     editMsg.postValue("Data berhasil di update")
                 }.addOnFailureListener { e ->
                     Log.e(className, "email: ${user.email}, editDataUser, ${e.message}")
-                    if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+                    if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred.") {
                         editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
-                    }else{
+                    } else {
                         editMsg.postValue(e.message)
                     }
                 }
         }
     }
 
-    fun editDataUserWithOutPhoto(name: String?, email:String?, phone:String?){
+    fun editDataUserWithOutPhoto(name: String?, email: String?, phone: String?) {
         val data = hashMapOf<String?, Any?>(
             "name" to name,
             "email" to email,
@@ -82,10 +83,13 @@ class ProfileViewModel : ViewModel() {
                     Log.d(className, "Data Update")
                     editMsg.postValue("Data berhasil di update")
                 }.addOnFailureListener { e ->
-                    Log.e(className, "email: ${user.email}, editDataUserWithOutPhoto, exception: ${e.message}")
-                    if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+                    Log.e(
+                        className,
+                        "email: ${user.email}, editDataUserWithOutPhoto, exception: ${e.message}"
+                    )
+                    if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred.") {
                         editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
-                    }else{
+                    } else {
                         editMsg.postValue(e.message)
                     }
                 }
@@ -93,17 +97,20 @@ class ProfileViewModel : ViewModel() {
     }
 
     // change password firebase (ChangePasswordFragment)
-    fun changePassword(oldPassword: String, newPassword:String){
+    fun changePassword(oldPassword: String, newPassword: String) {
         val credential = user?.email?.let { EmailAuthProvider.getCredential(it, oldPassword) }
         if (credential != null) {
             user?.reauthenticate(credential)?.addOnSuccessListener {
                 Log.d(className, "email: ${user.email} Success authenticated")
                 user.updatePassword(newPassword).addOnCompleteListener { task ->
-                    if (task.isSuccessful){
+                    if (task.isSuccessful) {
                         Log.d(className, "email:${user.email} Success Update password")
                         changePasswordMsg.postValue("Password berhasil di update")
-                    }else{
-                        Log.e(className, "email: ${user.email}, changePassword, exception: ${task.exception?.message}")
+                    } else {
+                        Log.e(
+                            className,
+                            "email: ${user.email}, changePassword, exception: ${task.exception?.message}"
+                        )
                         changePasswordMsg.postValue(task.exception?.message)
                     }
                 }
@@ -121,38 +128,44 @@ class ProfileViewModel : ViewModel() {
         }
 
     }
+
     //Edit data user function firbase (EditProfileFragment)
-    fun editDataAndImgUser(byteArrayImg: ByteArray, name: String?, email:String?, phone:String?){
-        val imgStorage = user?.uid?.let { storage.reference.child("users")
-            .child(it).child(user.uid) }
-        if (imgStorage != null){
+    fun editDataAndImgUser(byteArrayImg: ByteArray, name: String?, email: String?, phone: String?) {
+        val imgStorage = user?.uid?.let {
+            storage.reference.child("users")
+                .child(it).child(user.uid)
+        }
+        if (imgStorage != null) {
             imgStorage.delete()
         }
         storageTask = imgStorage?.putBytes(byteArrayImg) //Upload with putBytes
         Log.d("byteArrayImg", "$byteArrayImg")
         storageTask?.addOnFailureListener { e ->
             Log.e(className, "${user?.email} ${e.message}")
-            if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+            if (e.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred.") {
                 editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
-            }else{
+            } else {
                 editMsg.postValue(e.message)
             }
         }?.addOnSuccessListener {
-            (storageTask as UploadTask).continueWithTask{ task ->
-                if (!task.isSuccessful){
-                    Log.e(className, "email: ${user?.email}, editDataAndImgUser, exception: ${task.exception?.message}")
+            (storageTask as UploadTask).continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    Log.e(
+                        className,
+                        "email: ${user?.email}, editDataAndImgUser, exception: ${task.exception?.message}"
+                    )
                     editMsg.postValue(task.exception?.message)
                 }
                 imgStorage?.downloadUrl
-            }.addOnCompleteListener {task ->
-                if(task.isSuccessful){
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
                     val urlImg = task.result
                     editDataUser(name, email, phone, urlImg.toString())
-                }else{
+                } else {
                     Log.d(className, "${user?.email} ${task.exception?.message}")
-                    if (task.exception?.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+                    if (task.exception?.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred.") {
                         editMsg.postValue("Kesalahan jaringan, silahkan cek jaringan anda!")
-                    }else{
+                    } else {
                         editMsg.postValue(task.exception?.message)
                     }
                 }
@@ -164,7 +177,7 @@ class ProfileViewModel : ViewModel() {
     fun changePassMessage(): LiveData<String> = changePasswordMsg
 
     // sign out (ProfileFragment)
-    fun signOut(){
+    fun signOut() {
         firebaseAuth.signOut()
     }
 }

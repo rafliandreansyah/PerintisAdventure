@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_list_booking"
+    style="@style/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:padding="16dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item_list_booking_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Pemesanan Sewa Mobil"
+                style="@style/TextPrimaryBold"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/ic_list_booking"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_shopping_list"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/list_booking_icon" />
+
+                <TextView
+                    android:id="@+id/tv_item_list_booking_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_list_booking"
+                    android:layout_marginStart="8dp"
+                    android:textSize="16sp"
+                    style="@style/TextPrimary"
+                    tools:text="Avanza Veloz"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_item_list_booking_status_payment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Menunggu Pembayaran"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/background_color_orange"
+                android:paddingVertical="4dp"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="20dp"
+                style="@style/TextPrimary"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item_list_booking_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="20-12-2020"
+                android:layout_gravity="end"
+                style="@style/TextPrimary"/>
+
+            <TextView
+                android:id="@+id/tv_item_list_booking_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Rp. 250000"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                style="@style/TextPrimaryBold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

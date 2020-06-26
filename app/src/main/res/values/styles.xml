@@ -43,7 +43,7 @@
         <item name="android:textColorHint">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorText</item>
     </style>
-    
+
     <style name="ButtonPrimary">
         <item name="android:background">@drawable/background_button</item>
         <item name="android:fontFamily">@font/pt_sans_regular1</item>
@@ -88,33 +88,6 @@
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="cardRound">
-        <item name="cardElevation">5dp</item>
-        <item name="cardCornerRadius">20dp</item>
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
-        <item name="android:foreground">?android:attr/selectableItemBackground</item>
-    </style>
-
-    <style name="Widget.Custom.SheetSelection.Title" parent="@style/Widget.SheetSelection.Title">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline5</item>
-    </style>
-
-    <style name="Widget.Custom.SheetSelection.Item" parent="@style/Widget.SheetSelection.Item">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Caption</item>
-        <item name="drawableTint">@color/colorText</item>
-    </style>
-
-    <style name="Widget.Custom.SheetSelection.Indicator" parent="@style/Widget.SheetSelection.Indicator">
-        <item name="android:layout_marginTop">48dp</item>
-    </style>
-
     <!-- Customize SheetSelection theme -->
-    <style name="Theme.Custom.SheetSelection" parent="@style/Theme.SheetSelection">
-        <item name="sheetSelection_titleStyle">@style/Widget.Custom.SheetSelection.Title</item>
-        <item name="sheetSelection_itemStyle">@style/Widget.Custom.SheetSelection.Item</item>
-        <item name="sheetSelection_indicatorStyle">@style/Widget.Custom.SheetSelection.Indicator</item>
-        <item name="sheetSelection_indicatorColor">@color/colorAccent</item>
-    </style>
 
 </resources>

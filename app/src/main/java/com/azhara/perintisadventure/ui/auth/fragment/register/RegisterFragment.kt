@@ -1,16 +1,14 @@
 package com.azhara.perintisadventure.ui.auth.fragment.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-
 import com.azhara.perintisadventure.R
-import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_register.*
 
 /**
@@ -34,17 +32,21 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         tv_tologin.setOnClickListener(this)
         btn_register.setOnClickListener(this)
 
-        registerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[RegisterViewModel::class.java]
+        registerViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[RegisterViewModel::class.java]
 
         stateRegister()
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.tv_tologin -> {
                 view?.findNavController()?.navigate(R.id.action_global_register_to_loginFragment)
             }
             R.id.btn_register -> {
+                btn_register.isEnabled = false
                 register()
             }
         }
@@ -58,57 +60,64 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         val password = edt_register_password.text.toString().trim()
         val passwordConfirm = edt_register_password_confirm.text.toString().trim()
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             loading(false)
             edt_register_email.error = "Kolom Email tidak boleh kosong!"
         }
 
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             loading(false)
             edt_register_name.error = "Kolom Nama tidak boleh kosong!"
         }
 
-        if (phone.isEmpty()){
+        if (phone.isEmpty()) {
             loading(false)
             edt_register_phone_number.error = "No. Telephone tidak boleh kosong!"
         }
 
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             loading(false)
             edt_register_password.error = "Password tidak boleh kosong!"
         }
 
-        if (passwordConfirm.isEmpty()){
+        if (passwordConfirm.isEmpty()) {
             loading(false)
             edt_register_password_confirm.error = "Konfirmasi Password tidak boleh kosong!"
         }
 
-        if (password != passwordConfirm){
+        if (password != passwordConfirm) {
             loading(false)
             edt_register_password_confirm.error = "Password tidak sama!"
         }
 
         if (email.isNotEmpty() && name.isNotEmpty() && phone.isNotEmpty()
             && password.isNotEmpty() && passwordConfirm.isNotEmpty()
-            && password == passwordConfirm){
+            && password == passwordConfirm
+        ) {
             registerViewModel.register(email, name, phone, password)
         }
     }
 
-    private fun loading(state: Boolean){
-        if (state){
+    private fun loading(state: Boolean) {
+        if (state) {
+            loading_background_register.visibility = View.VISIBLE
             loading_register.visibility = View.VISIBLE
-        }else{
-            loading_register.visibility = View.GONE
+            loading_register.playAnimation()
+        } else {
+            loading_background_register.visibility = View.INVISIBLE
+            loading_register.visibility = View.INVISIBLE
+            loading_register.cancelAnimation()
+            btn_register.isEnabled = true
         }
     }
 
-    private fun stateRegister(){
+    private fun stateRegister() {
         registerViewModel.stateRegister().observe(viewLifecycleOwner, Observer { state ->
-            if (state){
+            if (state) {
                 loading(false)
-                view?.findNavController()?.navigate(R.id.action_registerFragment_to_successRegisterFragment)
-            }else{
+                view?.findNavController()
+                    ?.navigate(R.id.action_registerFragment_to_successRegisterFragment)
+            } else {
                 loading(false)
                 tv_error_register.visibility = View.VISIBLE
                 tv_error_register.text = registerViewModel.errorMessage

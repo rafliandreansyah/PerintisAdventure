@@ -2,13 +2,12 @@ package com.azhara.perintisadventure.ui.home
 
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.azhara.perintisadventure.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -23,56 +22,103 @@ class HomeActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_booked,
-                R.id.navigation_profile, R.id.navigation_user_edit_profile,
-                R.id.navigation_change_password
+                R.id.navigation_home,
+                R.id.navigation_booked,
+                R.id.navigation_profile,
+                R.id.navigation_user_edit_profile,
+                R.id.navigation_change_password,
+                R.id.navigation_date_booking_car_fragment,
+                R.id.navigation_ready_car_fragment,
+                R.id.navigation_detail_car_booking_fragment,
+                R.id.navigation_payment
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         toolbar_home.setupWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+        actionBar?.setDisplayShowHomeEnabled(false)
 
-        navController.addOnDestinationChangedListener{_, destination, _ ->
-            if (destination.id == R.id.navigation_home){
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.navigation_home) {
                 navView.visibility = View.VISIBLE
                 tv_title_toolbar.visibility = View.GONE
                 btn_back.visibility = View.GONE
                 img_toolbar_home.visibility = View.VISIBLE
             }
-            if (destination.id == R.id.navigation_booked){
+            if (destination.id == R.id.navigation_booked) {
                 navView.visibility = View.VISIBLE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Pesanan"
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.GONE
             }
-            if (destination.id == R.id.navigation_profile){
+            if (destination.id == R.id.navigation_profile) {
                 navView.visibility = View.VISIBLE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Profil"
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.GONE
             }
-            if (destination.id == R.id.navigation_user_edit_profile){
+            if (destination.id == R.id.navigation_user_edit_profile) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.text = "Edit profil"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.VISIBLE
-                btn_back.setOnClickListener{
+                btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
 
-            if (destination.id == R.id.navigation_change_password){
+            if (destination.id == R.id.navigation_change_password) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.text = "Password"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.VISIBLE
-                btn_back.setOnClickListener{
+                btn_back.setOnClickListener {
                     onBackPressed()
                 }
+            }
+
+            if (destination.id == R.id.navigation_date_booking_car_fragment) {
+                navView.visibility = View.GONE
+//                tv_title_toolbar.text = "Password"
+                tv_title_toolbar.visibility = View.VISIBLE
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.navigation_ready_car_fragment) {
+                navView.visibility = View.GONE
+//                tv_title_toolbar.text = "Password"
+                tv_title_toolbar.visibility = View.VISIBLE
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+
+            if (destination.id == R.id.navigation_detail_car_booking_fragment) {
+                navView.visibility = View.GONE
+//                tv_title_toolbar.text = "Password"
+                tv_title_toolbar.visibility = View.VISIBLE
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+
+            if (destination.id == R.id.navigation_payment) {
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.INVISIBLE
             }
         }
 

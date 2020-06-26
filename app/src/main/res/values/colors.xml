@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#BDBDBD</color>
     <color name="colorAccent">#6FBFCA</color>
     <color name="colorAccentDark">#2F909D</color>
-    <color name="colorBlack">#000000</color>
     <color name="colorText">#505050</color>
     <color name="colorTextSecondary">#959595</color>
     <color name="colorLightGrey">#F5F5F5</color>
@@ -13,4 +12,5 @@
     <color name="colorSuccess">#4CAF50</color>
     <color name="colorGrey">#D5D5D5</color>
     <color name="colorGreyDisabled">#EAEAEA</color>
+    <color name="colorYellow">#FFC107</color>
 </resources>

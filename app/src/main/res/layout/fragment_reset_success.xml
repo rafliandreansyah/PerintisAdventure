@@ -13,7 +13,7 @@
         android:textSize="25sp"
         android:layout_gravity="center"
         android:text="@string/berhasil_dikirim"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp" />
 
     <ImageView
         android:layout_width="220dp"
@@ -32,7 +32,7 @@
         android:textSize="20sp"
         android:layout_gravity="center"
         android:text="@string/silahkan_cek_email_untuk_reset_password_anda"
-        android:layout_marginTop="55dp"/>
+        android:layout_marginTop="55dp" />
 
     <Button
         android:id="@+id/btn_kembali_login"
@@ -41,6 +41,6 @@
         android:text="@string/kembali_login"
         android:layout_marginTop="50dp"
         style="@style/ButtonPrimary"
-        android:layout_marginHorizontal="73dp"/>
+        android:layout_marginHorizontal="73dp" />
 
 </LinearLayout>

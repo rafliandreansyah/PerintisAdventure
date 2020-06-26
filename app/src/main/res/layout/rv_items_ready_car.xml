@@ -1,133 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    style="@style/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="4dp"
-        style="@style/card">
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp">
+
+        <ImageView
+            android:id="@+id/img_car_item"
+            android:layout_width="140dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            tools:src="@color/colorGrey" />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="16dp">
-            <ImageView
-                android:id="@+id/img_car_item"
-                android:layout_width="140dp"
-                android:layout_height="90dp"
-                android:src="@drawable/honda_brio"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center_vertical"/>
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_car_name"
+                style="@style/TextPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="16sp"
+                tools:text="Honda Brio" />
+
+            <TextView
+                android:id="@+id/tv_car_year"
+                style="@style/TextSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                tools:text="2018" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="16dp">
-                <TextView
-                    android:id="@+id/tv_car_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/TextPrimary"
-                    android:text="Honda Brio"
-                    android:textSize="16sp"
-                    android:maxLines="1"
-                    android:ellipsize="end"/>
-                <TextView
-                    android:id="@+id/tv_car_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/TextSecondary"
-                    android:text="2018"
-                    android:layout_marginTop="4dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-                        <ImageView
-                            android:id="@+id/img_capacity"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:src="@drawable/ic_group"
-                            android:layout_centerVertical="true"/>
-                        <TextView
-                            android:id="@+id/tv_capacity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="6"
-                            android:textSize="12sp"
-                            style="@style/TextPrimary"
-                            android:layout_toEndOf="@id/img_capacity"
-                            android:layout_marginStart="8dp"
-                            android:layout_centerVertical="true"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="40dp">
-                        <ImageView
-                            android:id="@+id/img_luggage"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:src="@drawable/ic_luggage"
-                            android:layout_centerVertical="true"/>
-                        <TextView
-                            android:id="@+id/tv_luggage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2"
-                            android:textSize="12sp"
-                            style="@style/TextPrimary"
-                            android:layout_toEndOf="@id/img_luggage"
-                            android:layout_marginStart="8dp"
-                            android:layout_centerVertical="true"/>
-                    </RelativeLayout>
-
-                </LinearLayout>
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="8dp">
+
                     <ImageView
-                        android:id="@+id/img_coupling"
+                        android:id="@+id/img_capacity"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/ic_steering_wheel"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_group" />
+
                     <TextView
-                        android:id="@+id/tv_gear_ready_car"
+                        android:id="@+id/tv_capacity"
+                        style="@style/TextPrimary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Automatic"
-                        android:textSize="12sp"
-                        style="@style/TextPrimary"
-                        android:layout_toEndOf="@id/img_coupling"
+                        android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
-                        android:layout_centerVertical="true"/>
+                        android:layout_toEndOf="@id/img_capacity"
+                        android:textSize="12sp"
+                        tools:text="6" />
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/tv_price_car"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextSecondaryBold"
-                    android:text="Rp 280000 / hari"
-                    android:layout_marginTop="16dp"/>
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/img_luggage"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_luggage" />
+
+                    <TextView
+                        android:id="@+id/tv_luggage"
+                        style="@style/TextPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@id/img_luggage"
+                        android:textSize="12sp"
+                        tools:text="2" />
+                </RelativeLayout>
 
             </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/img_coupling"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_steering_wheel" />
+
+                <TextView
+                    android:id="@+id/tv_gear_ready_car"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/img_coupling"
+                    android:textSize="12sp"
+                    tools:text="Automatic" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_price_car"
+                style="@style/TextSecondaryBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="Rp 280000 / hari" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
