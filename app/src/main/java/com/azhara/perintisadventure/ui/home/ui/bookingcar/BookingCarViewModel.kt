@@ -20,6 +20,8 @@ class BookingCarViewModel : ViewModel() {
     private val checkBooking = MutableLiveData<Boolean>()
     private val bookingListId = MutableLiveData<String>()
     private val TAG = BookingCarViewModel::class.java.simpleName
+    var errorMessage: String? = null
+    private val userId = user.currentUser?.uid
 
     fun getDataCar() {
         val loadDb = db.collection("cars").whereEqualTo("statusReady", true)
@@ -85,7 +87,6 @@ class BookingCarViewModel : ViewModel() {
         partnerId: String?, carId: String?, totalPrice: Long?, startDate: Timestamp?,
         endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?
     ) {
-        val userId = user.currentUser?.uid
         val dataBookingForUser = DetailBookingCarUser(
             partnerId,
             carId,
@@ -104,36 +105,102 @@ class BookingCarViewModel : ViewModel() {
             Log.d("$TAG Set bookingCar User", "Berhasil ditambah")
             Log.d("$TAG bookingId", it.id)
 
-            userListBooking(userId, it.id, carName, totalPrice, startDate)
-            bookingDataPartner(
-                partnerId,
-                userId,
-                carId,
+
+            updateDataBookedCar(startDate, endDate, carId, partnerId,
                 it.id,
                 totalPrice,
-                startDate,
-                endDate,
                 driver,
-                pickUpArea
-            )
-            updateDataBookedCar(userId, startDate, endDate, carId)
+                pickUpArea,
+                carName)
 
         }.addOnFailureListener {
             checkBooking.postValue(false)
+            errorMessage = it.message
             Log.w("$TAG Set bookingCar User", "Gagal ditambah ${it.message}")
         }
 
     }
 
+    private fun updateDataBookedCar(
+        startDate: Timestamp?,
+        endDate: Timestamp?,
+        carId: String?,
+        partnerId: String?,
+        bookingCarUserId: String,
+        totalPrice: Long?, driver: String?,
+        pickUpArea: String?, carName: String?
+    ) {
+        val updateBookedCar = BookedDate(userId, startDate, endDate)
+
+        val carDb = db.collection("cars").document("$carId")
+        carDb.update("booked", FieldValue.arrayUnion(updateBookedCar)).addOnSuccessListener {
+            Log.d("$TAG update booked car", "Berhasil diupdate")
+            bookingDataPartner(
+                partnerId,
+                carId,
+                bookingCarUserId,
+                totalPrice,
+                startDate,
+                endDate,
+                driver,
+                pickUpArea,
+                carName
+            )
+        }.addOnFailureListener { e ->
+            checkBooking.postValue(false)
+            errorMessage = e.message
+            Log.d("$TAG update booked car", "Gagal diupdate ${e.message}")
+        }
+    }
+
+    private fun bookingDataPartner(
+        partnerId: String?, carId: String?, bookingCarUserId: String,
+        totalPrice: Long?, startDate: Timestamp?, endDate: Timestamp?, driver: String?,
+        pickUpArea: String?, carName: String?
+    ) {
+        val dataBookingPartner = BookingCar(
+            userId,
+            carId,
+            null,
+            totalPrice,
+            startDate,
+            endDate,
+            driver,
+            pickUpArea,
+            false,
+            0,
+            false,
+            null
+        )
+
+        val partner = db.collection("partners").document("$partnerId")
+            .collection("bookingCar")
+
+        partner.add(dataBookingPartner).addOnSuccessListener {
+            Log.d("$TAG Set bookingCar partner", "Berhasil ditambah")
+            val idBookingPartner = it.id
+            userListBooking(bookingCarUserId, carName, totalPrice, startDate, partnerId, idBookingPartner)
+
+        }.addOnFailureListener {
+            checkBooking.postValue(false)
+            Log.w("$TAG Set bookingCar partner", "Gagal ditambah ${it.message}")
+            errorMessage = it.message
+        }
+    }
+
     private fun userListBooking(
-        userId: String?,
         bookingId: String?,
         bookingName: String?,
         totalPrice: Long?,
-        startDate: Timestamp?
+        startDate: Timestamp?,
+        partnerId: String?,
+        bookingDbPartnerId: String?
     ) {
         val bookingList = BookingList(
+            null,
             bookingId,
+            partnerId,
+            bookingDbPartnerId,
             bookingName,
             totalPrice,
             startDate,
@@ -152,63 +219,42 @@ class BookingCarViewModel : ViewModel() {
             Log.d("$TAG Set listBooking User", "Berhasil ditambah")
             Log.d("$TAG Set listBooking User", "Id: $idList")
 
+            updateDataListIdUsers(partnerId, bookingDbPartnerId, idList)
+
         }.addOnFailureListener {
             Log.w("$TAG Set listBooking User", "Gagal ditambah ${it.message}")
+            checkBooking.postValue(false)
+            errorMessage = it.message
+        }
+    }
+
+    private fun updateDataListIdUsers(partnerId: String?, bookingDbPartnerId: String?, idList: String?){
+        val userDb = db.collection("users")
+            .document("$userId").collection("listBooking").document("$idList")
+
+        userDb.update("bookingListId", idList).addOnSuccessListener {
+            getIdListUsersToPartner(partnerId, bookingDbPartnerId, idList)
+        }.addOnFailureListener {
+            checkBooking.postValue(false)
+            errorMessage = it.message
+        }
+    }
+
+    private fun getIdListUsersToPartner(partnerId: String?, bookingDbPartnerId: String?, idList: String?){
+        val getListIdToUpdatePartnerBookingCar = db.collection("partners")
+            .document("$partnerId").collection("bookingCar").document("$bookingDbPartnerId")
+
+        getListIdToUpdatePartnerBookingCar.update("bookingListUserId", idList).addOnSuccessListener {
+            Log.d("$TAG update getListId", "Berhasil di update")
+            checkBooking.postValue(true)
+        }.addOnFailureListener { error ->
+            Log.e("$TAG update getListId", "Gagal")
+            checkBooking.postValue(false)
+            errorMessage = error.message
         }
     }
 
     fun bookingListId(): LiveData<String> = bookingListId
-
-    private fun bookingDataPartner(
-        partnerId: String?, userId: String?, carId: String?, bookingId: String,
-        totalPrice: Long?, startDate: Timestamp?, endDate: Timestamp?, driver: String?,
-        pickUpArea: String?
-    ) {
-        val dataBookingPartner = BookingCar(
-            userId,
-            carId,
-            bookingId,
-            totalPrice,
-            startDate,
-            endDate,
-            driver,
-            pickUpArea,
-            false,
-            0,
-            false,
-            null
-        )
-
-        val partner = db.collection("partners").document("$partnerId")
-            .collection("bookingCar")
-
-        partner.add(dataBookingPartner).addOnSuccessListener {
-            Log.d("$TAG Set bookingCar partner", "Berhasil ditambah")
-
-
-        }.addOnFailureListener {
-            checkBooking.postValue(false)
-            Log.w("$TAG Set bookingCar partner", "Gagal ditambah ${it.message}")
-        }
-    }
-
-    private fun updateDataBookedCar(
-        userId: String?,
-        startDate: Timestamp?,
-        endDate: Timestamp?,
-        carId: String?
-    ) {
-        val updateBookedCar = BookedDate(userId, startDate, endDate)
-
-        val carDb = db.collection("cars").document("$carId")
-        carDb.update("booked", FieldValue.arrayUnion(updateBookedCar)).addOnSuccessListener {
-            Log.d("$TAG update booked car", "Berhasil diupdate")
-            checkBooking.postValue(true)
-        }.addOnFailureListener { e ->
-            checkBooking.postValue(false)
-            Log.d("$TAG update booked car", "Gagal diupdate ${e.message}")
-        }
-    }
 
     fun checkBooking(): LiveData<Boolean> = checkBooking
 }

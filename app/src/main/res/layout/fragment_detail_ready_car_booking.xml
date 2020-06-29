@@ -757,8 +757,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_booking_car"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:visibility="invisible"
         app:lottie_loop="true"

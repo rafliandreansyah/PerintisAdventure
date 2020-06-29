@@ -1,197 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.payment.PaymentFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            style="@style/TextPrimaryBold"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="24dp"
-            android:text="@string/silahkan_transfer_pada_rekening_berikut"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            style="@style/card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp">
-
-            <LinearLayout
+            <TextView
+                style="@style/TextPrimaryBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="24dp"
+                android:text="@string/silahkan_transfer_pada_rekening_berikut"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/bri_logo"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_centerVertical="true"
-                        android:contentDescription="@string/image_logo_bank"
-                        android:src="@drawable/bri_logo" />
-
-                    <TextView
-                        android:id="@+id/tv_rekening"
-                        style="@style/TextPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="8dp"
-                        android:layout_toEndOf="@id/bri_logo"
-                        android:text="@string/no_rekening" />
-
-                    <TextView
-                        android:id="@+id/tv_no_rekening"
-                        style="@style/TextPrimaryBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="8dp"
-                        android:layout_toEndOf="@id/tv_rekening"
-                        android:text="617201014546530" />
-                </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                style="@style/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <TextView
-                        style="@style/TextPrimary"
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/bri_logo"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/image_logo_bank"
+                            android:src="@drawable/bri_logo" />
+
+                        <TextView
+                            android:id="@+id/tv_rekening"
+                            style="@style/TextPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/bri_logo"
+                            android:text="@string/no_rekening" />
+
+                        <TextView
+                            android:id="@+id/tv_no_rekening"
+                            style="@style/TextPrimaryBold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/tv_rekening"
+                            android:text="617201014546530" />
+                    </RelativeLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/kode_bank" />
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        style="@style/TextPrimaryBold"
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/kode_bank" />
+
+                        <TextView
+                            style="@style/TextPrimaryBold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="002" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="002" />
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/atas_nama" />
+
+                        <TextView
+                            style="@style/TextPrimaryBold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Perintis Adventure" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_pembayaran" />
+
+                        <TextView
+                            android:id="@+id/tv_total_price_payment"
+                            style="@style/TextPrimaryBold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/colorOrange"
+                            android:textSize="16sp"
+                            tools:text="Rp 510000" />
+                    </LinearLayout>
+
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_status_booking"
+                style="@style/TextPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/diharapkan_transfer_sesuai_total_pembayaran_diatas"
+                android:textAlignment="center" />
 
-                    <TextView
-                        style="@style/TextPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/atas_nama" />
+            <TextView
+                android:id="@+id/tv_status_upload_proof_payment"
+                style="@style/TextPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="25dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                tools:text="Bukti pembayaran belum terupload!" />
 
-                    <TextView
-                        style="@style/TextPrimaryBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Perintis Adventure" />
-                </LinearLayout>
+            <ImageView
+                android:id="@+id/img_proof_payment"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorLightGrey"
+                android:contentDescription="@string/image_proof_payment"
+                android:scaleType="fitCenter" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_choose_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/klik_untuk_upload_gambar"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccentDark" />
 
-                    <TextView
-                        style="@style/TextPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/total_pembayaran" />
+            <Button
+                android:id="@+id/btn_upload_proof_payment"
+                style="@style/ButtonPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorOrange"
+                android:text="@string/upload_bukti_pembayaran" />
 
-                    <TextView
-                        android:id="@+id/tv_total_price_payment"
-                        style="@style/TextPrimaryBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        tools:text="Rp 510000"
-                        android:textColor="@color/colorOrange"
-                        android:textSize="16sp" />
-                </LinearLayout>
+            <Button
+                android:id="@+id/btn_home"
+                style="@style/ButtonPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:layout_marginVertical="16dp"
+                android:text="@string/home" />
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_status_booking"
-            style="@style/TextPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/diharapkan_transfer_sesuai_total_pembayaran_diatas"
-            android:textAlignment="center" />
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/tv_status_upload_proof_payment"
-            style="@style/TextPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="25dp"
-            tools:text="Bukti pembayaran belum terupload!"
-            android:textAlignment="center"
-            android:textColor="@color/colorRed" />
+    <View
+        android:id="@+id/loading_background_payment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_loading"
+        android:visibility="invisible" />
 
-        <ImageView
-            android:id="@+id/img_proof_payment"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorLightGrey"
-            android:contentDescription="@string/image_proof_payment"
-            android:scaleType="fitCenter" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_payment"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
 
-        <TextView
-            android:id="@+id/tv_choose_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/klik_untuk_upload_gambar"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccentDark" />
-
-        <Button
-            android:id="@+id/btn_upload_proof_payment"
-            style="@style/ButtonPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="60dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorOrange"
-            android:text="@string/upload_bukti_pembayaran" />
-
-        <Button
-            android:id="@+id/btn_home"
-            style="@style/ButtonPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="60dp"
-            android:layout_marginVertical="16dp"
-            android:text="@string/home" />
-
-    </LinearLayout>
-
-</ScrollView>
+</FrameLayout>

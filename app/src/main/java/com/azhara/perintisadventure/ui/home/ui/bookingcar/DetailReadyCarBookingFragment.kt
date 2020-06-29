@@ -244,7 +244,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                                     context?.let {
                                         Toasty.error(
                                             it,
-                                            "Gagal booking mobil",
+                                            "${bookingCarViewModel.errorMessage}",
                                             Toast.LENGTH_LONG,
                                             true
                                         ).show()
@@ -299,7 +299,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                             context?.let {
                                 Toasty.error(
                                     it,
-                                    "Gagal booking mobil",
+                                    "${bookingCarViewModel.errorMessage}",
                                     Toast.LENGTH_LONG,
                                     true
                                 ).show()

@@ -5,7 +5,7 @@ import com.google.firebase.Timestamp
 data class BookingCar(
     var userId: String? = null,
     var carId: String? = null,
-    var bookingId: String? = null,
+    var bookingListUserId: String? = null,
     var totalPrice: Long? = null,
     var startDate: Timestamp? = null,
     var endDate: Timestamp? = null,

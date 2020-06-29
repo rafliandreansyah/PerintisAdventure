@@ -74,6 +74,7 @@ class BookingListFragment : Fragment() {
                     toPayment.imgUrlProofPayment = "${item.imgUrlProofPayment}"
                     toPayment.totalPrice = item.totalPrice!!
                     toPayment.uploadProofPayemnt = item.uploadProofPayment!!
+                    toPayment.bookingListId = item.bookingListId!!
                     view?.findNavController()?.navigate(toPayment)
                 }
                 if (item?.statusPayment == true && item.imgUrlProofPayment != null
