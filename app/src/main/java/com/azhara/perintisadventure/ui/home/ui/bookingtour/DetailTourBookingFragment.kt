@@ -10,14 +10,14 @@ import com.azhara.perintisadventure.R
 /**
  * A simple [Fragment] subclass.
  */
-class DetailDestinationFragment : Fragment() {
+class DetailTourBookingFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_destination, container, false)
+        return inflater.inflate(R.layout.fragment_detail_booking_tour, container, false)
     }
 
 }

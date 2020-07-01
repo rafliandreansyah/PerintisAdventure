@@ -88,6 +88,22 @@
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
+    <style name="card2">
+        <item name="cardElevation">10dp</item>
+        <item name="cardCornerRadius">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="card3">
+        <item name="cardElevation">15dp</item>
+        <item name="cardCornerRadius">15dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
     <!-- Customize SheetSelection theme -->
 
 </resources>

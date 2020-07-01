@@ -14,7 +14,7 @@ import com.minibugdev.sheetselection.SheetSelection
 import com.minibugdev.sheetselection.SheetSelectionItem
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_date_booking.*
+import kotlinx.android.synthetic.main.fragment_date_booking_car.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,7 +35,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_date_booking, container, false)
+        return inflater.inflate(R.layout.fragment_date_booking_car, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
