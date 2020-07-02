@@ -102,4 +102,6 @@
     <string name="pembayaran_berhasil">Pembayaran Berhasil</string>
     <string name="back">Back</string>
     <string name="perintis_news">Perintis News</string>
+    <string name="car_plate">Icon car plate</string>
+    <string name="icon_group">Icon group</string>
 </resources>

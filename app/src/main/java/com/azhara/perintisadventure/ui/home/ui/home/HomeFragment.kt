@@ -33,6 +33,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val user = homeViewModel.auth.currentUser
+        if (user != null) {
+            loadingShimmer(true)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

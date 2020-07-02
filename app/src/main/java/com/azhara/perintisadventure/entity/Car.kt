@@ -11,5 +11,6 @@ data class Car(
     var price: Long? = null,
     var statusReady: Boolean? = false,
     var year: Int? = null,
-    var booked: List<BookedDate>? = null
+    var booked: List<BookedDate>? = null,
+    var carNumberPlate: String? = null
 )

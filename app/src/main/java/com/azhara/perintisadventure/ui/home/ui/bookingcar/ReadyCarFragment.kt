@@ -123,6 +123,7 @@ class ReadyCarFragment : Fragment() {
                 detailCar.carId = car.carId!!
                 detailCar.carName = car.carName!!
                 detailCar.luggage = car.luggage!!
+                detailCar.carNumberPlates = car.carNumberPlate!!
 
                 if (car.carId != null) {
                     view?.findNavController()?.navigate(detailCar)

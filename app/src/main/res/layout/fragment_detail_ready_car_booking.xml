@@ -107,7 +107,7 @@
                                 android:layout_height="20dp"
                                 android:layout_centerVertical="true"
                                 android:contentDescription="@string/icon_capacity"
-                                android:src="@drawable/ic_group" />
+                                android:src="@drawable/ic_group_color" />
 
                             <TextView
                                 android:id="@+id/tv_detail_ready_car_capacity"
@@ -232,6 +232,32 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_toEndOf="@id/ic_car"
                                 tools:text="2018" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="65dp"
+                            tools:ignore="UselessParent">
+
+                            <ImageView
+                                android:id="@+id/ic_car_number_plate"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_car_plate"
+                                android:contentDescription="@string/icon_car_year" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_ready_car_number_plate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextPrimary"
+                                android:layout_centerVertical="true"
+                                android:textSize="12sp"
+                                android:layout_marginStart="8dp"
+                                android:layout_toEndOf="@id/ic_car_number_plate"
+                                tools:text="F 82 EBA" />
                         </RelativeLayout>
                     </LinearLayout>
 

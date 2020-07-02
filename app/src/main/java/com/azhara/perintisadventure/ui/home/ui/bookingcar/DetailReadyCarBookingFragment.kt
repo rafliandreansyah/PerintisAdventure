@@ -77,6 +77,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         val gear = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).gear
         val imgCar = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).imageCar
         val luggage = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).luggage
+        val carNumberPlate = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).carNumberPlates
 
         setData(
             startDate!!,
@@ -90,7 +91,8 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             imgCar,
             partnerId!!,
             luggage,
-            carName
+            carName,
+            carNumberPlate
         )
         bookingCarViewModel.getDataPickUpArea()
         edt_detail_car_ready_pickup_area.setOnClickListener(this)
@@ -120,7 +122,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
     private fun setData(
         startDate: Long, endDate: Long, driver: String, duration: Long,
         capacity: Int, carYear: Int, price: Long, gear: Int, imgCar: String,
-        partnerId: String, luggage: Int, carName: String?
+        partnerId: String, luggage: Int, carName: String?, carNumberPlate: String?
     ) {
         bookingCarViewModel.getDataPartner(partnerId)
 
@@ -138,6 +140,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                 tv_detail_ready_car_location.text = data.address
                 tv_location_office_travel.text = "Lokasi kantor ${data.travelName}"
                 tv_detail_ready_car_luggage.text = "$luggage"
+                tv_detail_ready_car_number_plate.text = "$carNumberPlate"
                 activity?.tv_title_toolbar?.text = carName
                 this.carName = carName
                 this.PRICE = duration * price

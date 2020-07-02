@@ -15,7 +15,7 @@
         <com.github.florent37.shapeofview.shapes.RoundRectView
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:elevation="4dp"
+            android:elevation="0dp"
             app:shape_roundRect_bottomLeftRadius="20dp"
             app:shape_roundRect_bottomRightRadius="20dp"
             app:shape_roundRect_topLeftRadius="20dp"

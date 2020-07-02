@@ -63,7 +63,8 @@
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_group" />
+                        android:src="@drawable/ic_group_color"
+                        android:contentDescription="@string/icon_group" />
 
                     <TextView
                         android:id="@+id/tv_capacity"
@@ -88,7 +89,8 @@
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_luggage" />
+                        android:src="@drawable/ic_luggage"
+                        android:contentDescription="@string/icon_luggage" />
 
                     <TextView
                         android:id="@+id/tv_luggage"
@@ -114,7 +116,8 @@
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_steering_wheel" />
+                    android:src="@drawable/ic_steering_wheel"
+                    android:contentDescription="@string/icon_gear" />
 
                 <TextView
                     android:id="@+id/tv_gear_ready_car"

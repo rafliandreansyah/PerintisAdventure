@@ -177,6 +177,10 @@
             android:name="luggage"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="carNumberPlates"
+            app:argType="string"
+            android:defaultValue="null" />
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"

@@ -114,8 +114,8 @@
                         android:id="@+id/ic_group"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_group"
-                        android:contentDescription="@string/icon_capacity" />
+                        android:contentDescription="@string/icon_capacity"
+                        android:src="@drawable/ic_group_color" />
 
                     <TextView
                         android:id="@+id/tv_detail_capacity_user"
@@ -236,6 +236,31 @@
                         android:layout_marginStart="8dp"
                         android:layout_toEndOf="@id/ic_car"
                         tools:text="2018" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="65dp"
+                    tools:ignore="UselessParent">
+
+                    <ImageView
+                        android:id="@+id/ic_car_number"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_car_plate"
+                        android:contentDescription="@string/car_plate" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_car_plate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextPrimary"
+                        android:textSize="12sp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@id/ic_car_number"
+                        tools:text="F 3927 EE" />
                 </RelativeLayout>
             </LinearLayout>
 

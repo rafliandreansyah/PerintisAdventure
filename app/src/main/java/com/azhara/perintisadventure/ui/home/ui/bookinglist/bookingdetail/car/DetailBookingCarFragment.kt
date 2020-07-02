@@ -95,6 +95,7 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
                 }
                 tv_detail_capacity_luggage.text = "${data.luggage}"
                 tv_detail_car_year.text = "${data.year}"
+                tv_detail_car_plate.text = "${data.carNumberPlate}"
             }
         })
     }

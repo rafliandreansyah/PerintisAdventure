@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/jam_penyewaan"
-            android:drawableStart="@drawable/ic_clock_black"
+            android:drawableStart="@drawable/ic_clock"
             style="@style/EditTextDisabledStyle"
             android:paddingVertical="14dp"
             android:paddingHorizontal="24dp"

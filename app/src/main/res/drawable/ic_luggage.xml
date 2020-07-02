@@ -4,12 +4,12 @@
     android:width="24dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <path
-        android:fillColor="@color/colorText"
+        android:fillColor="@color/colorAccent"
         android:pathData="M345.075,126.02V69.268c0,-8.894 -7.21,-16.104 -16.104,-16.104H183.029c-8.894,0 -16.104,7.21 -16.104,16.104v56.752h-45.663v332.818h269.475V126.02H345.075zM312.867,125.892H199.133v-40.52h113.733V125.892z" />
     <path
-        android:fillColor="@color/colorText"
+        android:fillColor="@color/colorAccent"
         android:pathData="M54.741,126.02C24.557,126.02 0,150.576 0,180.76v223.337c0,30.183 24.557,54.74 54.741,54.74h34.313V126.02H54.741z" />
     <path
-        android:fillColor="@color/colorText"
+        android:fillColor="@color/colorAccent"
         android:pathData="M457.26,126.02h-34.313v332.818h34.313c30.184,0 54.741,-24.557 54.741,-54.74V180.76C512,150.576 487.443,126.02 457.26,126.02z" />
 </vector>
