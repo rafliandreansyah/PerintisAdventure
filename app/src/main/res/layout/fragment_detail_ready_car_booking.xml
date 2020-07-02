@@ -273,42 +273,42 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="16dp">
 
                     <TextView
+                        style="@style/TextPrimaryBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        style="@style/TextPrimaryBold"
                         android:text="@string/syarat_dan_ketentuan_rental"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="16sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="16dp">
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/ic_shopping_list"
-                            android:contentDescription="@string/icon_term" />
+                            android:contentDescription="@string/icon_term"
+                            android:src="@drawable/ic_shopping_list" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginStart="16dp">
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
 
                             <TextView
+                                style="@style/TextPrimary"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/syarat_dan_jaminan_rental"
-                                android:textSize="12sp"
-                                style="@style/TextPrimary" />
+                                android:textSize="12sp" />
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -319,18 +319,18 @@
                                     android:id="@+id/ic_check"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
-                                    android:src="@drawable/ic_check"
                                     android:layout_centerVertical="true"
-                                    android:contentDescription="@string/icon_check" />
+                                    android:contentDescription="@string/icon_check"
+                                    android:src="@drawable/ic_check_round" />
 
                                 <TextView
+                                    style="@style/TextPrimary"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check"
                                     android:text="Dapat mengendarai mobil"
-                                    android:textSize="12sp"
-                                    style="@style/TextPrimary"
-                                    android:layout_marginStart="8dp" />
+                                    android:textSize="12sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -342,18 +342,18 @@
                                     android:id="@+id/ic_check2"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
-                                    android:src="@drawable/ic_check"
                                     android:layout_centerVertical="true"
-                                    android:contentDescription="@string/icon_check" />
+                                    android:contentDescription="@string/icon_check"
+                                    android:src="@drawable/ic_check_round" />
 
                                 <TextView
+                                    style="@style/TextPrimary"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check2"
                                     android:text="Memiliki SIM"
-                                    android:textSize="12sp"
-                                    style="@style/TextPrimary"
-                                    android:layout_marginStart="8dp" />
+                                    android:textSize="12sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -365,18 +365,18 @@
                                     android:id="@+id/ic_check3"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
-                                    android:src="@drawable/ic_check"
                                     android:layout_centerVertical="true"
-                                    android:contentDescription="@string/icon_check" />
+                                    android:contentDescription="@string/icon_check"
+                                    android:src="@drawable/ic_check_round" />
 
                                 <TextView
+                                    style="@style/TextPrimary"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check3"
                                     android:text="Memiliki KTP atau KTM"
-                                    android:textSize="12sp"
-                                    style="@style/TextPrimary"
-                                    android:layout_marginStart="8dp" />
+                                    android:textSize="12sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -388,18 +388,18 @@
                                     android:id="@+id/ic_check4"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
-                                    android:src="@drawable/ic_check"
                                     android:layout_centerVertical="true"
-                                    android:contentDescription="@string/icon_check" />
+                                    android:contentDescription="@string/icon_check"
+                                    android:src="@drawable/ic_check_round" />
 
                                 <TextView
+                                    style="@style/TextPrimary"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check4"
                                     android:text="Jaminan 2 KTP atau 1 KTP dan 1 KTM"
-                                    android:textSize="12sp"
-                                    style="@style/TextPrimary"
-                                    android:layout_marginStart="8dp" />
+                                    android:textSize="12sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -411,18 +411,18 @@
                                     android:id="@+id/ic_check5"
                                     android:layout_width="15dp"
                                     android:layout_height="15dp"
-                                    android:src="@drawable/ic_check"
                                     android:layout_centerVertical="true"
-                                    android:contentDescription="@string/icon_check" />
+                                    android:contentDescription="@string/icon_check"
+                                    android:src="@drawable/ic_check_round" />
 
                                 <TextView
+                                    style="@style/TextPrimary"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check5"
                                     android:text="Jaminan Motor dan STNK"
-                                    android:textSize="12sp"
-                                    style="@style/TextPrimary"
-                                    android:layout_marginStart="8dp" />
+                                    android:textSize="12sp" />
                             </RelativeLayout>
                         </LinearLayout>
 
@@ -432,59 +432,59 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_marginTop="24dp"
+                        android:orientation="horizontal"
                         tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/ic_gas_station"
-                            android:contentDescription="@string/icon_gas" />
+                            android:contentDescription="@string/icon_gas"
+                            android:src="@drawable/ic_gas_station" />
 
                         <TextView
                             android:id="@+id/tv_requirement_gas"
+                            style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bensin harus kembali seperti keadaan semula"
-                            style="@style/TextPrimary"
                             android:layout_marginStart="16dp"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"
+                            android:text="Bensin harus kembali seperti keadaan semula" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:layout_marginTop="24dp"
+                        android:orientation="horizontal"
                         tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/ic_clock"
-                            android:contentDescription="@string/icon_clock" />
+                            android:contentDescription="@string/icon_clock"
+                            android:src="@drawable/ic_clock" />
 
                         <TextView
                             android:id="@+id/tv_requirement_time"
+                            style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sewa perhari dihitung dalam waktu 24 jam"
-                            style="@style/TextPrimary"
                             android:layout_marginStart="16dp"
-                            android:gravity="center_vertical" />
+                            android:gravity="center_vertical"
+                            android:text="Sewa perhari dihitung dalam waktu 24 jam" />
 
                     </LinearLayout>
 
                     <TextView
                         android:id="@+id/tv_detail_requirement"
+                        style="@style/TextSecondaryBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="20dp"
-                        android:textAlignment="center"
-                        style="@style/TextSecondaryBold"
-                        android:text="@string/pelajari_selengkapnya" />
+                        android:text="@string/pelajari_selengkapnya"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -770,7 +770,6 @@
         android:layout_width="match_parent"
         android:visibility="invisible"
         android:layout_height="match_parent">
-
         <include layout="@layout/detail_ready_car_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 

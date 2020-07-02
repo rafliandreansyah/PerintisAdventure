@@ -51,8 +51,8 @@
     <string name="cari_mobil">Cari Mobil</string>
     <string name="jam">Jam</string>
     <string name="jam_keberangkatan">Jam keberangkatan</string>
-    <string name="grup">Grup</string>
-    <string name="makanan">Makanan</string>
+    <string name="kapasitas">Kapasitas</string>
+    <string name="kendaraan">Kendaraan</string>
     <string name="tentang_wisata">Tentang Wisata</string>
     <string name="disediakan_oleh">Disediakan oleh: </string>
     <string name="pesan_sekarang">Pesan Sekarang</string>
@@ -104,4 +104,8 @@
     <string name="perintis_news">Perintis News</string>
     <string name="car_plate">Icon car plate</string>
     <string name="icon_group">Icon group</string>
+    <string name="icon_car">Icon car</string>
+    <string name="wilayah_kota_malang">Wilayah Kota Malang</string>
+    <string name="image_detail_booking_tour">image_detail_booking_tour</string>
+    <string name="lokasi_penjemputan">Lokasi penjemputan:</string>
 </resources>

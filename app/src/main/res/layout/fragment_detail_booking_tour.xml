@@ -15,23 +15,24 @@
         <com.github.florent37.shapeofview.shapes.RoundRectView
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:elevation="0dp"
-            app:shape_roundRect_bottomLeftRadius="20dp"
-            app:shape_roundRect_bottomRightRadius="20dp"
-            app:shape_roundRect_topLeftRadius="20dp"
-            app:shape_roundRect_topRightRadius="20dp">
+            android:elevation="4dp"
+            app:shape_roundRect_bottomLeftRadius="15dp"
+            app:shape_roundRect_bottomRightRadius="15dp"
+            app:shape_roundRect_topLeftRadius="15dp"
+            app:shape_roundRect_topRightRadius="15dp">
 
             <ImageView
-                android:id="@+id/img_bg_detail_destination"
+                android:id="@+id/img_bg_detail_tour"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/img_bromo"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_detail_booking_tour" />
 
         </com.github.florent37.shapeofview.shapes.RoundRectView>
 
         <TextView
-            android:id="@+id/tv_title_detail_destination"
+            android:id="@+id/tv_title_detail_tour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextPrimaryBold"
@@ -44,22 +45,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_maps_and_flags" />
+                android:src="@drawable/ic_maps_and_flags"
+                android:contentDescription="@string/icon_maps" />
 
             <TextView
-                android:id="@+id/tv_location_detail_destination"
+                android:id="@+id/tv_location_detail_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
                 android:layout_marginStart="8dp"
                 android:textSize="14sp"
-                android:text="Malang, Jawa Timur" />
+                tools:text="Malang, Jawa Timur" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +71,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="16dp"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,15 +82,18 @@
                 android:layout_weight="1">
 
                 <com.github.florent37.shapeofview.shapes.CircleView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
                     android:elevation="4dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
                         android:src="@drawable/ic_clock"
-                        android:layout_gravity="center" />
+                        android:contentDescription="@string/icon_clock" />
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -98,7 +106,7 @@
                     style="@style/TextPrimaryBold" />
 
                 <TextView
-                    android:id="@+id/tv_duration_destination_detail"
+                    android:id="@+id/tv_duration_tour_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8 jam"
@@ -115,28 +123,31 @@
                 android:layout_weight="1">
 
                 <com.github.florent37.shapeofview.shapes.CircleView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
                     android:elevation="4dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:layout_marginTop="2dp"
                         android:src="@drawable/ic_group_color"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/icon_group" />
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/grup"
+                    android:text="@string/kapasitas"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     style="@style/TextPrimaryBold" />
 
                 <TextView
-                    android:id="@+id/tv_group_detail_destination"
+                    android:id="@+id/tv_group_detail_tour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6 Orang"
@@ -153,31 +164,35 @@
                 android:layout_weight="1">
 
                 <com.github.florent37.shapeofview.shapes.CircleView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
                     android:elevation="4dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_fork"
-                        android:layout_gravity="center" />
+                        android:src="@drawable/ic_car"
+                        android:layout_marginTop="2dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/icon_car" />
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/makanan"
+                    android:text="@string/kendaraan"
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     style="@style/TextPrimaryBold" />
 
                 <TextView
-                    android:id="@+id/tv_food_detail_destination"
+                    android:id="@+id/tv_food_detail_tour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Snack dan Minuman"
+                    android:text="Avanza/Wuling"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"
                     style="@style/TextPrimary" />
@@ -191,54 +206,263 @@
             android:background="@color/colorPrimaryDark"
             android:layout_marginVertical="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tentang_wisata"
-            android:textSize="16sp"
-            style="@style/TextPrimary" />
-
-        <TextView
-            android:id="@+id/tv_about_detail_destination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wisata Gunung Bromo terletak di Jawa Timur ini memang
-mengundang banyak wisatawan karena keindahan
-pemandangan alam dari ketinggian pegunungan, nama
-GunungBromo sendiri diambil dari salah satu dewa utama
-dalam agama Hindu yaitu Brahma, gunung ini memiliki
-ketinggian 2329 meter di atas permukaan air laut."
-            android:layout_marginTop="8dp"
-            style="@style/TextPrimary" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/disediakan_oleh"
-            android:textSize="14sp"
-            android:layout_marginTop="25dp"
-            style="@style/TextPrimary" />
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            style="@style/TextPrimaryBold" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="8dp">
 
             <ImageView
                 android:id="@+id/ic_garage"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/ic_garage" />
+                android:src="@drawable/ic_garage"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_garage" />
 
             <TextView
-                android:id="@+id/tv_travel_name_detail_destination"
+                android:id="@+id/tv_travel_name_detail_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
                 android:textSize="12sp"
-                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/ic_garage"
                 android:text="Perintis Adventure Rent Car And Bromo Tour" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waktu Wisata:"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp"
+            style="@style/TextPrimaryBold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/ic_clock"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_clock"
+                android:contentDescription="@string/icon_garage" />
+
+            <TextView
+                android:id="@+id/tv_time_tour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextPrimary"
+                android:layout_centerVertical="true"
+                android:textSize="12sp"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/ic_clock"
+                android:text="07.00 - 17-00" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wisata yang dikunjungi:"
+            android:textSize="16sp"
+            style="@style/TextPrimaryBold"
+            android:layout_marginTop="25dp"/>
+        
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check2"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pantai Batu Bengkung"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check2"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check3"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pantai Goa China"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check3"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pantai Ngliyep"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pantai Sendang Biru"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fasilitas:"
+            android:textSize="16sp"
+            style="@style/TextPrimaryBold"
+            android:layout_marginTop="25dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check5"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiket wisata"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check5"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check6"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiket wisata"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check6"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check7"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pantai Ngliyep"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check7"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp">
+            <ImageView
+                android:id="@+id/ic_check8"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_check_round"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pantai Sendang Biru"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_check8"/>
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
@@ -254,7 +478,7 @@ ketinggian 2329 meter di atas permukaan air laut."
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tv_title_name_travel_detail_destination"
+                    android:id="@+id/tv_title_name_travel_detail_tour"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lokasi Kantor Perintis Adventure"
@@ -266,16 +490,18 @@ ketinggian 2329 meter di atas permukaan air laut."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="20dp"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_maps_and_flags"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/icon_maps" />
 
                     <TextView
-                        android:id="@+id/tv_location_travel_detail_destination"
+                        android:id="@+id/tv_location_travel_detail_tour"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -289,12 +515,12 @@ ketinggian 2329 meter di atas permukaan air laut."
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/ButtonPrimary"
-                    android:drawableLeft="@drawable/ic_google_maps"
+                    android:drawableStart="@drawable/ic_google_maps"
                     android:drawablePadding="16dp"
                     android:paddingHorizontal="25dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginVertical="25dp"
-                    android:text="Maps" />
+                    android:text="@string/maps" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -313,7 +539,7 @@ ketinggian 2329 meter di atas permukaan air laut."
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lokasi pengambilan"
+                    android:text="@string/lokasi_pengambilan"
                     android:textSize="16sp"
                     style="@style/TextPrimary"
                     android:textAlignment="center" />
@@ -328,7 +554,8 @@ ketinggian 2329 meter di atas permukaan air laut."
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -336,12 +563,12 @@ ketinggian 2329 meter di atas permukaan air laut."
                             style="@style/TextPrimary"
                             android:textSize="14sp"
                             android:layout_marginStart="40dp"
-                            android:text="Wilayah Kota Malang" />
+                            android:text="@string/wilayah_kota_malang" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Gratis"
+                            android:text="@string/gratis"
                             style="@style/TextPrimary"
                             android:layout_marginStart="40dp"
                             android:textColor="@color/colorAccentDark"
@@ -357,13 +584,13 @@ ketinggian 2329 meter di atas permukaan air laut."
                                 android:id="@+id/tv_detail_car_ready_pickup_detail_area"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Detail Lokasi"
+                                android:text="@string/detail_penjemputan"
                                 style="@style/TextPrimary"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginBottom="8dp" />
 
                             <EditText
-                                android:id="@+id/edt_detail_penjemputan"
+                                android:id="@+id/edt_detail_pickup_tour"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Detail Lokasi Pengambilan"
@@ -381,14 +608,53 @@ ketinggian 2329 meter di atas permukaan air laut."
 
         </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_booking_detail_destination"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pesan_sekarang"
-            android:layout_marginVertical="25dp"
-            android:layout_marginHorizontal="72dp"
-            style="@style/ButtonPrimary" />
+            android:layout_marginVertical="16dp"
+            style="@style/card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/harga_total"
+                    style="@style/TextPrimaryBold"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_detail_total_price_tour"
+                        style="@style/TextPrimaryBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_booking_tour_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ButtonPrimary"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginHorizontal="57dp"
+                    android:text="@string/pesan_sekarang" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

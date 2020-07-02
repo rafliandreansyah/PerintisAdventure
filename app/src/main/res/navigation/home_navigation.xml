@@ -17,8 +17,8 @@
             android:id="@+id/action_navigation_home_to_navigation_date_booking_car_fragment"
             app:destination="@id/navigation_date_booking_car_fragment" />
         <action
-            android:id="@+id/action_navigation_home_to_navigation_booking_destination_fragment"
-            app:destination="@id/navigation_booking_destination_fragment" />
+            android:id="@+id/action_navigation_home_to_navigation_date_booking_tour_fragment"
+            app:destination="@id/navigation_date_booking_tour_fragment" />
     </fragment>
 
     <fragment
@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_navigation_booked_to_detailBookingCarFragment"
             app:destination="@id/navigation_detail_booking_car_fragment" />
+        <action
+            android:id="@+id/action_navigation_booked_to_detailBookingTourSuccessFragment"
+            app:destination="@id/detailBookingTourSuccessFragment" />
     </fragment>
 
     <fragment
@@ -210,22 +213,13 @@
             android:defaultValue="null" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_booking_destination_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookingtour.BookingDestinationFragment"
-        android:label="fragment_booking_destination"
-        tools:layout="@layout/fragment_booking_destination">
-        <action
-            android:id="@+id/action_navigation_booking_destination_fragment_to_navigation_date_booking_tour_fragment"
-            app:destination="@id/navigation_date_booking_tour_fragment" />
-    </fragment>
-    <fragment
         android:id="@+id/navigation_date_booking_tour_fragment"
         android:name="com.azhara.perintisadventure.ui.home.ui.bookingtour.DateBookingTourFragment"
         android:label="fragment_date_booking_tour"
         tools:layout="@layout/fragment_date_booking_tour">
         <action
-            android:id="@+id/action_navigation_date_booking_tour_fragment_to_navigation_detail_destination_fragment"
-            app:destination="@id/navigation_detail_destination_fragment" />
+            android:id="@+id/action_navigation_date_booking_tour_fragment_to_listTourFragment"
+            app:destination="@id/listTourFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_destination_fragment"
@@ -234,9 +228,7 @@
         tools:layout="@layout/fragment_detail_booking_tour">
         <action
             android:id="@+id/action_navigation_detail_destination_fragment_to_navigation_payment"
-            app:destination="@id/navigation_payment"
-            app:popUpTo="@id/home_navigation"
-            app:popUpToInclusive="true" />
+            app:destination="@id/navigation_payment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_booking_car_fragment"
@@ -248,4 +240,18 @@
             app:argType="string"
             android:defaultValue="null" />
     </fragment>
+    <fragment
+        android:id="@+id/listTourFragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.bookingtour.ListTourFragment"
+        android:label="fragment_list_booking_tour"
+        tools:layout="@layout/fragment_list_booking_tour" >
+        <action
+            android:id="@+id/action_listTourFragment_to_navigation_detail_destination_fragment"
+            app:destination="@id/navigation_detail_destination_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailBookingTourSuccessFragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.bookinglist.bookingdetail.tour.DetailBookingTourSuccessFragment"
+        android:label="fragment_detail_booking_tour_success"
+        tools:layout="@layout/fragment_detail_booking_tour_success" />
 </navigation>

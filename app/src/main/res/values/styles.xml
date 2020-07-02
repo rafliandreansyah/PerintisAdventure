@@ -80,6 +80,26 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="TextPrimaryLora">
+        <item name="android:fontFamily">@font/lora_regular1</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="TextSecondaryLora">
+        <item name="android:fontFamily">@font/lora_regular1</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
+
+    <style name="TextPrimaryBoldLora">
+        <item name="android:fontFamily">@font/lora_bold1</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="TextSecondaryBoldLora">
+        <item name="android:fontFamily">@font/lora_bold1</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="card">
         <item name="cardElevation">5dp</item>
         <item name="cardCornerRadius">5dp</item>
