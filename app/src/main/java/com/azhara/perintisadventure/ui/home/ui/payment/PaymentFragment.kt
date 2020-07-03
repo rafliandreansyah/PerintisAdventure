@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.payment
+package com.azhara.perintisadventure.ui.home.ui.payment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -22,7 +22,6 @@ import com.azhara.perintisadventure.R
 import com.bumptech.glide.Glide
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_payment.*
 import java.io.ByteArrayOutputStream
 import java.lang.Exception

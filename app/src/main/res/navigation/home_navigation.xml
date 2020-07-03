@@ -187,7 +187,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"
-        android:name="com.azhara.perintisadventure.ui.payment.PaymentFragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.payment.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment">
         <action

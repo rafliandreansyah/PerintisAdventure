@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.ui.bookingtour.ListTourFragment">
 
     <LinearLayout
@@ -19,124 +20,13 @@
             android:textSize="22sp"
             android:layout_marginStart="16dp"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="270dp"
-            android:layout_height="370dp"
-            android:layout_marginTop="16dp"
-            style="@style/card3"
-            android:layout_marginStart="16dp">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_bromo"/>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_gradient"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp"
-                    android:layout_gravity="start|top">
-
-                    <TextView
-                        android:id="@+id/tv_item_tour_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Paket Tour Malang Batu Banyuwangi Yogyakarta"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18sp"
-                        style="@style/TextPrimaryBold"
-                        android:maxLines="2"
-                        android:ellipsize="end"/>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_below="@id/tv_item_tour_name"
-                        android:layout_marginTop="8dp">
-
-                        <ImageView
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:src="@drawable/ic_maps_and_flags_white"
-                            android:contentDescription="@string/icon_maps" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Batu - Malang"
-                            android:layout_marginStart="4dp"
-                            android:textSize="12sp"
-                            style="@style/TextPrimary"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:textColor="@color/colorPrimary"/>
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp"
-                    android:layout_gravity="start|bottom">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/layout_price"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:id="@+id/tv_item_tour_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Rp. 1275000"
-                            android:textColor="@color/colorOrange"
-                            android:textSize="18sp"
-                            style="@style/TextPrimaryBold"
-                            android:maxLines="2"
-                            android:ellipsize="end"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:text="/ Orang"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:textSize="12sp"
-                            android:layout_toEndOf="@id/tv_item_tour_price"
-                            style="@style/TextPrimary"
-                            android:textColor="@color/colorPrimary"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Paket 4 Orang"
-                        android:textSize="12sp"
-                        android:layout_marginTop="8dp"
-                        style="@style/TextPrimary"
-                        android:layout_below="@id/layout_price"
-                        android:textColor="@color/colorPrimary"/>
-
-                </RelativeLayout>
-
-            </FrameLayout>
-
-        </androidx.cardview.widget.CardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_tour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:listitem="@layout/rv_items_tour"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     </LinearLayout>
 

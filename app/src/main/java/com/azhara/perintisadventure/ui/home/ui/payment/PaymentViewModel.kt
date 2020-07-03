@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.payment
+package com.azhara.perintisadventure.ui.home.ui.payment
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,8 +8,6 @@ import com.azhara.perintisadventure.entity.BookingList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageTask
-import com.google.firebase.storage.UploadTask
 
 class PaymentViewModel : ViewModel(){
 
