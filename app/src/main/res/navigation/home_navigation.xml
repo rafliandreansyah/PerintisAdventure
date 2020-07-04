@@ -229,6 +229,52 @@
         <action
             android:id="@+id/action_navigation_detail_destination_fragment_to_navigation_payment"
             app:destination="@id/navigation_payment" />
+        <argument
+            android:name="tourName"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="capacity"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="durationTour"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="imgUrl"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="locationTour"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="partnerId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="price"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="timeTour"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="vehicle"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="facilities"
+            app:argType="string[]" />
+        <argument
+            android:name="visitedTour"
+            app:argType="string[]" />
+        <argument
+            android:name="dateTour"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_booking_car_fragment"
@@ -248,6 +294,10 @@
         <action
             android:id="@+id/action_listTourFragment_to_navigation_detail_destination_fragment"
             app:destination="@id/navigation_detail_destination_fragment" />
+        <argument
+            android:name="dateTour"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
     <fragment
         android:id="@+id/detailBookingTourSuccessFragment"

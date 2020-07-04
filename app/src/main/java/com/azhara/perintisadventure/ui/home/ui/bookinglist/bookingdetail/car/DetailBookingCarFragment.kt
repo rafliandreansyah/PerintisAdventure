@@ -7,14 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
-import com.azhara.perintisadventure.entity.PickUpArea
-import com.azhara.perintisadventure.ui.home.ui.bookinglist.BookingListViewModel
+import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import com.bumptech.glide.Glide
-import com.google.firebase.Timestamp
 import kotlinx.android.synthetic.main.fragment_detail_booking_car.*
-import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -19,6 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.home.ui.payment.viewmodel.PaymentViewModel
 import com.bumptech.glide.Glide
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*

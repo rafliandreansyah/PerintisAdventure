@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.auth.AuthActivity
+import com.azhara.perintisadventure.ui.home.ui.profile.viewmodel.ProfileViewModel
 import com.bumptech.glide.Glide
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_profile.*

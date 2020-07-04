@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.home.ui.profile.viewmodel.ProfileViewModel
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_change_password.*
 

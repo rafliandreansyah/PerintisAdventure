@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.home.ui.home
+package com.azhara.perintisadventure.ui.home.ui.home.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -11,5 +11,5 @@ data class Tour(
     var timeTour: String? = null,
     var tourName: String? = null,
     var vehicle: String? = null,
-    var visitedTour: String? = null
+    var visitedTour: ArrayList<String>? = null
 )

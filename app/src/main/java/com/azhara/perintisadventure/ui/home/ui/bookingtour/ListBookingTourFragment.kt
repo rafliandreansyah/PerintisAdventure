@@ -1,34 +1,23 @@
 package com.azhara.perintisadventure.ui.home.ui.bookingtour
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.TourAdapter
+import com.azhara.perintisadventure.ui.home.ui.bookingtour.viewmodel.BookingTourViewModel
+import kotlinx.android.synthetic.main.fragment_list_booking_tour.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ListTourFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ListTourFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var bookingTourViewModel: BookingTourViewModel
+    private lateinit var tourAdapter: TourAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +27,34 @@ class ListTourFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_list_booking_tour, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ListTourFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ListTourFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onResume() {
+        super.onResume()
+        bookingTourViewModel.getDataTour()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        bookingTourViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingTourViewModel::class.java]
+        bookingTourViewModel.getDataTour()
+
+        tourAdapter = TourAdapter()
+        with(rv_list_tour){
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            adapter = tourAdapter
+        }
+
+        setData()
+    }
+
+    private fun setData(){
+        bookingTourViewModel.dataTour().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null){
+                Log.d("ListBookingTourFragment", "$data")
+                tourAdapter.submitList(data)
             }
+        })
+
     }
 }

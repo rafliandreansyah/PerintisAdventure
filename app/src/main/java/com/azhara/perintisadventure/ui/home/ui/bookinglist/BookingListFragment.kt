@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.BookingList
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.adapter.BookingListAdapter
+import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import kotlinx.android.synthetic.main.fragment_booking_list.*
-import kotlinx.android.synthetic.main.fragment_ready_car.*
 
 class BookingListFragment : Fragment() {
 

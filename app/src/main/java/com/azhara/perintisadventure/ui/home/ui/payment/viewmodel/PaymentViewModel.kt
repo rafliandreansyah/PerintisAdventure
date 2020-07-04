@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.home.ui.payment
+package com.azhara.perintisadventure.ui.home.ui.payment.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

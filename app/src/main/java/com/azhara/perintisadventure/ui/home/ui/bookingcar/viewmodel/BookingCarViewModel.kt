@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.home.ui.bookingcar
+package com.azhara.perintisadventure.ui.home.ui.bookingcar.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

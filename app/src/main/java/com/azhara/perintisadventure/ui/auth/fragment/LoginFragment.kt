@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.auth.fragment.viewmodel.LoginViewModel
 import com.azhara.perintisadventure.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 

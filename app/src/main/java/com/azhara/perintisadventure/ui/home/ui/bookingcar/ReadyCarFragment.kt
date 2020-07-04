@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.Car
 import com.azhara.perintisadventure.ui.home.ui.bookingcar.adapter.CarAdapter
+import com.azhara.perintisadventure.ui.home.ui.bookingcar.viewmodel.BookingCarViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_ready_car.*
 

@@ -1,4 +1,4 @@
-package com.azhara.perintisadventure.ui.auth.fragment
+package com.azhara.perintisadventure.ui.auth.fragment.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

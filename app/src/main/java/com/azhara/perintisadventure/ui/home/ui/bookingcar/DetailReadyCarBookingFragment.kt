@@ -11,15 +11,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.ui.home.ui.bookingcar.viewmodel.BookingCarViewModel
 import com.bumptech.glide.Glide
 import com.google.firebase.Timestamp
 import com.minibugdev.sheetselection.SheetSelection
 import com.minibugdev.sheetselection.SheetSelectionItem
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_detail_booking_car.*
 import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
-import kotlinx.android.synthetic.main.rv_items_ready_car.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList

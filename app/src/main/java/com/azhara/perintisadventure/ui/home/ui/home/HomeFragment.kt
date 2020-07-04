@@ -1,13 +1,11 @@
 package com.azhara.perintisadventure.ui.home.ui.home
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,9 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.User
+import com.azhara.perintisadventure.ui.home.ui.home.viewmodel.HomeViewModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlin.system.exitProcess
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -126,7 +124,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
             R.id.card_booking_tour -> {
                 view?.findNavController()
-                    ?.navigate(R.id.action_navigation_home_to_navigation_booking_destination_fragment)
+                    ?.navigate(R.id.action_navigation_home_to_navigation_date_booking_tour_fragment)
             }
         }
     }
