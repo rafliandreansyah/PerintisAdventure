@@ -267,10 +267,14 @@
             android:defaultValue="null" />
         <argument
             android:name="facilities"
-            app:argType="string[]" />
+            app:argType="com.azhara.perintisadventure.entity.Facilities"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <argument
             android:name="visitedTour"
-            app:argType="string[]" />
+            app:argType="com.azhara.perintisadventure.entity.VisitedTours"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <argument
             android:name="dateTour"
             app:argType="long"
