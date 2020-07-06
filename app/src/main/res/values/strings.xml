@@ -58,7 +58,8 @@
     <string name="pesan_sekarang">Pesan Sekarang</string>
     <string name="syarat_dan_ketentuan_rental">Syarat dan ketentuan rental</string>
     <string name="layanan_kami">Layanan kami!</string>
-    <string name="detail_penjemputan">Detail penjemputan...</string>
+    <string name="detail_penjemputan...">Detail penjemputan...</string>
+    <string name="detail_penjemputan">Detail penjemputan</string>
     <string name="pilih_area">Pilih area...</string>
     <string name="car_image_detail">Car Image Detail</string>
     <string name="icon_garage">Icon garage</string>
@@ -109,4 +110,5 @@
     <string name="image_detail_booking_tour">image_detail_booking_tour</string>
     <string name="lokasi_penjemputan">Lokasi penjemputan:</string>
     <string name="img_detail_news">img_detail_news</string>
+    <string name="fasilitas">Fasilitas:</string>
 </resources>

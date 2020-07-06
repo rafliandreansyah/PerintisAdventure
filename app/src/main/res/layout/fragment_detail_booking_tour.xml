@@ -10,19 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingTop="20dp">
 
         <com.github.florent37.shapeofview.shapes.RoundRectView
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:elevation="4dp"
+            android:layout_marginHorizontal="20dp"
             app:shape_roundRect_bottomLeftRadius="15dp"
             app:shape_roundRect_bottomRightRadius="15dp"
             app:shape_roundRect_topLeftRadius="15dp"
             app:shape_roundRect_topRightRadius="15dp">
 
             <ImageView
-                android:id="@+id/img_bg_detail_tour"
+                android:id="@+id/img_bg_detail_booking_tour"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/img_bromo"
@@ -32,21 +33,38 @@
         </com.github.florent37.shapeofview.shapes.RoundRectView>
 
         <TextView
-            android:id="@+id/tv_title_detail_tour"
+            android:id="@+id/tv_date_detail_booking_tour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextPrimaryBold"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            tools:text="20 Desember 2012"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/tv_tour_name_detail_booking_tour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextPrimaryBold"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"
-            android:text="Gunung Bromo" />
+            android:layout_marginHorizontal="20dp"
+            tools:text="Gunung Bromo" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="20dp"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
@@ -57,12 +75,13 @@
                 android:contentDescription="@string/icon_maps" />
 
             <TextView
-                android:id="@+id/tv_location_detail_tour"
+                android:id="@+id/tv_location_detail_booking_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
                 android:layout_marginStart="8dp"
                 android:textSize="14sp"
+                android:layout_gravity="center_vertical"
                 tools:text="Malang, Jawa Timur" />
         </LinearLayout>
 
@@ -71,6 +90,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="20dp"
             android:weightSum="3"
             android:baselineAligned="false">
 
@@ -82,22 +102,32 @@
                 android:layout_weight="1">
 
                 <com.github.florent37.shapeofview.shapes.CircleView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:elevation="4dp">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:src="@drawable/ic_clock"
-                        android:contentDescription="@string/icon_clock" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginBottom="9dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:contentDescription="@string/icon_clock"
+                            android:src="@drawable/ic_clock" />
+
+                    </RelativeLayout>
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
 
                 <TextView
+                    android:id="@+id/tv_duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/durasi"
@@ -106,10 +136,10 @@
                     style="@style/TextPrimaryBold" />
 
                 <TextView
-                    android:id="@+id/tv_duration_tour_detail"
+                    android:id="@+id/tv_duration_detail_booking_tour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8 jam"
+                    tools:text="8 jam"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"
                     style="@style/TextPrimary" />
@@ -123,18 +153,26 @@
                 android:layout_weight="1">
 
                 <com.github.florent37.shapeofview.shapes.CircleView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:elevation="4dp">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="2dp"
-                        android:src="@drawable/ic_group_color"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/icon_group" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/ic_group_color"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/icon_group" />
+                    </RelativeLayout>
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -147,10 +185,10 @@
                     style="@style/TextPrimaryBold" />
 
                 <TextView
-                    android:id="@+id/tv_group_detail_tour"
+                    android:id="@+id/tv_capacity_detail_booking_tour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6 Orang"
+                    tools:text="6 Orang"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"
                     style="@style/TextPrimary" />
@@ -164,19 +202,29 @@
                 android:layout_weight="1">
 
                 <com.github.florent37.shapeofview.shapes.CircleView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:elevation="4dp">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_car"
-                        android:layout_marginTop="2dp"
-                        android:layout_gravity="center"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/icon_car" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_car"
+                            android:layout_marginTop="2dp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/icon_car" />
+
+                    </RelativeLayout>
 
                 </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -189,10 +237,11 @@
                     style="@style/TextPrimaryBold" />
 
                 <TextView
-                    android:id="@+id/tv_food_detail_tour"
+                    android:id="@+id/tv_vehicle_detail_booking_tour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Avanza/Wuling"
+                    tools:text="Avanza/Wuling"
+                    android:maxLines="2"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"
                     style="@style/TextPrimary" />
@@ -203,6 +252,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
             android:background="@color/colorPrimaryDark"
             android:layout_marginVertical="16dp" />
 
@@ -212,12 +262,14 @@
             android:layout_height="wrap_content"
             android:text="@string/disediakan_oleh"
             android:textSize="16sp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="4dp"
             style="@style/TextPrimaryBold" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp">
 
             <ImageView
@@ -229,7 +281,7 @@
                 android:contentDescription="@string/icon_garage" />
 
             <TextView
-                android:id="@+id/tv_travel_name_detail_tour"
+                android:id="@+id/tv_travel_name_detail_booking_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
@@ -237,7 +289,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/ic_garage"
-                android:text="Perintis Adventure Rent Car And Bromo Tour" />
+                tools:text="Perintis Adventure Rent Car And Bromo Tour" />
         </RelativeLayout>
 
         <TextView
@@ -246,11 +298,13 @@
             android:text="Waktu Wisata:"
             android:textSize="16sp"
             android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="20dp"
             style="@style/TextPrimaryBold" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp">
 
             <ImageView
@@ -262,7 +316,7 @@
                 android:contentDescription="@string/icon_garage" />
 
             <TextView
-                android:id="@+id/tv_time_tour"
+                android:id="@+id/tv_time_detail_booking_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
@@ -279,195 +333,37 @@
             android:text="Wisata yang dikunjungi:"
             android:textSize="16sp"
             style="@style/TextPrimaryBold"
-            android:layout_marginTop="25dp"/>
+            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="4dp"/>
         
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_visited_tour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check2"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pantai Batu Bengkung"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check2"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check3"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pantai Goa China"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check3"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check1"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pantai Ngliyep"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check1"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pantai Sendang Biru"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check"/>
-        </RelativeLayout>
+            android:layout_marginHorizontal="20dp"
+            tools:listitem="@layout/rv_item_visited_tour"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fasilitas:"
+            android:text="@string/fasilitas"
             android:textSize="16sp"
+            android:layout_marginHorizontal="20dp"
             style="@style/TextPrimaryBold"
             android:layout_marginTop="25dp"/>
 
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_facility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check5"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tiket wisata"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check5"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check6"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tiket wisata"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check6"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check7"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pantai Ngliyep"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check7"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="5dp">
-            <ImageView
-                android:id="@+id/ic_check8"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/ic_check_round"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/icon_check" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pantai Sendang Biru"
-                android:layout_marginStart="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/ic_check8"/>
-        </RelativeLayout>
+            android:layout_marginHorizontal="20dp"
+            tools:listitem="@layout/rv_item_facility"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="25dp"
             style="@style/card">
 
@@ -478,7 +374,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tv_title_name_travel_detail_tour"
+                    android:id="@+id/tv_title_name_travel_detail_booking_tour"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lokasi Kantor Perintis Adventure"
@@ -501,7 +397,7 @@
                         android:contentDescription="@string/icon_maps" />
 
                     <TextView
-                        android:id="@+id/tv_location_travel_detail_tour"
+                        android:id="@+id/tv_location_travel_detail_booking_tour"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -528,6 +424,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/card"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp">
 
             <LinearLayout
@@ -562,7 +460,7 @@
                             android:layout_height="wrap_content"
                             style="@style/TextPrimary"
                             android:textSize="14sp"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="20dp"
                             android:text="@string/wilayah_kota_malang" />
 
                         <TextView
@@ -570,18 +468,18 @@
                             android:layout_height="wrap_content"
                             android:text="@string/gratis"
                             style="@style/TextPrimary"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="20dp"
                             android:textColor="@color/colorAccentDark"
                             android:textSize="12sp" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="38dp"
+                            android:layout_marginHorizontal="16dp"
                             android:layout_marginVertical="16dp">
 
                             <TextView
-                                android:id="@+id/tv_detail_car_ready_pickup_detail_area"
+                                android:id="@+id/tv_pickup_detail_booking_tour"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/detail_penjemputan"
@@ -590,15 +488,24 @@
                                 android:layout_marginBottom="8dp" />
 
                             <EditText
-                                android:id="@+id/edt_detail_pickup_tour"
+                                android:id="@+id/edt_pickup_detail_tour"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Detail Lokasi Pengambilan"
-                                style="@style/EditTextStyle"
+                                android:hint="@string/detail_penjemputan..."
+                                android:gravity="top|start"
+                                style="@style/TextAreaStyle"
+                                android:inputType="text|textMultiLine"
                                 android:paddingVertical="8dp"
                                 android:paddingHorizontal="16dp"
                                 android:drawablePadding="8dp"
-                                android:layout_below="@+id/tv_detail_car_ready_pickup_detail_area" />
+                                android:lines="6"
+                                android:enabled="false"
+                                android:overScrollMode="always"
+                                android:scrollbarStyle="insideInset"
+                                android:scrollbars="vertical"
+                                android:scrollHorizontally="false"
+                                android:layout_below="@+id/tv_pickup_detail_booking_tour"
+                                android:importantForAutofill="no" />
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -611,7 +518,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="20dp"
             style="@style/card">
 
             <LinearLayout
@@ -636,7 +545,7 @@
                     android:layout_marginVertical="16dp">
 
                     <TextView
-                        android:id="@+id/tv_detail_total_price_tour"
+                        android:id="@+id/tv_total_price_detail_booking_tour"
                         style="@style/TextPrimaryBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -649,7 +558,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/ButtonPrimary"
-                    android:layout_marginVertical="16dp"
+                    android:layout_marginBottom="16dp"
                     android:layout_marginHorizontal="57dp"
                     android:text="@string/pesan_sekarang" />
 

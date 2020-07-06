@@ -78,7 +78,7 @@ class ListTourFragment : Fragment() {
                     dataTour.capacity = tour.capacity!!
                     dataTour.dateTour = DATE!!
                     dataTour.durationTour = tour.durationTour!!
-                    dataTour.facilities = tour.facilities as Facilities?
+                    dataTour.facilities = tour.facilities?.toTypedArray()
                     dataTour.imgUrl = tour.imgUrl!!
                     dataTour.locationTour = tour.locationTour!!
                     dataTour.partnerId = tour.partnerId!!
@@ -86,7 +86,7 @@ class ListTourFragment : Fragment() {
                     dataTour.timeTour = tour.timeTour!!
                     dataTour.tourName = tour.tourName!!
                     dataTour.vehicle = tour.vehicle!!
-                    dataTour.visitedTour = tour.visitedTour as VisitedTours?
+                    dataTour.visitedTour = tour.visitedTour?.toTypedArray()
 
                     view?.findNavController()?.navigate(dataTour)
                 }else{

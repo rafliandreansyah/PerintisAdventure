@@ -3,7 +3,7 @@ package com.azhara.perintisadventure.entity
 data class Tour(
     var capacity: Int? = 0,
     var durationTour: String? = null,
-    var facilities: ArrayList<Facility>? = null,
+    var facilities: List<String>? = null,
     var imgUrl: String? = null,
     var locationTour: String? = null,
     var partnerId: String? = null,
@@ -11,5 +11,5 @@ data class Tour(
     var timeTour: String? = null,
     var tourName: String? = null,
     var vehicle: String? = null,
-    var visitedTour: ArrayList<VisitedTour>? = null
+    var visitedTour: List<String>? = null
 )

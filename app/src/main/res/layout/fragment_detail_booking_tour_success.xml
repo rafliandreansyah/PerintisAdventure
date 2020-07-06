@@ -585,7 +585,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/tv_detail_total_price"
+                        android:id="@+id/tv_total_price_detail_tour"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/TextPrimaryBold"
