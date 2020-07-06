@@ -31,7 +31,9 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_ready_car_fragment,
                 R.id.navigation_detail_ready_car_booking_fragment,
                 R.id.navigation_payment,
-                R.id.navigation_detail_booking_car_fragment
+                R.id.navigation_detail_booking_car_fragment,
+                R.id.navigation_list_tour_fragment,
+                R.id.navigation_detail_destination_fragment
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -121,6 +123,26 @@ class HomeActivity : AppCompatActivity() {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail Sewa Mobil"
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.navigation_list_tour_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = "Pilih Paket Tour"
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.navigation_detail_destination_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = "Detail Tour"
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {

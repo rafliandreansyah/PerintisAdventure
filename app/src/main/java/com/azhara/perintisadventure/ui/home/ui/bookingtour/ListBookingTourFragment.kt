@@ -1,5 +1,6 @@
 package com.azhara.perintisadventure.ui.home.ui.bookingtour
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,8 +20,11 @@ import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.TourAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.viewmodel.BookingTourViewModel
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_list_booking_tour.*
+import kotlinx.android.synthetic.main.fragment_list_booking_tour.edt_choose_date_tour
+import java.text.SimpleDateFormat
+import java.util.*
 
-class ListTourFragment : Fragment() {
+class ListTourFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bookingTourViewModel: BookingTourViewModel
     private lateinit var tourAdapter: TourAdapter
@@ -42,10 +46,7 @@ class ListTourFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val date = ListTourFragmentArgs.fromBundle(arguments as Bundle).dateTour
-        if (date != null || date != 0.toLong()){
-            DATE = date
-        }
+        edt_choose_date_tour.setOnClickListener(this)
         bookingTourViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingTourViewModel::class.java]
         bookingTourViewModel.getDataTour()
 
@@ -72,7 +73,12 @@ class ListTourFragment : Fragment() {
     private fun itemClick(){
         tourAdapter.setOnItemClickCallBack(object : TourAdapter.OnItemClickCallBack{
             override fun onClicked(tour: Tour) {
-                if (tour != null && (DATE != null || DATE != 0.toLong())){
+                val date = edt_choose_date_tour.text.toString()
+                if (date.isEmpty()){
+                    edt_choose_date_tour.error = "Tanggal tidak boleh kosong!!!"
+                    context?.let { Toasty.error(it, "Tanggal tidak boleh kosong!", Toast.LENGTH_SHORT, true).show() }
+                }
+                if (tour != null && (DATE != null || DATE != 0.toLong()) && date.isNotEmpty()){
                     val dataTour = ListTourFragmentDirections
                         .actionListTourFragmentToNavigationDetailDestinationFragment()
                     dataTour.capacity = tour.capacity!!
@@ -87,12 +93,55 @@ class ListTourFragment : Fragment() {
                     dataTour.tourName = tour.tourName!!
                     dataTour.vehicle = tour.vehicle!!
                     dataTour.visitedTour = tour.visitedTour?.toTypedArray()
-
+                    edt_choose_date_tour.text.clear()
                     view?.findNavController()?.navigate(dataTour)
-                }else{
-                    activity?.let { Toasty.error(it, "Terajadi kesalahan!", Toast.LENGTH_LONG, true).show() }
                 }
             }
         })
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.edt_choose_date_tour -> {
+                chooseDate()
+            }
+        }
+    }
+
+    private fun chooseDate(){
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val date = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePicker =
+            context?.let {
+                DatePickerDialog(
+                    it,
+                    DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                        calendar.set(Calendar.YEAR, year)
+                        calendar.set(Calendar.MONTH, month)
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                        val dateFormat = SimpleDateFormat(
+                            "dd-MM-yyyy",
+                            Locale.getDefault()
+                        ).format(calendar.time)
+                        edt_choose_date_tour.setText(dateFormat)
+                        DATE = convertDateToTimeMilis(dateFormat)
+                        edt_choose_date_tour.error = null
+                    },
+                    year,
+                    month,
+                    date
+                )
+            }
+        datePicker?.datePicker?.minDate = System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000L
+        datePicker?.show()
+    }
+    private fun convertDateToTimeMilis(date: String?): Long {
+        val dateTime = "$date"
+        val formater = SimpleDateFormat("dd-MM-yyyy")
+        val dates = formater.parse(dateTime).time
+        return dates
     }
 }

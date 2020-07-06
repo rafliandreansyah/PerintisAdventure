@@ -124,7 +124,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
             R.id.card_booking_tour -> {
                 view?.findNavController()
-                    ?.navigate(R.id.action_navigation_home_to_navigation_date_booking_tour_fragment)
+                    ?.navigate(R.id.action_navigation_home_to_navigation_list_tour_fragment)
             }
         }
     }

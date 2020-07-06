@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:elevation="4dp"
+        android:layout_marginHorizontal="20dp"
+        app:shape_roundRect_bottomLeftRadius="15dp"
+        app:shape_roundRect_bottomRightRadius="15dp"
+        app:shape_roundRect_topLeftRadius="15dp"
+        app:shape_roundRect_topRightRadius="15dp">
+
+        <ImageView
+            android:id="@+id/img_bg_detail_booking_tour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/colorGrey"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/image_detail_booking_tour" />
+
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <View
+        android:id="@+id/tv_date_detail_booking_tour"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="@color/colorGrey"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <View
+        android:id="@+id/tv_tour_name_detail_booking_tour"
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        style="@style/TextPrimaryBold"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:background="@color/colorGrey"
+        android:layout_marginHorizontal="20dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_maps_and_flags"
+            android:contentDescription="@string/icon_maps" />
+
+        <View
+            android:id="@+id/tv_location_detail_booking_tour"
+            android:layout_width="150dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/colorGrey"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="20dp"
+        android:weightSum="3"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey"/>
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <View
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:background="@color/colorGrey"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="20dp"/>
+
+            <View
+                android:id="@+id/tv_duration_detail_booking_tour"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="26dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey"/>
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:background="@color/colorGrey"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="20dp"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="26dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey"/>
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:background="@color/colorGrey"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="20dp"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="26dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginVertical="16dp" />
+
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorGrey"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/ic_garage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_garage"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_garage" />
+
+        <View
+            android:id="@+id/tv_travel_name_detail_booking_tour"
+            android:layout_width="200dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/ic_garage"
+            android:background="@color/colorGrey"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorGrey" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/ic_clock"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_clock"
+            android:contentDescription="@string/icon_garage" />
+
+        <View
+            android:id="@+id/tv_time_detail_booking_tour"
+            android:layout_width="100dp"
+            android:layout_height="16dp"
+            android:background="@color/colorGrey"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/ic_clock"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="150dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorGrey"/>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/colorGrey"/>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/colorGrey"/>
+    <View
+        android:layout_width="100dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/colorGrey"/>
+
+</LinearLayout>

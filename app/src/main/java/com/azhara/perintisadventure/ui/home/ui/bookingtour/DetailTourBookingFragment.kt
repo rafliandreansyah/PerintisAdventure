@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
@@ -13,14 +15,30 @@ import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.FacilityAdapt
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.VisitedTourAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.viewmodel.BookingTourViewModel
 import com.bumptech.glide.Glide
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
+import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class DetailTourBookingFragment : Fragment() {
+class DetailTourBookingFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bookingTourViewModel: BookingTourViewModel
+    private var partnerId: String? = null
+
+    override fun onStart() {
+        super.onStart()
+        loadingShimmer(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadingShimmer(true)
+        bookingTourViewModel.loadDataTravel(partnerId)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +51,8 @@ class DetailTourBookingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btn_booking_tour_now.setOnClickListener(this)
+
         bookingTourViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingTourViewModel::class.java]
         val capacity = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).capacity
         val dateTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).dateTour
@@ -40,7 +60,7 @@ class DetailTourBookingFragment : Fragment() {
         val facilities = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).facilities
         val imgUrl = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).imgUrl
         val locationTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).locationTour
-        val partnerId = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).partnerId
+        partnerId = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).partnerId
         val price = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).price
         val timeTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).timeTour
         val tourName = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).tourName
@@ -70,7 +90,7 @@ class DetailTourBookingFragment : Fragment() {
                         , tourName: String?, vehicle: String?, visitedTour: List<String>?){
 
         tv_capacity_detail_booking_tour.text = "$capacity Orang"
-        tv_date_detail_booking_tour.text = "$dateTour"
+        tv_date_detail_booking_tour.text = "Pemesanan untuk ${convertLongToTime(dateTour)}"
         tv_duration_detail_booking_tour.text = "$durationTour"
         tv_location_detail_booking_tour.text = "$locationTour"
         tv_time_detail_booking_tour.text = "$timeTour"
@@ -82,6 +102,63 @@ class DetailTourBookingFragment : Fragment() {
 
         Log.d("list facilities", "$facilities")
         Log.d("list visitedTour", "$visitedTour")
+
+        bookingTourViewModel.loadDataTravel(partnerId)
+        dataPartner()
+    }
+
+    private fun dataPartner(){
+        bookingTourViewModel.dataTravel().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null){
+                loadingShimmer(false)
+                tv_travel_name_detail_booking_tour.text = data.travelName
+                tv_title_name_travel_detail_booking_tour.text = "Lokasi kantor ${data.travelName}"
+                tv_location_travel_detail_booking_tour.text = data.address
+            }
+         })
+    }
+
+    private fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat("dd MMMM YYYY")
+        return format.format(date)
+    }
+
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_detail_booking_tour.startShimmer()
+            shimmer_detail_booking_tour.visibility = View.VISIBLE
+            layout_detail_booking_tour.visibility = View.INVISIBLE
+        } else {
+            shimmer_detail_booking_tour.visibility = View.INVISIBLE
+            layout_detail_booking_tour.visibility = View.VISIBLE
+            shimmer_detail_booking_tour.stopShimmer()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_booking_tour_now -> {
+                booking()
+            }
+        }
+    }
+
+    private fun booking() {
+        val detailPickup = edt_pickup_detail_tour.text.toString()
+
+        if (detailPickup.isEmpty()){
+            context?.let { Toasty.error(it, "Detail penjemputan tidak boleh kosong!", Toast.LENGTH_LONG, true).show() }
+        }
+
+        if (detailPickup.length < 8 && detailPickup.isNotEmpty()){
+            context?.let { Toasty.error(it, "Detail penjemputan kurang lengkap!", Toast.LENGTH_LONG, true).show() }
+
+        }
+
+        if (detailPickup.isNotEmpty() && detailPickup.length >= 8){
+            context?.let { Toasty.success(it, "Pemesanan berhasil!", Toast.LENGTH_LONG, true).show() }
+        }
     }
 
 }

@@ -10,7 +10,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tanggal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                style="@style/TextPrimary" />
+
+            <EditText
+                android:id="@+id/edt_choose_date_tour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tanggal"
+                style="@style/EditTextDisabledStyle"
+                android:paddingVertical="14dp"
+                android:paddingHorizontal="24dp"
+                android:inputType="date"
+                android:focusableInTouchMode="false"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="16dp"
+                android:layout_below="@+id/tv_date"
+                android:importantForAutofill="no" />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -19,13 +49,13 @@
             android:textAlignment="center"
             style="@style/TextPrimaryBold"
             android:textSize="22sp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list_tour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
             android:clipToPadding="false"
             android:paddingEnd="16dp"
             android:orientation="horizontal"
