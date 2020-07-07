@@ -70,7 +70,8 @@ class BookingListFragment : Fragment() {
         bookingListAdapter.setOnItemClickCallBack(object : BookingListAdapter.OnItemClickCallBack{
             override fun onItemClicked(item: BookingList?) {
                 if (item?.statusPayment == false){
-                    val toPayment = BookingListFragmentDirections.actionNavigationBookedToNavigationPayment()
+                    val toPayment = BookingListFragmentDirections
+                        .actionNavigationBookedToNavigationPayment()
                     toPayment.imgUrlProofPayment = "${item.imgUrlProofPayment}"
                     toPayment.totalPrice = item.totalPrice!!
                     toPayment.uploadProofPayemnt = item.uploadProofPayment!!
@@ -78,12 +79,19 @@ class BookingListFragment : Fragment() {
                     toPayment.bookingType = item.bookingType!!
                     view?.findNavController()?.navigate(toPayment)
                 }
-                if (item?.statusPayment == true && item.imgUrlProofPayment != null
-                    && item.bookingId != null && item.bookingType == 0){
-                    val toDetailBookingCar = BookingListFragmentDirections.actionNavigationBookedToDetailBookingCarFragment()
+                if (item?.statusPayment == true && item.bookingId != null && item.bookingType == 0){
+                    val toDetailBookingCar = BookingListFragmentDirections
+                        .actionNavigationBookedToDetailBookingCarFragment()
                     toDetailBookingCar.bookingId = "${item.bookingId}"
                     view?.findNavController()?.navigate(toDetailBookingCar)
                 }
+                if (item?.statusPayment == true && item.bookingId != null && item.bookingType == 1){
+                    val toDetailBookingTour = BookingListFragmentDirections
+                        .actionNavigationBookedToDetailBookingTourSuccessFragment()
+                    toDetailBookingTour.bookingId = item.bookingId
+                    view?.findNavController()?.navigate(toDetailBookingTour)
+                }
+
             }
 
         })

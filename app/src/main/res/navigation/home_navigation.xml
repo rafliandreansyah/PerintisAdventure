@@ -307,5 +307,11 @@
         android:id="@+id/detailBookingTourSuccessFragment"
         android:name="com.azhara.perintisadventure.ui.home.ui.bookinglist.bookingdetail.tour.DetailBookingTourSuccessFragment"
         android:label="fragment_detail_booking_tour_success"
-        tools:layout="@layout/fragment_detail_booking_tour_success" />
+        tools:layout="@layout/fragment_detail_booking_tour_success" >
+        <argument
+            android:name="bookingId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+    </fragment>
 </navigation>
