@@ -38,7 +38,8 @@ class PaymentFragment : Fragment(), View.OnClickListener {
     private var requestImg = 1
     private var listBookingId: String? = null
     private var partnerId: String? = null
-    private var bookingCarPartnerId: String? = null
+    private var bookingPartnerId: String? = null
+    private var bookingType: Int? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +60,7 @@ class PaymentFragment : Fragment(), View.OnClickListener {
         val totalPrice = PaymentFragmentArgs.fromBundle(arguments as Bundle).totalPrice
         val uploadProofPayment = PaymentFragmentArgs.fromBundle(arguments as Bundle).uploadProofPayemnt
         val imgUrlProofPayment = PaymentFragmentArgs.fromBundle(arguments as Bundle).imgUrlProofPayment
+        bookingType = PaymentFragmentArgs.fromBundle(arguments as Bundle).bookingType
         loadDataBookingList(listBookingId)
         setData(totalPrice, uploadProofPayment, imgUrlProofPayment)
     }
@@ -104,7 +106,7 @@ class PaymentFragment : Fragment(), View.OnClickListener {
             if (data != null){
                 loading(false)
                 partnerId = data.partnerId
-                bookingCarPartnerId = data.bookingDbPartnerId
+                bookingPartnerId = data.bookingDbPartnerId
                 if (data.imgUrlProofPayment != null || data.imgUrlProofPayment != ""){
                     activity?.let { Glide.with(it).load(data.imgUrlProofPayment).into(img_proof_payment) }
 
@@ -119,9 +121,9 @@ class PaymentFragment : Fragment(), View.OnClickListener {
 //    fun uploadProofPayment(imgByteArray: ByteArray, partnerId: String?, bookingCarPartnerId: String?,
 //                           listBookingId: String?)
     private fun uploadToServer(){
-        if (partnerId != null && bookingCarPartnerId != null && listBookingId != null && bitmapImg != null){
+        if (partnerId != null && bookingPartnerId != null && listBookingId != null && bitmapImg != null){
             loading(true)
-            paymentViewModel.uploadProofPayment(imageByteArray(bitmapImg), partnerId, bookingCarPartnerId, listBookingId)
+            paymentViewModel.uploadProofPayment(imageByteArray(bitmapImg), partnerId, bookingPartnerId, listBookingId, bookingType)
         }
         paymentViewModel.statusUpload().observe(viewLifecycleOwner, Observer { data ->
             if (data == true){

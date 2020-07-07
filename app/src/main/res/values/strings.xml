@@ -63,7 +63,7 @@
     <string name="pilih_area">Pilih area...</string>
     <string name="car_image_detail">Car Image Detail</string>
     <string name="icon_garage">Icon garage</string>
-    <string name="information">Informasi</string>
+    <string name="information">Informasi:</string>
     <string name="icon_capacity">Icon capacity</string>
     <string name="icon_gear">Icon gear</string>
     <string name="icon_luggage">Icon luggage</string>
@@ -111,4 +111,5 @@
     <string name="lokasi_penjemputan">Lokasi penjemputan:</string>
     <string name="img_detail_news">img_detail_news</string>
     <string name="fasilitas">Fasilitas:</string>
+    <string name="wisata_yang_dikunjungi">Wisata yang dikunjungi:</string>
 </resources>

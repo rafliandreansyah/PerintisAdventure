@@ -40,6 +40,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
     private var driver: String? = null
     private var pickUpArea: String? = null
     private var carName: String? = null
+    private val bookingType: Int? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -331,6 +332,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                 loadingBooking(false)
                 toPayment.bookingListId = id
                 toPayment.totalPrice = totalPrice
+                toPayment.bookingType = bookingType!!
                 view?.findNavController()?.navigate(toPayment)
             }
         })

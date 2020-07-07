@@ -93,6 +93,7 @@ class ListTourFragment : Fragment(), View.OnClickListener {
                     dataTour.tourName = tour.tourName!!
                     dataTour.vehicle = tour.vehicle!!
                     dataTour.visitedTour = tour.visitedTour?.toTypedArray()
+                    dataTour.tourId = tour.tourId
                     edt_choose_date_tour.text.clear()
                     view?.findNavController()?.navigate(dataTour)
                 }

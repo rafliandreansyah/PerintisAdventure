@@ -39,12 +39,13 @@ class PaymentViewModel : ViewModel(){
         }
     }
 
-    fun uploadProofPayment(imgByteArray: ByteArray, partnerId: String?, bookingCarPartnerId: String?,
-                           listBookingId: String?){
-        val imgStorage = storage.reference.child("proofPayment")
-            .child("$userId").child("$userId")
-        if (imgStorage != null) {
-            imgStorage.delete()
+    fun uploadProofPayment(imgByteArray: ByteArray, partnerId: String?, bookingPartnerId: String?,
+                           listBookingId: String?, bookingType: Int?){
+        var imgStorage = storage.reference.child("proofPayment")
+            .child("$userId").child("car").child("$listBookingId")
+        if (bookingType == 1){
+            imgStorage = storage.reference.child("proofPayment")
+                .child("$userId").child("tour").child("$listBookingId")
         }
 
         val uploadTask = imgStorage.putBytes(imgByteArray)
@@ -61,7 +62,7 @@ class PaymentViewModel : ViewModel(){
             }.addOnCompleteListener {
                 if (it.isSuccessful){
                     val downloadUri = it.result
-                    updateDataUsersUploadPayment(downloadUri.toString(), listBookingId, partnerId, bookingCarPartnerId)
+                    updateDataUsersUploadPayment(downloadUri.toString(), listBookingId, partnerId, bookingPartnerId, bookingType)
                 }else{
                     statusUploadData.postValue(false)
                 }
@@ -73,7 +74,7 @@ class PaymentViewModel : ViewModel(){
 
     fun dataListBooking(): LiveData<BookingList> = listBookingData
 
-    private fun updateDataUsersUploadPayment(urlImgProofPayment: String?, listBookingId: String?, partnerId: String?, bookingCarPartnerId: String?){
+    private fun updateDataUsersUploadPayment(urlImgProofPayment: String?, listBookingId: String?, partnerId: String?, bookingPartnerId: String?, bookingType: Int?){
         val userDb = db.collection("users").document("$userId")
             .collection("listBooking").document("$listBookingId")
 
@@ -83,16 +84,20 @@ class PaymentViewModel : ViewModel(){
         )
         userDb.update(dataUpdate).addOnSuccessListener {
             Log.d("Payment", "Berhasil upload")
-            updateDataPartnersUploadPayment(urlImgProofPayment, partnerId, bookingCarPartnerId)
+            updateDataPartnersUploadPayment(urlImgProofPayment, partnerId, bookingPartnerId, bookingType)
         }.addOnFailureListener {
             statusUploadData.postValue(false)
             Log.e("Payment update users", "Gagal ${it.message}")
         }
     }
 
-    private fun updateDataPartnersUploadPayment(urlImgProofPayment: String?, partnerId: String?, bookingCarPartnerId: String?){
-        val partnerDb = db.collection("partners").document("$partnerId")
-            .collection("bookingCar").document("$bookingCarPartnerId")
+    private fun updateDataPartnersUploadPayment(urlImgProofPayment: String?, partnerId: String?, bookingPartnerId: String?, bookingType: Int?){
+        var partnerDb = db.collection("partners").document("$partnerId")
+            .collection("bookingCar").document("$bookingPartnerId")
+        if (bookingType == 1){
+            partnerDb = db.collection("partners").document("$partnerId")
+                .collection("bookingTour").document("$bookingPartnerId")
+        }
         val dataUpdate = hashMapOf(
             "imgUrlProofPayment" to "$urlImgProofPayment",
             "uploadProofPayment" to true

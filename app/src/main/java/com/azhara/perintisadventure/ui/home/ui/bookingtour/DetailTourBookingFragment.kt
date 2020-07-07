@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.FacilityAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.VisitedTourAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.viewmodel.BookingTourViewModel
 import com.bumptech.glide.Glide
+import com.google.firebase.Timestamp
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
 import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
@@ -28,6 +30,11 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bookingTourViewModel: BookingTourViewModel
     private var partnerId: String? = null
+    private var tourName: String? = null
+    private var dateTour: Long? = 0
+    private var totalPrice: Long? = 0
+    private var tourId: String? = null
+    private val bookingType: Int? = 1
 
     override fun onStart() {
         super.onStart()
@@ -55,7 +62,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
 
         bookingTourViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingTourViewModel::class.java]
         val capacity = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).capacity
-        val dateTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).dateTour
+        dateTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).dateTour
         val durationTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).durationTour
         val facilities = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).facilities
         val imgUrl = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).imgUrl
@@ -63,9 +70,10 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
         partnerId = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).partnerId
         val price = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).price
         val timeTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).timeTour
-        val tourName = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).tourName
+        tourName = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).tourName
         val vehicle = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).vehicle
         val visitedTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).visitedTour
+        tourId = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).tourId
 
         val facilityListAdapter = facilities?.toList()?.let { FacilityAdapter(it) }!!
         with(rv_list_facility){
@@ -82,7 +90,8 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
             isNestedScrollingEnabled = false
         }
 
-        setData(capacity, dateTour, durationTour, facilities.toList(), imgUrl, locationTour, partnerId, price, timeTour, tourName, vehicle, visitedTour?.toList())
+        setData(capacity,
+            dateTour!!, durationTour, facilities.toList(), imgUrl, locationTour, partnerId, price, timeTour, tourName, vehicle, visitedTour?.toList())
     }
 
     private fun setData(capacity: Int?, dateTour: Long, durationTour: String?, facilities: List<String>?
@@ -96,7 +105,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
         tv_time_detail_booking_tour.text = "$timeTour"
         tv_tour_name_detail_booking_tour.text = "$tourName"
         tv_vehicle_detail_booking_tour.text = "$vehicle"
-        val totalPrice = price!! * capacity?.toLong()!!
+        totalPrice = price!! * capacity?.toLong()!!
         tv_total_price_detail_booking_tour.text = "$totalPrice"
         context?.let { Glide.with(it).load(imgUrl).into(img_bg_detail_booking_tour) }
 
@@ -153,12 +162,32 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
 
         if (detailPickup.length < 8 && detailPickup.isNotEmpty()){
             context?.let { Toasty.error(it, "Detail penjemputan kurang lengkap!", Toast.LENGTH_LONG, true).show() }
-
         }
 
         if (detailPickup.isNotEmpty() && detailPickup.length >= 8){
-            context?.let { Toasty.success(it, "Pemesanan berhasil!", Toast.LENGTH_LONG, true).show() }
+            bookingTourViewModel.booking(Timestamp(Date(dateTour!!)), tourId, partnerId, totalPrice, detailPickup, tourName)
+//            context?.let { Toasty.success(it, "Pemesanan berhasil!", Toast.LENGTH_LONG, true).show() }
+            bookingTourViewModel.checkBooking().observe(viewLifecycleOwner, Observer { data->
+                if (data == true){
+                    toPayment(totalPrice)
+                }else{
+                    context?.let { Toasty.error(it, "Terjadi kesalahan!", Toast.LENGTH_LONG, true).show() }
+                }
+            })
         }
+    }
+
+    private fun toPayment(totalPrice: Long?){
+        bookingTourViewModel.bookingListId().observe(viewLifecycleOwner, Observer { id ->
+            if (id != null){
+                val toPayment =
+                    DetailTourBookingFragmentDirections.actionNavigationDetailDestinationFragmentToNavigationPayment()
+                toPayment.bookingListId = id
+                toPayment.totalPrice = totalPrice!!
+                toPayment.bookingType = bookingType!!
+                view?.findNavController()?.navigate(toPayment)
+            }
+        })
     }
 
 }

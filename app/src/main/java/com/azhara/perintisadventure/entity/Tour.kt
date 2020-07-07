@@ -1,6 +1,7 @@
 package com.azhara.perintisadventure.entity
 
 data class Tour(
+    var tourId: String? = null,
     var capacity: Int? = 0,
     var durationTour: String? = null,
     var facilities: List<String>? = null,
