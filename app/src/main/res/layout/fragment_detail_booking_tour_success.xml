@@ -8,7 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +38,7 @@
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
             <TextView
-                android:id="@+id/tv_date_detail_booking_tour"
+                android:id="@+id/tv_date_detail_booking_tour_success"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimaryBold"
@@ -250,13 +251,13 @@
                         style="@style/TextPrimaryBold" />
 
                     <TextView
-                        android:id="@+id/tv_group_detail_tour_success"
+                        android:id="@+id/tv_capacity_detail_tour_success"
+                        style="@style/TextPrimary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="6 Orang"
-                        android:textSize="12sp"
                         android:layout_marginTop="4dp"
-                        style="@style/TextPrimary" />
+                        android:text="6 Orang"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -292,7 +293,7 @@
                         style="@style/TextPrimaryBold" />
 
                     <TextView
-                        android:id="@+id/tv_car_detail_tour_success"
+                        android:id="@+id/tv_vehicle_detail_tour_success"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Avanza/Wuling"
@@ -387,7 +388,7 @@
                         android:id="@+id/tv_title_name_travel_detail_tour_success"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lokasi Kantor Perintis Adventure"
+                        tools:text="Lokasi Kantor Perintis Adventure"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         style="@style/TextPrimary" />
@@ -412,7 +413,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:gravity="center_vertical"
-                            android:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
+                            tools:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
                             style="@style/TextPrimary"
                             android:textSize="12sp" />
                     </LinearLayout>

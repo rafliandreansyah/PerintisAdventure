@@ -15,8 +15,10 @@ class BookingListViewModel : ViewModel() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     private val bookingCarDetail = MutableLiveData<DetailBookingCarUser>()
+    private val bookingTourDetail = MutableLiveData<DetailBookingTourUser>()
     private val partner = MutableLiveData<Partner>()
     private val car = MutableLiveData<Car>()
+    private val tour = MutableLiveData<Tour>()
     private val userId = auth.currentUser?.uid
     fun getDataBookingList(){
         val bookingListDb = db.collection("users").document("$userId")
@@ -86,5 +88,41 @@ class BookingListViewModel : ViewModel() {
     }
 
     fun dataCar(): LiveData<Car> = car
+
+    fun getDetailBookingTour(bookingId: String?){
+        val userDb = db.collection("users").document("$userId")
+            .collection("bookingTour").document("$bookingId")
+
+        userDb.addSnapshotListener { snapshot, exception ->
+            if (exception != null){
+                Log.e("$TAG getDetailBookingTour", "Error: ${exception.message}")
+            }
+
+            if (snapshot != null && snapshot.exists()){
+                Log.d("$TAG getDetailBookingTour", "$snapshot")
+                val data = snapshot.toObject(DetailBookingTourUser::class.java)
+                bookingTourDetail.postValue(data)
+            }
+        }
+    }
+
+    fun dataDetailBookingTour(): LiveData<DetailBookingTourUser> = bookingTourDetail
+
+    fun getDataTour(tourId: String?){
+        val tourDb = db.collection("tour").document("$tourId")
+        tourDb.addSnapshotListener { snapshot, exception ->
+            if (exception != null){
+                Log.e("$TAG getTour", "Error: ${exception.message}")
+            }
+
+            if (snapshot != null && snapshot.exists()){
+                Log.d("$TAG getTour", "$snapshot")
+                val data = snapshot.toObject(Tour::class.java)
+                tour.postValue(data)
+            }
+        }
+    }
+
+    fun dataTour(): LiveData<Tour> = tour
 
 }
