@@ -11,6 +11,7 @@ import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_detail_booking_car.*
+import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,6 +28,11 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail_booking_car, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadingShimmer(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,6 +87,7 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
 
         bookingListViewModel.dataCar().observe(viewLifecycleOwner, Observer { data ->
             if (data != null){
+                loadingShimmer(false)
                 Glide.with(this).load(data.imgUrl).into(img_detail_booked_car)
                 tv_detail_capacity_user.text = "${data.capacity}"
                 tv_detail_car_name.text = "${data.carName}"
@@ -104,5 +111,16 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_detail_booking_car.startShimmer()
+            shimmer_detail_booking_car.visibility = View.VISIBLE
+            layout_detail_booking_car.visibility = View.INVISIBLE
+        } else {
+            shimmer_detail_booking_car.visibility = View.INVISIBLE
+            layout_detail_booking_car.visibility = View.VISIBLE
+            shimmer_detail_booking_car.stopShimmer()
+        }
+    }
 
 }

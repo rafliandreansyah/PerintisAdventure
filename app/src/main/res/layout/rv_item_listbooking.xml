@@ -31,7 +31,7 @@
                 android:textSize="16sp"/>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
@@ -50,6 +50,8 @@
                     android:layout_toEndOf="@+id/ic_list_booking"
                     android:layout_marginStart="8dp"
                     android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     style="@style/TextPrimary"
                     tools:text="Avanza Veloz"
                     android:layout_centerVertical="true"/>
@@ -78,6 +80,7 @@
                 android:id="@+id/tv_item_list_booking_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 tools:text="20-12-2020"
                 android:layout_gravity="end"
                 style="@style/TextPrimary"/>
