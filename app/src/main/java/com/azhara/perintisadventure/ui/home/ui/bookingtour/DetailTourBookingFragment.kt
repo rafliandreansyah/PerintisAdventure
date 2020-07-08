@@ -133,34 +133,26 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
         return format.format(date)
     }
 
-    private fun loadingShimmer(state: Boolean) {
-        if (state) {
-            shimmer_detail_booking_tour.startShimmer()
-            shimmer_detail_booking_tour.visibility = View.VISIBLE
-            layout_detail_booking_tour.visibility = View.INVISIBLE
-        } else {
-            shimmer_detail_booking_tour.visibility = View.INVISIBLE
-            layout_detail_booking_tour.visibility = View.VISIBLE
-            shimmer_detail_booking_tour.stopShimmer()
-        }
-    }
-
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.btn_booking_tour_now -> {
+                btn_booking_tour_now.isEnabled = false
                 booking()
             }
         }
     }
 
     private fun booking() {
+        loadingBooking(true)
         val detailPickup = edt_pickup_detail_tour.text.toString()
 
         if (detailPickup.isEmpty()){
+            loadingBooking(false)
             context?.let { Toasty.error(it, "Detail penjemputan tidak boleh kosong!", Toast.LENGTH_LONG, true).show() }
         }
 
         if (detailPickup.length < 8 && detailPickup.isNotEmpty()){
+            loadingBooking(false)
             context?.let { Toasty.error(it, "Detail penjemputan kurang lengkap!", Toast.LENGTH_LONG, true).show() }
         }
 
@@ -171,6 +163,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
                 if (data == true){
                     toPayment(totalPrice)
                 }else{
+                    loadingBooking(false)
                     context?.let { Toasty.error(it, "Terjadi kesalahan!", Toast.LENGTH_LONG, true).show() }
                 }
             })
@@ -186,8 +179,34 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
                 toPayment.totalPrice = totalPrice!!
                 toPayment.bookingType = bookingType!!
                 view?.findNavController()?.navigate(toPayment)
+                loadingBooking(false)
             }
         })
+    }
+
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_detail_booking_tour.startShimmer()
+            shimmer_detail_booking_tour.visibility = View.VISIBLE
+            layout_detail_booking_tour.visibility = View.INVISIBLE
+        } else {
+            shimmer_detail_booking_tour.visibility = View.INVISIBLE
+            layout_detail_booking_tour.visibility = View.VISIBLE
+            shimmer_detail_booking_tour.stopShimmer()
+        }
+    }
+
+    private fun loadingBooking(state: Boolean){
+        if (state){
+            loading_background_booking_tour.visibility = View.VISIBLE
+            loading_booking_tour.visibility = View.VISIBLE
+            loading_booking_tour.playAnimation()
+        }else{
+            loading_background_booking_tour.visibility = View.INVISIBLE
+            loading_booking_tour.visibility = View.INVISIBLE
+            loading_booking_tour.cancelAnimation()
+            btn_booking_tour_now.isEnabled = true
+        }
     }
 
 }

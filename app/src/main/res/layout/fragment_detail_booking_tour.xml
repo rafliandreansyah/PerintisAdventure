@@ -580,4 +580,20 @@
         <include layout="@layout/detail_booking_tour_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
+    <View
+        android:id="@+id/loading_background_booking_tour"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="@drawable/background_loading"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_booking_tour"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
+
 </FrameLayout>
