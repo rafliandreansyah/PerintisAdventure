@@ -12,6 +12,7 @@ import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.FacilityAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.VisitedTourAdapter
+import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour_success.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,6 +23,11 @@ import java.util.*
 class DetailBookingTourSuccessFragment : Fragment() {
 
     private lateinit var bookingListViewModel: BookingListViewModel
+
+    override fun onStart() {
+        super.onStart()
+        loadingShimmer(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,6 +95,7 @@ class DetailBookingTourSuccessFragment : Fragment() {
 
         bookingListViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
             if (data != null){
+                loadingShimmer(false)
                 tv_travel_name_detail_tour_success.text = "${data.travelName}"
                 tv_title_name_travel_detail_tour_success.text = "Lokasi Kantor ${data.travelName}"
                 tv_location_travel_detail_tour_success.text = "${data.address}"
@@ -104,6 +111,18 @@ class DetailBookingTourSuccessFragment : Fragment() {
         sdf.timeZone = tz
         val startSecondDate = Date(date * 1000)
         return sdf.format(startSecondDate)
+    }
+
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_detail_booking_tour_success.startShimmer()
+            shimmer_detail_booking_tour_success.visibility = View.VISIBLE
+            layout_detail_booking_tour_success.visibility = View.INVISIBLE
+        } else {
+            shimmer_detail_booking_tour_success.visibility = View.INVISIBLE
+            layout_detail_booking_tour_success.visibility = View.VISIBLE
+            shimmer_detail_booking_tour_success.stopShimmer()
+        }
     }
 
 }

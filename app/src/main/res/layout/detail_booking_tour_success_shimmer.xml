@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:elevation="4dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:shape_roundRect_bottomLeftRadius="15dp"
+        app:shape_roundRect_bottomRightRadius="15dp"
+        app:shape_roundRect_topLeftRadius="15dp"
+        app:shape_roundRect_topRightRadius="15dp">
+
+        <View
+            android:id="@+id/img_bg_detail_tour_success"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"/>
+
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+    <View
+        android:id="@+id/tv_date_detail_booking_tour_success"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorGrey"
+        android:layout_marginTop="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <View
+        android:id="@+id/tv_title_detail_tour_success"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorGrey"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_maps_and_flags"
+            android:contentDescription="@string/icon_maps" />
+
+        <TextView
+            android:id="@+id/tv_location_detail_tour_success"
+            android:layout_width="200dp"
+            android:layout_height="18dp"
+            android:background="@color/colorGrey"
+            style="@style/TextPrimary"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorGrey"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/ic_garage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_garage"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_garage" />
+
+        <View
+            android:id="@+id/tv_travel_name_detail_tour_success"
+            android:layout_width="150dp"
+            android:layout_height="20dp"
+            android:background="@color/colorGrey"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/ic_garage"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:background="@color/colorGrey"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/ic_clock"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_clock"
+            android:contentDescription="@string/icon_garage" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/ic_clock"
+            android:background="@color/colorGrey" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/colorGrey"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="20dp"
+        android:weightSum="3"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorGrey" />
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:background="@color/colorGrey"
+                android:layout_marginTop="8dp" />
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey" />
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:background="@color/colorGrey"
+                android:layout_marginTop="8dp" />
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey" />
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:background="@color/colorGrey"
+                android:layout_marginTop="8dp" />
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorGrey"/>
+
+</LinearLayout>
