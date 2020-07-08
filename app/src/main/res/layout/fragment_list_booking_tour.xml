@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pilih Destinasimu"
+            android:text="@string/pilih_destinasimu"
             android:textAlignment="center"
             style="@style/TextPrimaryBold"
             android:textSize="22sp"
@@ -60,7 +60,16 @@
             android:paddingEnd="16dp"
             android:orientation="horizontal"
             tools:listitem="@layout/rv_items_tour"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:ignore="RtlSymmetry" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_list_booking_tour"
+            android:layout_width="match_parent"
+            android:visibility="invisible"
+            android:layout_height="wrap_content">
+            <include layout="@layout/list_tour_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
     </LinearLayout>
 

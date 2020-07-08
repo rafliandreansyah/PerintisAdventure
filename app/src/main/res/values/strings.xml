@@ -112,4 +112,9 @@
     <string name="img_detail_news">img_detail_news</string>
     <string name="fasilitas">Fasilitas:</string>
     <string name="wisata_yang_dikunjungi">Wisata yang dikunjungi:</string>
+    <string name="tour_wisata">Tour wisata</string>
+    <string name="ilustrasi_booking_tour">ilustrasi booking tour</string>
+    <string name="sewa_mobil">Sewa mobil</string>
+    <string name="ilustrasi_booking_mobil">ilustrasi booking mobil</string>
+    <string name="pilih_destinasimu">Pilih Destinasimu</string>
 </resources>

@@ -105,7 +105,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_service"
                     android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:weightSum="2"
+                    android:baselineAligned="false">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -132,13 +133,14 @@
                                     android:id="@+id/ilustration_rent_car"
                                     android:layout_width="95dp"
                                     android:layout_height="67dp"
-                                    android:src="@drawable/ilustration_car_booking" />
+                                    android:src="@drawable/ilustration_car_booking"
+                                    android:contentDescription="@string/ilustrasi_booking_mobil" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerHorizontal="true"
-                                    android:text="Sewa mobil"
+                                    android:text="@string/sewa_mobil"
                                     android:layout_below="@id/ilustration_rent_car"
                                     android:layout_marginTop="14dp"
                                     android:textSize="12sp" />
@@ -172,13 +174,14 @@
                                     android:id="@+id/ilustration_tour"
                                     android:layout_width="95dp"
                                     android:layout_height="67dp"
-                                    android:src="@drawable/ilustation_tour" />
+                                    android:src="@drawable/ilustation_tour"
+                                    android:contentDescription="@string/ilustrasi_booking_tour" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerHorizontal="true"
-                                    android:text="Tour wisata"
+                                    android:text="@string/tour_wisata"
                                     android:layout_below="@id/ilustration_tour"
                                     android:layout_marginTop="14dp"
                                     android:textSize="12sp" />

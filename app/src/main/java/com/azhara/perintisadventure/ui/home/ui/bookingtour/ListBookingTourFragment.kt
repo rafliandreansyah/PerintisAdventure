@@ -19,6 +19,7 @@ import com.azhara.perintisadventure.entity.VisitedTours
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.TourAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.viewmodel.BookingTourViewModel
 import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.fragment_detail_booking_tour_success.*
 import kotlinx.android.synthetic.main.fragment_list_booking_tour.*
 import kotlinx.android.synthetic.main.fragment_list_booking_tour.edt_choose_date_tour
 import java.text.SimpleDateFormat
@@ -41,6 +42,11 @@ class ListTourFragment : Fragment(), View.OnClickListener {
     override fun onResume() {
         super.onResume()
         bookingTourViewModel.getDataTour()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadingShimmer(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,6 +72,7 @@ class ListTourFragment : Fragment(), View.OnClickListener {
             if (data != null){
                 Log.d("ListBookingTourFragment", "$data")
                 tourAdapter.submitList(data)
+                loadingShimmer(false)
             }
         })
     }
@@ -144,5 +151,17 @@ class ListTourFragment : Fragment(), View.OnClickListener {
         val formater = SimpleDateFormat("dd-MM-yyyy")
         val dates = formater.parse(dateTime).time
         return dates
+    }
+
+    private fun loadingShimmer(state: Boolean) {
+        if (state) {
+            shimmer_list_booking_tour.startShimmer()
+            shimmer_list_booking_tour.visibility = View.VISIBLE
+            rv_list_tour.visibility = View.GONE
+        } else {
+            shimmer_list_booking_tour.visibility = View.GONE
+            rv_list_tour.visibility = View.VISIBLE
+            shimmer_list_booking_tour.stopShimmer()
+        }
     }
 }
