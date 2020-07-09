@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.News
 import com.azhara.perintisadventure.ui.home.ui.news.adapter.NewsAdapter
 import com.azhara.perintisadventure.ui.home.ui.news.viewmodel.NewsViewModel
 import kotlinx.android.synthetic.main.fragment_perintis_news_list.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PerintisNewsListFragment : Fragment() {
+
+    private lateinit var newsAdapter: NewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +33,9 @@ class PerintisNewsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val newsViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[NewsViewModel::class.java]
+        newsAdapter = NewsAdapter()
         getDataNews(newsViewModel)
+        onItemClick()
     }
 
     private fun getDataNews(newsViewModel: NewsViewModel) {
@@ -42,12 +49,35 @@ class PerintisNewsListFragment : Fragment() {
     }
 
     private fun setDataRecycleView(data: List<News>){
-        val newsAdapter = NewsAdapter()
         newsAdapter.submitList(data)
         with(rv_news){
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = newsAdapter
         }
+    }
+
+    private fun onItemClick(){
+        newsAdapter.setOnClickCallBack(object : NewsAdapter.OnItemClickCallBack{
+            override fun onItemCliked(news: News) {
+                val toDetailNews = PerintisNewsListFragmentDirections
+                    .actionNavigationPerintisNewsListFragmentToNavigationPerintisNewsDetailFragment()
+                toDetailNews.title = news.title
+                toDetailNews.content = news.content
+                toDetailNews.imgUrl = news.imgUrl
+                toDetailNews.date = convertToLocalDate(news.date?.seconds)
+                view?.findNavController()?.navigate(toDetailNews)
+            }
+        })
+    }
+
+    private fun convertToLocalDate(date: Long?): String {
+        // Convert timestamp to local time
+        val calendar = Calendar.getInstance()
+        val tz = calendar.timeZone
+        val sdf = SimpleDateFormat("dd MMMM yyyy")
+        sdf.timeZone = tz
+        val startSecondDate = date?.times(1000)?.let { Date(it) }
+        return sdf.format(startSecondDate)
     }
 }

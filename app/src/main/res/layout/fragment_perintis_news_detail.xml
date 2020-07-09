@@ -34,6 +34,7 @@
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
             <TextView
+                android:id="@+id/tv_title_detail_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextPrimaryBoldLora"
@@ -51,8 +52,9 @@
                     android:layout_height="wrap_content"
                     style="@style/TextPrimaryLora"
                     android:textSize="14sp"
-                    tools:text="By: Perintis Adventure"/>
+                    android:text="@string/by_perintis_adventure"/>
                 <TextView
+                    android:id="@+id/tv_date_detail_news"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextSecondaryLora"
@@ -63,12 +65,13 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_content_detail_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 style="@style/TextPrimaryLora"
-                android:text="Sudah pernah dengar tentang Kebun Teh
+                tools:text="Sudah pernah dengar tentang Kebun Teh
 Wonosari di Malang? Kalau dibandingkan
 dengan Kebun Teh Rancabali, misalnya,
 Malang memang masih kalah hits, sih. Tapi

@@ -15,6 +15,12 @@ import java.util.*
 
 class NewsAdapter : ListAdapter<News, NewsAdapter.NewsViewHolder>(DIFF_CALLBACK){
 
+    private var onItemClickCallBack: OnItemClickCallBack? = null
+
+    fun setOnClickCallBack(onItemClickCallBack: OnItemClickCallBack){
+        this.onItemClickCallBack = onItemClickCallBack
+    }
+
     companion object{
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<News>(){
             override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
@@ -44,7 +50,12 @@ class NewsAdapter : ListAdapter<News, NewsAdapter.NewsViewHolder>(DIFF_CALLBACK)
                 tv_item_title_list_news.text = "${news.title}"
                 tv_item_date_list_news.text = date
                 tv_item_content_list_news.text = "${news.content}"
+
+                card_news_list_item.setOnClickListener {
+                    onItemClickCallBack?.onItemCliked(news)
+                }
             }
+
         }
     }
 
@@ -56,6 +67,10 @@ class NewsAdapter : ListAdapter<News, NewsAdapter.NewsViewHolder>(DIFF_CALLBACK)
         sdf.timeZone = tz
         val startSecondDate = date?.times(1000)?.let { Date(it) }
         return sdf.format(startSecondDate)
+    }
+
+    interface OnItemClickCallBack{
+        fun onItemCliked(news: News)
     }
 
 }
