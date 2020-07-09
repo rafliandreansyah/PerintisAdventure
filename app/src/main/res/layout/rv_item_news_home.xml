@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="164dp"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="4dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_item1"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="4dp"
+        style="@style/card">
+
+        <ImageView
+            android:id="@+id/img_item_news_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/img_bromo"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/image_item_news_home" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_item_title_news_home"
+        style="@style/TextPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card_item1"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        tools:text="Barang-barang yang kamu butuhkan untuk ke bromo"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_item_date_news_home"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        tools:text="20 januari 2020"
+        android:layout_marginHorizontal="8dp"
+        android:layout_below="@+id/tv_item_title_news_home"
+        android:layout_marginTop="4dp"
+        style="@style/TextPrimary"
+        android:textSize="12sp"
+        android:textColor="@color/colorTextSecondary"/>
+
+</RelativeLayout>

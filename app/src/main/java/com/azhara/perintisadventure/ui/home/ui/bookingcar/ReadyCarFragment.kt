@@ -90,6 +90,12 @@ class ReadyCarFragment : Fragment() {
                     Log.d("Date from enduser", "$endDateData")
                 }
                 Log.d("ReadyCar Car", "$car")
+                if (car.isNotEmpty()){
+                    animBookingCarEmpty(false)
+                }
+                if (car.isEmpty()){
+                    animBookingCarEmpty(true)
+                }
                 carAdapter.submitList(car)
                 progressBooking(startDateData, endDateData, durationData, driverData)
                 loadingShimmer(false)
@@ -143,6 +149,18 @@ class ReadyCarFragment : Fragment() {
             shimmer_ready_car.visibility = View.INVISIBLE
             rv_ready_car.visibility = View.VISIBLE
             shimmer_ready_car.stopShimmer()
+        }
+    }
+
+    private fun animBookingCarEmpty(state: Boolean){
+        if (state){
+            anim_booking_car_empty.playAnimation()
+            anim_booking_car_empty.visibility = View.VISIBLE
+            tv_empty_booking_car.visibility = View.VISIBLE
+        }else{
+            anim_booking_car_empty.visibility = View.INVISIBLE
+            tv_empty_booking_car.visibility = View.INVISIBLE
+            anim_booking_car_empty.cancelAnimation()
         }
     }
 

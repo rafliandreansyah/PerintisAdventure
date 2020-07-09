@@ -19,6 +19,7 @@ import com.azhara.perintisadventure.entity.VisitedTours
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.TourAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.viewmodel.BookingTourViewModel
 import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.fragment_booking_list.*
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour_success.*
 import kotlinx.android.synthetic.main.fragment_list_booking_tour.*
 import kotlinx.android.synthetic.main.fragment_list_booking_tour.edt_choose_date_tour
@@ -70,9 +71,13 @@ class ListTourFragment : Fragment(), View.OnClickListener {
     private fun setData(){
         bookingTourViewModel.dataTour().observe(viewLifecycleOwner, Observer { data ->
             if (data != null){
+                animBookingTourEmpty(false)
                 Log.d("ListBookingTourFragment", "$data")
                 tourAdapter.submitList(data)
                 loadingShimmer(false)
+            }
+            if(data.isEmpty()){
+                animBookingTourEmpty(true)
             }
         })
     }
@@ -162,6 +167,18 @@ class ListTourFragment : Fragment(), View.OnClickListener {
             shimmer_list_booking_tour.visibility = View.GONE
             rv_list_tour.visibility = View.VISIBLE
             shimmer_list_booking_tour.stopShimmer()
+        }
+    }
+
+    private fun animBookingTourEmpty(state: Boolean){
+        if (state){
+            anim_booking_tour_empty.playAnimation()
+            anim_booking_tour_empty.visibility = View.VISIBLE
+            layout_booking_tour.visibility = View.GONE
+        }else{
+            anim_booking_tour_empty.visibility = View.INVISIBLE
+            layout_booking_tour.visibility = View.VISIBLE
+            anim_booking_tour_empty.cancelAnimation()
         }
     }
 }

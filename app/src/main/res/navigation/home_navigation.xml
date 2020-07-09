@@ -19,6 +19,12 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_list_tour_fragment"
             app:destination="@id/navigation_list_tour_fragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_perintis_news_list_fragment"
+            app:destination="@id/navigation_perintis_news_list_fragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_perintis_news_detail_fragment"
+            app:destination="@id/navigation_perintis_news_detail_fragment" />
     </fragment>
 
     <fragment
@@ -310,6 +316,41 @@
         tools:layout="@layout/fragment_detail_booking_tour_success" >
         <argument
             android:name="bookingId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_perintis_news_list_fragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.news.PerintisNewsListFragment"
+        android:label="fragment_perintis_news_list"
+        tools:layout="@layout/fragment_perintis_news_list" >
+        <action
+            android:id="@+id/action_navigation_perintis_news_list_fragment_to_navigation_perintis_news_detail_fragment"
+            app:destination="@id/navigation_perintis_news_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_perintis_news_detail_fragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.news.PerintisNewsDetailFragment"
+        android:label="fragment_perintis_news_detail"
+        tools:layout="@layout/fragment_perintis_news_detail" >
+        <argument
+            android:name="imgUrl"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <argument
+            android:name="content"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <argument
+            android:name="date"
             app:argType="string"
             app:nullable="true"
             android:defaultValue="null" />

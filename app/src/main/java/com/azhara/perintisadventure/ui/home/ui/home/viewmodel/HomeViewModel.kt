@@ -5,10 +5,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.azhara.perintisadventure.entity.News
 import com.azhara.perintisadventure.entity.Slider
 import com.azhara.perintisadventure.entity.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class HomeViewModel : ViewModel() {
@@ -17,6 +19,7 @@ class HomeViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
     private val userData = MutableLiveData<User>()
     private val sliderData = MutableLiveData<List<Slider>>()
+    private val dataNews = MutableLiveData<List<News>>()
     private val className = HomeViewModel::class.java.simpleName
     var errorMessage: String? = null
 
@@ -50,5 +53,22 @@ class HomeViewModel : ViewModel() {
     }
 
     fun dataSlider(): LiveData<List<Slider>> = sliderData
+
+    fun loadNews(){
+        val newsDb = db.collection("news").orderBy("date", Query.Direction.DESCENDING).limit(6)
+        newsDb.addSnapshotListener { value, error ->
+            if (error != null){
+                Log.e("LoadnewsHome", "Error: ${error.message}")
+            }
+
+            if (value != null){
+                val data = value.toObjects(News::class.java)
+                dataNews.postValue(data)
+                Log.d("NewsData", "$data")
+            }
+        }
+    }
+
+    fun dataNews(): LiveData<List<News>> = dataNews
 
 }

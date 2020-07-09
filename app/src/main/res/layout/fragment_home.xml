@@ -20,6 +20,7 @@
 
             <com.github.florent37.shapeofview.shapes.ArcView
                 android:id="@+id/layout_slider"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 app:shape_arc_cropDirection="outside"
@@ -38,7 +39,7 @@
                     app:sliderIndicatorOrientation="vertical"
                     app:sliderIndicatorPadding="5dp"
                     app:sliderIndicatorRadius="1dp"
-                    app:sliderIndicatorSelectedColor="@color/colorAccentDark"
+                    app:sliderIndicatorSelectedColor="@color/colorAccent"
                     app:sliderIndicatorUnselectedColor="#FFF"
                     app:sliderScrollTimeInSec="1"
                     app:sliderStartAutoCycle="true" />
@@ -147,7 +148,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
-                            android:layout_marginVertical="20dp"
+                            android:layout_marginVertical="16dp"
                             style="@style/card">
 
                             <RelativeLayout
@@ -188,7 +189,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:layout_marginVertical="20dp"
+                            android:layout_marginVertical="16dp"
                             style="@style/card">
 
                             <RelativeLayout
@@ -222,9 +223,10 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/layout_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -237,7 +239,8 @@
                         android:id="@+id/tv_infromation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="RelativeOverlap">
 
                         <TextView
                             style="@style/TextPrimaryBold"
@@ -251,168 +254,33 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Hai trippers, lihat informasi spesial buatmu!"
+                            android:text="@string/hai_trippers_lihat_informasi_spesial_buatmu"
                             android:textColor="@color/colorTextSecondary"
                             android:textSize="14sp" />
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/img_to_more_news"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_right_arrow"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/icon_to_detail_news" />
                 </RelativeLayout>
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_news_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="8dp"
+                    android:clipToPadding="false"
+                    tools:listitem="@layout/rv_item_news_home"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginStart="16dp">
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/card_item1"
-                                android:layout_width="160dp"
-                                android:layout_height="130dp"
-                                style="@style/card">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/img_bromo"
-                                    android:scaleType="centerCrop"/>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:id="@+id/text1"
-                                style="@style/TextPrimary"
-                                android:layout_width="160dp"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/card_item1"
-                                android:layout_marginTop="8dp"
-                                android:ellipsize="end"
-                                android:lines="2"
-                                android:text="Barang-barang yang kamu butuhkan untuk ke bromo"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/text_date1"
-                                android:layout_width="130dp"
-                                android:layout_height="wrap_content"
-                                android:text="20 januari 2020"
-                                android:layout_below="@+id/text1"
-                                android:layout_marginTop="8dp"
-                                style="@style/TextPrimary"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorTextSecondary"/>
-
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginStart="8dp">
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/card_item2"
-                                android:layout_width="160dp"
-                                android:layout_height="130dp"
-                                style="@style/card">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/img_bromo"
-                                    android:scaleType="centerCrop"/>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:id="@+id/text2"
-                                style="@style/TextPrimary"
-                                android:layout_width="160dp"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/card_item2"
-                                android:layout_marginTop="8dp"
-                                android:ellipsize="end"
-                                android:lines="2"
-                                android:text="5 Keindahan gunung bromo "
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/text_date2"
-                                android:layout_width="130dp"
-                                android:layout_height="wrap_content"
-                                android:text="20 januari 2020"
-                                android:layout_below="@+id/text2"
-                                android:layout_marginTop="8dp"
-                                style="@style/TextPrimary"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorTextSecondary"/>
-
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginStart="8dp">
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/card_item3"
-                                android:layout_width="160dp"
-                                android:layout_height="130dp"
-                                style="@style/card">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/img_bromo"
-                                    android:scaleType="centerCrop"/>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:id="@+id/text3"
-                                style="@style/TextPrimary"
-                                android:layout_width="160dp"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/card_item3"
-                                android:layout_marginTop="8dp"
-                                android:ellipsize="end"
-                                android:lines="2"
-                                android:text="Barang-barang yang kamu butuhkan untuk ke bromo"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/text_date3"
-                                android:layout_width="130dp"
-                                android:layout_height="wrap_content"
-                                android:text="20 januari 2020"
-                                android:layout_below="@+id/text3"
-                                android:layout_marginTop="8dp"
-                                style="@style/TextPrimary"
-                                android:textSize="12sp"
-                                android:textColor="@color/colorTextSecondary"/>
-
-
-                        </RelativeLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
 
             </LinearLayout>
 

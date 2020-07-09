@@ -15,6 +15,7 @@ import com.azhara.perintisadventure.entity.BookingList
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.adapter.BookingListAdapter
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import kotlinx.android.synthetic.main.fragment_booking_list.*
+import kotlinx.android.synthetic.main.fragment_ready_car.*
 
 class BookingListFragment : Fragment() {
 
@@ -60,8 +61,12 @@ class BookingListFragment : Fragment() {
         bookingListViewModel.dataBookingList().observe(viewLifecycleOwner, Observer { data ->
             Log.d("Booking data", "$data")
             if (data != null){
+                animBookingEmpty(false)
                 bookingListAdapter.submitList(data)
                 onItemClick()
+            }
+            if (data.isEmpty()){
+                animBookingEmpty(true)
             }
         })
     }
@@ -95,5 +100,15 @@ class BookingListFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun animBookingEmpty(state: Boolean){
+        if (state){
+            anim_booking_empty.playAnimation()
+            anim_booking_empty.visibility = View.VISIBLE
+        }else{
+            anim_booking_empty.visibility = View.INVISIBLE
+            anim_booking_empty.cancelAnimation()
+        }
     }
 }

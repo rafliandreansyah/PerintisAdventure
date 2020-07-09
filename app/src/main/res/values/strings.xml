@@ -122,4 +122,8 @@
     <string name="waktu_wisata">Waktu Wisata:</string>
     <string name="image_profile">image profile</string>
     <string name="image_item_slider">Image item slider</string>
+    <string name="pemesanan_penuh_n_silahkan_ganti_tanggal">Pemesanan penuh \n Silahkan ganti tanggal!</string>
+    <string name="image_item_news_home">Image item news home</string>
+    <string name="icon_to_detail_news">Icon to detail news</string>
+    <string name="hai_trippers_lihat_informasi_spesial_buatmu">Hai trippers, lihat informasi spesial buatmu!</string>
 </resources>

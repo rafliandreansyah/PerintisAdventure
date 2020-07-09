@@ -7,6 +7,7 @@
     tools:context=".ui.home.ui.bookingtour.ListTourFragment">
 
     <LinearLayout
+        android:id="@+id/layout_booking_tour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -72,5 +73,14 @@
         </com.facebook.shimmer.ShimmerFrameLayout>
 
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_booking_tour_empty"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/crying" />
 
 </FrameLayout>

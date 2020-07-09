@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.ui.bookingcar.ReadyCarFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -33,5 +34,28 @@
             <include layout="@layout/car_shimmer" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/tv_empty_booking_car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        style="@style/TextPrimaryBoldLora"
+        android:padding="20dp"
+        android:textSize="22sp"
+        android:textColor="@color/colorRed"
+        android:layout_marginTop="50dp"
+        android:text="@string/pemesanan_penuh_n_silahkan_ganti_tanggal"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_booking_car_empty"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/crying" />
 
 </RelativeLayout>
