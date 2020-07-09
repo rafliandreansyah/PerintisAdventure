@@ -11,6 +11,8 @@
         android:id="@+id/rv_booking_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
         tools:listitem="@layout/rv_item_listbooking"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

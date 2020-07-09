@@ -9,6 +9,8 @@
         android:id="@+id/rv_ready_car"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
         tools:listitem="@layout/rv_items_ready_car" />
 
     <com.facebook.shimmer.ShimmerFrameLayout

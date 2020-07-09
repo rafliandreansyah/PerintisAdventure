@@ -19,6 +19,7 @@
             android:orientation="vertical">
 
             <com.github.florent37.shapeofview.shapes.ArcView
+                android:id="@+id/layout_slider"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 app:shape_arc_cropDirection="outside"

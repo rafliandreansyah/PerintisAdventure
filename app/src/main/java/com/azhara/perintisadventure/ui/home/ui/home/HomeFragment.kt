@@ -139,6 +139,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         homeViewModel.dataSlider().observe(viewLifecycleOwner, Observer { data ->
             if (data != null){
                 val sliderAdapater = SliderAdapter(data)
+                sliderAdapater.notifyDataSetChanged()
                 with(imageSlider){
                     setSliderAdapter(sliderAdapater)
                     setIndicatorAnimation(IndicatorAnimationType.THIN_WORM)
@@ -147,6 +148,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     scrollTimeInSec = 4 //set scroll delay in seconds :
                     startAutoCycle()
                 }
+            }
+            if (data.size == 1){
+                val sliderAdapater = SliderAdapter(data)
+                sliderAdapater.notifyDataSetChanged()
+                with(imageSlider){
+                    setSliderAdapter(sliderAdapater)
+                    setIndicatorEnabled(false)
+                    isAutoCycle = false
+                }
+            }
+            if (data.isEmpty()){
+                val sliderAdapater = SliderAdapter(data)
+                sliderAdapater.notifyDataSetChanged()
+                layout_slider.visibility = View.GONE
             }
         })
     }
