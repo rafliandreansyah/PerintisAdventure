@@ -30,13 +30,9 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
         return inflater.inflate(R.layout.fragment_detail_booking_car, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-        loadingShimmer(true)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadingShimmer(true)
         btn_detail_back.setOnClickListener(this)
         bookingListViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingListViewModel::class.java]
         val bookingId = DetailBookingCarFragmentArgs.fromBundle(arguments as Bundle).bookingId
@@ -54,23 +50,23 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
                 tv_detail_booking_date.text = "$dateStart - $dateEnd"
                 tv_detail_pickup_location.text = data.pickUpArea
                 tv_detail_total_price.text = "Rp. ${data.totalPrice}"
-                loadDataPartner(data.partnerId)
+//                loadDataPartner(data.partnerId)
                 loadDataCar(data.carId)
             }
         })
     }
 
-    private fun loadDataPartner(partnerId: String?){
-        bookingListViewModel.getPartner(partnerId)
-
-        bookingListViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
-            if (data != null){
-                tv_detail_travel_name.text = data.travelName
-                tv_detail_booking_travel_name_location.text = "Lokasi Kantor ${data.travelName}"
-                tv_detail_booking_travel_location.text = data.address
-            }
-        })
-    }
+//    private fun loadDataPartner(partnerId: String?){
+//        bookingListViewModel.getPartner(partnerId)
+//
+//        bookingListViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
+//            if (data != null){
+//                tv_detail_travel_name.text = data.travelName
+//                tv_detail_booking_travel_name_location.text = "Lokasi Kantor ${data.travelName}"
+//                tv_detail_booking_travel_location.text = data.address
+//            }
+//        })
+//    }
 
     private fun convertToLocalDate(date: Long): String {
         // Convert timestamp to local time

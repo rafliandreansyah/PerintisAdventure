@@ -83,7 +83,7 @@
     <string name="tempat_lain">Tempat Lain</string>
     <string name="gratis">Gratis</string>
     <string name="kantor_rental">Kantor Rental</string>
-    <string name="lokasi_kantor">Lokasi Kantor</string>
+    <string name="lokasi_kantor">Lokasi Kantor Perintis Adventure</string>
     <string name="image_proof_payment">Image proof payment</string>
     <string name="home">Home</string>
     <string name="upload_bukti_pembayaran">Upload bukti pembayaran</string>
@@ -117,4 +117,9 @@
     <string name="sewa_mobil">Sewa mobil</string>
     <string name="ilustrasi_booking_mobil">ilustrasi booking mobil</string>
     <string name="pilih_destinasimu">Pilih Destinasimu</string>
+    <string name="perum_patraland_place_blok_b2_no_10_tasikmadu_lowokwaru_kota_malang_jawa_timur_65143">Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143</string>
+    <string name="perintis_adventure_rent_car_amp_tour_bromo"><![CDATA[Perintis Adventure Rent Car & Tour Bromo]]></string>
+    <string name="waktu_wisata">Waktu Wisata:</string>
+    <string name="image_profile">image profile</string>
+    <string name="image_item_slider">Image item slider</string>
 </resources>

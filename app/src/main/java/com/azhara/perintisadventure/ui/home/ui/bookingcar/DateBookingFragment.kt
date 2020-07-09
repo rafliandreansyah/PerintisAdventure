@@ -110,7 +110,14 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
             SheetSelectionItem("4", "4 Hari", R.drawable.ic_queue),
             SheetSelectionItem("5", "5 Hari", R.drawable.ic_queue),
             SheetSelectionItem("6", "6 Hari", R.drawable.ic_queue),
-            SheetSelectionItem("7", "7 Hari", R.drawable.ic_queue)
+            SheetSelectionItem("7", "7 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("8", "8 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("9", "9 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("10", "10 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("11", "11 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("12", "12 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("13", "13 Hari", R.drawable.ic_queue),
+            SheetSelectionItem("14", "14 Hari", R.drawable.ic_queue)
         )
 
         context?.let {
@@ -130,12 +137,6 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
 
     private fun chooseTime() {
         val items = listOf(
-            SheetSelectionItem("1", "01:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("2", "02:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("3", "03:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("4", "04:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("5", "05:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("6", "06:00", R.drawable.ic_clock_black),
             SheetSelectionItem("7", "07:00", R.drawable.ic_clock_black),
             SheetSelectionItem("8", "08:00", R.drawable.ic_clock_black),
             SheetSelectionItem("9", "09:00", R.drawable.ic_clock_black),
@@ -151,8 +152,7 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
             SheetSelectionItem("19", "19:00", R.drawable.ic_clock_black),
             SheetSelectionItem("20", "20:00", R.drawable.ic_clock_black),
             SheetSelectionItem("21", "21:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("22", "22:00", R.drawable.ic_clock_black),
-            SheetSelectionItem("23", "23:00", R.drawable.ic_clock_black)
+            SheetSelectionItem("22", "22:00", R.drawable.ic_clock_black)
         )
 
         context?.let {

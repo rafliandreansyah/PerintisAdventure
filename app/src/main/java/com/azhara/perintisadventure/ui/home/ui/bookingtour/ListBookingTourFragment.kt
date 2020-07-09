@@ -143,7 +143,7 @@ class ListTourFragment : Fragment(), View.OnClickListener {
                     date
                 )
             }
-        datePicker?.datePicker?.minDate = System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000L
+        datePicker?.datePicker?.minDate = System.currentTimeMillis() + 3 * 24 * 60 * 60 * 1000L
         datePicker?.show()
     }
     private fun convertDateToTimeMilis(date: String?): Long {

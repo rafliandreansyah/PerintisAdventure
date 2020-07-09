@@ -294,7 +294,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="8dp"
                     android:layout_toEndOf="@id/ic_garage"
-                    tools:text="Perintis Adventure Rent Car And Bromo Tour" />
+                    android:text="@string/perintis_adventure_rent_car_amp_tour_bromo" />
             </RelativeLayout>
 
             <TextView
@@ -382,7 +382,7 @@
                         android:id="@+id/tv_title_name_travel_detail_booking_tour"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="Lokasi Kantor Perintis Adventure"
+                        android:text="@string/lokasi_kantor"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         style="@style/TextPrimary" />
@@ -391,6 +391,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
                         tools:ignore="UseCompoundDrawables">
 
@@ -407,7 +408,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_gravity="center_vertical"
-                            tools:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
+                            android:text="@string/perum_patraland_place_blok_b2_no_10_tasikmadu_lowokwaru_kota_malang_jawa_timur_65143"
                             style="@style/TextPrimary"
                             android:textSize="12sp" />
                     </LinearLayout>

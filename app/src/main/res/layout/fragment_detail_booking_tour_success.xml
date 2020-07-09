@@ -122,13 +122,13 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="8dp"
                     android:layout_toEndOf="@id/ic_garage"
-                    android:text="Perintis Adventure Rent Car And Bromo Tour" />
+                    android:text="@string/perintis_adventure_rent_car_amp_tour_bromo" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Waktu Wisata:"
+                android:text="@string/waktu_wisata"
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="25dp"
@@ -396,7 +396,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_gravity="center_vertical"
-                    android:text="Swiss belin hotel"
+                    tools:text="Swiss belin hotel"
                     style="@style/TextPrimary"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -418,7 +418,7 @@
                         android:id="@+id/tv_title_name_travel_detail_tour_success"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:text="Lokasi Kantor Perintis Adventure"
+                        android:text="@string/lokasi_kantor"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         style="@style/TextPrimary" />
@@ -442,8 +442,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:gravity="center_vertical"
-                            tools:text="Perum. Patraland Place, Blok. B2 No.10, Tasikmadu, Lowokwaru, Kota Malang, Jawa timur 65143"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/perum_patraland_place_blok_b2_no_10_tasikmadu_lowokwaru_kota_malang_jawa_timur_65143"
                             style="@style/TextPrimary"
                             android:textSize="12sp" />
                     </LinearLayout>

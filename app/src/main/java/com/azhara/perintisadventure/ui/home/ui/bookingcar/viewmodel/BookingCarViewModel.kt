@@ -130,6 +130,7 @@ class BookingCarViewModel : ViewModel() {
         totalPrice: Long?, driver: String?,
         pickUpArea: String?, carName: String?
     ) {
+
         val updateBookedCar = BookedDate(userId, startDate, endDate)
 
         val carDb = db.collection("cars").document("$carId")

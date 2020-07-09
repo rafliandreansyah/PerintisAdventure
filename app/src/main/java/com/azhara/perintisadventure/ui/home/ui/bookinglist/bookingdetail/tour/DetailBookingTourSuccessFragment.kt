@@ -24,11 +24,6 @@ class DetailBookingTourSuccessFragment : Fragment() {
 
     private lateinit var bookingListViewModel: BookingListViewModel
 
-    override fun onStart() {
-        super.onStart()
-        loadingShimmer(true)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +34,7 @@ class DetailBookingTourSuccessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        loadingShimmer(true)
         bookingListViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingListViewModel::class.java]
         val bookingId = DetailBookingTourSuccessFragmentArgs.fromBundle(arguments as Bundle).bookingId
         setData(bookingId)
@@ -67,6 +62,7 @@ class DetailBookingTourSuccessFragment : Fragment() {
 
         bookingListViewModel.dataTour().observe(viewLifecycleOwner, Observer { data ->
             if (data != null){
+                loadingShimmer(false)
                 tv_title_detail_tour_success.text = "${data.tourName}"
                 tv_location_detail_tour_success.text = "${data.locationTour}"
                 tv_time_detail_tour_success.text = "${data.timeTour}"
@@ -85,23 +81,23 @@ class DetailBookingTourSuccessFragment : Fragment() {
                     setHasFixedSize(true)
                     adapter = facilityAdapter
                 }
-                setDataPartner("${data.partnerId}")
+//                setDataPartner("${data.partnerId}")
             }
         })
     }
 
-    private fun setDataPartner(partnerId: String?){
-        bookingListViewModel.getPartner(partnerId)
-
-        bookingListViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
-            if (data != null){
-                loadingShimmer(false)
-                tv_travel_name_detail_tour_success.text = "${data.travelName}"
-                tv_title_name_travel_detail_tour_success.text = "Lokasi Kantor ${data.travelName}"
-                tv_location_travel_detail_tour_success.text = "${data.address}"
-            }
-        })
-    }
+//    private fun setDataPartner(partnerId: String?){
+//        bookingListViewModel.getPartner(partnerId)
+//
+//        bookingListViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
+//            if (data != null){
+//                loadingShimmer(false)
+//                tv_travel_name_detail_tour_success.text = "${data.travelName}"
+//                tv_title_name_travel_detail_tour_success.text = "Lokasi Kantor ${data.travelName}"
+//                tv_location_travel_detail_tour_success.text = "${data.address}"
+//            }
+//        })
+//    }
 
     private fun convertToLocalDate(date: Long): String {
         // Convert timestamp to local time

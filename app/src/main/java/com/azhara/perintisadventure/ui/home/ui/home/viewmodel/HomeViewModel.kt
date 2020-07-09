@@ -1,9 +1,11 @@
 package com.azhara.perintisadventure.ui.home.ui.home.viewmodel
 
+import android.transition.Slide
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.azhara.perintisadventure.entity.Slider
 import com.azhara.perintisadventure.entity.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,6 +16,7 @@ class HomeViewModel : ViewModel() {
     val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     private val userData = MutableLiveData<User>()
+    private val sliderData = MutableLiveData<List<Slider>>()
     private val className = HomeViewModel::class.java.simpleName
     var errorMessage: String? = null
 
@@ -31,5 +34,21 @@ class HomeViewModel : ViewModel() {
     }
 
     fun loadUserDoc(): LiveData<User> = userData
+
+    fun loadSlider(){
+        val sliderDb = db.collection("slider").orderBy("sliderPosition")
+        sliderDb.addSnapshotListener { value, error ->
+            if (error != null){
+                Log.e("HomeViewModel Slider", "Error: ${error.message}")
+            }
+            if (value != null){
+                val data = value.toObjects(Slider::class.java)
+                sliderData.postValue(data)
+                Log.d("Data slider", "$data")
+            }
+        }
+    }
+
+    fun dataSlider(): LiveData<List<Slider>> = sliderData
 
 }

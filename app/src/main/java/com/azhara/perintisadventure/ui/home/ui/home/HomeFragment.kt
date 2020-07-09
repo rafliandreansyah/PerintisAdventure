@@ -13,8 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.User
+import com.azhara.perintisadventure.ui.home.ui.home.adapter.SliderAdapter
 import com.azhara.perintisadventure.ui.home.ui.home.viewmodel.HomeViewModel
 import com.bumptech.glide.Glide
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType
+import com.smarteist.autoimageslider.SliderAnimations
+import com.smarteist.autoimageslider.SliderView
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -22,21 +26,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var homeViewModel: HomeViewModel
     private var backPressedTime: Long? = 0
     private lateinit var toast: Toast
-
-    override fun onStart() {
-        super.onStart()
-        val user = homeViewModel.auth.currentUser
-        if (user != null) {
-            loadingShimmer(true)
-        }
-    }
-
     override fun onResume() {
         super.onResume()
         val user = homeViewModel.auth.currentUser
         if (user != null) {
             loadingShimmer(true)
         }
+        homeViewModel.loadDataUser()
+        loadUserDoc()
     }
 
     override fun onCreateView(
@@ -65,6 +62,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         card_profile_home.setOnClickListener(this)
         card_booking_car.setOnClickListener(this)
         card_booking_tour.setOnClickListener(this)
@@ -73,8 +71,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
             ViewModelProvider.NewInstanceFactory()
         )[HomeViewModel::class.java]
 
+        val user = homeViewModel.auth.currentUser
+        if (user != null) {
+            loadingShimmer(true)
+        }
+
         homeViewModel.loadDataUser()
         loadUserDoc()
+        loadSlider()
     }
 
     @SuppressLint("SetTextI18n")
@@ -127,5 +131,23 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     ?.navigate(R.id.action_navigation_home_to_navigation_list_tour_fragment)
             }
         }
+    }
+
+    private fun loadSlider(){
+        homeViewModel.loadSlider()
+
+        homeViewModel.dataSlider().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null){
+                val sliderAdapater = SliderAdapter(data)
+                with(imageSlider){
+                    setSliderAdapter(sliderAdapater)
+                    setIndicatorAnimation(IndicatorAnimationType.THIN_WORM)
+                    setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
+                    autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_RIGHT
+                    scrollTimeInSec = 4 //set scroll delay in seconds :
+                    startAutoCycle()
+                }
+            }
+        })
     }
 }

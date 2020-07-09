@@ -59,14 +59,14 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
                     tv_item_list_booking_status_payment.text = "Menunggu konfirmasi"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_yellow)
                 }
-                if (bookingList?.uploadProofPayment == true && bookingList.imgUrlProofPayment != null && bookingList.statusPayment == true){
+                if (bookingList?.statusPayment == true){
                     tv_item_list_booking_status_payment.text = "Pemesanan berhasil"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_green)
 
                 }
 
                 if (bookingList?.bookingType == 0){
-                    tv_item_list_booking_type.text = "Pemesanan Mobil"
+                    tv_item_list_booking_type.text = "Pemesanan Sewa Mobil"
                 }
                 if(bookingList?.bookingType == 1){
                     tv_item_list_booking_type.text = "Pemesanan Wisata"

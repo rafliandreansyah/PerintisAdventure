@@ -33,7 +33,8 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_payment,
                 R.id.navigation_detail_booking_car_fragment,
                 R.id.navigation_list_tour_fragment,
-                R.id.navigation_detail_destination_fragment
+                R.id.navigation_detail_destination_fragment,
+                R.id.navigation_detail_booking_tour_success_fragment
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -85,7 +86,6 @@ class HomeActivity : AppCompatActivity() {
             }
             if (destination.id == R.id.navigation_date_booking_car_fragment) {
                 navView.visibility = View.GONE
-//                tv_title_toolbar.text = "Password"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.VISIBLE
@@ -95,7 +95,6 @@ class HomeActivity : AppCompatActivity() {
             }
             if (destination.id == R.id.navigation_ready_car_fragment) {
                 navView.visibility = View.GONE
-//                tv_title_toolbar.text = "Password"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.VISIBLE
@@ -140,6 +139,16 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
             if (destination.id == R.id.navigation_detail_destination_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = "Detail Tour"
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.navigation_detail_booking_tour_success_fragment){
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail Tour"

@@ -51,13 +51,10 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        loadingShimmer(true)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loadingShimmer(true)
 
         bookingCarViewModel = ViewModelProvider(
             this,
@@ -124,38 +121,35 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         capacity: Int, carYear: Int, price: Long, gear: Int, imgCar: String,
         partnerId: String, luggage: Int, carName: String?, carNumberPlate: String?
     ) {
-        bookingCarViewModel.getDataPartner(partnerId)
-
-        bookingCarViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
-            if (data != null) {
-                loadingShimmer(false)
-                context?.let { Glide.with(it).load(imgCar).into(img_detail_ready_car) }
-                val startDateFormat = convertToLocalDate(startDate)
-                val endDateFormat = convertToLocalDate(endDate)
-                tv_detail_ready_car_travel_name.text = data.travelName
-                tv_detail_ready_car_booking_date.text = "$startDateFormat - $endDateFormat"
-                tv_detail_ready_car_driver.text = driver
-                tv_detail_ready_car_capacity.text = "$capacity"
-                tv_detail_ready_car_year.text = "$carYear"
-                tv_detail_ready_car_location.text = data.address
-                tv_location_office_travel.text = "Lokasi kantor ${data.travelName}"
-                tv_detail_ready_car_luggage.text = "$luggage"
-                tv_detail_ready_car_number_plate.text = "$carNumberPlate"
-                activity?.tv_title_toolbar?.text = carName
-                this.carName = carName
-                this.PRICE = duration * price
-                Log.d("data partner", "$data")
-                if (gear == 0) {
-                    tv_detail_ready_car_gear.text = "Manual"
-                } else {
-                    tv_detail_ready_car_gear.text = "Automatic"
-                }
-
-            } else {
-                loadingShimmer(false)
-            }
-        })
-
+        context?.let { Glide.with(it).load(imgCar).into(img_detail_ready_car) }
+        val startDateFormat = convertToLocalDate(startDate)
+        val endDateFormat = convertToLocalDate(endDate)
+        tv_detail_ready_car_booking_date.text = "$startDateFormat - $endDateFormat"
+        tv_detail_ready_car_driver.text = driver
+        tv_detail_ready_car_capacity.text = "$capacity"
+        tv_detail_ready_car_year.text = "$carYear"
+        tv_detail_ready_car_luggage.text = "$luggage"
+        tv_detail_ready_car_number_plate.text = "$carNumberPlate"
+        activity?.tv_title_toolbar?.text = carName
+        this.carName = carName
+        this.PRICE = duration * price
+        if (gear == 0) {
+            tv_detail_ready_car_gear.text = "Manual"
+        } else {
+            tv_detail_ready_car_gear.text = "Automatic"
+        }
+        loadingShimmer(false)
+//        bookingCarViewModel.getDataPartner(partnerId)
+//        bookingCarViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
+//            if (data != null) {
+//                tv_detail_ready_car_travel_name.text = data.travelName
+//                tv_detail_ready_car_location.text = data.address
+//                tv_location_office_travel.text = "Lokasi kantor ${data.travelName}"
+//
+//            } else {
+//                loadingShimmer(false)
+//            }
+//        })
     }
 
     private fun areaData(): ArrayList<SheetSelectionItem> {

@@ -18,6 +18,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.github.florent37.shapeofview.shapes.ArcView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:shape_arc_cropDirection="outside"
+                app:shape_arc_height="16dp"
+                app:shape_arc_position="bottom">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorGravity="center_vertical|start"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="vertical"
+                    app:sliderIndicatorPadding="5dp"
+                    app:sliderIndicatorRadius="1dp"
+                    app:sliderIndicatorSelectedColor="@color/colorAccentDark"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
+
+            </com.github.florent37.shapeofview.shapes.ArcView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_profile_home"
                 android:layout_width="match_parent"
@@ -25,7 +51,7 @@
                 style="@style/card"
                 android:visibility="gone"
                 android:layout_marginHorizontal="16dp"
-                app:cardBackgroundColor="@color/colorAccent"
+                app:cardBackgroundColor="@color/colorPrimary"
                 android:layout_marginTop="16dp">
 
                 <RelativeLayout
@@ -45,7 +71,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@drawable/profile_picture_default"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/image_profile" />
 
                     </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -64,7 +91,7 @@
                             tools:text="Hai Rafli Andreansyah!"
                             android:textSize="14sp"
                             style="@style/TextPrimaryBold"
-                            android:textColor="@color/colorPrimary" />
+                            android:textColor="@color/colorAccentDark" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -73,7 +100,7 @@
                             android:text="@string/siapkah_kamu_mengawali_petualanganmu"
                             android:textSize="12sp"
                             style="@style/TextPrimary"
-                            android:textColor="@color/colorPrimary" />
+                            android:textColor="@color/colorAccentDark" />
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

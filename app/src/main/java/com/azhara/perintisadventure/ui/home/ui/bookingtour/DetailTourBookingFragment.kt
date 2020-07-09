@@ -36,17 +36,6 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
     private var tourId: String? = null
     private val bookingType: Int? = 1
 
-    override fun onStart() {
-        super.onStart()
-        loadingShimmer(true)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        loadingShimmer(true)
-        bookingTourViewModel.loadDataTravel(partnerId)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,6 +47,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadingShimmer(true)
         btn_booking_tour_now.setOnClickListener(this)
 
         bookingTourViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingTourViewModel::class.java]
@@ -111,21 +101,21 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
 
         Log.d("list facilities", "$facilities")
         Log.d("list visitedTour", "$visitedTour")
-
-        bookingTourViewModel.loadDataTravel(partnerId)
-        dataPartner()
+        loadingShimmer(false)
+//        bookingTourViewModel.loadDataTravel(partnerId)
+//        dataPartner()
     }
 
-    private fun dataPartner(){
-        bookingTourViewModel.dataTravel().observe(viewLifecycleOwner, Observer { data ->
-            if (data != null){
-                loadingShimmer(false)
-                tv_travel_name_detail_booking_tour.text = data.travelName
-                tv_title_name_travel_detail_booking_tour.text = "Lokasi kantor ${data.travelName}"
-                tv_location_travel_detail_booking_tour.text = data.address
-            }
-         })
-    }
+//    private fun dataPartner(){
+//        bookingTourViewModel.dataTravel().observe(viewLifecycleOwner, Observer { data ->
+//            if (data != null){
+//                loadingShimmer(false)
+//                tv_travel_name_detail_booking_tour.text = data.travelName
+//                tv_title_name_travel_detail_booking_tour.text = "Lokasi kantor ${data.travelName}"
+//                tv_location_travel_detail_booking_tour.text = data.address
+//            }
+//         })
+//    }
 
     private fun convertLongToTime(time: Long): String {
         val date = Date(time)
