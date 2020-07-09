@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
+    style="@style/card2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="8dp">
+
+        <com.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:elevation="4dp"
+            android:layout_gravity="center_vertical"
+            app:shape_roundRect_bottomLeftRadius="5dp"
+            app:shape_roundRect_bottomRightRadius="5dp"
+            app:shape_roundRect_topLeftRadius="5dp"
+            app:shape_roundRect_topRightRadius="5dp">
+
+            <ImageView
+                android:id="@+id/img_item_list_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_bromo"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_background_list_news" />
+
+        </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="28dp"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_item_title_list_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                style="@style/TextPrimaryBoldLora"
+                android:maxLines="2"
+                android:ellipsize="end"
+                tools:text="Kenali keindahan pantai malang"/>
+
+            <TextView
+                android:id="@+id/tv_item_date_list_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                style="@style/TextSecondaryLora"
+                android:layout_marginTop="4dp"
+                tools:text="20 desember 2020"/>
+
+            <TextView
+                android:id="@+id/tv_item_content_list_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/TextPrimaryLora"
+                android:textSize="12sp"
+                tools:text="Sudah pernah dengar tentang Kebun Teh
+Wonosari di Malang? Kalau dibandingkan
+dengan Kebun Teh Rancabali, misalnya,
+Malang memang masih kalah hits, sih. Tapi
+sebenarnya Jawa Timur punya beberapa
+kebun teh, sama seperti Jawa barat.
+"
+                android:maxLines="3"
+                android:ellipsize="end"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

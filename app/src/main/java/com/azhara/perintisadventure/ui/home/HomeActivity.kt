@@ -34,7 +34,9 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_detail_booking_car_fragment,
                 R.id.navigation_list_tour_fragment,
                 R.id.navigation_detail_destination_fragment,
-                R.id.navigation_detail_booking_tour_success_fragment
+                R.id.navigation_detail_booking_tour_success_fragment,
+                R.id.navigation_perintis_news_list_fragment,
+                R.id.action_navigation_home_to_perintis_news_detail_fragment
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -152,6 +154,26 @@ class HomeActivity : AppCompatActivity() {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail Tour"
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.navigation_perintis_news_list_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = "Perintis News"
+                img_toolbar_home.visibility = View.GONE
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.action_navigation_home_to_perintis_news_detail_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = "Detail News"
                 img_toolbar_home.visibility = View.GONE
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
