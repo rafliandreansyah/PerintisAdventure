@@ -190,6 +190,9 @@
             android:name="carNumberPlates"
             app:argType="string"
             android:defaultValue="null" />
+        <action
+            android:id="@+id/action_navigation_detail_ready_car_booking_fragment_to_termsAndConditionsFragment"
+            app:destination="@id/navigation_terms_and_conditions_fragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"
@@ -355,4 +358,9 @@
             app:nullable="true"
             android:defaultValue="null" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_terms_and_conditions_fragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.termsconditions.TermsAndConditionsFragment"
+        android:label="fragment_terms_and_conditions"
+        tools:layout="@layout/fragment_terms_and_conditions" />
 </navigation>

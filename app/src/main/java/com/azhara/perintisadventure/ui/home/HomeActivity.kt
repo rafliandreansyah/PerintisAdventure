@@ -44,7 +44,8 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_detail_destination_fragment,
                 R.id.navigation_detail_booking_tour_success_fragment,
                 R.id.navigation_perintis_news_list_fragment,
-                R.id.navigation_perintis_news_detail_fragment
+                R.id.navigation_perintis_news_detail_fragment,
+                R.id.navigation_terms_and_conditions_fragment
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
@@ -226,6 +227,18 @@ class HomeActivity : AppCompatActivity() {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail News"
+                img_toolbar_home.visibility = View.GONE
+                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.elevation = 4F
+                btn_back.visibility = View.VISIBLE
+                btn_back.setOnClickListener {
+                    onBackPressed()
+                }
+            }
+            if (destination.id == R.id.navigation_terms_and_conditions_fragment){
+                navView.visibility = View.GONE
+                tv_title_toolbar.visibility = View.VISIBLE
+                tv_title_toolbar.text = resources.getString(R.string.syarat_dan_ketentuan_rental)
                 img_toolbar_home.visibility = View.GONE
                 toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
                 toolbar_home.elevation = 4F

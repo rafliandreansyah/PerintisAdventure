@@ -330,7 +330,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check"
-                                    android:text="Dapat mengendarai mobil"
+                                    android:text="@string/dapat_mengendarai_mobil"
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
@@ -353,7 +353,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check2"
-                                    android:text="Memiliki SIM A"
+                                    android:text="@string/memiliki_sim_a"
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
@@ -376,7 +376,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check3"
-                                    android:text="Memiliki KTP atau KTM"
+                                    android:text="@string/memiliki_ktp_atau_ktm"
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
@@ -399,7 +399,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check4"
-                                    android:text="Jaminan 2 KTP atau 1 KTP dan 1 KTM"
+                                    android:text="@string/jaminan_2_ktp_atau_1_ktp_dan_1_ktm"
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
@@ -422,7 +422,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check5"
-                                    android:text="Jaminan Motor dan STNK"
+                                    android:text="@string/jaminan_motor_dan_stnk"
                                     android:textSize="12sp" />
                             </RelativeLayout>
                             <RelativeLayout
@@ -444,7 +444,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check6"
-                                    android:text="Uang DP 50% atau Lunas"
+                                    android:text="@string/uang_dp_50_atau_lunas"
                                     android:textSize="12sp" />
                             </RelativeLayout>
                         </LinearLayout>
@@ -472,7 +472,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:gravity="center_vertical"
-                            android:text="Bensin harus kembali seperti keadaan semula" />
+                            android:text="@string/bensin_harus_kembali_seperti_keadaan_semula" />
 
                     </LinearLayout>
 
@@ -496,7 +496,32 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:gravity="center_vertical"
-                            android:text="Sewa perhari dihitung dalam waktu 24 jam" />
+                            android:text="@string/sewa_perhari_dihitung_dalam_waktu_24_jam" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/icon_driver"
+                            android:src="@drawable/ic_driver"
+                            android:layout_gravity="center_vertical"/>
+
+                        <TextView
+                            android:id="@+id/tv_driver_operation"
+                            style="@style/TextPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/driver_beroperasi_mulai_jam_07_00_22_00" />
 
                     </LinearLayout>
 

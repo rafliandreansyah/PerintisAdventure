@@ -94,6 +94,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         bookingCarViewModel.getDataPickUpArea()
         edt_detail_car_ready_pickup_area.setOnClickListener(this)
         btn_booking_now.setOnClickListener(this)
+        tv_detail_requirement.setOnClickListener(this)
         radio_office_pickup.setOnClickListener {
             radio_custom_pickup.isChecked = false
             edt_detail_car_ready_pickup_area.isEnabled = false
@@ -207,6 +208,9 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             R.id.btn_booking_now -> {
                 btn_booking_now.isEnabled = false
                 bookingNow()
+            }
+            R.id.tv_detail_requirement -> {
+                view?.findNavController()?.navigate(R.id.action_navigation_detail_ready_car_booking_fragment_to_termsAndConditionsFragment)
             }
         }
     }

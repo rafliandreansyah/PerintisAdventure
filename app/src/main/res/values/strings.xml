@@ -56,7 +56,7 @@
     <string name="tentang_wisata">Tentang Wisata</string>
     <string name="disediakan_oleh">Disediakan oleh: </string>
     <string name="pesan_sekarang">Pesan Sekarang</string>
-    <string name="syarat_dan_ketentuan_rental">Syarat dan ketentuan rental</string>
+    <string name="syarat_dan_ketentuan_rental">Syarat dan Ketentuan</string>
     <string name="layanan_kami">Layanan kami</string>
     <string name="detail_penjemputan...">Detail penjemputan...</string>
     <string name="detail_penjemputan">Detail penjemputan</string>
@@ -131,4 +131,43 @@
     <string name="perorang">/ Orang</string>
     <string name="paket">Paket</string>
     <string name="orang">Orang</string>
+
+    <string name="one">Penyewa wajib memiliki dan membawa SIM A selama mengemudi.</string>
+    <string name="two">Penyewa wajib mengembalikan kendaraan dalam maktu dan Tempat yang telah disepakati.</string>
+    <string name="three">Penyewa wajib menjaga kondisi mobil dengan baik seperti sedia kala. Tidak menambahkan aksesoris/merubah tiap Komponen mobil Tanja seizin Perintis adventure.</string>
+    <string name="four">Penyewa wajib memperhatikan barang bawaan yang Beraroma menyengat.</string>
+    <string name="five">Penyewa wajib mematuhi peraturan lalu lintas berlaku.</string>
+    <string name="six">Penyewa dilarang merusak/menghilangkan fasilitas tambahan yang disediakan oleh Perintis Adventure. (Kabel USB/AUX, kotak permen, kotak tissue, bantal dsb).</string>
+    <string name="seven">Penyewa wajib mengisi bahan bakar kendaraan minimal ber-Oktal 90 Pertalite (untuk kendaraian Gasoline) serta minimal Dexlite (untuk kendaraian Diesel).</string>
+    <string name="eight">Penyewa dilarang keras penumpang/barang melebihi kapasitas kendaraan.</string>
+    <string name="nine">Penyewa dilarang keras membawa/menginggalkan barang Yang mudah meledak serta barang yang dilarang oleh undang - undang Republik Indonesia didalam kendaraan.</string>
+    <string name="ten">Segala bentuk kerusakan dan pelanggaran hukum disebabkan oleh kelalaian penyewa, bukan merupakan tanggung jawab Perintis Adventure. Penyewa Wajib Menyelesaikan/mengganti Penuh.</string>
+    <string name="eleven">Biaya keterlambatan pengembalian kendaraan:</string>
+    <string name="elevenone">- Avanza, Agya, Brio Rp. 30.000/Jam</string>
+    <string name="eleventwo">- Wuling Rp. 35.000/Jam</string>
+    <string name="eleventhree">- Innova Rp. 40.000/Jam</string>
+    <string name="_1">1.</string>
+    <string name="_2">2.</string>
+    <string name="_3">3.</string>
+    <string name="_4">4.</string>
+    <string name="__5">5.</string>
+    <string name="_6">6.</string>
+    <string name="_7">7.</string>
+    <string name="_8">8.</string>
+    <string name="_9">9.</string>
+    <string name="_10">10.</string>
+    <string name="_11">11.</string>
+    <string name="syarat_penyewaan">Syarat Penyewaan</string>
+    <string name="jaminan_2_ktp_atau_1_ktp_dan_1_ktm">Jaminan 2 KTP atau 1 KTP dan 1 KTM</string>
+    <string name="jaminan_motor_dan_stnk">Jaminan Motor dan STNK</string>
+    <string name="uang_dp_50_atau_lunas">Uang DP 50% atau Lunas</string>
+    <string name="bensin_harus_kembali_seperti_keadaan_semula">Bensin harus kembali seperti keadaan semula</string>
+    <string name="sewa_perhari_dihitung_dalam_waktu_24_jam">Sewa perhari dihitung dalam waktu 24 jam</string>
+    <string name="driver_beroperasi_mulai_jam_07_00_22_00">Driver beroperasi mulai jam 07.00 - 22.00</string>
+    <string name="aturan_rental">Aturan Rental</string>
+    <string name="dapat_mengendarai_mobil">Dapat mengendarai mobil</string>
+    <string name="memiliki_sim_a">Memiliki SIM A</string>
+    <string name="memiliki_ktp_atau_ktm">Memiliki KTP atau KTM</string>
+
+
 </resources>
