@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 style="@style/TextPrimaryBold"
                 tools:text="Honda Brio"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="16dp" />
 
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 style="@style/TextPrimary"
                 android:text="@string/tanggal_pemesanan"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp" />
 
@@ -70,13 +70,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/disediakan_oleh"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     style="@style/TextPrimary" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="8dp">
 
                     <ImageView
                         android:id="@+id/ic_garage"
@@ -102,9 +102,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/informasi"
                     style="@style/TextPrimary"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="25dp"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="8dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -282,7 +282,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lokasi_pengambilan"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginHorizontal="16dp" />
 
             <RelativeLayout

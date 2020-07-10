@@ -20,11 +20,10 @@
 
             <com.github.florent37.shapeofview.shapes.ArcView
                 android:id="@+id/layout_slider"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 app:shape_arc_cropDirection="outside"
-                app:shape_arc_height="16dp"
+                app:shape_arc_height="10dp"
                 app:shape_arc_position="bottom">
 
                 <com.smarteist.autoimageslider.SliderView
@@ -126,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layanan_kami"
-                    style="@style/TextPrimaryBold"
+                    style="@style/TextPrimary"
                     android:textSize="18sp" />
 
                 <LinearLayout
@@ -243,7 +242,7 @@
                         tools:ignore="RelativeOverlap">
 
                         <TextView
-                            style="@style/TextPrimaryBold"
+                            style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/perintis_news"

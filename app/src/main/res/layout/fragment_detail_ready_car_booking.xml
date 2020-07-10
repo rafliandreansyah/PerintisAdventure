@@ -56,13 +56,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/disediakan_oleh"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         style="@style/TextPrimary" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
+                        android:layout_marginTop="8dp">
 
                         <ImageView
                             android:id="@+id/ic_garage"
@@ -89,9 +89,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/information"
                         style="@style/TextPrimary"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:layout_marginTop="25dp"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="8dp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -353,7 +353,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check2"
-                                    android:text="Memiliki SIM"
+                                    android:text="Memiliki SIM A"
                                     android:textSize="12sp" />
                             </RelativeLayout>
 
@@ -423,6 +423,28 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_toEndOf="@id/ic_check5"
                                     android:text="Jaminan Motor dan STNK"
+                                    android:textSize="12sp" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp">
+
+                                <ImageView
+                                    android:id="@+id/ic_check6"
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerVertical="true"
+                                    android:contentDescription="@string/icon_check"
+                                    android:src="@drawable/ic_check_round" />
+
+                                <TextView
+                                    style="@style/TextPrimary"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_toEndOf="@id/ic_check6"
+                                    android:text="Uang DP 50% atau Lunas"
                                     android:textSize="12sp" />
                             </RelativeLayout>
                         </LinearLayout>
@@ -706,12 +728,8 @@
                                     android:layout_below="@+id/tv_detail_car_ready_pickup_detail_area"
                                     android:importantForAutofill="no" />
                             </RelativeLayout>
-
-
                         </LinearLayout>
                     </RelativeLayout>
-
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

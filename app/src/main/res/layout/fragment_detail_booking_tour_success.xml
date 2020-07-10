@@ -59,7 +59,7 @@
                 android:id="@+id/tv_title_detail_tour_success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="16dp"
                 android:textSize="18sp"
                 android:layout_marginHorizontal="20dp"
@@ -97,7 +97,7 @@
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="25dp"
-                style="@style/TextPrimaryBold" />
+                style="@style/TextPrimary" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="25dp"
-                style="@style/TextPrimaryBold" />
+                style="@style/TextPrimary" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:layout_marginTop="25dp"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginHorizontal="20dp"
                 android:text="@string/information"/>
 
@@ -218,7 +218,7 @@
                         android:text="@string/durasi"
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"
-                        style="@style/TextPrimaryBold" />
+                        style="@style/TextPrimary" />
 
                     <TextView
                         android:id="@+id/tv_duration_tour_detail_success"
@@ -267,7 +267,7 @@
                         android:text="@string/kapasitas"
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"
-                        style="@style/TextPrimaryBold" />
+                        style="@style/TextPrimary" />
 
                     <TextView
                         android:id="@+id/tv_capacity_detail_tour_success"
@@ -319,7 +319,7 @@
                         android:text="@string/kendaraan"
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"
-                        style="@style/TextPrimaryBold" />
+                        style="@style/TextPrimary" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_detail_tour_success"
@@ -340,7 +340,7 @@
                 android:text="@string/wisata_yang_dikunjungi"
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="25dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -356,7 +356,7 @@
                 android:text="@string/fasilitas"
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="25dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -372,7 +372,7 @@
                 android:text="@string/lokasi_penjemputan"
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="25dp"/>
 
             <LinearLayout

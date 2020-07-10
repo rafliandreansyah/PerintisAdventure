@@ -47,7 +47,7 @@ class TourAdapter : ListAdapter<Tour, TourAdapter.TourViewHolder>(DIFF_CALLBACK)
             with(itemView){
                 tv_item_tour_name.text = tour.tourName
                 tv_item_tour_capacity.text = "${tour.capacity}"
-                tv_item_tour_price.text = "${tour.price}"
+                tv_item_tour_price.text = "Rp. ${tour.price}"
                 tv_item_tour_location.text = tour.locationTour
                 Glide.with(context).load(tour.imgUrl).into(img_item_tour)
 

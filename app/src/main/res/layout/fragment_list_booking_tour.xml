@@ -48,9 +48,9 @@
             android:layout_height="wrap_content"
             android:text="@string/pilih_destinasimu"
             android:textAlignment="center"
-            style="@style/TextPrimaryBold"
-            android:textSize="22sp"
-            android:layout_marginTop="20dp"
+            style="@style/TextPrimary"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView

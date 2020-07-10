@@ -87,8 +87,8 @@
                     android:id="@+id/tv_item_tour_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp. 1275000"
-                    android:textColor="@color/colorOrange"
+                    tools:text="Rp. 1275000"
+                    android:textColor="@color/colorYellow"
                     android:textSize="18sp"
                     style="@style/TextPrimaryBold"
                     android:maxLines="2"
@@ -98,11 +98,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="/ Orang"
+                    android:text="@string/perorang"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:textSize="12sp"
-                    android:layout_toEndOf="@id/tv_item_tour_price"
                     style="@style/TextPrimary"
                     android:textColor="@color/colorPrimary"/>
             </LinearLayout>
@@ -117,7 +116,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Paket"
+                    android:text="@string/paket"
                     android:textSize="12sp"
                     style="@style/TextPrimary"
                     android:textColor="@color/colorPrimary"/>
@@ -135,7 +134,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orang"
+                    android:text="@string/orang"
                     android:textSize="12sp"
                     style="@style/TextPrimary"
                     android:textColor="@color/colorPrimary"/>

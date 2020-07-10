@@ -41,7 +41,7 @@
                 android:id="@+id/tv_date_detail_booking_tour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:textSize="16sp"
                 android:textAlignment="center"
                 android:layout_marginTop="16dp"
@@ -58,7 +58,7 @@
                 android:id="@+id/tv_tour_name_detail_booking_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="20dp"
                 android:textSize="18sp"
                 android:layout_marginHorizontal="20dp"
@@ -138,7 +138,7 @@
                         android:text="@string/durasi"
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"
-                        style="@style/TextPrimaryBold" />
+                        style="@style/TextPrimary" />
 
                     <TextView
                         android:id="@+id/tv_duration_detail_booking_tour"
@@ -187,7 +187,7 @@
                         android:text="@string/kapasitas"
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"
-                        style="@style/TextPrimaryBold" />
+                        style="@style/TextPrimary" />
 
                     <TextView
                         android:id="@+id/tv_capacity_detail_booking_tour"
@@ -239,7 +239,7 @@
                         android:text="@string/kendaraan"
                         android:textSize="14sp"
                         android:layout_marginTop="8dp"
-                        style="@style/TextPrimaryBold" />
+                        style="@style/TextPrimary" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_detail_booking_tour"
@@ -269,7 +269,7 @@
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="4dp"
-                style="@style/TextPrimaryBold" />
+                style="@style/TextPrimary" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -300,11 +300,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Waktu Wisata:"
+                android:text="@string/waktu_wisata"
                 android:textSize="16sp"
                 android:layout_marginTop="25dp"
                 android:layout_marginHorizontal="20dp"
-                style="@style/TextPrimaryBold" />
+                style="@style/TextPrimary" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -335,9 +335,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wisata yang dikunjungi:"
+                android:text="@string/wisata_yang_dikunjungi"
                 android:textSize="16sp"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="25dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="4dp"/>
@@ -355,7 +355,7 @@
                 android:text="@string/fasilitas"
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_marginTop="25dp"/>
 
             <androidx.recyclerview.widget.RecyclerView

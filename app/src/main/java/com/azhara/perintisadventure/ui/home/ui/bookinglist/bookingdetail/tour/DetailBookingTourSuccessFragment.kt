@@ -50,7 +50,7 @@ class DetailBookingTourSuccessFragment : Fragment() {
                         it
                     )
                 }
-                tv_total_price_detail_tour_success.text = "${data.totalPrice}"
+                tv_total_price_detail_tour_success.text = "Rp. ${data.totalPrice}"
                 tv_detail_booking_tour_pickup_success.text = "${data.pickupArea}"
                 getDataTour("${data.tourId}", "${data.partnerId}")
             }

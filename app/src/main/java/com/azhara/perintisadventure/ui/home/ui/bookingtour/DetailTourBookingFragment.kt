@@ -89,14 +89,14 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
                         , tourName: String?, vehicle: String?, visitedTour: List<String>?){
 
         tv_capacity_detail_booking_tour.text = "$capacity Orang"
-        tv_date_detail_booking_tour.text = "Pemesanan untuk ${convertLongToTime(dateTour)}"
+        tv_date_detail_booking_tour.text = "Pemesanan Untuk ${convertLongToTime(dateTour)}"
         tv_duration_detail_booking_tour.text = "$durationTour"
         tv_location_detail_booking_tour.text = "$locationTour"
         tv_time_detail_booking_tour.text = "$timeTour"
         tv_tour_name_detail_booking_tour.text = "$tourName"
         tv_vehicle_detail_booking_tour.text = "$vehicle"
         totalPrice = price!! * capacity?.toLong()!!
-        tv_total_price_detail_booking_tour.text = "$totalPrice"
+        tv_total_price_detail_booking_tour.text = "Rp. $totalPrice"
         context?.let { Glide.with(it).load(imgUrl).into(img_bg_detail_booking_tour) }
 
         Log.d("list facilities", "$facilities")

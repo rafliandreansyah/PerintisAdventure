@@ -38,7 +38,7 @@
                 android:id="@+id/tv_title_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextPrimaryBold"
+                style="@style/TextPrimary"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:textSize="22sp"
