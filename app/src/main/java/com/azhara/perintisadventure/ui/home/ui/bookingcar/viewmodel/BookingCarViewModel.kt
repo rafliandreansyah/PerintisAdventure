@@ -9,6 +9,8 @@ import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 
 class BookingCarViewModel : ViewModel() {
 
@@ -77,6 +79,20 @@ class BookingCarViewModel : ViewModel() {
             if (snapshot != null) {
                 val setDataArea = snapshot.toObjects(PickUpArea::class.java)
                 area.postValue(setDataArea)
+            }
+        }
+    }
+
+    fun getDataPickUpAreaWithDriver(){
+        val areaDb = db.collection("pickup_location_driver")
+        areaDb.addSnapshotListener{value, error ->
+            if (error != null){
+                Log.d(TAG, error.message)
+            }
+
+            if (value != null){
+                val data = value.toObjects(PickUpArea::class.java)
+                area.postValue(data)
             }
         }
     }
@@ -208,7 +224,8 @@ class BookingCarViewModel : ViewModel() {
             imgUrlProofPayment = null,
             bookingType = 0, // 0 Tipe Booking Mobil dan 1 Tipe Booking Wisata
             statusPayment = false,
-            uploadProofPayment = false
+            uploadProofPayment = false,
+            downPayment = false
         )
 
         val userListBooking = db.collection("users").document("$userId")

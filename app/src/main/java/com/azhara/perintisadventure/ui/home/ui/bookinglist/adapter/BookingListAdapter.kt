@@ -59,7 +59,7 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
                     tv_item_list_booking_status_payment.text = "Menunggu konfirmasi"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_yellow)
                 }
-                if (bookingList?.statusPayment == true){
+                if (bookingList?.statusPayment == true || bookingList?.downPayment == true){
                     tv_item_list_booking_status_payment.text = "Pemesanan berhasil"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_green)
 

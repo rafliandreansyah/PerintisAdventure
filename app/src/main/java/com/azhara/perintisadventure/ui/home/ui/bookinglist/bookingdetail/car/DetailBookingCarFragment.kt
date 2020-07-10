@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,7 +12,6 @@ import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_detail_booking_car.*
-import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -36,10 +36,16 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
         btn_detail_back.setOnClickListener(this)
         bookingListViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingListViewModel::class.java]
         val bookingId = DetailBookingCarFragmentArgs.fromBundle(arguments as Bundle).bookingId
-        loadDetailBookingById(bookingId)
+        val statusPayment = DetailBookingCarFragmentArgs.fromBundle(arguments as Bundle).statusPayment
+        val downPayment = DetailBookingCarFragmentArgs.fromBundle(arguments as Bundle).downPayment
+        loadDetailBookingById(bookingId, statusPayment, downPayment)
     }
 
-    private fun loadDetailBookingById(bookingId: String?){
+    private fun loadDetailBookingById(
+        bookingId: String?,
+        statusPayment: Boolean,
+        downPayment: Boolean
+    ){
         bookingListViewModel.getDataDetailBookingCar(bookingId)
 
         bookingListViewModel.dataDetailBookingCar().observe(viewLifecycleOwner, Observer { data ->
@@ -49,7 +55,18 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
                 tv_detail_driver.text = data.driver
                 tv_detail_booking_date.text = "$dateStart - $dateEnd"
                 tv_detail_pickup_location.text = data.pickUpArea
-                tv_detail_total_price.text = "Rp. ${data.totalPrice}"
+                if (statusPayment){
+                    tv_status_payment_detail_booking.text = "Pembayaran Berhasil"
+                    tv_detail_total_price.text = "Rp. ${data.totalPrice}"
+                }
+                if (downPayment && !statusPayment){
+                    tv_status_payment_detail_booking.text = "Pembayaran DP"
+                    activity?.applicationContext?.let {
+                        ContextCompat.getColor(
+                            it, R.color.colorYellow)
+                    }?.let { tv_status_payment_detail_booking.setTextColor(it) }
+                    tv_detail_total_price.text = "Rp. ${data.totalPrice?.div(2)}"
+                }
 //                loadDataPartner(data.partnerId)
                 loadDataCar(data.carId)
             }

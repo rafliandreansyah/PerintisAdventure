@@ -91,7 +91,12 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             carName,
             carNumberPlate
         )
-        bookingCarViewModel.getDataPickUpArea()
+        if (driver == "Tanpa Sopir"){
+            bookingCarViewModel.getDataPickUpArea()
+        }else{
+            bookingCarViewModel.getDataPickUpAreaWithDriver()
+        }
+
         edt_detail_car_ready_pickup_area.setOnClickListener(this)
         btn_booking_now.setOnClickListener(this)
         tv_detail_requirement.setOnClickListener(this)
@@ -106,6 +111,9 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             this.PRICE_PICKUP = 0
             if (PRICE != null && PRICE_PICKUP != null) {
                 this.totalPrice = PRICE!! + PRICE_PICKUP!!
+                if (driver == "Dengan Sopir"){
+                    this.totalPrice = 150000 + PRICE!! + PRICE_PICKUP!!
+                }
                 tv_detail_ready_car_total_price.text = "Rp. $totalPrice"
             }
         }
@@ -127,6 +135,9 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         val endDateFormat = convertToLocalDate(endDate)
         tv_detail_ready_car_booking_date.text = "$startDateFormat - $endDateFormat"
         tv_detail_ready_car_driver.text = driver
+        if (driver == "Dengan Sopir"){
+            tv_detail_ready_car_driver.text = "$driver (150.000)"
+        }
         tv_detail_ready_car_capacity.text = "$capacity"
         tv_detail_ready_car_year.text = "$carYear"
         tv_detail_ready_car_luggage.text = "$luggage"
@@ -170,11 +181,32 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         return areas
     }
 
+    private fun areaDataWithDriver(): ArrayList<SheetSelectionItem> {
+        val areas = ArrayList<SheetSelectionItem>()
+        bookingCarViewModel.dataArea().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null) {
+                for (area in data) {
+                    val sheetSelectionItem = SheetSelectionItem("${area.price}", "${area.area}")
+                    areas.add(sheetSelectionItem)
+                }
+                loadingShimmer(false)
+            } else {
+                loadingShimmer(false)
+            }
+        })
+        Log.d("Area", "$areas")
+        return areas
+    }
+
     private fun chooseArea() {
+        var area = areaData()
+        if (driver == "Dengan Sopir"){
+            area = areaDataWithDriver()
+        }
         context?.let {
             SheetSelection.Builder(it)
                 .title("Pilih Area")
-                .items(areaData())
+                .items(area)
                 .showDraggedIndicator(true)
                 .searchEnabled(false)
                 .onItemClickListener { item, _ ->
@@ -183,6 +215,9 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                     tv_detail_car_price_area.text = "Rp. ${item.key}"
                     this.PRICE_PICKUP = item.key.toLong()
                     totalPrice = PRICE!! + PRICE_PICKUP!!
+                    if (driver == "Dengan Sopir"){
+                        totalPrice = 150000 + PRICE!! + PRICE_PICKUP!!
+                    }
                     tv_detail_ready_car_total_price.text = "Rp. $totalPrice"
                 }
                 .show()

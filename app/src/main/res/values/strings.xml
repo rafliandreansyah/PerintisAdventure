@@ -95,7 +95,7 @@
     <string name="klik_untuk_upload_gambar">klik untuk pilih gambar...</string>
     <string name="list_booking_icon">List booking icon</string>
     <string name="total_pembayaran">Total pembayaran:</string>
-    <string name="diharapkan_transfer_sesuai_total_pembayaran_diatas">Diharapkan transfer sesuai nomer rekening dan total pembayaran diatas!</string>
+    <string name="diharapkan_transfer_sesuai_total_pembayaran_diatas">Diharapkan transfer sesuai nominal total pembayaran atau DP diatas!</string>
     <string name="image_car_detail_booking">Image car detail booking</string>
     <string name="tanggal_pemesanan">Tanggal pemesanan:</string>
     <string name="informasi">Informasi</string>
@@ -168,6 +168,7 @@
     <string name="dapat_mengendarai_mobil">Dapat mengendarai mobil</string>
     <string name="memiliki_sim_a">Memiliki SIM A</string>
     <string name="memiliki_ktp_atau_ktm">Memiliki KTP atau KTM</string>
+    <string name="down_payment_dp">Down Payment/DP:</string>
 
 
 </resources>

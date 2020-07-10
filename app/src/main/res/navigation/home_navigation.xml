@@ -298,6 +298,14 @@
             android:name="bookingId"
             app:argType="string"
             android:defaultValue="null" />
+        <argument
+            android:name="statusPayment"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="downPayment"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/navigation_list_tour_fragment"

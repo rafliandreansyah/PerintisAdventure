@@ -67,6 +67,7 @@ class PaymentFragment : Fragment(), View.OnClickListener {
 
     private fun setData(totalPrice: Long?, uploadProofPayment: Boolean?, imgUrlProofPayment: String?){
         tv_total_price_payment.text = "Rp. $totalPrice"
+        tv_down_payment.text = "Rp. ${totalPrice?.div(2)}"
         if (uploadProofPayment == false){
             tv_status_upload_proof_payment.text = "Bukti pembayaran belum terupload."
         }

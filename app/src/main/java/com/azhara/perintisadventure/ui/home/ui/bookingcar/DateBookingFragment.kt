@@ -172,8 +172,8 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
 
     private fun chooseDriver() {
         val items = listOf(
-            SheetSelectionItem("1", "Tanpa Sopir", R.drawable.ic_steering_wheel)
-//            SheetSelectionItem("2", "Dengan Sopir", R.drawable.ic_driver)
+            SheetSelectionItem("1", "Tanpa Sopir", R.drawable.ic_steering_wheel),
+            SheetSelectionItem("2", "Dengan Sopir", R.drawable.ic_driver)
         )
 
         context?.let {
