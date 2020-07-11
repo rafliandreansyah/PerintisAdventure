@@ -95,7 +95,7 @@
     <string name="klik_untuk_upload_gambar">klik untuk pilih gambar...</string>
     <string name="list_booking_icon">List booking icon</string>
     <string name="total_pembayaran">Total pembayaran:</string>
-    <string name="diharapkan_transfer_sesuai_total_pembayaran_diatas">Diharapkan transfer sesuai nominal total pembayaran atau DP diatas</string>
+    <string name="diharapkan_transfer_sesuai_total_pembayaran_diatas">Transfer sesuai nominal total pembayaran sampai 3 angka terakhir</string>
     <string name="image_car_detail_booking">Image car detail booking</string>
     <string name="tanggal_pemesanan">Tanggal pemesanan:</string>
     <string name="informasi">Informasi</string>
@@ -142,10 +142,12 @@
     <string name="eight">Penyewa dilarang keras penumpang/barang melebihi kapasitas kendaraan.</string>
     <string name="nine">Penyewa dilarang keras membawa/menginggalkan barang Yang mudah meledak serta barang yang dilarang oleh undang - undang Republik Indonesia didalam kendaraan.</string>
     <string name="ten">Segala bentuk kerusakan dan pelanggaran hukum disebabkan oleh kelalaian penyewa, bukan merupakan tanggung jawab Perintis Adventure. Penyewa Wajib Menyelesaikan/mengganti Penuh.</string>
-    <string name="eleven">Biaya keterlambatan pengembalian kendaraan:</string>
-    <string name="elevenone">- Avanza, Agya, Brio Rp. 30.000/Jam</string>
-    <string name="eleventwo">- Wuling Rp. 35.000/Jam</string>
-    <string name="eleventhree">- Innova Rp. 40.000/Jam</string>
+    <string name="eleven">Pengembalian uang 50% dari total pembayaran jika terjadi pembatalan.</string>
+    <string name="twelve">Pembatalan penyewaan minimal 3 hari sebelum hari penyewaan. Jika lebih dari 3 hari dari hari penyewaan maka uang akan hangus.</string>
+    <string name="thirdteen">Biaya keterlambatan pengembalian kendaraan:</string>
+    <string name="thirdteennone">- Avanza, Agya, Brio Rp. 30.000/Jam</string>
+    <string name="thirdteentwo">- Wuling Rp. 35.000/Jam</string>
+    <string name="thirdteenthree">- Innova Rp. 40.000/Jam</string>
     <string name="_1">1.</string>
     <string name="_2">2.</string>
     <string name="_3">3.</string>
@@ -169,6 +171,10 @@
     <string name="memiliki_sim_a">Memiliki SIM A</string>
     <string name="memiliki_ktp_atau_ktm">Memiliki KTP atau KTM</string>
     <string name="down_payment_dp">Down Payment/DP:</string>
+    <string name="_12">12.</string>
+    <string name="_13">13.</string>
+    <string name="ilustration_empty">ilustration_empty</string>
+    <string name="empty_car">Empty Car</string>
 
 
 </resources>

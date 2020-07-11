@@ -10,6 +10,7 @@ import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.Tour
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.rv_items_tour.view.*
+import java.text.DecimalFormat
 
 class TourAdapter : ListAdapter<Tour, TourAdapter.TourViewHolder>(DIFF_CALLBACK){
 
@@ -47,7 +48,7 @@ class TourAdapter : ListAdapter<Tour, TourAdapter.TourViewHolder>(DIFF_CALLBACK)
             with(itemView){
                 tv_item_tour_name.text = tour.tourName
                 tv_item_tour_capacity.text = "${tour.capacity}"
-                tv_item_tour_price.text = "Rp. ${tour.price}"
+                tv_item_tour_price.text = "Rp. ${decimalFormat(tour.price)}"
                 tv_item_tour_location.text = tour.locationTour
                 Glide.with(context).load(tour.imgUrl).into(img_item_tour)
 
@@ -56,6 +57,11 @@ class TourAdapter : ListAdapter<Tour, TourAdapter.TourViewHolder>(DIFF_CALLBACK)
                 }
             }
         }
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
     interface OnItemClickCallBack{

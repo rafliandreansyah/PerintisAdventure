@@ -323,11 +323,11 @@
                 style="@style/TextPrimary"/>
 
             <TextView
+                style="@style/TextPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/three"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                android:text="@string/three" />
         </LinearLayout>
 
         <LinearLayout
@@ -489,6 +489,46 @@
                 android:layout_marginStart="8dp"
                 style="@style/TextPrimary"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_12"
+                style="@style/TextPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/twelve"
+                android:layout_marginStart="8dp"
+                style="@style/TextPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_13"
+                style="@style/TextPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thirdteen"
+                android:layout_marginStart="8dp"
+                style="@style/TextPrimary"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -498,21 +538,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/elevenone"
+                android:text="@string/thirdteennone"
                 style="@style/TextPrimary"
                 android:layout_marginTop="4dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/eleventwo"
+                android:text="@string/thirdteentwo"
                 style="@style/TextPrimary"
                 android:layout_marginTop="4dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/eleventhree"
+                android:text="@string/thirdteenthree"
                 style="@style/TextPrimary"
                 android:layout_marginTop="4dp"/>
 

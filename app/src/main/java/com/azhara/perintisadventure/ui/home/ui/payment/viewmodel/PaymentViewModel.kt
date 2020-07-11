@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.azhara.perintisadventure.entity.BankAccount
 import com.azhara.perintisadventure.entity.BookingList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,7 +19,22 @@ class PaymentViewModel : ViewModel(){
 
     private val statusUploadData = MutableLiveData<Boolean>()
     private val listBookingData = MutableLiveData<BookingList>()
+    private val bankAccount = MutableLiveData<BankAccount>()
 
+    fun loadBankAccount(){
+        val bankAccountDb = db.collection("rekening").document("rekening_perintis")
+        bankAccountDb.addSnapshotListener { value, error ->
+            if (error != null){
+                Log.e("Bank account", "${error.message}")
+            }
+            if (value != null && value.exists()){
+                val data = value.toObject(BankAccount::class.java)
+                bankAccount.postValue(data)
+            }
+        }
+    }
+
+    fun bankAccountData(): LiveData<BankAccount> = bankAccount
 
     fun loadDataListBooking(listBookingId: String?){
         val dataUserListBookingDb = db.collection("users").document("$userId")

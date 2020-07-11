@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.BookingList
 import kotlinx.android.synthetic.main.rv_item_listbooking.view.*
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -31,7 +32,6 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
             override fun areContentsTheSame(oldItem: BookingList, newItem: BookingList): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
 
@@ -50,7 +50,7 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
                 val startDate = bookingList?.startDate?.seconds?.let { convertToLocalDate(it) }
                 tv_item_list_booking_name.text = bookingList?.bookingName
                 tv_item_list_booking_date.text = startDate
-                tv_item_list_booking_total_price.text = "Rp. ${bookingList?.totalPrice}"
+                tv_item_list_booking_total_price.text = "Rp. ${decimalFormat(bookingList?.totalPrice)}"
                 if(bookingList?.uploadProofPayment == false){
                     tv_item_list_booking_status_payment.text = "Menunggu pembayaran"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_orange)
@@ -59,7 +59,7 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
                     tv_item_list_booking_status_payment.text = "Menunggu konfirmasi"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_yellow)
                 }
-                if (bookingList?.statusPayment == true || bookingList?.downPayment == true){
+                if (bookingList?.statusPayment == true){
                     tv_item_list_booking_status_payment.text = "Pemesanan berhasil"
                     tv_item_list_booking_status_payment.background = ContextCompat.getDrawable(context, R.drawable.background_color_green)
 
@@ -88,6 +88,11 @@ class BookingListAdapter : ListAdapter<BookingList, BookingListAdapter.BookingLi
         sdf.timeZone = tz
         val startSecondDate = Date(date * 1000)
         return sdf.format(startSecondDate)
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
     interface OnItemClickCallBack{

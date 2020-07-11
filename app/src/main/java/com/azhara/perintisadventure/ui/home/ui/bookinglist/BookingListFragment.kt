@@ -74,7 +74,7 @@ class BookingListFragment : Fragment() {
     private fun onItemClick(){
         bookingListAdapter.setOnItemClickCallBack(object : BookingListAdapter.OnItemClickCallBack{
             override fun onItemClicked(item: BookingList?) {
-                if (item?.statusPayment == false && item.downPayment == false){
+                if (item?.statusPayment == false){
                     val toPayment = BookingListFragmentDirections
                         .actionNavigationBookedToNavigationPayment()
                     toPayment.imgUrlProofPayment = "${item.imgUrlProofPayment}"
@@ -84,12 +84,10 @@ class BookingListFragment : Fragment() {
                     toPayment.bookingType = item.bookingType!!
                     view?.findNavController()?.navigate(toPayment)
                 }
-                if ((item?.statusPayment == true || item?.downPayment == true) && item.bookingId != null && item.bookingType == 0){
+                if (item?.statusPayment == true && item.bookingId != null && item.bookingType == 0){
                     val toDetailBookingCar = BookingListFragmentDirections
                         .actionNavigationBookedToDetailBookingCarFragment()
                     toDetailBookingCar.bookingId = "${item.bookingId}"
-                    toDetailBookingCar.downPayment = item.downPayment!!
-                    toDetailBookingCar.statusPayment = item.statusPayment!!
                     view?.findNavController()?.navigate(toDetailBookingCar)
                 }
                 if (item?.statusPayment == true && item.bookingId != null && item.bookingType == 1){

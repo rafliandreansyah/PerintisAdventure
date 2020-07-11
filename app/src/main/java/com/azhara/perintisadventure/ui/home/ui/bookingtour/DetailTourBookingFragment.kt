@@ -20,6 +20,7 @@ import com.google.firebase.Timestamp
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
 import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,6 +36,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
     private var totalPrice: Long? = 0
     private var tourId: String? = null
     private val bookingType: Int? = 1
+    private var randomNumber: Long? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +51,8 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
 
         loadingShimmer(true)
         btn_booking_tour_now.setOnClickListener(this)
+
+        randomNumber = randomNumber()?.toLong()
 
         bookingTourViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingTourViewModel::class.java]
         val capacity = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).capacity
@@ -95,8 +99,8 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
         tv_time_detail_booking_tour.text = "$timeTour"
         tv_tour_name_detail_booking_tour.text = "$tourName"
         tv_vehicle_detail_booking_tour.text = "$vehicle"
-        totalPrice = price!! * capacity?.toLong()!!
-        tv_total_price_detail_booking_tour.text = "Rp. $totalPrice"
+        totalPrice = price!! * capacity?.toLong()!! - randomNumber!!
+        tv_total_price_detail_booking_tour.text = "Rp. ${decimalFormat(totalPrice)}"
         context?.let { Glide.with(it).load(imgUrl).into(img_bg_detail_booking_tour) }
 
         Log.d("list facilities", "$facilities")
@@ -197,6 +201,15 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
             loading_booking_tour.cancelAnimation()
             btn_booking_tour_now.isEnabled = true
         }
+    }
+
+    private fun randomNumber(): Int?{
+        return (1..999).random()
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
 }

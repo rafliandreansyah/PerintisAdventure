@@ -43,21 +43,35 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/bri_logo"
+                            android:id="@+id/logo_bank"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_centerVertical="true"
                             android:contentDescription="@string/image_logo_bank"
-                            android:src="@drawable/bri_logo" />
+                            tools:src="@drawable/bri_logo" />
 
                         <TextView
-                            android:id="@+id/tv_rekening"
+                            android:id="@+id/tv_bank_name"
                             style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="18sp"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="8dp"
-                            android:layout_toEndOf="@id/bri_logo"
+                            android:layout_toEndOf="@id/logo_bank"
+                            tools:text="Bank BRI" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="@string/no_rekening" />
 
                         <TextView
@@ -65,11 +79,9 @@
                             style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:layout_marginStart="8dp"
-                            android:layout_toEndOf="@id/tv_rekening"
-                            android:text="617201014546530" />
-                    </RelativeLayout>
+                            tools:text="617201014546530" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -84,11 +96,12 @@
                             android:text="@string/kode_bank" />
 
                         <TextView
+                            android:id="@+id/tv_bank_code"
                             style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="002" />
+                            tools:text="002" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -104,11 +117,12 @@
                             android:text="@string/atas_nama" />
 
                         <TextView
+                            android:id="@+id/tv_atas_nama"
                             style="@style/TextPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="Perintis Adventure" />
+                            tools:text="Perintis Adventure" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -125,30 +139,6 @@
 
                         <TextView
                             android:id="@+id/tv_total_price_payment"
-                            style="@style/TextPrimaryBold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:textColor="@color/colorOrange"
-                            android:textSize="16sp"
-                            tools:text="Rp 510000" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/layout_down_payment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/TextPrimary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/down_payment_dp" />
-
-                        <TextView
-                            android:id="@+id/tv_down_payment"
                             style="@style/TextPrimaryBold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

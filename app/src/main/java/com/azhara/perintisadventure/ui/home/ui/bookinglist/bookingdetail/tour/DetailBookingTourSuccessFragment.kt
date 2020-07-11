@@ -14,6 +14,7 @@ import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.FacilityAdapt
 import com.azhara.perintisadventure.ui.home.ui.bookingtour.adapter.VisitedTourAdapter
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour.*
 import kotlinx.android.synthetic.main.fragment_detail_booking_tour_success.*
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,7 +51,7 @@ class DetailBookingTourSuccessFragment : Fragment() {
                         it
                     )
                 }
-                tv_total_price_detail_tour_success.text = "Rp. ${data.totalPrice}"
+                tv_total_price_detail_tour_success.text = "Rp. ${decimalFormat(data.totalPrice)}"
                 tv_detail_booking_tour_pickup_success.text = "${data.pickupArea}"
                 getDataTour("${data.tourId}", "${data.partnerId}")
             }
@@ -119,6 +120,11 @@ class DetailBookingTourSuccessFragment : Fragment() {
             layout_detail_booking_tour_success.visibility = View.VISIBLE
             shimmer_detail_booking_tour_success.stopShimmer()
         }
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
 }

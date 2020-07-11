@@ -10,6 +10,7 @@ import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.entity.Car
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.rv_items_ready_car.view.*
+import java.text.DecimalFormat
 
 class CarAdapter : ListAdapter<Car, CarAdapter.CarViewHolder>(DIFF_CALLBACK) {
 
@@ -48,7 +49,7 @@ class CarAdapter : ListAdapter<Car, CarAdapter.CarViewHolder>(DIFF_CALLBACK) {
                 tv_car_name.text = car?.carName
                 tv_capacity.text = car?.capacity.toString()
                 tv_car_year.text = car?.year.toString()
-                tv_price_car.text = "${car?.price} / Hari"
+                tv_price_car.text = "Rp. ${decimalFormat(car?.price)} / Hari"
                 tv_luggage.text = car?.luggage.toString()
                 if (car?.gear!!.equals(0)) {
                     tv_gear_ready_car.text = "Manual"
@@ -62,6 +63,11 @@ class CarAdapter : ListAdapter<Car, CarAdapter.CarViewHolder>(DIFF_CALLBACK) {
             }
 
         }
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
     interface OnItemClickCallBack {

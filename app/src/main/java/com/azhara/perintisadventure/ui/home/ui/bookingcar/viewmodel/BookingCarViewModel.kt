@@ -224,8 +224,7 @@ class BookingCarViewModel : ViewModel() {
             imgUrlProofPayment = null,
             bookingType = 0, // 0 Tipe Booking Mobil dan 1 Tipe Booking Wisata
             statusPayment = false,
-            uploadProofPayment = false,
-            downPayment = false
+            uploadProofPayment = false
         )
 
         val userListBooking = db.collection("users").document("$userId")

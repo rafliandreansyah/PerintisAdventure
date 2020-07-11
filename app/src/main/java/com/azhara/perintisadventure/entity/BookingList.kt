@@ -13,6 +13,5 @@ data class BookingList (
     var imgUrlProofPayment: String? = null,
     var bookingType: Int? = 0, // 0 Booking mobil dan 1 booking wisata
     var statusPayment: Boolean? = false,
-    var uploadProofPayment: Boolean? = false,
-    var downPayment: Boolean? = false
+    var uploadProofPayment: Boolean? = false
 )

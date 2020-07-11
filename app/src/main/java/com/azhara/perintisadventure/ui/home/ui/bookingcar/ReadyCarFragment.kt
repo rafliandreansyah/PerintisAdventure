@@ -100,7 +100,6 @@ class ReadyCarFragment : Fragment() {
                 progressBooking(startDateData, endDateData, durationData, driverData)
                 loadingShimmer(false)
             }
-
         })
 
     }
@@ -154,13 +153,11 @@ class ReadyCarFragment : Fragment() {
 
     private fun animBookingCarEmpty(state: Boolean){
         if (state){
-            anim_booking_car_empty.playAnimation()
-            anim_booking_car_empty.visibility = View.VISIBLE
-            tv_empty_booking_car.visibility = View.VISIBLE
+            ilustration_empty.visibility = View.VISIBLE
+            tv_empty_car.visibility = View.VISIBLE
         }else{
-            anim_booking_car_empty.visibility = View.INVISIBLE
-            tv_empty_booking_car.visibility = View.INVISIBLE
-            anim_booking_car_empty.cancelAnimation()
+            ilustration_empty.visibility = View.INVISIBLE
+            tv_empty_car.visibility = View.INVISIBLE
         }
     }
 

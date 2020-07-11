@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_payment.*
 import java.io.ByteArrayOutputStream
 import java.lang.Exception
+import java.text.DecimalFormat
 
 /**
  * A simple [Fragment] subclass.
@@ -63,11 +64,12 @@ class PaymentFragment : Fragment(), View.OnClickListener {
         bookingType = PaymentFragmentArgs.fromBundle(arguments as Bundle).bookingType
         loadDataBookingList(listBookingId)
         setData(totalPrice, uploadProofPayment, imgUrlProofPayment)
+        getDataBankAccount()
     }
 
     private fun setData(totalPrice: Long?, uploadProofPayment: Boolean?, imgUrlProofPayment: String?){
 
-        checkBookingType(bookingType, totalPrice)
+        tv_total_price_payment.text = "Rp. ${decimalFormat(totalPrice)}"
 
         if (uploadProofPayment == false){
             tv_status_upload_proof_payment.text = "Bukti pembayaran belum terupload."
@@ -80,15 +82,6 @@ class PaymentFragment : Fragment(), View.OnClickListener {
                     it
                 )
             }
-        }
-    }
-
-    private fun checkBookingType(bookingType: Int?, totalPrice: Long?){
-        tv_total_price_payment.text = "Rp. $totalPrice"
-        tv_down_payment.text = "Rp. ${totalPrice?.div(2)}"
-        if (bookingType == 1){
-            layout_down_payment.visibility = View.GONE
-            tv_payment_information.text = "Diharapkan transfer sesuai nominal total pembayaran"
         }
     }
 
@@ -219,6 +212,26 @@ class PaymentFragment : Fragment(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    private fun getDataBankAccount(){
+        loading(true)
+        paymentViewModel.loadBankAccount()
+
+        paymentViewModel.bankAccountData().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null){
+                loading(false)
+                tv_bank_name.text = data.bankName
+                tv_no_rekening.text = data.noRekening
+                tv_bank_code.text = data.kodeBank
+                tv_atas_nama.text = data.atasNama
+            }
+        })
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
 }

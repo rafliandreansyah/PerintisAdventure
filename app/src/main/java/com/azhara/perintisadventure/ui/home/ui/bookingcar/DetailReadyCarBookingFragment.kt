@@ -19,6 +19,7 @@ import com.minibugdev.sheetselection.SheetSelectionItem
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_detail_ready_car_booking.*
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -41,6 +42,8 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
     private var pickUpArea: String? = null
     private var carName: String? = null
     private val bookingType: Int? = 0
+    private var randomNumber: Long? = 0
+    private var uniqueNumber: Long? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +58,8 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         loadingShimmer(true)
+
+        randomNumber = randomNumber()?.toLong()
 
         bookingCarViewModel = ViewModelProvider(
             this,
@@ -110,11 +115,11 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             Toast.makeText(context, radio_office_pickup.text, Toast.LENGTH_SHORT).show()
             this.PRICE_PICKUP = 0
             if (PRICE != null && PRICE_PICKUP != null) {
-                this.totalPrice = PRICE!! + PRICE_PICKUP!!
+                this.totalPrice = PRICE!! + PRICE_PICKUP!! - this.randomNumber!!
                 if (driver == "Dengan Sopir"){
-                    this.totalPrice = 150000 + PRICE!! + PRICE_PICKUP!!
+                    this.totalPrice = 150000 + PRICE!! + PRICE_PICKUP!! - this.randomNumber!!
                 }
-                tv_detail_ready_car_total_price.text = "Rp. $totalPrice"
+                tv_detail_ready_car_total_price.text = "Rp. ${decimalFormat(totalPrice)}"
             }
         }
         radio_custom_pickup.setOnClickListener {
@@ -214,11 +219,11 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                     tv_detail_car_price_area.visibility = View.VISIBLE
                     tv_detail_car_price_area.text = "Rp. ${item.key}"
                     this.PRICE_PICKUP = item.key.toLong()
-                    totalPrice = PRICE!! + PRICE_PICKUP!!
+                    totalPrice = PRICE!! + PRICE_PICKUP!! - this.randomNumber!!
                     if (driver == "Dengan Sopir"){
-                        totalPrice = 150000 + PRICE!! + PRICE_PICKUP!!
+                        totalPrice = 150000 + PRICE!! + PRICE_PICKUP!! - this.randomNumber!!
                     }
-                    tv_detail_ready_car_total_price.text = "Rp. $totalPrice"
+                    tv_detail_ready_car_total_price.text = "Rp. ${decimalFormat(totalPrice)}"
                 }
                 .show()
         }
@@ -395,6 +400,22 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             loading_booking_car.cancelAnimation()
             btn_booking_now.isEnabled = true
         }
+    }
+
+    private fun randomNumber(): Int?{
+        return (1..999).random()
+    }
+
+    private fun getUniqueNumber(number: Long): Long? {
+        val digitsString = number.toString()
+        val arrayNumber = digitsString.map { it.toString().toInt() }
+        val uniqueNumber =  arrayNumber.takeLast(3)
+        return uniqueNumber.joinToString(separator = "").toLong()
+    }
+
+    private fun decimalFormat(price: Long?): String?{
+        val formatDecimal = DecimalFormat("###,###,###")
+        return formatDecimal.format(price)
     }
 
 }
