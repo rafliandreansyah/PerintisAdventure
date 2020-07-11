@@ -172,13 +172,13 @@ class ListTourFragment : Fragment(), View.OnClickListener {
 
     private fun animBookingTourEmpty(state: Boolean){
         if (state){
-            anim_booking_tour_empty.playAnimation()
-            anim_booking_tour_empty.visibility = View.VISIBLE
+            ilustration_empty_tour.visibility = View.VISIBLE
+            tv_empty_tour.visibility = View.VISIBLE
             layout_booking_tour.visibility = View.GONE
         }else{
-            anim_booking_tour_empty.visibility = View.INVISIBLE
+            ilustration_empty_tour.visibility = View.INVISIBLE
+            tv_empty_tour.visibility = View.INVISIBLE
             layout_booking_tour.visibility = View.VISIBLE
-            anim_booking_tour_empty.cancelAnimation()
         }
     }
 }

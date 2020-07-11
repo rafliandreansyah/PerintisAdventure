@@ -20,7 +20,7 @@ class BookingTourViewModel : ViewModel(){
     private val bookingListId = MutableLiveData<String>()
 
     fun getDataTour(){
-        val tourDb = db.collection("tour")
+        val tourDb = db.collection("tour").whereEqualTo("statusReady", true)
         tourDb.addSnapshotListener { snapshot, exception ->
             if (exception != null){
                 Log.e(TAG, exception.message)

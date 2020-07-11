@@ -175,6 +175,7 @@
     <string name="_13">13.</string>
     <string name="ilustration_empty">ilustration_empty</string>
     <string name="empty_car">Empty Car</string>
+    <string name="empty_tour">Empty Tour</string>
 
 
 </resources>

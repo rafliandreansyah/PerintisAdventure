@@ -12,5 +12,6 @@ data class Tour(
     var timeTour: String? = null,
     var tourName: String? = null,
     var vehicle: String? = null,
-    var visitedTour: List<String>? = null
+    var visitedTour: List<String>? = null,
+    var statusReady: Boolean? = false
 )
