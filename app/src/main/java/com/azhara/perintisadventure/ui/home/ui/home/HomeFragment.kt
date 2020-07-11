@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
+import com.azhara.perintisadventure.entity.News
 import com.azhara.perintisadventure.entity.User
 import com.azhara.perintisadventure.ui.home.ui.home.adapter.HomeNewsAdapter
 import com.azhara.perintisadventure.ui.home.ui.home.adapter.SliderAdapter
@@ -23,6 +24,8 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -85,6 +88,21 @@ class HomeFragment : Fragment(), View.OnClickListener {
         loadSlider()
     }
 
+    private fun onItemNewsClicked(newsAdapter: HomeNewsAdapter) {
+        newsAdapter.setOnItemClicked(object : HomeNewsAdapter.OnItemClickCallBack{
+            override fun onItemClicked(news: News) {
+                val toDetailNews = HomeFragmentDirections
+                    .actionNavigationHomeToPerintisNewsDetailFragment()
+                toDetailNews.imgUrl = news.imgUrl
+                toDetailNews.content = news.content
+                toDetailNews.date = convertToLocalDate(news.date?.seconds)
+                toDetailNews.title = news.title
+                view?.findNavController()?.navigate(toDetailNews)
+            }
+
+        })
+    }
+
     @SuppressLint("SetTextI18n")
     private fun addData(user: User) {
         tv_text_name_home.text = "Hai ${user.name}!"
@@ -116,6 +134,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 layout_news.visibility = View.VISIBLE
                 loadingShimmer(false)
                 val newsHomeAdapter = HomeNewsAdapter()
+                onItemNewsClicked(newsHomeAdapter)
                 newsHomeAdapter.submitList(data)
                 with(rv_news_home){
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -196,5 +215,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 layout_slider.visibility = View.GONE
             }
         })
+    }
+    private fun convertToLocalDate(date: Long?): String {
+        // Convert timestamp to local time
+        val calendar = Calendar.getInstance()
+        val tz = calendar.timeZone
+        val sdf = SimpleDateFormat("dd MMMM yyyy")
+        sdf.timeZone = tz
+        val startSecondDate = date?.times(1000)?.let { Date(it) }
+        return sdf.format(startSecondDate)
     }
 }

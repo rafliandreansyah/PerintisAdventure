@@ -26,6 +26,12 @@ class HomeNewsAdapter : ListAdapter<News, HomeNewsAdapter.HomeNewsViewHolder>(DI
         }
     }
 
+    private var onItemClickCallBack: OnItemClickCallBack? = null
+
+    fun setOnItemClicked(onItemClickCallBack: OnItemClickCallBack){
+        this.onItemClickCallBack = onItemClickCallBack
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -44,6 +50,9 @@ class HomeNewsAdapter : ListAdapter<News, HomeNewsAdapter.HomeNewsViewHolder>(DI
                 Glide.with(context).load(news.imgUrl).centerCrop().into(img_item_news_home)
                 tv_item_title_news_home.text = "${news.title}"
                 tv_item_date_news_home.text = "$date"
+                card_news_home.setOnClickListener {
+                    onItemClickCallBack?.onItemClicked(news)
+                }
             }
         }
     }
@@ -56,5 +65,9 @@ class HomeNewsAdapter : ListAdapter<News, HomeNewsAdapter.HomeNewsViewHolder>(DI
         sdf.timeZone = tz
         val startSecondDate = date?.times(1000)?.let { Date(it) }
         return sdf.format(startSecondDate)
+    }
+
+    interface OnItemClickCallBack{
+        fun onItemClicked(news: News)
     }
 }
