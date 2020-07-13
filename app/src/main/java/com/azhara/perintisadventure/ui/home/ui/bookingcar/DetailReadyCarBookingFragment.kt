@@ -83,7 +83,6 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
 
         if (this.carId != null){
             updateStatusReady(this.carId)
-            checkBookingCar(this.carId)
         }
         setData(
             startDate!!,
