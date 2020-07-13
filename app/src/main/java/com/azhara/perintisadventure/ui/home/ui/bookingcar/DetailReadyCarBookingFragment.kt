@@ -81,6 +81,9 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         val luggage = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).luggage
         val carNumberPlate = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).carNumberPlates
 
+        if (this.carId != null){
+            updateStatusReady(this.carId)
+        }
         setData(
             startDate!!,
             endDate!!,
@@ -416,6 +419,25 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
     private fun decimalFormat(price: Long?): String?{
         val formatDecimal = DecimalFormat("###,###,###")
         return formatDecimal.format(price)
+    }
+
+    private fun updateStatusReady(carId: String?){
+        bookingCarViewModel.updateStatusReadyFalse(carId)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        bookingCarViewModel.updateStatusReadyTrue(this.carId)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        bookingCarViewModel.updateStatusReadyTrue(this.carId)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bookingCarViewModel.updateStatusReadyFalse(this.carId)
     }
 
 }

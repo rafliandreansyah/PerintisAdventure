@@ -274,4 +274,22 @@ class BookingCarViewModel : ViewModel() {
     fun bookingListId(): LiveData<String> = bookingListId
 
     fun checkBooking(): LiveData<Boolean> = checkBooking
+
+    fun updateStatusReadyFalse(carId: String?){
+        val carDb = db.collection("cars").document("$carId")
+        carDb.update("statusReady", false).addOnSuccessListener {
+            Log.d("status ready false", "Berhasil")
+        }.addOnFailureListener {
+            Log.d("Update status ready", "Error: ${it.message}")
+        }
+    }
+
+    fun updateStatusReadyTrue(carId: String?){
+        val carDb = db.collection("cars").document("$carId")
+        carDb.update("statusReady", true).addOnSuccessListener {
+            Log.d("status ready true", "Berhasil")
+        }.addOnFailureListener {
+            Log.d("Update status ready", "Error: ${it.message}")
+        }
+    }
 }
