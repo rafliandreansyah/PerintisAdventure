@@ -106,20 +106,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
         Log.d("list facilities", "$facilities")
         Log.d("list visitedTour", "$visitedTour")
         loadingShimmer(false)
-//        bookingTourViewModel.loadDataTravel(partnerId)
-//        dataPartner()
     }
-
-//    private fun dataPartner(){
-//        bookingTourViewModel.dataTravel().observe(viewLifecycleOwner, Observer { data ->
-//            if (data != null){
-//                loadingShimmer(false)
-//                tv_travel_name_detail_booking_tour.text = data.travelName
-//                tv_title_name_travel_detail_booking_tour.text = "Lokasi kantor ${data.travelName}"
-//                tv_location_travel_detail_booking_tour.text = data.address
-//            }
-//         })
-//    }
 
     private fun convertLongToTime(time: Long): String {
         val date = Date(time)

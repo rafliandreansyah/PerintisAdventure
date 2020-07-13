@@ -45,23 +45,6 @@ class BookingTourViewModel : ViewModel(){
 
     fun dataTour(): LiveData<List<Tour>> = dataTour
 
-    fun loadDataTravel(travelId: String?){
-        val partnerDb = db.collection("partners").document("$travelId")
-        partnerDb.addSnapshotListener { snapshot, exception ->
-            if (exception != null){
-                Log.e("$TAG data partner" ,"Gagal: ${exception.message}")
-            }
-
-            if (snapshot != null && snapshot.exists()){
-                val data = snapshot.toObject(Partner::class.java)
-                dataPartner.postValue(data)
-                Log.d("$TAG partner", "$data")
-            }
-        }
-    }
-
-    fun dataTravel(): LiveData<Partner> = dataPartner
-
     fun booking(dateTour: Timestamp?, tourId: String?, partnerId: String?,
                 totalPrice: Long?, pickupArea: String?, tourName: String?){
 

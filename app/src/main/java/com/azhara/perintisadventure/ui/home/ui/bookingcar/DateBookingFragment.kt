@@ -264,7 +264,6 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
             edt_choose_time_car.text.clear()
             edt_choose_duration_car.text.clear()
             view?.findNavController()?.navigate(toReadyCard)
-//            view?.findNavController()?.navigate(R.id.action_navigation_date_booking_car_fragment_to_navigation_ready_car_fragment)
         }
     }
 
@@ -280,16 +279,5 @@ class DateBookingFragment : Fragment(), View.OnClickListener {
         Log.d("DatesTest dateandtime", "$dates")
         Log.d("DatesTest STARTDATE", "$STARTDATE")
         Log.d("DatesTest ENDDATE", "$ENDDATE")
-
-////         Convert timestamp to local time
-//        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm a")
-//        val startSecondDate = STARTDATE?.let { Date(it) }
-//        val date = sdf.format(startSecondDate)
-//        val endSecondDate = ENDDATE?.let { Date(it) }
-//        val dateend = sdf.format(endSecondDate)
-//        Log.d("DatesTest Datestart", "$date")
-//        Log.d("DatesTest Dateend", "$dateend")
-
     }
-
 }

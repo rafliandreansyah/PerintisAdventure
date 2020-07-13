@@ -160,19 +160,6 @@ class ReadyCarFragment : Fragment() {
             tv_empty_car.visibility = View.INVISIBLE
         }
     }
-
-//    private fun convertToLocalDate(){
-//        // Convert timestamp to local time
-//        val calendar = Calendar.getInstance()
-//        val tz = calendar.timeZone
-//        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm a")
-//        sdf.timeZone = tz
-//        val startSecondDate = startDate?.let { Date(it * 1000) }
-//        val date = sdf.format(startSecondDate)
-//        Log.d("TimeStamp", "$startDate")
-//        Log.d("Date", "$date")
-//    }
-
 }
 
 

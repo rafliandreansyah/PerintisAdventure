@@ -55,23 +55,6 @@ class BookingListViewModel : ViewModel() {
 
     fun dataDetailBookingCar(): LiveData<DetailBookingCarUser> = bookingCarDetail
 
-    fun getPartner(partnerId: String?){
-        val partnerDb = db.collection("partners").document("$partnerId")
-        partnerDb.addSnapshotListener { snapshot, exception ->
-            if (exception != null){
-                Log.e("$TAG get data partner", "${exception.message}")
-            }
-
-            if (snapshot != null && snapshot.exists()){
-                Log.d("$TAG get data partner", "${snapshot.toObject(Partner::class.java)}")
-                val dataPartner = snapshot.toObject(Partner::class.java)
-                partner.postValue(dataPartner)
-            }
-        }
-    }
-
-    fun dataPartner(): LiveData<Partner> = partner
-
     fun getDataCar(carId: String?){
         val carDb = db.collection("cars").document("$carId")
         carDb.addSnapshotListener { snapshot, exception ->

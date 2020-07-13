@@ -28,11 +28,6 @@ class BookingCarViewModel : ViewModel() {
 
     fun getDataCar() {
         val loadDb = db.collection("cars").whereEqualTo("statusReady", true)
-//        loadDb.get().addOnSuccessListener { documentSnapshot->
-//            val carsData = documentSnapshot.toObjects(Car::class.java)
-//            Log.d(TAG, "$carsData")
-//            dataCar.postValue(carsData)
-//        }
         loadDb.addSnapshotListener { snapshot, exception ->
             if (exception != null) {
                 Log.w(TAG, exception.message)
@@ -54,22 +49,6 @@ class BookingCarViewModel : ViewModel() {
     }
 
     fun dataCar(): LiveData<List<Car>> = dataCar
-
-    fun getDataPartner(id: String) {
-        val loadDbPartner = db.collection("partners").document(id)
-        loadDbPartner.addSnapshotListener { snapshot, exception ->
-            if (exception != null) {
-                Log.w(TAG, exception.message)
-            }
-            if (snapshot != null && snapshot.exists()) {
-                val updateDataPartner = snapshot.toObject(Partner::class.java)
-                Log.d("$TAG update data partner", "$updateDataPartner")
-                partner.postValue(updateDataPartner)
-            }
-        }
-    }
-
-    fun dataPartner(): LiveData<Partner> = partner
 
     fun getDataPickUpArea() {
         val loadArea = db.collection("pickup_location")

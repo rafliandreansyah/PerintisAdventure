@@ -217,28 +217,4 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    // Get File extension photo
-//    private fun getFileExtension(uri: Uri): String?{
-//        val cr = activity?.contentResolver
-//        val mimemap =MimeTypeMap.getSingleton()
-//        return mimemap.getExtensionFromMimeType(cr?.getType(uri))
-//    }
-
-    // Upload test
-//    private fun uploadTest(bitmap: Bitmap){
-//        val bitmapImage = bitmap
-//        val bitmapCompress = resizeBitmap(bitmapImage, 100)
-//        val baos = ByteArrayOutputStream()
-//        bitmapCompress.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-//        val data = baos.toByteArray()
-//        val mountainsRef = FirebaseStorage.getInstance().reference.child("test").child("aas")
-//        var uploadTask = mountainsRef.putBytes(data)
-//        uploadTask.addOnFailureListener {
-//            Log.e("EditProfileFragment", "Failed upload")
-//        }.addOnSuccessListener {
-//            Log.d("EditProfileFragment", "Success upload")
-//        }
-//
-//    }
-
 }

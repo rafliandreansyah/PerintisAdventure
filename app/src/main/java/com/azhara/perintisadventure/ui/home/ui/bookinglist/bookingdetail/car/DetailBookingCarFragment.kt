@@ -54,25 +54,10 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
                 tv_detail_pickup_location.text = data.pickUpArea
                 tv_status_payment_detail_booking.text = "Pembayaran Berhasil"
                 tv_detail_total_price.text = "Rp. ${decimalFormat(data.totalPrice)}"
-
-//                loadDataPartner(data.partnerId)
                 loadDataCar(data.carId)
             }
         })
     }
-
-//    private fun loadDataPartner(partnerId: String?){
-//        bookingListViewModel.getPartner(partnerId)
-//
-//        bookingListViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
-//            if (data != null){
-//                tv_detail_travel_name.text = data.travelName
-//                tv_detail_booking_travel_name_location.text = "Lokasi Kantor ${data.travelName}"
-//                tv_detail_booking_travel_location.text = data.address
-//            }
-//        })
-//    }
-
     private fun convertToLocalDate(date: Long): String {
         // Convert timestamp to local time
         val calendar = Calendar.getInstance()
