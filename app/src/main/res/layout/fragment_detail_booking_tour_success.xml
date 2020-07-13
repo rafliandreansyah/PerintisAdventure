@@ -449,6 +449,7 @@
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/btn_detail_maps_booking_tour_success"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/ButtonPrimary"
@@ -498,10 +499,10 @@
                         tools:text="Rp 510000" />
 
                     <Button
-                        android:id="@+id/btn_to_home_booking_tour_success"
+                        android:id="@+id/btn_to_back_booking_tour_success"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/home"
+                        android:text="@string/back"
                         style="@style/ButtonPrimary"
                         android:layout_marginTop="25dp"
                         android:layout_marginHorizontal="80dp"/>

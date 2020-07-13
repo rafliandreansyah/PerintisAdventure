@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
 import com.bumptech.glide.Glide
@@ -35,6 +36,7 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         loadingShimmer(true)
         btn_detail_back.setOnClickListener(this)
+        btn_detail_booking_maps.setOnClickListener(this)
         bookingListViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingListViewModel::class.java]
         val bookingId = DetailBookingCarFragmentArgs.fromBundle(arguments as Bundle).bookingId
         loadDetailBookingById(bookingId)
@@ -93,6 +95,9 @@ class DetailBookingCarFragment : Fragment(), View.OnClickListener {
         when(v?.id){
             R.id.btn_detail_back -> {
                 activity?.onBackPressed()
+            }
+            R.id.btn_detail_booking_maps -> {
+                view?.findNavController()?.navigate(R.id.action_navigation_detail_booking_car_fragment_to_mapsFragment)
             }
         }
     }

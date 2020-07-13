@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhara.perintisadventure.R
 import com.azhara.perintisadventure.ui.home.ui.bookinglist.viewmodel.BookingListViewModel
@@ -21,7 +22,7 @@ import java.util.*
 /**
  * A simple [Fragment] subclass.
  */
-class DetailBookingTourSuccessFragment : Fragment() {
+class DetailBookingTourSuccessFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bookingListViewModel: BookingListViewModel
 
@@ -35,6 +36,8 @@ class DetailBookingTourSuccessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        btn_detail_maps_booking_tour_success.setOnClickListener(this)
+        btn_to_back_booking_tour_success.setOnClickListener(this)
         loadingShimmer(true)
         bookingListViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookingListViewModel::class.java]
         val bookingId = DetailBookingTourSuccessFragmentArgs.fromBundle(arguments as Bundle).bookingId
@@ -111,6 +114,17 @@ class DetailBookingTourSuccessFragment : Fragment() {
     private fun decimalFormat(price: Long?): String?{
         val formatDecimal = DecimalFormat("###,###,###")
         return formatDecimal.format(price)
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_to_back_booking_tour_success-> {
+                activity?.onBackPressed()
+            }
+            R.id.btn_detail_maps_booking_tour_success -> {
+                view?.findNavController()?.navigate(R.id.action_navigation_detail_booking_tour_success_fragment_to_mapsFragment)
+            }
+        }
     }
 
 }

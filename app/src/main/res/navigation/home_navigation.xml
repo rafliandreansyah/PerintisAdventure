@@ -298,6 +298,9 @@
             android:name="bookingId"
             app:argType="string"
             android:defaultValue="null" />
+        <action
+            android:id="@+id/action_navigation_detail_booking_car_fragment_to_mapsFragment"
+            app:destination="@id/navigation_maps_fragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_list_tour_fragment"
@@ -322,6 +325,9 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="null" />
+        <action
+            android:id="@+id/action_navigation_detail_booking_tour_success_fragment_to_mapsFragment"
+            app:destination="@id/navigation_maps_fragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_perintis_news_list_fragment"
@@ -363,4 +369,9 @@
         android:name="com.azhara.perintisadventure.ui.home.ui.termsconditions.TermsAndConditionsFragment"
         android:label="fragment_terms_and_conditions"
         tools:layout="@layout/fragment_terms_and_conditions" />
+    <fragment
+        android:id="@+id/navigation_maps_fragment"
+        android:name="com.azhara.perintisadventure.ui.home.ui.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

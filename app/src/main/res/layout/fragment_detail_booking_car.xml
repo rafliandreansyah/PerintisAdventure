@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ui.bookingtour.DetailTourBookingFragment">
+    tools:context=".ui.home.ui.bookinglist.bookingdetail.car.DetailBookingCarFragment">
 
     <ScrollView
         android:id="@+id/layout_detail_booking_car"

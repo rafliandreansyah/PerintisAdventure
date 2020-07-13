@@ -159,17 +159,6 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             tv_detail_ready_car_gear.text = "Automatic"
         }
         loadingShimmer(false)
-//        bookingCarViewModel.getDataPartner(partnerId)
-//        bookingCarViewModel.dataPartner().observe(viewLifecycleOwner, Observer { data ->
-//            if (data != null) {
-//                tv_detail_ready_car_travel_name.text = data.travelName
-//                tv_detail_ready_car_location.text = data.address
-//                tv_location_office_travel.text = "Lokasi kantor ${data.travelName}"
-//
-//            } else {
-//                loadingShimmer(false)
-//            }
-//        })
     }
 
     private fun areaData(): ArrayList<SheetSelectionItem> {

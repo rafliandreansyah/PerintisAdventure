@@ -368,68 +368,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="25dp"
-                style="@style/card">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/tv_title_name_travel_detail_booking_tour"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lokasi_kantor"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        style="@style/TextPrimary" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_maps_and_flags"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/icon_maps" />
-
-                        <TextView
-                            android:id="@+id/tv_location_travel_detail_booking_tour"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_gravity="center_vertical"
-                            android:text="@string/perum_patraland_place_blok_b2_no_10_tasikmadu_lowokwaru_kota_malang_jawa_timur_65143"
-                            style="@style/TextPrimary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/ButtonPrimary"
-                        android:drawableStart="@drawable/ic_google_maps"
-                        android:drawablePadding="16dp"
-                        android:paddingHorizontal="25dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginVertical="25dp"
-                        android:text="@string/maps" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 style="@style/card"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="16dp">
