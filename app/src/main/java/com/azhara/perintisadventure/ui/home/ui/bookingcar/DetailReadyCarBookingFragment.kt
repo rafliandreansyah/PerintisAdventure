@@ -83,6 +83,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
 
         if (this.carId != null){
             updateStatusReady(this.carId)
+            checkBookingCar(this.carId)
         }
         setData(
             startDate!!,
@@ -437,7 +438,32 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
+        checkBookingCar(this.carId)
         bookingCarViewModel.updateStatusReadyFalse(this.carId)
+    }
+
+    private fun checkBookingCar(carId: String?){
+        bookingCarViewModel.checkBookingCar(carId)
+
+        bookingCarViewModel.dataDetailCar().observe(viewLifecycleOwner, Observer { data ->
+            if (data != null){
+                val carDateBooked = data.booked?.all {
+                    (it.startDate?.seconds != this.startDate && it.endDate?.seconds != this.endDate) &&
+                            it.endDate?.seconds != this.startDate &&
+                            it.startDate?.seconds != this.endDate &&
+                            !(it.startDate?.seconds!! < this.startDate!! && it.endDate?.seconds!! > this.endDate!!) &&
+                            !(it.startDate?.seconds!! > this.startDate!! && it.startDate?.seconds!! < this.endDate!!) &&
+                            !(it.endDate?.seconds!! > this.startDate!! && it.endDate?.seconds!! < this.endDate!!) &&
+                            !(it.startDate?.seconds!! > this.startDate!! && it.endDate?.seconds!! < this.endDate!!)
+                }
+
+                Log.d("dataCar", "$carDateBooked")
+
+                if (carDateBooked == false){
+                    activity?.onBackPressed()
+                }
+            }
+        })
     }
 
 }

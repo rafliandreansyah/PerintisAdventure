@@ -21,6 +21,7 @@ class BookingCarViewModel : ViewModel() {
     private val area = MutableLiveData<List<PickUpArea>>()
     private val checkBooking = MutableLiveData<Boolean>()
     private val bookingListId = MutableLiveData<String>()
+    private val dataDetailCar = MutableLiveData<Car>()
     private val TAG = BookingCarViewModel::class.java.simpleName
     var errorMessage: String? = null
     private val userId = user.currentUser?.uid
@@ -292,4 +293,20 @@ class BookingCarViewModel : ViewModel() {
             Log.d("Update status ready", "Error: ${it.message}")
         }
     }
+
+    fun checkBookingCar(carId: String?){
+        val carDb = db.collection("cars").document("$carId")
+        carDb.addSnapshotListener { value, error ->
+            if (error != null){
+                Log.e("Error load data car", "${error.message}" )
+            }
+
+            if (value != null && value.exists()){
+                val data = value.toObject(Car::class.java)
+                dataDetailCar.postValue(data)
+            }
+        }
+    }
+
+    fun dataDetailCar(): LiveData<Car> = dataDetailCar
 }
