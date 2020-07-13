@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="?android:attr/actionBarSize"
-    tools:context=".ui.home.ui.bookinglist.BookingListFragment">
+    tools:context=".ui.home.bookinglist.BookingListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_booking_list"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:paddingTop="8dp"
         android:clipToPadding="false"
-        tools:listitem="@layout/rv_item_listbooking"/>
+        tools:listitem="@layout/rv_item_listbooking" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/anim_booking_empty"

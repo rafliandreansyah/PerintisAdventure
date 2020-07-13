@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ui.termsconditions.TermsAndConditionsFragment">
+    tools:context=".ui.home.termsconditions.TermsAndConditionsFragment">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
             style="@style/TextPrimary"
             android:textAlignment="center"
             android:textSize="18sp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -160,28 +160,6 @@
                         android:text="@string/jaminan_motor_dan_stnk"
                         android:textSize="12sp" />
                 </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
-
-                    <ImageView
-                        android:id="@+id/ic_check6"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_centerVertical="true"
-                        android:contentDescription="@string/icon_check"
-                        android:src="@drawable/ic_check_round" />
-
-                    <TextView
-                        style="@style/TextPrimary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_toEndOf="@id/ic_check6"
-                        android:text="@string/uang_dp_50_atau_lunas"
-                        android:textSize="12sp" />
-                </RelativeLayout>
             </LinearLayout>
 
 
@@ -199,7 +177,7 @@
                 android:layout_height="20dp"
                 android:contentDescription="@string/icon_gas"
                 android:src="@drawable/ic_gas_station"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/tv_requirement_gas"
@@ -224,7 +202,7 @@
                 android:layout_height="20dp"
                 android:contentDescription="@string/icon_clock"
                 android:src="@drawable/ic_clock"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/tv_requirement_time"
@@ -249,7 +227,7 @@
                 android:layout_height="20dp"
                 android:contentDescription="@string/icon_driver"
                 android:src="@drawable/ic_driver"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/tv_driver_operation"
@@ -269,7 +247,7 @@
             style="@style/TextPrimary"
             android:textAlignment="center"
             android:textSize="18sp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -281,14 +259,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_1"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -301,15 +279,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_2"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/two"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -320,7 +299,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_3"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 style="@style/TextPrimary"
@@ -340,14 +319,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_4"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/four"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -360,14 +339,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/__5"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/five"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -380,14 +359,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_6"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/six"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -400,14 +379,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_7"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/seven"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -420,14 +399,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_8"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/eight"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -440,14 +419,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_9"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nine"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -460,14 +439,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_10"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ten"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -480,14 +459,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_11"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/eleven"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -500,14 +479,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_12"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/twelve"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -520,15 +499,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_13"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/thirdteen"
                 android:layout_marginStart="8dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -540,21 +520,21 @@
                 android:layout_height="wrap_content"
                 android:text="@string/thirdteennone"
                 style="@style/TextPrimary"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/thirdteentwo"
                 style="@style/TextPrimary"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/thirdteenthree"
                 style="@style/TextPrimary"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
 
         </LinearLayout>
 

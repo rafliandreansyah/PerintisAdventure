@@ -17,7 +17,7 @@
             android:id="@+id/img_item_news_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:src="@drawable/img_bromo"
+            tools:src="@color/colorGrey"
             android:scaleType="centerCrop"
             android:contentDescription="@string/image_item_news_home" />
 
@@ -46,6 +46,6 @@
         android:layout_marginTop="4dp"
         style="@style/TextPrimary"
         android:textSize="12sp"
-        android:textColor="@color/colorTextSecondary"/>
+        android:textColor="@color/colorTextSecondary" />
 
 </RelativeLayout>

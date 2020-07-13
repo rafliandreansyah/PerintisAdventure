@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.home.ui.bookinglist.bookingdetail.tour.DetailBookingTourSuccessFragment">
+    tools:context=".ui.home.bookinglist.bookingdetail.tour.DetailBookingTourSuccessFragment">
 
     <ScrollView
         android:id="@+id/layout_detail_booking_tour_success"
@@ -32,7 +32,7 @@
                     android:id="@+id/img_bg_detail_tour_success"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/img_bromo"
+                    android:src="@color/colorGrey"
                     android:scaleType="centerCrop"
                     android:contentDescription="@string/image_detail_booking_tour" />
 
@@ -46,7 +46,7 @@
                 android:textSize="16sp"
                 android:textAlignment="center"
                 android:layout_marginTop="16dp"
-                tools:text="20 Desember 2012"/>
+                tools:text="20 Desember 2012" />
 
             <View
                 android:layout_width="match_parent"
@@ -168,7 +168,7 @@
                 android:layout_marginTop="25dp"
                 style="@style/TextPrimary"
                 android:layout_marginHorizontal="20dp"
-                android:text="@string/information"/>
+                android:text="@string/information" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -250,6 +250,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginTop="12dp"
                             android:layout_marginBottom="12dp">
+
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -341,14 +342,14 @@
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 style="@style/TextPrimary"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="25dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_detail_visited_tour_success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                tools:listitem="@layout/rv_item_visited_tour"/>
+                tools:listitem="@layout/rv_item_visited_tour" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -357,14 +358,14 @@
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 style="@style/TextPrimary"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="25dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_detail_facility_tour_success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                tools:listitem="@layout/rv_item_facility"/>
+                tools:listitem="@layout/rv_item_facility" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -373,7 +374,7 @@
                 android:textSize="16sp"
                 android:layout_marginHorizontal="20dp"
                 style="@style/TextPrimary"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="25dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -505,7 +506,7 @@
                         android:text="@string/back"
                         style="@style/ButtonPrimary"
                         android:layout_marginTop="25dp"
-                        android:layout_marginHorizontal="80dp"/>
+                        android:layout_marginHorizontal="80dp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -519,6 +520,7 @@
         android:layout_width="match_parent"
         android:visibility="invisible"
         android:layout_height="match_parent">
+
         <include layout="@layout/detail_booking_tour_success_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 

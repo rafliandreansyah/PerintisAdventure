@@ -84,7 +84,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             edt_login_password.error = "Password tidak boleh kosong!"
             return
         }
-        if (!email.isEmpty() && !password.isEmpty()) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
             showLoading(true)
             loginViewModel.login(email, password)
             return

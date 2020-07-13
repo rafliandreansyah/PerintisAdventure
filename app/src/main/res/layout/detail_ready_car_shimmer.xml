@@ -3,19 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ui.bookingcar.DetailReadyCarBookingFragment">
+    tools:context=".ui.home.bookingcar.DetailReadyCarBookingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <ImageView
             android:id="@+id/img_detail_ready_car"
             android:layout_width="match_parent"
             android:layout_height="175dp"
             android:background="@color/colorLightGrey"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/image_car_detail_booking" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

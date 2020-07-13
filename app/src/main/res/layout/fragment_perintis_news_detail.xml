@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.ui.news.PerintisNewsDetailFragment">
+    tools:context=".ui.home.news.PerintisNewsDetailFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,13 +24,13 @@
                 app:shape_roundRect_bottomLeftRadius="10dp"
                 app:shape_roundRect_bottomRightRadius="10dp"
                 app:shape_roundRect_topLeftRadius="10dp"
-                app:shape_roundRect_topRightRadius="10dp"
-                >
+                app:shape_roundRect_topRightRadius="10dp">
+
                 <ImageView
                     android:id="@+id/img_detail_news"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/img_bromo"
+                    android:src="@color/colorGrey"
                     android:contentDescription="@string/img_detail_news" />
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
@@ -40,19 +41,21 @@
                 style="@style/TextPrimaryBoldLora"
                 tools:text="Gunung Bromo"
                 android:textSize="24sp"
-                android:layout_marginTop="20dp"/>
-            
+                android:layout_marginTop="20dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextPrimaryLora"
                     android:textSize="14sp"
-                    android:text="@string/by_perintis_adventure"/>
+                    android:text="@string/by_perintis_adventure" />
+
                 <TextView
                     android:id="@+id/tv_date_detail_news"
                     android:layout_width="wrap_content"
@@ -61,7 +64,7 @@
                     android:textSize="12sp"
                     android:layout_gravity="center_vertical"
                     tools:text="20 Juni 2020"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_marginStart="20dp" />
             </LinearLayout>
 
             <TextView
@@ -84,7 +87,7 @@ Malang. Suhu udara yang sejuk di pelosok
 Singosari Malang ini membawa berkah bagi
 warganya. Sebagian besar warga Dusun
 Wonosari bekerja di perkebunan teh ini,
-menjalani hidup yang bersahaja."/>
+menjalani hidup yang bersahaja." />
         </LinearLayout>
     </ScrollView>
 

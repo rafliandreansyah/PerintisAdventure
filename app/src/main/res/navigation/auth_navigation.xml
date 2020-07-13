@@ -40,7 +40,7 @@
             android:id="@+id/resetSuccessFragment"
             android:name="com.azhara.perintisadventure.ui.auth.fragment.resetpassword.ResetSuccessFragment"
             android:label="fragment_reset_success"
-            tools:layout="@layout/fragment_reset_success"></fragment>
+            tools:layout="@layout/fragment_reset_success" />
         <action
             android:id="@+id/action_global_reset_to_loginFragment"
             app:destination="@id/loginFragment"

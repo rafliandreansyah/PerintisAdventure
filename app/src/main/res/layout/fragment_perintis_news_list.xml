@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.ui.news.PerintisNewsListFragment">
+    tools:context=".ui.home.news.PerintisNewsListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_news"
@@ -12,6 +11,6 @@
         android:layout_height="match_parent"
         android:paddingTop="8dp"
         android:clipToPadding="false"
-        tools:listitem="@layout/rv_item_list_news"/>
+        tools:listitem="@layout/rv_item_list_news" />
 
 </FrameLayout>

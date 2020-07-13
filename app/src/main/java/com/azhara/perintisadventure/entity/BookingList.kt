@@ -2,7 +2,7 @@ package com.azhara.perintisadventure.entity
 
 import com.google.firebase.Timestamp
 
-data class BookingList (
+data class BookingList(
     var bookingListId: String? = null,
     var bookingId: String? = null,
     var partnerId: String? = null,

@@ -1,7 +1,5 @@
 package com.azhara.perintisadventure.ui.home
 
-import android.annotation.SuppressLint
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.azhara.perintisadventure.R
-import com.azhara.perintisadventure.ui.home.ui.home.viewmodel.HomeViewModel
+import com.azhara.perintisadventure.ui.home.home.viewmodel.HomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -23,7 +21,10 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val homeViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
+        val homeViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[HomeViewModel::class.java]
 
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
@@ -60,22 +61,32 @@ class HomeActivity : AppCompatActivity() {
                 homeViewModel.loadSlider()
 
                 homeViewModel.dataSlider().observe(this, Observer { data ->
-                    if (data != null){
+                    if (data != null) {
                         navView.visibility = View.VISIBLE
                         tv_title_toolbar.visibility = View.GONE
                         btn_back.visibility = View.GONE
                         img_toolbar_home.visibility = View.VISIBLE
                         img_toolbar_home.setImageResource(R.drawable.perintis_logo_white)
-                        toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorAccentDark))
+                        toolbar_home.setBackgroundColor(
+                            ContextCompat.getColor(
+                                applicationContext,
+                                R.color.colorAccentDark
+                            )
+                        )
                         toolbar_home.elevation = 0F
                     }
-                    if (data.isEmpty()){
+                    if (data.isEmpty()) {
                         navView.visibility = View.VISIBLE
                         tv_title_toolbar.visibility = View.GONE
                         btn_back.visibility = View.GONE
                         img_toolbar_home.visibility = View.VISIBLE
                         img_toolbar_home.setImageResource(R.drawable.perintis_logo)
-                        toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                        toolbar_home.setBackgroundColor(
+                            ContextCompat.getColor(
+                                applicationContext,
+                                R.color.colorPrimary
+                            )
+                        )
                         toolbar_home.elevation = 4F
                     }
                 })
@@ -85,7 +96,12 @@ class HomeActivity : AppCompatActivity() {
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Pesanan"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.GONE
             }
@@ -94,7 +110,12 @@ class HomeActivity : AppCompatActivity() {
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Profil"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.GONE
             }
@@ -103,7 +124,12 @@ class HomeActivity : AppCompatActivity() {
                 tv_title_toolbar.text = "Edit profil"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
@@ -115,7 +141,12 @@ class HomeActivity : AppCompatActivity() {
                 tv_title_toolbar.text = "Password"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
@@ -126,7 +157,12 @@ class HomeActivity : AppCompatActivity() {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
@@ -137,7 +173,12 @@ class HomeActivity : AppCompatActivity() {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
@@ -149,7 +190,12 @@ class HomeActivity : AppCompatActivity() {
 //                tv_title_toolbar.text = "Password"
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
@@ -160,100 +206,145 @@ class HomeActivity : AppCompatActivity() {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.INVISIBLE
             }
-            if (destination.id == R.id.navigation_detail_booking_car_fragment){
+            if (destination.id == R.id.navigation_detail_booking_car_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail Sewa Mobil"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_list_tour_fragment){
+            if (destination.id == R.id.navigation_list_tour_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Pilih Paket Tour"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_detail_destination_fragment){
+            if (destination.id == R.id.navigation_detail_destination_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail Tour"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_detail_booking_tour_success_fragment){
+            if (destination.id == R.id.navigation_detail_booking_tour_success_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail Tour"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_perintis_news_list_fragment){
+            if (destination.id == R.id.navigation_perintis_news_list_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Perintis News"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_perintis_news_detail_fragment){
+            if (destination.id == R.id.navigation_perintis_news_detail_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Detail News"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_terms_and_conditions_fragment){
+            if (destination.id == R.id.navigation_terms_and_conditions_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = resources.getString(R.string.syarat_dan_ketentuan_rental)
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {
                     onBackPressed()
                 }
             }
-            if (destination.id == R.id.navigation_maps_fragment){
+            if (destination.id == R.id.navigation_maps_fragment) {
                 navView.visibility = View.GONE
                 tv_title_toolbar.visibility = View.VISIBLE
                 tv_title_toolbar.text = "Office Maps"
                 img_toolbar_home.visibility = View.GONE
-                toolbar_home.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorPrimary))
+                toolbar_home.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
                 toolbar_home.elevation = 4F
                 btn_back.visibility = View.VISIBLE
                 btn_back.setOnClickListener {

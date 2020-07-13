@@ -30,7 +30,7 @@
                 android:id="@+id/img_item_list_news"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_bromo"
+                android:src="@color/colorGrey"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/image_background_list_news" />
 
@@ -51,7 +51,7 @@
                 style="@style/TextPrimaryBoldLora"
                 android:maxLines="2"
                 android:ellipsize="end"
-                tools:text="Kenali keindahan pantai malang"/>
+                tools:text="Kenali keindahan pantai malang" />
 
             <TextView
                 android:id="@+id/tv_item_date_list_news"
@@ -62,7 +62,7 @@
                 android:ellipsize="end"
                 style="@style/TextSecondaryLora"
                 android:layout_marginTop="4dp"
-                tools:text="20 desember 2020"/>
+                tools:text="20 desember 2020" />
 
             <TextView
                 android:id="@+id/tv_item_content_list_news"
@@ -79,7 +79,7 @@ sebenarnya Jawa Timur punya beberapa
 kebun teh, sama seperti Jawa barat.
 "
                 android:maxLines="3"
-                android:ellipsize="end"/>
+                android:ellipsize="end" />
         </LinearLayout>
 
     </LinearLayout>

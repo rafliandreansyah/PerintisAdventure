@@ -21,7 +21,7 @@
             android:id="@+id/img_bg_detail_tour_success"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorGrey"/>
+            android:background="@color/colorGrey" />
 
     </com.github.florent37.shapeofview.shapes.RoundRectView>
 
@@ -31,7 +31,7 @@
         android:layout_height="20dp"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorGrey"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <View
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="20dp"
-        android:background="@color/colorGrey"/>
+        android:background="@color/colorGrey" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
         android:layout_height="20dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
-        android:background="@color/colorGrey"/>
+        android:background="@color/colorGrey" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
             android:background="@color/colorGrey"
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
-            android:layout_toEndOf="@id/ic_garage"/>
+            android:layout_toEndOf="@id/ic_garage" />
     </RelativeLayout>
 
     <View
@@ -138,7 +138,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginHorizontal="20dp"
-        android:background="@color/colorGrey"/>
+        android:background="@color/colorGrey" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -161,10 +161,10 @@
                 android:layout_height="60dp"
                 android:elevation="4dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorGrey" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey" />
 
             </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -178,7 +178,7 @@
                 android:layout_width="30dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorGrey"/>
+                android:background="@color/colorGrey" />
         </LinearLayout>
 
         <LinearLayout
@@ -210,7 +210,7 @@
                 android:layout_width="30dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorGrey"/>
+                android:background="@color/colorGrey" />
         </LinearLayout>
 
         <LinearLayout
@@ -242,7 +242,7 @@
                 android:layout_width="30dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorGrey"/>
+                android:background="@color/colorGrey" />
         </LinearLayout>
 
     </LinearLayout>
@@ -252,6 +252,6 @@
         android:layout_height="20dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
-        android:background="@color/colorGrey"/>
+        android:background="@color/colorGrey" />
 
 </LinearLayout>

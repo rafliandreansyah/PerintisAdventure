@@ -7,8 +7,6 @@
     <string name="tidak_punya_akun">Tidak punya akun?</string>
     <string name="buat_akun">Buat Akun</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="perintis_logo">Perintis Logo</string>
     <string name="ilustration_login">Ilustration login</string>
     <string name="registrasi">Registrasi</string>
@@ -49,11 +47,8 @@
     <string name="jam_penyewaan">Jam penyewaan</string>
     <string name="sopir">Sopir</string>
     <string name="cari_mobil">Cari Mobil</string>
-    <string name="jam">Jam</string>
-    <string name="jam_keberangkatan">Jam keberangkatan</string>
     <string name="kapasitas">Kapasitas</string>
     <string name="kendaraan">Kendaraan</string>
-    <string name="tentang_wisata">Tentang Wisata</string>
     <string name="disediakan_oleh">Disediakan oleh: </string>
     <string name="pesan_sekarang">Pesan Sekarang</string>
     <string name="syarat_dan_ketentuan_rental">Syarat dan Ketentuan</string>
@@ -122,7 +117,6 @@
     <string name="waktu_wisata">Waktu Wisata:</string>
     <string name="image_profile">image profile</string>
     <string name="image_item_slider">Image item slider</string>
-    <string name="pemesanan_penuh_n_silahkan_ganti_tanggal">Pemesanan penuh \n Silahkan ganti tanggal!</string>
     <string name="image_item_news_home">Image item news home</string>
     <string name="icon_to_detail_news">Icon to detail news</string>
     <string name="hai_trippers_lihat_informasi_spesial_buatmu">Hai trippers, lihat informasi spesial buatmu!</string>
@@ -162,7 +156,6 @@
     <string name="syarat_penyewaan">Syarat Penyewaan</string>
     <string name="jaminan_2_ktp_atau_1_ktp_dan_1_ktm">Jaminan 2 KTP atau 1 KTP dan 1 KTM</string>
     <string name="jaminan_motor_dan_stnk">Jaminan Motor dan STNK</string>
-    <string name="uang_dp_50_atau_lunas">Uang DP 50% atau Lunas</string>
     <string name="bensin_harus_kembali_seperti_keadaan_semula">Bensin harus kembali seperti keadaan semula</string>
     <string name="sewa_perhari_dihitung_dalam_waktu_24_jam">Sewa perhari dihitung dalam waktu 24 jam</string>
     <string name="driver_beroperasi_mulai_jam_07_00_22_00">Driver beroperasi mulai jam 07.00 - 22.00</string>
@@ -170,12 +163,12 @@
     <string name="dapat_mengendarai_mobil">Dapat mengendarai mobil</string>
     <string name="memiliki_sim_a">Memiliki SIM A</string>
     <string name="memiliki_ktp_atau_ktm">Memiliki KTP atau KTM</string>
-    <string name="down_payment_dp">Down Payment/DP:</string>
     <string name="_12">12.</string>
     <string name="_13">13.</string>
     <string name="ilustration_empty">ilustration_empty</string>
     <string name="empty_car">Empty Car</string>
     <string name="empty_tour">Empty Tour</string>
+    <string name="image_list_tour">Image list tour</string>
 
 
 </resources>

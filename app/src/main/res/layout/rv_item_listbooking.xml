@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 tools:text="Pemesanan Sewa Mobil"
                 style="@style/TextPrimaryBold"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:ellipsize="end"
                     style="@style/TextPrimary"
                     tools:text="Avanza Veloz"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true" />
             </RelativeLayout>
 
             <TextView
@@ -66,7 +66,7 @@
                 android:paddingVertical="4dp"
                 android:paddingHorizontal="8dp"
                 android:layout_marginTop="20dp"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
         </LinearLayout>
 
@@ -83,7 +83,7 @@
                 android:layout_marginTop="2dp"
                 tools:text="20-12-2020"
                 android:layout_gravity="end"
-                style="@style/TextPrimary"/>
+                style="@style/TextPrimary" />
 
             <TextView
                 android:id="@+id/tv_item_list_booking_total_price"
@@ -94,7 +94,7 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/colorAccent"
                 android:textSize="16sp"
-                style="@style/TextPrimaryBold"/>
+                style="@style/TextPrimaryBold" />
 
         </LinearLayout>
 

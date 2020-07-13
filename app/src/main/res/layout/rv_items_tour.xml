@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_tour"
+    style="@style/card3"
     android:layout_width="270dp"
     android:layout_height="370dp"
     android:layout_marginVertical="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/card3"
-    android:layout_marginStart="16dp"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_marginStart="16dp">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,56 +16,58 @@
             android:id="@+id/img_item_tour"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/image_list_tour"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_bromo"/>
+            android:src="@color/colorGrey" />
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_gradient"/>
+            android:background="@drawable/background_gradient" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            android:layout_gravity="start|top">
+            android:layout_marginVertical="16dp">
 
             <TextView
                 android:id="@+id/tv_item_tour_name"
+                style="@style/TextPrimaryBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="Paket Tour Malang Batu Banyuwangi Yogyakarta"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                style="@style/TextPrimaryBold"
-                android:maxLines="2"
-                android:ellipsize="end"/>
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_below="@id/tv_item_tour_name"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:src="@drawable/ic_maps_and_flags_white"
-                    android:contentDescription="@string/icon_maps" />
+                    android:contentDescription="@string/icon_maps"
+                    android:src="@drawable/ic_maps_and_flags_white" />
 
                 <TextView
                     android:id="@+id/tv_item_tour_location"
+                    style="@style/TextPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Batu - Malang"
                     android:layout_marginStart="4dp"
-                    android:textSize="12sp"
-                    style="@style/TextPrimary"
-                    android:maxLines="1"
                     android:ellipsize="end"
-                    android:textColor="@color/colorPrimary"/>
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    tools:text="Batu - Malang" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -74,70 +75,71 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            android:layout_gravity="start|bottom">
+            android:layout_marginVertical="16dp">
 
             <LinearLayout
+                android:id="@+id/layout_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/layout_price"
                 android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_item_tour_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Rp. 1275000"
-                    android:textColor="@color/colorYellow"
-                    android:textSize="18sp"
-                    style="@style/TextPrimaryBold"
-                    android:maxLines="2"
-                    android:ellipsize="end"/>
 
                 <TextView
+                    android:id="@+id/tv_item_tour_price"
+                    style="@style/TextPrimaryBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="18sp"
+                    tools:text="Rp. 1275000" />
+
+                <TextView
+                    style="@style/TextPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="@string/perorang"
-                    android:maxLines="1"
                     android:ellipsize="end"
-                    android:textSize="12sp"
-                    style="@style/TextPrimary"
-                    android:textColor="@color/colorPrimary"/>
+                    android:maxLines="1"
+                    android:text="@string/perorang"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_below="@id/layout_price"
                 android:layout_marginTop="8dp"
-                android:layout_below="@id/layout_price">
+                android:orientation="horizontal">
 
                 <TextView
+                    style="@style/TextPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/paket"
-                    android:textSize="12sp"
-                    style="@style/TextPrimary"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tv_item_tour_capacity"
+                    style="@style/TextPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="4"
                     android:layout_marginHorizontal="4dp"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="12sp"
-                    style="@style/TextPrimary"
-                    android:textColor="@color/colorPrimary"/>
+                    tools:text="4" />
 
                 <TextView
+                    style="@style/TextPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/orang"
-                    android:textSize="12sp"
-                    style="@style/TextPrimary"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

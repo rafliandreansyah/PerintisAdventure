@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.azhara.perintisadventure.ui.home.ui.home.HomeFragment"
+        android:name="com.azhara.perintisadventure.ui.home.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -29,9 +29,9 @@
 
     <fragment
         android:id="@+id/navigation_booked"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookinglist.BookingListFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookinglist.BookingListFragment"
         android:label="@string/booked"
-        tools:layout="@layout/fragment_booking_list" >
+        tools:layout="@layout/fragment_booking_list">
         <action
             android:id="@+id/action_navigation_booked_to_navigation_payment"
             app:destination="@id/navigation_payment" />
@@ -45,7 +45,7 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.azhara.perintisadventure.ui.home.ui.profile.ProfileFragment"
+        android:name="com.azhara.perintisadventure.ui.home.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile">
         <argument
@@ -67,7 +67,7 @@
 
     <fragment
         android:id="@+id/navigation_change_password"
-        android:name="com.azhara.perintisadventure.ui.home.ui.profile.ChangePasswordFragment"
+        android:name="com.azhara.perintisadventure.ui.home.profile.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password">
         <action
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_user_edit_profile"
-        android:name="com.azhara.perintisadventure.ui.home.ui.profile.EditProfileFragment"
+        android:name="com.azhara.perintisadventure.ui.home.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
         <action
@@ -92,7 +92,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_date_booking_car_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookingcar.DateBookingFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookingcar.DateBookingFragment"
         android:label="fragment_date_booking"
         tools:layout="@layout/fragment_date_booking_car">
         <action
@@ -101,7 +101,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_ready_car_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookingcar.ReadyCarFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookingcar.ReadyCarFragment"
         android:label="fragment_ready_car"
         tools:layout="@layout/fragment_ready_car">
         <action
@@ -126,7 +126,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_ready_car_booking_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookingcar.DetailReadyCarBookingFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookingcar.DetailReadyCarBookingFragment"
         android:label="fragment_detail_ready_car_booking"
         tools:layout="@layout/fragment_detail_ready_car_booking">
         <action
@@ -196,7 +196,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.payment.PaymentFragment"
+        android:name="com.azhara.perintisadventure.ui.home.payment.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment">
         <action
@@ -227,7 +227,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_destination_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookingtour.DetailTourBookingFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookingtour.DetailTourBookingFragment"
         android:label="fragment_detail_destination"
         tools:layout="@layout/fragment_detail_booking_tour">
         <action
@@ -291,9 +291,9 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_booking_car_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookinglist.bookingdetail.car.DetailBookingCarFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookinglist.bookingdetail.car.DetailBookingCarFragment"
         android:label="fragment_detail_booking_car"
-        tools:layout="@layout/fragment_detail_booking_car" >
+        tools:layout="@layout/fragment_detail_booking_car">
         <argument
             android:name="bookingId"
             app:argType="string"
@@ -304,9 +304,9 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_list_tour_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookingtour.ListTourFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookingtour.ListTourFragment"
         android:label="fragment_list_booking_tour"
-        tools:layout="@layout/fragment_list_booking_tour" >
+        tools:layout="@layout/fragment_list_booking_tour">
         <action
             android:id="@+id/action_listTourFragment_to_navigation_detail_destination_fragment"
             app:destination="@id/navigation_detail_destination_fragment" />
@@ -317,9 +317,9 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_booking_tour_success_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.bookinglist.bookingdetail.tour.DetailBookingTourSuccessFragment"
+        android:name="com.azhara.perintisadventure.ui.home.bookinglist.bookingdetail.tour.DetailBookingTourSuccessFragment"
         android:label="fragment_detail_booking_tour_success"
-        tools:layout="@layout/fragment_detail_booking_tour_success" >
+        tools:layout="@layout/fragment_detail_booking_tour_success">
         <argument
             android:name="bookingId"
             app:argType="string"
@@ -331,18 +331,18 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_perintis_news_list_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.news.PerintisNewsListFragment"
+        android:name="com.azhara.perintisadventure.ui.home.news.PerintisNewsListFragment"
         android:label="fragment_perintis_news_list"
-        tools:layout="@layout/fragment_perintis_news_list" >
+        tools:layout="@layout/fragment_perintis_news_list">
         <action
             android:id="@+id/action_navigation_perintis_news_list_fragment_to_navigation_perintis_news_detail_fragment"
             app:destination="@id/navigation_perintis_news_detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_perintis_news_detail_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.news.PerintisNewsDetailFragment"
+        android:name="com.azhara.perintisadventure.ui.home.news.PerintisNewsDetailFragment"
         android:label="fragment_perintis_news_detail"
-        tools:layout="@layout/fragment_perintis_news_detail" >
+        tools:layout="@layout/fragment_perintis_news_detail">
         <argument
             android:name="imgUrl"
             app:argType="string"
@@ -366,12 +366,12 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_terms_and_conditions_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.termsconditions.TermsAndConditionsFragment"
+        android:name="com.azhara.perintisadventure.ui.home.termsconditions.TermsAndConditionsFragment"
         android:label="fragment_terms_and_conditions"
         tools:layout="@layout/fragment_terms_and_conditions" />
     <fragment
         android:id="@+id/navigation_maps_fragment"
-        android:name="com.azhara.perintisadventure.ui.home.ui.maps.MapsFragment"
+        android:name="com.azhara.perintisadventure.ui.home.maps.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
 </navigation>

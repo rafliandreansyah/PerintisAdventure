@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ui.bookinglist.bookingdetail.car.DetailBookingCarFragment">
+    tools:context=".ui.home.bookinglist.bookingdetail.car.DetailBookingCarFragment">
 
     <ScrollView
         android:id="@+id/layout_detail_booking_car"
@@ -19,7 +19,7 @@
                 android:id="@+id/img_detail_booked_car"
                 android:layout_width="match_parent"
                 android:layout_height="175dp"
-                tools:src="@drawable/honda_brio"
+                tools:src="@color/colorGrey"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/image_car_detail_booking" />
 
@@ -435,6 +435,7 @@
         android:layout_width="match_parent"
         android:visibility="invisible"
         android:layout_height="match_parent">
+
         <include layout="@layout/detail_booking_car_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 </FrameLayout>

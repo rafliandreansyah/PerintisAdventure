@@ -17,7 +17,7 @@ class RegisterViewModel : ViewModel() {
     var errorMessage: String? = null
 
     fun register(email: String, name: String, telephone: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener() { task ->
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = auth.currentUser
                 val userData = User(user?.email, telephone, null, name)

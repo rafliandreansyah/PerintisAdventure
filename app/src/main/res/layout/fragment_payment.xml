@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.ui.payment.PaymentFragment">
+    tools:context=".ui.home.payment.PaymentFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                             android:layout_height="50dp"
                             android:layout_centerVertical="true"
                             android:contentDescription="@string/image_logo_bank"
-                            tools:src="@drawable/bri_logo" />
+                            tools:src="@color/colorGrey" />
 
                         <TextView
                             android:id="@+id/tv_bank_name"

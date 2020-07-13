@@ -116,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        android:background="@drawable/background_loading"/>
+        android:background="@drawable/background_loading" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_login"
@@ -125,6 +125,6 @@
         android:visibility="invisible"
         android:layout_gravity="center"
         app:lottie_rawRes="@raw/loading"
-        app:lottie_loop="true"/>
+        app:lottie_loop="true" />
 
 </FrameLayout>

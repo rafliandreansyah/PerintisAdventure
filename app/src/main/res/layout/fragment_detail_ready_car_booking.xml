@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.ui.bookingcar.DetailReadyCarBookingFragment">
+    tools:context=".ui.home.bookingcar.DetailReadyCarBookingFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
                 android:id="@+id/img_detail_ready_car"
                 android:layout_width="match_parent"
                 android:layout_height="175dp"
-                tools:src="@drawable/honda_brio"
+                tools:src="@color/colorGrey"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/car_image_detail" />
 
@@ -425,28 +425,6 @@
                                     android:text="@string/jaminan_motor_dan_stnk"
                                     android:textSize="12sp" />
                             </RelativeLayout>
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp">
-
-                                <ImageView
-                                    android:id="@+id/ic_check6"
-                                    android:layout_width="15dp"
-                                    android:layout_height="15dp"
-                                    android:layout_centerVertical="true"
-                                    android:contentDescription="@string/icon_check"
-                                    android:src="@drawable/ic_check_round" />
-
-                                <TextView
-                                    style="@style/TextPrimary"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_toEndOf="@id/ic_check6"
-                                    android:text="@string/uang_dp_50_atau_lunas"
-                                    android:textSize="12sp" />
-                            </RelativeLayout>
                         </LinearLayout>
 
 
@@ -512,7 +490,7 @@
                             android:layout_height="20dp"
                             android:contentDescription="@string/icon_driver"
                             android:src="@drawable/ic_driver"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical" />
 
                         <TextView
                             android:id="@+id/tv_driver_operation"
@@ -600,7 +578,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            tools:ignore="UselessParent">
 
                             <RadioButton
                                 android:id="@+id/radio_custom_pickup"
@@ -753,6 +732,7 @@
         android:layout_width="match_parent"
         android:visibility="invisible"
         android:layout_height="match_parent">
+
         <include layout="@layout/detail_ready_car_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -761,7 +741,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        android:background="@drawable/background_loading"/>
+        android:background="@drawable/background_loading" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_booking_car"
