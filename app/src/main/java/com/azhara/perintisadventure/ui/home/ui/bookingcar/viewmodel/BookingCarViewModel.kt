@@ -17,11 +17,10 @@ class BookingCarViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
     private val user = FirebaseAuth.getInstance()
     private val dataCar = MutableLiveData<List<Car>>()
-    private val partner = MutableLiveData<Partner>()
     private val area = MutableLiveData<List<PickUpArea>>()
     private val checkBooking = MutableLiveData<Boolean>()
     private val bookingListId = MutableLiveData<String>()
-    private val dataDetailCar = MutableLiveData<Car>()
+    private val checkDataCar = MutableLiveData<Car>()
     private val TAG = BookingCarViewModel::class.java.simpleName
     var errorMessage: String? = null
     private val userId = user.currentUser?.uid
@@ -273,19 +272,18 @@ class BookingCarViewModel : ViewModel() {
         }
     }
 
-    fun checkBookingCar(carId: String?){
+    fun checkStatusReadyCar(carId: String?){
         val carDb = db.collection("cars").document("$carId")
         carDb.addSnapshotListener { value, error ->
-            if (error != null){
-                Log.e("Error load data car", "${error.message}" )
+            if(error != null){
+                Log.e("Load data statusReady", "Error: ${error.message}")
             }
-
             if (value != null && value.exists()){
                 val data = value.toObject(Car::class.java)
-                dataDetailCar.postValue(data)
+                checkDataCar.postValue(data)
             }
         }
     }
 
-    fun dataDetailCar(): LiveData<Car> = dataDetailCar
+    fun checkStatusReady(): LiveData<Car> = checkDataCar
 }
