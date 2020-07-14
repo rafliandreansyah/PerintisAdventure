@@ -34,26 +34,38 @@
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <ImageView
-        android:id="@+id/ilustration_empty"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"
-        android:src="@drawable/ilustration_empty"
-        android:contentDescription="@string/ilustration_empty" />
-
-    <TextView
-        android:id="@+id/tv_empty_car"
+    <LinearLayout
+        android:id="@+id/layout_empty_car"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:visibility="invisible"
-        style="@style/TextPrimaryLora"
-        android:layout_below="@id/ilustration_empty"
-        android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/empty_car" />
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ilustration_empty"
+            android:contentDescription="@string/ilustration_empty" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextPrimary"
+            android:layout_marginTop="8dp"
+            android:text="@string/oops" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextSecondary"
+            android:text="@string/mobil_kosong_pada_tanggal_tersebut" />
+    </LinearLayout>
+
 
 </RelativeLayout>

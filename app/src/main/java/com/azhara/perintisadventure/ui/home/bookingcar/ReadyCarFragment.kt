@@ -153,11 +153,9 @@ class ReadyCarFragment : Fragment() {
 
     private fun animBookingCarEmpty(state: Boolean) {
         if (state) {
-            ilustration_empty.visibility = View.VISIBLE
-            tv_empty_car.visibility = View.VISIBLE
+            layout_empty_car.visibility = View.VISIBLE
         } else {
-            ilustration_empty.visibility = View.INVISIBLE
-            tv_empty_car.visibility = View.INVISIBLE
+            layout_empty_car.visibility = View.INVISIBLE
         }
     }
 }

@@ -107,9 +107,9 @@ class BookingListFragment : Fragment() {
     private fun animBookingEmpty(state: Boolean) {
         if (state) {
             anim_booking_empty.playAnimation()
-            anim_booking_empty.visibility = View.VISIBLE
+            layout_booking.visibility = View.VISIBLE
         } else {
-            anim_booking_empty.visibility = View.INVISIBLE
+            layout_booking.visibility = View.INVISIBLE
             anim_booking_empty.cancelAnimation()
         }
     }

@@ -75,25 +75,36 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ilustration_empty_tour"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        android:src="@drawable/ilustration_empty"
-        android:contentDescription="@string/ilustration_empty" />
-
-    <TextView
-        android:id="@+id/tv_empty_tour"
+    <LinearLayout
+        android:id="@+id/layout_empty_tour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="100dp"
+        android:layout_gravity="center"
         android:visibility="invisible"
-        style="@style/TextPrimaryLora"
-        android:layout_marginTop="16dp"
-        android:text="@string/empty_tour" />
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ilustration_empty"
+            android:contentDescription="@string/ilustration_empty" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextPrimary"
+            android:layout_marginTop="8dp"
+            android:text="@string/oops" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextSecondary"
+            android:text="@string/tour_tidak_tersedia" />
+    </LinearLayout>
 
 </FrameLayout>

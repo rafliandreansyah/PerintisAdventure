@@ -166,9 +166,12 @@
     <string name="_12">12.</string>
     <string name="_13">13.</string>
     <string name="ilustration_empty">ilustration_empty</string>
-    <string name="empty_car">Empty Car</string>
+    <string name="oops">Oops</string>
     <string name="empty_tour">Empty Tour</string>
     <string name="image_list_tour">Image list tour</string>
+    <string name="mobil_kosong_pada_tanggal_tersebut">Mobil kosong pada tanggal tersebut.</string>
+    <string name="tour_tidak_tersedia">Tour tidak tersedia.</string>
+    <string name="anda_tidak_memiliki_pesanan">Anda tidak memiliki pesanan.</string>
 
 
 </resources>

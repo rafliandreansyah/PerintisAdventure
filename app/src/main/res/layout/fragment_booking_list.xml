@@ -15,13 +15,38 @@
         android:clipToPadding="false"
         tools:listitem="@layout/rv_item_listbooking" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim_booking_empty"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
+    <LinearLayout
+        android:id="@+id/layout_booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:visibility="invisible"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/empty_box" />
+        android:layout_gravity="center">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/anim_booking_empty"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/empty_box" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextPrimary"
+            android:text="@string/oops" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/TextSecondary"
+            android:text="@string/anda_tidak_memiliki_pesanan" />
+
+    </LinearLayout>
 
 </FrameLayout>
