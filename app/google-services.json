@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "85053207479",
+    "firebase_url": "https://perintisadventure-cb794.firebaseio.com",
+    "project_id": "perintisadventure-cb794",
+    "storage_bucket": "perintisadventure-cb794.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85053207479:android:9a294d592c5291f02d6e32",
+        "android_client_info": {
+          "package_name": "com.azhara.perintisadventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85053207479-a5kgdfs1gve4nrm8i4aa81gs9tepq279.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.azhara.perintisadventure",
+            "certificate_hash": "604891f878d4a0c224b409cab358f51f0c7f9027"
+          }
+        },
+        {
+          "client_id": "85053207479-ko14blnm0s45vdqjmgaih3ug133tkkem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVrlOQeQUJxLxoOEEnpVJRO4QKFlo90P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85053207479-ko14blnm0s45vdqjmgaih3ug133tkkem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85053207479:android:28bcfb1fea25ddee2d6e32",
+        "android_client_info": {
+          "package_name": "com.azhara.perintisuserapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85053207479-bh75988eolsteknj58um5ibsv46te57e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.azhara.perintisuserapp",
+            "certificate_hash": "604891f878d4a0c224b409cab358f51f0c7f9027"
+          }
+        },
+        {
+          "client_id": "85053207479-ko14blnm0s45vdqjmgaih3ug133tkkem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVrlOQeQUJxLxoOEEnpVJRO4QKFlo90P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85053207479-ko14blnm0s45vdqjmgaih3ug133tkkem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

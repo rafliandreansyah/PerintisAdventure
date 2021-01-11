@@ -6,110 +6,116 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.fragment.LoginFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/perintis_logo"
-            android:contentDescription="@string/perintis_logo" />
-
-        <ImageView
-            android:layout_width="229dp"
-            android:layout_height="165dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ilustration_login"
-            android:contentDescription="@string/ilustration_login" />
-
-        <EditText
-            android:id="@+id/edt_login_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="46dp"
-            android:hint="@string/email"
-            android:paddingVertical="14dp"
-            android:paddingHorizontal="24dp"
-            style="@style/EditTextStyle"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="30dp"
-            android:importantForAutofill="no" />
-
-        <EditText
-            android:id="@+id/edt_login_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="46dp"
-            android:hint="@string/password"
-            android:paddingVertical="14dp"
-            android:paddingHorizontal="24dp"
-            style="@style/EditTextStyle"
-            android:inputType="textPassword"
-            android:layout_marginTop="16dp"
-            android:importantForAutofill="no" />
-
-        <TextView
-            android:id="@+id/tv_forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lupa_password"
-            android:layout_gravity="end"
-            android:textSize="12sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="58dp"
-            style="@style/TextPrimary" />
-
-        <TextView
-            android:id="@+id/tv_login_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Email atau password salah!!"
-            android:textAlignment="center"
-            android:textColor="@color/colorRed"
-            style="@style/TextPrimary"
-            android:layout_marginHorizontal="35dp"
-            android:visibility="invisible"
-            android:layout_marginTop="16dp" />
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:layout_marginTop="8dp"
-            style="@style/ButtonPrimary"
-            android:layout_marginHorizontal="73dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="42dp">
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/perintis_logo"
+                android:contentDescription="@string/perintis_logo" />
+
+            <ImageView
+                android:layout_width="229dp"
+                android:layout_height="165dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ilustration_login"
+                android:contentDescription="@string/ilustration_login" />
+
+            <EditText
+                android:id="@+id/edt_login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="46dp"
+                android:hint="@string/email"
+                android:paddingVertical="14dp"
+                android:paddingHorizontal="24dp"
+                style="@style/EditTextStyle"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="30dp"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/edt_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="46dp"
+                android:hint="@string/password"
+                android:paddingVertical="14dp"
+                android:paddingHorizontal="24dp"
+                style="@style/EditTextStyle"
+                android:inputType="textPassword"
+                android:layout_marginTop="16dp"
+                android:importantForAutofill="no" />
 
             <TextView
+                android:id="@+id/tv_forgot_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:text="@string/tidak_punya_akun"
+                android:text="@string/lupa_password"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="58dp"
                 style="@style/TextPrimary" />
 
             <TextView
-                android:id="@+id/tv_toregister"
+                android:id="@+id/tv_login_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Email atau password salah!!"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                style="@style/TextPrimary"
+                android:layout_marginHorizontal="35dp"
+                android:visibility="invisible"
+                android:layout_marginTop="16dp" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:layout_marginTop="8dp"
+                style="@style/ButtonPrimary"
+                android:layout_marginHorizontal="73dp" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/buat_akun"
-                android:textSize="14sp"
-                android:layout_marginStart="4dp"
-                style="@style/TextSecondaryBold" />
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="42dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@string/tidak_punya_akun"
+                    style="@style/TextPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_toregister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buat_akun"
+                    android:textSize="14sp"
+                    android:layout_marginStart="4dp"
+                    style="@style/TextSecondaryBold" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
     <View
         android:id="@+id/loading_background_login"

@@ -43,6 +43,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
     private var carName: String? = null
     private val bookingType: Int? = 0
     private var randomNumber: Long? = 0
+    private var duration: Long? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,7 +72,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
         this.carId = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).carId
         this.partnerId = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).partnerId
         this.carName = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).carName
-        val duration = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).duration
+        this.duration = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).duration
         val capacity = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).capacity
         val carYear = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).carYear
         val price = DetailReadyCarBookingFragmentArgs.fromBundle(arguments as Bundle).price
@@ -88,7 +89,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
             startDate!!,
             endDate!!,
             driver!!,
-            duration,
+            duration!!,
             capacity,
             carYear,
             price,
@@ -280,7 +281,8 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
                         Timestamp(Date(endDateTimeMilis)),
                         this.driver,
                         this.pickUpArea,
-                        this.carName
+                        this.carName,
+                        this.duration
                     )
 
                     bookingCarViewModel.checkBooking()
@@ -337,7 +339,7 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
 
                 bookingCarViewModel.booking(
                     this.partnerId, this.carId, this.totalPrice, Timestamp(Date(startDateTimeMilis))
-                    , Timestamp(Date(endDateTimeMilis)), this.driver, this.pickUpArea, this.carName
+                    , Timestamp(Date(endDateTimeMilis)), this.driver, this.pickUpArea, this.carName, this.duration
                 )
                 bookingCarViewModel.checkBooking().observe(viewLifecycleOwner, Observer { data ->
                     if (data != null) {
@@ -413,13 +415,6 @@ class DetailReadyCarBookingFragment : Fragment(), View.OnClickListener {
 
     private fun randomNumber(): Int? {
         return (1..999).random()
-    }
-
-    private fun getUniqueNumber(number: Long): Long? {
-        val digitsString = number.toString()
-        val arrayNumber = digitsString.map { it.toString().toInt() }
-        val uniqueNumber = arrayNumber.takeLast(3)
-        return uniqueNumber.joinToString(separator = "").toLong()
     }
 
     private fun decimalFormat(price: Long?): String? {

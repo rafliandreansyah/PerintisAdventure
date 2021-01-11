@@ -14,5 +14,6 @@ data class BookingCar(
     var statusPayment: Boolean? = false,
     var statusBooking: Int? = 0, // 0 on Progress dan 1 Selesai
     var uploadProofPayment: Boolean? = false,
-    var imgUrlProofPayment: String? = null
+    var imgUrlProofPayment: String? = null,
+    var duration: Long? = null
 )

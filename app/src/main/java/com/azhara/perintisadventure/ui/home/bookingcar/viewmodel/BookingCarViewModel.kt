@@ -78,7 +78,7 @@ class BookingCarViewModel : ViewModel() {
 
     fun booking(
         partnerId: String?, carId: String?, totalPrice: Long?, startDate: Timestamp?,
-        endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?
+        endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?, duration: Long?
     ) {
         val dataBookingForUser = DetailBookingCarUser(
             partnerId,
@@ -105,7 +105,8 @@ class BookingCarViewModel : ViewModel() {
                 totalPrice,
                 driver,
                 pickUpArea,
-                carName
+                carName,
+                duration
             )
 
         }.addOnFailureListener {
@@ -123,7 +124,8 @@ class BookingCarViewModel : ViewModel() {
         partnerId: String?,
         bookingCarUserId: String,
         totalPrice: Long?, driver: String?,
-        pickUpArea: String?, carName: String?
+        pickUpArea: String?, carName: String?,
+        duration: Long?
     ) {
 
         val updateBookedCar = BookedDate(userId, startDate, endDate)
@@ -140,7 +142,8 @@ class BookingCarViewModel : ViewModel() {
                 endDate,
                 driver,
                 pickUpArea,
-                carName
+                carName,
+                duration
             )
         }.addOnFailureListener { e ->
             checkBooking.postValue(false)
@@ -152,7 +155,7 @@ class BookingCarViewModel : ViewModel() {
     private fun bookingDataPartner(
         partnerId: String?, carId: String?, bookingCarUserId: String,
         totalPrice: Long?, startDate: Timestamp?, endDate: Timestamp?, driver: String?,
-        pickUpArea: String?, carName: String?
+        pickUpArea: String?, carName: String?, duration: Long?
     ) {
         val dataBookingPartner = BookingCar(
             userId,
@@ -164,9 +167,10 @@ class BookingCarViewModel : ViewModel() {
             driver,
             pickUpArea,
             false,
-            0,
+            null,
             false,
-            null
+            null,
+            duration
         )
 
         val partner = db.collection("partners").document("$partnerId")
@@ -181,7 +185,7 @@ class BookingCarViewModel : ViewModel() {
                 totalPrice,
                 startDate,
                 partnerId,
-                idBookingPartner
+                idBookingPartner, carId, endDate, driver, pickUpArea, carName, duration
             )
 
         }.addOnFailureListener {
@@ -197,7 +201,14 @@ class BookingCarViewModel : ViewModel() {
         totalPrice: Long?,
         startDate: Timestamp?,
         partnerId: String?,
-        bookingDbPartnerId: String?
+        bookingDbPartnerId: String?,
+        carId: String?,
+        endDate: Timestamp?,
+        driver: String?,
+        pickUpArea: String?,
+        carName: String?,
+        duration: Long?
+
     ) {
         val bookingList = BookingList(
             null,
@@ -222,7 +233,7 @@ class BookingCarViewModel : ViewModel() {
             Log.d("$TAG Set listBooking User", "Berhasil ditambah")
             Log.d("$TAG Set listBooking User", "Id: $idList")
 
-            updateDataListIdUsers(partnerId, bookingDbPartnerId, idList)
+            updateDataListIdUsers(partnerId, bookingDbPartnerId, idList, carId, totalPrice, startDate, endDate, driver, pickUpArea, carName, duration)
 
         }.addOnFailureListener {
             Log.w("$TAG Set listBooking User", "Gagal ditambah ${it.message}")
@@ -234,13 +245,16 @@ class BookingCarViewModel : ViewModel() {
     private fun updateDataListIdUsers(
         partnerId: String?,
         bookingDbPartnerId: String?,
-        idList: String?
+        idList: String?,
+        carId: String?, totalPrice: Long?, startDate: Timestamp?,
+        endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?,
+        duration: Long?
     ) {
         val userDb = db.collection("users")
             .document("$userId").collection("listBooking").document("$idList")
 
         userDb.update("bookingListId", idList).addOnSuccessListener {
-            getIdListUsersToPartner(partnerId, bookingDbPartnerId, idList)
+            getIdListUsersToPartner(partnerId, bookingDbPartnerId, idList, carId, totalPrice, startDate, endDate, driver, pickUpArea, carName, duration)
         }.addOnFailureListener {
             checkBooking.postValue(false)
             errorMessage = it.message
@@ -250,7 +264,10 @@ class BookingCarViewModel : ViewModel() {
     private fun getIdListUsersToPartner(
         partnerId: String?,
         bookingDbPartnerId: String?,
-        idList: String?
+        idList: String?,
+        carId: String?, totalPrice: Long?, startDate: Timestamp?,
+        endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?,
+        duration: Long?
     ) {
         val getListIdToUpdatePartnerBookingCar = db.collection("partners")
             .document("$partnerId").collection("bookingCar").document("$bookingDbPartnerId")
@@ -258,12 +275,57 @@ class BookingCarViewModel : ViewModel() {
         getListIdToUpdatePartnerBookingCar.update("bookingListUserId", idList)
             .addOnSuccessListener {
                 Log.d("$TAG update getListId", "Berhasil di update")
-                checkBooking.postValue(true)
+                getDataUsers(partnerId, carId, totalPrice, startDate, endDate, driver, pickUpArea, carName, duration, bookingDbPartnerId, idList)
             }.addOnFailureListener { error ->
             Log.e("$TAG update getListId", "Gagal")
             checkBooking.postValue(false)
             errorMessage = error.message
         }
+    }
+
+    private fun getDataUsers(partnerId: String?, carId: String?, totalPrice: Long?, startDate: Timestamp?,
+                             endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?,
+                             duration: Long?, bookedIdPartner: String?, bookedListIdUser: String?){
+        val userDb = userId?.let { db.collection("users").document(it) }
+        userDb?.get()?.addOnSuccessListener { document ->
+            val userName = document["name"] as String
+            val userImg = document["imgUrl"] as String
+            addDataBooking(partnerId, userId, userName, userImg, carId, totalPrice, startDate, endDate, driver, pickUpArea, carName, duration, bookedIdPartner, bookedListIdUser, null)
+        }?.addOnFailureListener { e ->
+            checkBooking.postValue(false)
+            errorMessage = e.message
+        }
+    }
+
+    private fun addDataBooking(partnerId: String?, userId: String?, userName: String?, userImg: String?, carId: String?, totalPrice: Long?, startDate: Timestamp?,
+                               endDate: Timestamp?, driver: String?, pickUpArea: String?, carName: String?,
+                               duration: Long?, bookedIdPartner: String?, bookedListIdUser: String?, statusBooking: Int?){
+        val dataBooking = hashMapOf(
+            "partnerId" to partnerId,
+            "userId" to userId,
+            "userImgUrl" to userImg,
+            "userName" to userName,
+            "carId" to carId,
+            "totalPrice" to totalPrice,
+            "startDate" to startDate,
+            "endDate" to endDate,
+            "driver" to driver,
+            "pickUpArea" to pickUpArea,
+            "carName" to carName,
+            "duration" to duration,
+            "bookedIdPartner" to bookedIdPartner,
+            "bookedListIdUser" to bookedListIdUser,
+            "statusBooking" to statusBooking
+        )
+
+        val dataBookingDb = db.collection("booking_data").add(dataBooking)
+        dataBookingDb.addOnSuccessListener { data ->
+            checkBooking.postValue(true)
+        }.addOnFailureListener { e ->
+            checkBooking.postValue(false)
+            errorMessage = e.message
+        }
+
     }
 
     fun bookingListId(): LiveData<String> = bookingListId
