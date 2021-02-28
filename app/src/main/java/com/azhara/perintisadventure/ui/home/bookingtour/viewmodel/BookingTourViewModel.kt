@@ -48,27 +48,27 @@ class BookingTourViewModel : ViewModel() {
     fun dataTour(): LiveData<List<Tour>> = dataTour
 
     fun booking(
-        dateTour: Timestamp?, tourId: String?, partnerId: String?,
-        totalPrice: Long?, pickupArea: String?, tourName: String?
+        dateTour: Timestamp?, tourId: String?,
+        totalPrice: Long?, pickupArea: String?, tourName: String?, duration: String?
     ) {
 
         val detailBookingTourUser = DetailBookingTourUser(
-            dateTour, tourId, partnerId, totalPrice, pickupArea, 0
+            dateTour, tourId, totalPrice, pickupArea, 0
         )
 
         val userDb = db.collection("users").document("$userId")
             .collection("bookingTour")
 
         userDb.add(detailBookingTourUser).addOnSuccessListener {
-            val bookedTourId = it.id
-            bookingDataPartner(
-                tourId,
+            val bookedDetailTourId = it.id
+            userListBooking(
+                bookedDetailTourId,
+                tourName,
                 totalPrice,
                 dateTour,
-                pickupArea,
-                partnerId,
-                bookedTourId,
-                tourName
+                tourId,
+                duration,
+                pickupArea
             )
         }.addOnFailureListener {
             Log.e("$TAG error detailBooking", "userDb: ${it.message}")
@@ -76,52 +76,14 @@ class BookingTourViewModel : ViewModel() {
         }
     }
 
-    private fun bookingDataPartner(
-        tourId: String?, totalPrice: Long?, dateTour: Timestamp?, pickupArea: String?,
-        partnerId: String?, bookedTourId: String?, tourName: String?
-    ) {
-
-        val dataBookingPartner = BookingTour(
-            userId,
-            tourId,
-            null,
-            totalPrice,
-            dateTour,
-            pickupArea,
-            false,
-            0,
-            false,
-            null
-        )
-
-        val partnerDb = db.collection("partners").document("$partnerId")
-            .collection("bookingTour")
-
-        partnerDb.add(dataBookingPartner).addOnSuccessListener {
-            val bookingDbTourPartnerId = it.id
-            userListBooking(
-                bookedTourId,
-                partnerId,
-                bookingDbTourPartnerId,
-                tourName,
-                totalPrice,
-                dateTour
-            )
-        }.addOnFailureListener {
-            Log.e("$TAG Error dbPartner", "Data booking partner: ${it.message}")
-            checkBooking.postValue(false)
-        }
-    }
-
     private fun userListBooking(
-        bookingTourId: String?, partnerId: String?, bookingDbTourPartnerId: String?,
-        bookingName: String?, totalPrice: Long?, dateTour: Timestamp?
+        bookedDetailTourId: String?, bookingName: String?, totalPrice: Long?, dateTour: Timestamp?, tourId: String?, duration: String?, pickupArea: String?
     ) {
         val dataUserList = BookingList(
             null,
-            bookingTourId,
-            partnerId,
-            bookingDbTourPartnerId,
+            bookedDetailTourId,
+            null,
+            null,
             bookingName,
             totalPrice,
             dateTour,
@@ -137,7 +99,7 @@ class BookingTourViewModel : ViewModel() {
         userListDb.add(dataUserList).addOnSuccessListener {
             val idList = it.id
             bookingListId.postValue(idList)
-            updateDataListIdUser(partnerId, bookingDbTourPartnerId, idList)
+            updateDataListIdUser(idList, bookedDetailTourId, dateTour, totalPrice, tourId, bookingName, duration, pickupArea)
         }.addOnFailureListener {
             Log.e("$TAG Error userDb", "UserListDb: ${it.message}")
             checkBooking.postValue(false)
@@ -145,34 +107,62 @@ class BookingTourViewModel : ViewModel() {
     }
 
     private fun updateDataListIdUser(
-        partnerId: String?,
-        bookingDbPartnerId: String?,
-        idList: String?
+        idList: String?,
+        idDetailBookingTourUser: String?,
+        dateTour: Timestamp?,
+        totalPrice: Long?,
+        tourId: String?,
+        tourName: String?,
+        duration: String?,
+        pickupArea: String?
     ) {
         val updateDataUserListDb = db.collection("users").document("$userId")
             .collection("listBooking").document("$idList")
 
         updateDataUserListDb.update("bookingListId", idList).addOnSuccessListener {
 
-            getIdListUserToPartner(partnerId, bookingDbPartnerId, idList)
+            getDataUsers(idList, idDetailBookingTourUser, userId, dateTour, totalPrice, tourId, tourName, duration,  pickupArea)
         }.addOnFailureListener {
             Log.e("$TAG Error updateUserDb", "UserListDb update bookingListId: ${it.message}")
             checkBooking.postValue(false)
         }
     }
 
-    private fun getIdListUserToPartner(
-        partnerId: String?,
-        bookingDbPartnerId: String?,
-        idList: String?
-    ) {
-        val getIdListUserToPartner = db.collection("partners").document("$partnerId")
-            .collection("bookingTour").document("$bookingDbPartnerId")
+    private fun getDataUsers(idListBookingTourUser: String?, idDetailBookingTourUser: String?, userId: String?,
+                             dateTour: Timestamp?, totalPrice: Long?, tourId: String?, tourName: String?, duration: String?,
+                             pickupArea: String?){
+        val userDb = userId?.let { db.collection("users").document(it) }
+        userDb?.get()?.addOnSuccessListener { document ->
+            val userName = document["name"] as String
+           addBookingTourData(idListBookingTourUser, idDetailBookingTourUser, userId, userName, dateTour, totalPrice, tourId, tourName, duration, pickupArea)
+        }?.addOnFailureListener { e ->
+            checkBooking.postValue(false)
+            Log.e("$TAG Error getDataUsers", "UserListDb update bookingListId: ${e.message}")
+        }
+    }
 
-        getIdListUserToPartner.update("bookingListUserId", idList).addOnSuccessListener {
+    private fun addBookingTourData(idListBookingTourUser: String?, idDetailBookingTourUser: String?, userId: String?, userBookingName: String?,
+                                   dateTour: Timestamp?, totalPrice: Long?, tourId: String?, tourName: String?, duration: String?,
+                                    pickupArea: String?){
+
+        val bookingTour = hashMapOf(
+            "userId" to userId,
+            "tourId" to tourId,
+            "idListBookingTourUser" to idListBookingTourUser,
+            "totalPrice" to totalPrice,
+            "dateTour" to dateTour,
+            "pickupArea" to pickupArea,
+            "statusPayment" to false,
+            "idDetailBookingTourUser" to idDetailBookingTourUser,
+            "userBookingName" to userBookingName,
+            "tourName" to tourName,
+            "duration" to duration
+        )
+
+        val addBookingTour = db.collection("booking_tour")
+        addBookingTour.add(bookingTour).addOnSuccessListener {
             checkBooking.postValue(true)
         }.addOnFailureListener {
-            Log.e("$TAG Error partnerDb", "PartnerDb get id list user: ${it.message}")
             checkBooking.postValue(false)
         }
     }

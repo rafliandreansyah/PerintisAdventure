@@ -36,6 +36,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
     private var tourId: String? = null
     private val bookingType: Int? = 1
     private var randomNumber: Long? = 0
+    private var durationTour: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +60,7 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
         )[BookingTourViewModel::class.java]
         val capacity = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).capacity
         dateTour = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).dateTour
-        val durationTour =
+        durationTour =
             DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).durationTour
         val facilities = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).facilities
         val imgUrl = DetailTourBookingFragmentArgs.fromBundle(arguments as Bundle).imgUrl
@@ -172,10 +173,10 @@ class DetailTourBookingFragment : Fragment(), View.OnClickListener {
             bookingTourViewModel.booking(
                 Timestamp(Date(dateTour!!)),
                 tourId,
-                partnerId,
                 totalPrice,
                 detailPickup,
-                tourName
+                tourName,
+                durationTour
             )
 //            context?.let { Toasty.success(it, "Pemesanan berhasil!", Toast.LENGTH_LONG, true).show() }
             bookingTourViewModel.checkBooking().observe(viewLifecycleOwner, Observer { data ->

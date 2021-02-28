@@ -10,7 +10,9 @@ data class BookingTour(
     var dateTour: Timestamp? = null,
     var pickUpArea: String? = null,
     var statusPayment: Boolean? = false,
-    var statusBooking: Int? = 0, // 0 on Progress dan 1 Selesai
-    var uploadProofPayment: Boolean? = false,
-    var imgUrlProofPayment: String? = null
+    var idDetailBookingTourUser: String? = null,
+    var userBookingName: String? = null,
+    var tourName: String? = null,
+    var duration: String? = null,
+    var locationTour: String? = null
 )
